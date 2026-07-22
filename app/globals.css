@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Deliberate keyboard focus */
+  :focus-visible {
+    outline: 2px solid theme('colors.accent');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: theme('colors.accent');
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* 1440px shell with generous, responsive gutters */
+  .shell {
+    @apply mx-auto w-full max-w-shell px-6 sm:px-10 lg:px-16;
+  }
+
+  /* Consistent vertical section rhythm */
+  .section {
+    @apply py-24 sm:py-32 lg:py-40;
+  }
+
+  /* Mono eyebrow with a leading accent tick */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-meta text-muted;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 shrink-0 bg-accent;
+  }
+
+  /* Serif display defaults */
+  .display {
+    @apply font-serif font-light tracking-tightest;
+    line-height: 1.02;
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-6 top-6 z-[100] rounded bg-ink px-4 py-2 text-sm text-bg;
+  }
+}
+
+@layer utilities {
+  /* Fluid display sizes used across hero + section headlines */
+  .text-hero {
+    font-size: clamp(2.5rem, 5.2vw, 5rem);
+  }
+  .text-statement {
+    font-size: clamp(2.25rem, 4.6vw, 4rem);
+  }
+  .text-figure {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+/* Ecosystem orbit rotation. Defined here (not only in the Tailwind
+   config) so the keyframes always exist even though the component
+   applies the animation via inline styles rather than a utility class. */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ecosystem constellation (intro of "How we operate"). Transform/opacity
+   only. Applied via inline styles in EcosystemConstellation. */
+@keyframes cst-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.95; transform: scale(1.08); }
+}
+@keyframes cst-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.18); }
+}
+@keyframes cst-line {
+  0%, 100% { stroke-opacity: 0; }
+  50%      { stroke-opacity: 0.22; }
+}
+@keyframes cst-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes cst-drift-a {
+  0%, 100% { transform: translate(0, 0);     opacity: 0.15; }
+  50%      { transform: translate(14px, 10px); opacity: 0.5; }
+}
+@keyframes cst-drift-b {
+  0%, 100% { transform: translate(0, 0);       opacity: 0.2; }
+  50%      { transform: translate(-16px, 12px); opacity: 0.55; }
+}
+@keyframes cst-drift-c {
+  0%, 100% { transform: translate(0, 0);       opacity: 0.1; }
+  50%      { transform: translate(10px, -14px); opacity: 0.4; }
+}
+
+/* Timeline stage visualizations ("How we operate"). Transform/opacity
+   only - GPU-friendly. Applied via inline styles in StageVisual. */
+@keyframes sv-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.18); }
+}
+@keyframes sv-line {
+  0%, 100% { stroke-opacity: 0.04; }
+  50%      { stroke-opacity: 0.22; }
+}
+@keyframes sv-drift {
+  0%, 100% { transform: translate(0, 0); opacity: 0.15; }
+  50%      { transform: translate(12px, -10px); opacity: 0.5; }
+}
+@keyframes sv-expand {
+  0%   { transform: scale(0.55); opacity: 0; }
+  30%  { opacity: 0.5; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+@keyframes sv-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 0.9; transform: scale(1.08); }
+}
+@keyframes sv-rise {
+  0%, 100% { transform: translateY(2px); opacity: 0.6; }
+  50%      { transform: translateY(-2px); opacity: 1; }
+}
+
+/* Gentle floating drift for orbit nodes (composited with their
+   counter-rotation via a dedicated wrapper). */
+@keyframes node-float {
+  0%, 100% { transform: translateY(-3px); }
+  50% { transform: translateY(3px); }
+}
+
+/* Gentle 4px float for the About hero manifesto cards. */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* About hero portfolio map - connector lines draw in, labels fade in. */
+@keyframes hero-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* How We Build - lifecycle ring + flywheel */
+@keyframes hwb-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes hwb-spin-rev {
+  to { transform: rotate(-360deg); }
+}
+@keyframes hwb-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Reduced-motion safety net */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

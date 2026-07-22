@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}  about: %{http_code}  contact: %{http_code}\\\\n\" http://localhost:3000/ http://localhost:3000/about http://localhost:3000/contact)",
+      "Bash(curl -s -o /dev/null -w \"contact: %{http_code}\\\\n\" http://localhost:3000/contact)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"about: %{http_code}\\\\n\" http://localhost:3000/about)",
+      "Bash(curl -s -o /dev/null -w \"companies: %{http_code}\\\\n\" http://localhost:3000/companies)",
+      "Bash(curl -s http://localhost:3000/terms)",
+      "Bash(curl -s -o /dev/null -w \"terms: %{http_code}\\\\n\" http://localhost:3000/terms)",
+      "Bash(curl -s http://localhost:3000/culture)",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\ncompanies: %{http_code}\\\\n\" http://localhost:3000/ http://localhost:3000/companies)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(cd /tmp/deck/ppt/slides *)",
+      "Read(//tmp/deck/ppt/**)",
+      "Bash(awk '/@@PIC/{p=1} p&&/r:embed/{match\\($0,/r:embed=\"\\([^\"]*\\)\"/,a\\); emb=a[1]} p&&/a:off/{match\\($0,/x=\"\\([0-9-]*\\)\" y=\"\\([0-9-]*\\)\"/,b\\); if\\(emb\\){print emb\" x=\"b[1]\" y=\"b[2]; emb=\"\"; p=0}}')",
+      "Bash(awk ' *)",
+      "Bash(cp __TRACKED_VAR__/image22.png public/team/vaibhav-kakkar.png)",
+      "Bash(cp __TRACKED_VAR__/image27.jpg public/team/raghav-tayal.jpg)",
+      "Bash(cp __TRACKED_VAR__/image26.png public/team/tarun-gogia.png)",
+      "Bash(cp __TRACKED_VAR__/image17.png public/team/dawood-bukhari.png)",
+      "Bash(cp __TRACKED_VAR__/image25.png public/team/marc-bishop.png)",
+      "Bash(node -e \"require\\('sharp'\\)\\('public/dn_fab.png'\\).metadata\\(\\).then\\(m=>console.log\\('dims:',m.width+'x'+m.height,m.hasAlpha?'alpha':'no-alpha'\\)\\).catch\\(e=>console.log\\(e.message\\)\\)\")",
+      "Bash(node -e \"require\\('sharp'\\)\\('public/dn_fab.png'\\).metadata\\(\\).then\\(m=>console.log\\('dims:',m.width+'x'+m.height\\)\\).catch\\(\\(\\)=>{}\\)\")",
+      "Bash(curl -s -o /dev/null -w \"asset: %{http_code}\\\\n\" http://localhost:3000/dn_fab.png)",
+      "Bash(curl -s -o /dev/null -w \"asset: %{http_code}\\\\n\" http://localhost:3000/logo_dn_fab.png)",
+      "Bash(curl -s -o /dev/null -w \"asset: %{http_code}\\\\n\" http://localhost:3000/fab.png)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(node -e \"const s=require\\('sharp'\\);const fs=require\\('fs'\\);\\(async\\(\\)=>{for\\(const f of fs.readdirSync\\('public/team'\\).sort\\(\\)\\){const m=await s\\('public/team/'+f\\).metadata\\(\\);console.log\\(f.padEnd\\(26\\), \\(m.hasAlpha?'ALPHA \\(transparent-capable\\)':'no-alpha \\(solid bg\\)'\\), m.format\\)}}\\)\\(\\)\")",
+      "Bash(curl -s -o /dev/null -w \"home: %{http_code}\\\\nabout: %{http_code}\\\\ncompanies: %{http_code}\\\\n\" http://localhost:3000/ http://localhost:3000/about http://localhost:3000/companies)"
+    ]
+  }
+}
