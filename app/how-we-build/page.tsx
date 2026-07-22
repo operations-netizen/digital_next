@@ -54,7 +54,7 @@ export default function HowWeBuildPage() {
   return (
     <>
       {/* 01 - Hero */}
-      <section className="pt-36 pb-24 sm:pt-44 sm:pb-28 lg:pb-36">
+      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pb-20">
         <div className="shell">
           <div className="grid gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-20">
             <div className="lg:col-span-7">
@@ -89,9 +89,9 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 02 - Why We Exist */}
-      <section className="py-20 sm:py-28 lg:py-32">
+      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14">
         <div className="shell">
-          <div className="border-t border-line pt-12 sm:pt-16">
+          <div className="border-t border-line pt-8 sm:pt-10">
             <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12">
               <div className="lg:col-span-6">
                 <Reveal>
@@ -131,7 +131,7 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 03 - Operating Principles (dark) */}
-      <section data-nav-dark className="bg-dark py-24 text-white sm:py-32 lg:py-40">
+      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-28">
         <div className="shell">
           <Reveal>
             <Eyebrow tone="light">Operating principles</Eyebrow>
@@ -178,7 +178,7 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 04 - How Every Company Is Built (the centerpiece) */}
-      <section className="py-24 sm:py-32 lg:py-40">
+      <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-28 lg:pb-12">
         <div className="shell">
           <Reveal>
             <Eyebrow>The build</Eyebrow>
@@ -200,9 +200,9 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 05 - Shared Platform */}
-      <section className="py-20 sm:py-28 lg:py-32">
+      <section className="pt-6 pb-8 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-12">
         <div className="shell">
-          <div className="border-t border-line pt-12 sm:pt-16">
+          <div className="border-t border-line pt-8 sm:pt-10">
             <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12 lg:items-end">
               <Reveal className="lg:col-span-7">
                 <Eyebrow>The shared platform</Eyebrow>
@@ -250,9 +250,9 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 06 - What We Never Control */}
-      <section className="py-20 sm:py-28 lg:py-32">
+      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14">
         <div className="shell">
-          <div className="border-t border-line pt-12 sm:pt-16">
+          <div className="border-t border-line pt-8 sm:pt-10">
             <Reveal>
               <Eyebrow>The boundary</Eyebrow>
               <h2 className="display mt-6 max-w-[18ch] text-statement">
@@ -329,7 +329,7 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 07 - Build Cycle (dark) */}
-      <section data-nav-dark className="bg-dark py-24 text-white sm:py-32 lg:py-40">
+      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-28">
         <div className="shell">
           <div className="grid gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-16">
             <Reveal className="lg:col-span-5">
@@ -353,7 +353,7 @@ export default function HowWeBuildPage() {
       </section>
 
       {/* 08 - Portfolio Flywheel */}
-      <section className="py-24 sm:py-32 lg:py-40">
+      <section className="py-16 sm:py-20 lg:py-28">
         <div className="shell">
           <div className="grid gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-16">
             <Reveal className="lg:col-span-5">
@@ -379,7 +379,7 @@ export default function HowWeBuildPage() {
       {/* 09 - Closing Philosophy (dark) */}
       <section
         data-nav-dark
-        className="relative overflow-hidden bg-[#0B0D12] pb-32 pt-32 text-center text-white sm:pb-36 sm:pt-40 lg:pb-40 lg:pt-48"
+        className="relative overflow-hidden bg-[#0B0D12] pb-28 pt-20 text-center text-white sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-32"
       >
         <div
           aria-hidden="true"
