@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   description:
     'Digital Next is a technology holding company. We build, acquire, and scale internet businesses - and hold them for the long term.',
-  metadataBase: new URL('https://digitalnext.group'),
+  metadataBase: new URL('https://digitalnext.com'),
   openGraph: {
     title: 'Digital Next - Building companies that build the future',
     description:
