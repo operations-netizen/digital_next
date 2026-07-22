@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fraunces, Inter, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
 import Nav from '@/components/nav/Nav'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
@@ -58,6 +59,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <BackToTop />
+        <Analytics />
       </body>
     </html>
   )
