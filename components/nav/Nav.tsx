@@ -32,7 +32,6 @@ function Wordmark({ dark, onClick }: { dark?: boolean; onClick?: () => void }) {
       >
         Next
       </span>
-      <span className="text-accent">.</span>
     </Link>
   )
 }

@@ -56,7 +56,6 @@ export default function Footer() {
             >
               <span className="font-medium text-white/90">Digital</span>
               <span className="ml-[0.26em] font-normal italic text-white/55">Next</span>
-              <span className="text-accent">.</span>
             </Link>
             <p className={`mt-6 ${heading}`}>Technology Holding Company</p>
             <h2 className="mt-8 max-w-sm font-serif text-2xl font-light leading-snug tracking-tighter text-white/85 sm:text-[1.75rem]">
