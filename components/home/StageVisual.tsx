@@ -26,7 +26,7 @@ const PANELS: Record<
   },
   build: {
     keyword: 'BUILD',
-    statement: 'We build durable companies on shared capital, talent, and technology.',
+    statement: 'We build durable brands on shared capital, talent, and technology.',
     principles: [
       'Senior operating teams',
       'Shared infrastructure',
@@ -40,7 +40,7 @@ const PANELS: Record<
     statement: 'We compound value across the group over decades, not quarters.',
     principles: [
       'Shared distribution',
-      'Cross-company expertise',
+      'Cross-brand expertise',
       'Independent brands',
       'Patient long-term ownership',
     ],

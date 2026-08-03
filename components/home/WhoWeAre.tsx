@@ -14,7 +14,7 @@ const principles: {
   {
     no: '01',
     title: 'Long-term ownership',
-    body: 'We keep the companies we build and measure success in decades, not exits.',
+    body: 'We keep the brands we build and measure success in decades, not exits.',
     more: 'Permanent capital lets each team build for the next decade, not the next quarter.',
     cta: 'Our approach',
     href: '/about',
@@ -22,17 +22,17 @@ const principles: {
   {
     no: '02',
     title: 'Shared expertise',
-    body: 'Capital, engineering, and talent move freely across every company in the group.',
+    body: 'Capital, engineering, and talent move freely across every brand in the group.',
     more: 'Shared platforms in engineering, hiring, and growth compound across the group.',
     cta: 'How we operate',
     href: '/about',
   },
   {
     no: '03',
-    title: 'Independent companies',
-    body: 'Each business keeps its own brand, team, and roadmap - autonomy by design.',
-    more: 'No forced integrations and no rebrands - support arrives only when a team asks.',
-    cta: 'Explore companies',
+    title: 'Independent brands',
+    body: 'Each business keeps its own brand, team, and roadmap. Autonomy by design.',
+    more: 'No forced integrations and no rebrands. Support arrives only when a team asks.',
+    cta: 'Explore brands',
     href: '/#portfolio',
   },
 ]
@@ -59,7 +59,7 @@ export default function WhoWeAre() {
               as="h2"
               className="display text-statement max-w-[15ch] [text-wrap:balance]"
               lines={[
-                <>Independent companies.</>,
+                <>Independent brands.</>,
                 <>
                   <em className="italic text-accent">One shared ambition.</em>
                 </>,
@@ -70,15 +70,16 @@ export default function WhoWeAre() {
           <div className="lg:col-span-5 lg:col-start-7 lg:mt-[14px]">
             <Reveal delay={0.15}>
               <p className="max-w-[32rem] text-lg leading-[1.78] text-ink sm:text-xl">
-                Digital Next is a technology holding company. We build and acquire
-                internet businesses, then keep them - giving each the capital and
-                infrastructure to grow without the pressure to sell.
+                Digital Next is a multi-brand digital services and technology
+                group, headquartered in India with operating presence across the
+                United States, United Kingdom, Australia, and New Zealand.
               </p>
               <p className="mt-6 max-w-[32rem] text-base leading-[1.85] text-muted">
-                We operate for the long term and share what we learn across the
-                group, while every company keeps its own identity and team.
-                Founders join us to scale faster, backed by people who have built
-                and scaled before.
+                Under a single group identity, we bring together specialist
+                brands spanning digital marketing, SEO, performance marketing,
+                influencer collaboration, and SaaS products. Each keeps its own
+                team and roadmap, while sharing capital, technology, and talent
+                across the group.
               </p>
             </Reveal>
 
@@ -88,7 +89,7 @@ export default function WhoWeAre() {
                 className="group mt-11 inline-flex items-center gap-2.5 text-[15px] font-medium text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
               >
                 <span className="relative">
-                  Explore Our Companies
+                  Explore Our Brands
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100" />
                 </span>
                 <span className="text-accent transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[5px]">

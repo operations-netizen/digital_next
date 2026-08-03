@@ -26,7 +26,7 @@ const principles = [
   {
     no: '01',
     title: 'Own for decades',
-    body: 'We keep the companies we build. Success is measured in compounding, not exits.',
+    body: 'We keep the brands we build. Success is measured in compounding, not exits.',
     icon: 'clock',
     meta: 'Long-term ownership',
   },
@@ -40,7 +40,7 @@ const principles = [
   {
     no: '03',
     title: 'Share what compounds',
-    body: 'Capital, engineering, and talent move freely across every company in the group.',
+    body: 'Capital, engineering, and talent move freely across every brand in the group.',
     icon: 'compound',
     meta: 'Shared infrastructure',
   },
@@ -80,7 +80,7 @@ export default function AboutPage() {
                 trigger="mount"
                 className="display mt-8 max-w-[16ch] text-hero"
                 lines={[
-                  <>We build internet companies</>,
+                  <>We build internet brands</>,
                   <>
                     - and <em className="italic text-accent">keep them</em>.
                   </>,
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
                   <span>Technology holding company</span>
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
-                  <span>Six companies</span>
+                  <span>Six brands</span>
                 </div>
               </Reveal>
             </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
                 </p>
                 <p className="mt-7 max-w-[52ch] text-base leading-relaxed text-white/55">
                   So we don't flip. We provide permanent capital and
-                  infrastructure, and give every company the freedom to grow on
+                  infrastructure, and give every brand the freedom to grow on
                   its own terms.
                 </p>
               </Reveal>
@@ -175,13 +175,13 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="display mt-6 max-w-[20ch] text-statement">
-              Every company inherits the{' '}
+              Every brand inherits the{' '}
               <em className="italic text-accent">strength of the group</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted">
-              Every company starts independently - but grows with the same
+              Every brand starts independently, but grows with the same
               shared platform.
             </p>
           </Reveal>
@@ -267,7 +267,7 @@ export default function AboutPage() {
                       {ecoBlurb[c.id]}
                     </p>
                     <span className="mt-4 inline-flex translate-y-1 items-center gap-1.5 text-[13px] font-medium text-accent opacity-0 transition-all duration-500 ease-editorial group-hover:translate-y-0 group-hover:opacity-100">
-                      Explore Company
+                      Explore Brand
                       <span className="transition-transform duration-500 ease-editorial group-hover:translate-x-0.5">
                         &rarr;
                       </span>

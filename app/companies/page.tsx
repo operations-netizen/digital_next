@@ -6,7 +6,7 @@ import CompanyShowcaseSection from '@/components/companies/CompanyShowcaseSectio
 import { companies } from '@/lib/companies'
 
 export const metadata = {
-  title: 'Companies',
+  title: 'Brands',
   description:
     'Six independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
 }
@@ -72,7 +72,7 @@ const advantages = ['Capital', 'Technology', 'Talent', 'Distribution']
 const platform = [
   { no: '01', name: 'Capital', note: 'Patient, permanent funding.' },
   { no: '02', name: 'Engineering', note: 'Shared infrastructure and platforms.' },
-  { no: '03', name: 'Hiring', note: 'A recruitment engine for every company.' },
+  { no: '03', name: 'Hiring', note: 'A recruitment engine for every brand.' },
   { no: '04', name: 'Operations', note: 'Finance, legal, and operations.' },
   { no: '05', name: 'Distribution', note: 'Demand and audience at scale.' },
   { no: '06', name: 'Leadership', note: 'Operators who have built before.' },
@@ -87,14 +87,14 @@ export default function CompaniesPage() {
           <div className="grid gap-y-16 lg:grid-cols-12 lg:items-start lg:gap-x-16">
             <div className="lg:col-span-7">
               <Reveal>
-                <Eyebrow>Our companies</Eyebrow>
+                <Eyebrow>Our brands</Eyebrow>
               </Reveal>
               <TextReveal
                 as="h1"
                 trigger="mount"
                 className="display mt-8 max-w-[15ch] text-hero"
                 lines={[
-                  <>Six companies.</>,
+                  <>Six brands.</>,
                   <>
                     One <em className="italic text-accent">shared ambition</em>.
                   </>,
@@ -104,7 +104,7 @@ export default function CompaniesPage() {
                 <p className="mt-8 max-w-[54ch] text-lg leading-relaxed text-muted">
                   Digital Next brings together independent internet businesses
                   across digital marketing, AI, SaaS, recruitment, collaboration,
-                  SEO, and enterprise technology. Each company operates with its
+                  SEO, and enterprise technology. Each brand operates with its
                   own identity, team, and roadmap while benefiting from the
                   strength of the group.
                 </p>
@@ -112,7 +112,7 @@ export default function CompaniesPage() {
               <Reveal delay={0.28}>
                 <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-meta text-muted">
                   <span>
-                    <span className="text-ink">6</span> Companies
+                    <span className="text-ink">6</span> Brands
                   </span>
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
                   <span>
@@ -161,13 +161,13 @@ export default function CompaniesPage() {
           <div className="border-t border-line pt-10 sm:pt-12">
             <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12">
               <Reveal className="lg:col-span-6">
-                <Eyebrow>The companies</Eyebrow>
+                <Eyebrow>The brands</Eyebrow>
                 <h2 className="display mt-6 max-w-[15ch] text-statement">
                   Independent by design,{' '}
                   <em className="italic text-accent">stronger together</em>.
                 </h2>
                 <p className="mt-7 max-w-[46ch] text-lg leading-relaxed text-muted">
-                  Every company owns its brand, team, product, and operating
+                  Every brand owns its identity, team, product, and operating
                   roadmap. Digital Next provides long-term capital, shared
                   technology, talent, and strategic infrastructure where it
                   creates an advantage.
@@ -238,14 +238,14 @@ export default function CompaniesPage() {
           <Reveal>
             <Eyebrow tone="light">The shared platform</Eyebrow>
             <h2 className="display mt-6 max-w-[16ch] text-statement text-white">
-              Different companies.
+              Different brands.
               <br />
               <em className="italic text-accent">One operating advantage</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-white/55">
-              Each company operates independently while gaining access to the
+              Each brand operates independently while gaining access to the
               shared capabilities that help internet businesses compound over
               time.
             </p>
@@ -284,7 +284,7 @@ export default function CompaniesPage() {
                   as="h2"
                   className="display mt-6 max-w-[26ch] text-statement"
                   lines={[
-                    <>We do not assemble companies for a quick exit.</>,
+                    <>We do not assemble brands for a quick exit.</>,
                     <>
                       We build a group{' '}
                       <em className="italic text-accent">designed to compound</em>.
@@ -327,7 +327,7 @@ export default function CompaniesPage() {
               as="h2"
               className="display mt-8 max-w-[20ch] text-[clamp(2.75rem,6vw,5.5rem)] font-light leading-[1.04] tracking-tightest text-white"
               lines={[
-                <>The next enduring company</>,
+                <>The next enduring brand</>,
                 <>
                   may already be{' '}
                   <em className="italic text-accent">taking shape</em>.

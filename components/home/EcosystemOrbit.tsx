@@ -230,7 +230,7 @@ export default function EcosystemOrbit() {
             {selectedId !== null && (
               <button
                 type="button"
-                aria-label="Close company details"
+                aria-label="Close brand details"
                 onClick={() => {
                   setSelectedId(null)
                   setHoverId(null)
@@ -261,7 +261,7 @@ export default function EcosystemOrbit() {
               rel="noopener noreferrer"
               className="group/cta mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent outline-none focus-visible:underline"
             >
-              Visit Company
+              Visit Brand
               <span className="transition-transform duration-300 ease-out group-hover/cta:translate-x-0.5">
                 &rarr;
               </span>

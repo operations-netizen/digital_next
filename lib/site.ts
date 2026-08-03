@@ -5,7 +5,7 @@ export const CONTACT_EMAIL = 'hello@digitalnext.com'
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'Companies', href: '/companies' },
+  { label: 'Brands', href: '/companies' },
   { label: 'How We Build', href: '/how-we-build' },
   { label: 'About', href: '/about' },
   { label: 'Careers', href: '/careers' },
@@ -14,14 +14,14 @@ export const nav = [
 
 // Headline group figures shown in the strip just under the hero.
 export const quickStats = [
-  { value: 6, suffix: '', label: 'Companies' },
+  { value: 6, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'Employees' },
   { value: 4, suffix: '', label: 'Countries' },
   { value: 5000, suffix: '+', label: 'Clients' },
 ]
 
 export const impactStats = [
-  { value: 6, suffix: '', label: 'Companies' },
+  { value: 6, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'People' },
   { value: 4, suffix: '', label: 'Countries' },
   { value: 5000, suffix: '+', label: 'Clients' },
@@ -43,7 +43,7 @@ export const philosophy = [
   {
     no: '03',
     title: 'Scale',
-    body: 'Shared capital, distribution, and talent move across the portfolio, so every company compounds faster than it could alone.',
+    body: 'Shared capital, distribution, and talent move across the portfolio, so every brand compounds faster than it could alone.',
   },
 ]
 
@@ -52,26 +52,26 @@ export const timeline = [
   { year: '2019', title: 'First acquisition', body: 'The group makes its first acquisition, proving the operating model.' },
   { year: '2020', title: 'Expansion', body: 'New platforms launch as the group moves beyond services.' },
   { year: '2022', title: 'Global growth', body: 'Teams and clients span multiple countries and time zones.' },
-  { year: '2026', title: 'Six companies', body: 'A group of six companies across agency, platform, and SaaS.' },
+  { year: '2026', title: 'Six brands', body: 'A group of six brands across agency, platform, and SaaS.' },
   { year: 'Next', title: "Building what's next", body: 'The next decade of internet businesses - founded, built, and scaled.' },
 ]
 
 export const advantages = [
   { title: 'Capital', body: 'Patient funding that backs decade-long bets, not quarterly ones.' },
   { title: 'Engineering', body: 'Shared platforms, infrastructure, and technical leadership.' },
-  { title: 'Hiring', body: 'A recruitment engine that staffs every company from day one.' },
+  { title: 'Hiring', body: 'A recruitment engine that staffs every brand from day one.' },
   { title: 'Operations', body: 'Finance, legal, and ops handled so teams can build.' },
   { title: 'Marketing', body: 'Distribution and demand generation across the group.' },
   { title: 'Leadership', body: 'Operators who have built and scaled before, in your corner.' },
   { title: 'Global network', body: 'Clients, partners, and talent across multiple countries.' },
-  { title: 'Shared technology', body: 'Data, AI, and tooling that every company inherits.' },
+  { title: 'Shared technology', body: 'Data, AI, and tooling that every brand inherits.' },
 ]
 
 export const insights = [
   {
     tag: 'Acquisition',
     date: 'Jun 2026',
-    title: 'Digital Next adds its sixth company to the portfolio.',
+    title: 'Digital Next adds its sixth brand to the portfolio.',
   },
   {
     tag: 'Team',

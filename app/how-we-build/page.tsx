@@ -22,12 +22,12 @@ const principles = [
   {
     no: '02',
     title: 'Back operators',
-    body: 'Companies are run by the people closest to the customer, with real ownership and real authority.',
+    body: 'Brands are run by the people closest to the customer, with real ownership and real authority.',
   },
   {
     no: '03',
     title: 'Share resources',
-    body: 'Capital, engineering, hiring, and distribution move across the group so every company moves faster.',
+    body: 'Capital, engineering, hiring, and distribution move across the group so every brand moves faster.',
   },
   {
     no: '04',
@@ -66,7 +66,7 @@ export default function HowWeBuildPage() {
                 trigger="mount"
                 className="display mt-9 max-w-[16ch] text-hero"
                 lines={[
-                  <>Building companies</>,
+                  <>Building brands</>,
                   <>that <em className="italic text-accent">compound</em></>,
                   <>for decades.</>,
                 ]}
@@ -74,7 +74,7 @@ export default function HowWeBuildPage() {
               <Reveal delay={0.15}>
                 <p className="mt-11 max-w-[42ch] text-lg leading-[1.75] text-muted">
                   Digital Next is not a fund and not an agency. It is a permanent
-                  home for internet companies - a repeatable operating system for
+                  home for internet brands, a repeatable operating system for
                   founding, backing, and scaling businesses meant to last.
                 </p>
               </Reveal>
@@ -117,7 +117,7 @@ export default function HowWeBuildPage() {
                 </p>
                 <p className="max-w-[42ch] text-lg leading-[1.8] text-muted">
                   So we structure everything around endurance. We hold for the long
-                  term, back operators who think in decades, and let each company
+                  term, back operators who think in decades, and let each brand
                   grow at the pace its market actually allows.
                 </p>
                 <p className="max-w-[42ch] text-lg leading-[1.8] text-muted">
@@ -183,12 +183,12 @@ export default function HowWeBuildPage() {
           <Reveal>
             <Eyebrow>The build</Eyebrow>
             <h2 className="display mt-6 max-w-[20ch] text-statement">
-              How every company is{' '}
+              How every brand is{' '}
               <em className="italic text-accent">built</em>.
             </h2>
             <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-muted">
-              Every business in the group travels the same path - from a single
-              thesis to a durable, independent company. The steps rarely skip; the
+              Every business in the group travels the same path, from a single
+              thesis to a durable, independent brand. The steps rarely skip; the
               order rarely changes.
             </p>
           </Reveal>
@@ -210,7 +210,7 @@ export default function HowWeBuildPage() {
                   as="h2"
                   className="display mt-6 max-w-[16ch] text-statement"
                   lines={[
-                    <>Every company inherits</>,
+                    <>Every brand inherits</>,
                     <>the strength</>,
                     <>of the <em className="italic text-accent">group</em>.</>,
                   ]}
@@ -218,8 +218,8 @@ export default function HowWeBuildPage() {
               </Reveal>
               <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.15}>
                 <p className="max-w-[40ch] text-lg leading-relaxed text-muted">
-                  Eight capabilities that would take a standalone company years to
-                  build - available from day one.
+                  Eight capabilities that would take a standalone brand years to
+                  build, available from day one.
                 </p>
               </Reveal>
             </div>
@@ -256,7 +256,7 @@ export default function HowWeBuildPage() {
             <Reveal>
               <Eyebrow>The boundary</Eyebrow>
               <h2 className="display mt-6 max-w-[18ch] text-statement">
-                Independent companies.{' '}
+                Independent brands.{' '}
                 <em className="italic text-accent">Shared advantage</em>.
               </h2>
             </Reveal>
@@ -340,8 +340,8 @@ export default function HowWeBuildPage() {
               </h2>
               <p className="mt-7 max-w-[42ch] text-lg leading-relaxed text-white/55">
                 Talent builds product. Product wins customers. Customers generate
-                cash flow. Cash flow is reinvested into more talent. Each company
-                runs the same self-funding loop - and the group compounds it across
+                cash flow. Cash flow is reinvested into more talent. Each brand
+                runs the same self-funding loop, and the group compounds it across
                 all of them.
               </p>
             </Reveal>
@@ -359,13 +359,13 @@ export default function HowWeBuildPage() {
             <Reveal className="lg:col-span-5">
               <Eyebrow>The portfolio flywheel</Eyebrow>
               <h2 className="display mt-6 max-w-[16ch] text-statement">
-                What one company learns,{' '}
+                What one brand learns,{' '}
                 <em className="italic text-accent">all of them gain</em>.
               </h2>
               <p className="mt-7 max-w-[42ch] text-lg leading-relaxed text-muted">
-                A hiring engine built for one company staffs the next. Engineering
+                A hiring engine built for one brand staffs the next. Engineering
                 built once is inherited by all. Distribution earned in one market
-                opens the door in another. The more companies join, the stronger
+                opens the door in another. The more brands join, the stronger
                 the advantage becomes for every one of them.
               </p>
             </Reveal>
@@ -399,7 +399,7 @@ export default function HowWeBuildPage() {
               className="display mt-8 max-w-[20ch] text-[clamp(2.9rem,6.3vw,5.75rem)] font-light leading-[1.04] tracking-tightest text-white"
               lines={[
                 <>The next enduring</>,
-                <>internet companies</>,
+                <>internet brands</>,
                 <>
                   <em className="italic text-accent">haven&rsquo;t been built yet</em>.
                 </>,
@@ -407,8 +407,8 @@ export default function HowWeBuildPage() {
             />
             <Reveal delay={0.15}>
               <p className="mx-auto mt-8 max-w-[44ch] text-lg leading-[1.75] text-white/60">
-                If you are building one - or thinking about it - we would like to
-                talk. This is the operating system we bring to every company we own.
+                If you are building one, or thinking about it, we would like to
+                talk. This is the operating system we bring to every brand we own.
               </p>
             </Reveal>
             <Reveal delay={0.28}>
@@ -417,7 +417,7 @@ export default function HowWeBuildPage() {
                   href="/companies"
                   className="group inline-flex items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:text-white"
                 >
-                  Explore Companies
+                  Explore Brands
                   <span className="transition-transform duration-300 ease-editorial group-hover:translate-x-1">
                     &rarr;
                   </span>

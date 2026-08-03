@@ -14,7 +14,7 @@ const CATEGORY: Record<string, string> = {
 
 const explore = [
   { label: 'Home', href: '/' },
-  { label: 'Companies', href: '/companies' },
+  { label: 'Brands', href: '/companies' },
   { label: 'Careers', href: '/careers' },
 ]
 const group = [
@@ -59,7 +59,7 @@ export default function Footer() {
             </Link>
             <p className={`mt-6 ${heading}`}>Technology Holding Company</p>
             <h2 className="mt-8 max-w-sm font-serif text-2xl font-light leading-snug tracking-tighter text-white/85 sm:text-[1.75rem]">
-              Building internet companies that{' '}
+              Building internet brands that{' '}
               <em className="italic text-accent">compound for decades</em>.
             </h2>
 
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Companies */}
           <div className="lg:col-span-4">
-            <h3 className={heading}>Companies</h3>
+            <h3 className={heading}>Brands</h3>
             <div className="mt-7 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
               {companies.map((c) => (
                 <a

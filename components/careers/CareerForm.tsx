@@ -105,7 +105,7 @@ export default function CareerForm() {
       </label>
 
       <label className="block sm:col-span-2">
-        <Label>Preferred company</Label>
+        <Label>Preferred brand</Label>
         <div className="relative">
           <select name="company" defaultValue="Open to Any" className={`${field} appearance-none pr-6 [&>option]:text-ink`}>
             {companyOptions.map((c) => (
@@ -155,7 +155,7 @@ export default function CareerForm() {
         </div>
         <p className="max-w-[42ch] text-[13px] leading-relaxed text-white/40">
           We use your details only to consider you for roles across Digital Next
-          and its companies. We don&rsquo;t share them with third parties.
+          and its brands. We don&rsquo;t share them with third parties.
         </p>
       </div>
     </form>

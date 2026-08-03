@@ -8,7 +8,7 @@ import { quickStats } from '@/lib/site'
 export default function StatsStrip() {
   return (
     <section className="border-y border-line">
-      <div className="shell grid grid-cols-2 gap-y-10 py-14 sm:grid-cols-4 sm:gap-y-0 sm:py-16">
+      <div className="shell grid grid-cols-2 gap-y-10 py-10 sm:grid-cols-4 sm:gap-y-0 sm:py-12">
         {quickStats.map((s, i) => (
           <Reveal
             key={s.label}

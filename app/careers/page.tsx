@@ -58,7 +58,7 @@ export default function CareersPage() {
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="mt-5 max-w-[50ch] text-lg leading-[1.75] text-muted">
-                  Digital Next companies move with the ownership and speed of
+                  Digital Next brands move with the ownership and speed of
                   independent businesses while benefiting from shared talent,
                   technology, and long-term support.
                 </p>
@@ -78,7 +78,7 @@ export default function CareersPage() {
                     href="/companies"
                     className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-xl border border-black/[0.08] px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
-                    Meet the Companies
+                    Meet the Brands
                     <span className="transition-transform duration-300 ease-editorial group-hover:translate-x-1.5">
                       &rarr;
                     </span>
@@ -144,7 +144,7 @@ export default function CareersPage() {
               </div>
               <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.15}>
                 <p className="max-w-[44ch] text-lg leading-[1.75] text-muted">
-                  Every company keeps its own identity, leadership, product
+                  Every brand keeps its own identity, leadership, product
                   direction, and culture. The group provides the shared
                   infrastructure that helps strong teams move faster without
                   becoming corporate.
@@ -259,7 +259,7 @@ export default function CareersPage() {
             <Reveal>
               <Eyebrow>Careers across the group</Eyebrow>
               <h2 className="display mt-6 max-w-[16ch] text-statement">
-                Six companies.{' '}
+                Six brands.{' '}
                 <em className="italic text-accent">Many ways to build</em>.
               </h2>
             </Reveal>
@@ -412,7 +412,7 @@ export default function CareersPage() {
                           className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
                         >
                           <span className="relative">
-                            Explore Our Companies
+                            Explore Our Brands
                             <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[500ms] ease-editorial group-hover:scale-x-100" />
                           </span>
                           <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
@@ -480,7 +480,7 @@ export default function CareersPage() {
               <Reveal delay={0.15}>
                 <p className="mt-8 max-w-[38ch] text-lg leading-[1.75] text-white/60">
                   Tell us what you do, what kind of problems you want to solve, and
-                  which Digital Next company interests you.
+                  which Digital Next brand interests you.
                 </p>
               </Reveal>
               <Reveal delay={0.22}>

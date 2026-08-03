@@ -14,7 +14,7 @@ function Wordmark({ dark, onClick }: { dark?: boolean; onClick?: () => void }) {
       href="/"
       onClick={onClick}
       aria-label="Digital Next - home"
-      className="group inline-flex items-baseline font-serif text-lg leading-none tracking-tight"
+      className="group inline-flex items-baseline font-serif text-2xl leading-none tracking-tight sm:text-[1.6rem]"
     >
       <span
         className={[

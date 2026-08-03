@@ -123,7 +123,7 @@ export default function CompanyShowcaseSection({
 
               <span className="mt-8 inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-accent">
                 <span className="relative">
-                  Visit Company
+                  Visit Brand
                   <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[600ms] ease-editorial group-hover:bg-accent" />
                 </span>
                 <span className="transition-transform duration-[600ms] ease-editorial group-hover:translate-x-1.5 group-hover:-translate-y-1">

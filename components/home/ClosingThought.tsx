@@ -38,7 +38,7 @@ export default function ClosingThought() {
               Digital Next partners with exceptional founders to build, acquire,
               and scale independent internet businesses. Through shared
               expertise, long-term capital, and operational excellence, every
-              company has the freedom to grow while benefiting from the strength
+              brand has the freedom to grow while benefiting from the strength
               of the group.
             </p>
           </Reveal>
@@ -46,7 +46,7 @@ export default function ClosingThought() {
           <Reveal delay={0.25}>
             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
               <Button href="/#portfolio" variant="primary" arrow>
-                Explore Our Companies
+                Explore Our Brands
               </Button>
               <Button href={`mailto:${CONTACT_EMAIL}`} variant="ghost" arrow>
                 Contact Us

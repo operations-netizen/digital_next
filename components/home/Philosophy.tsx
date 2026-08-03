@@ -31,7 +31,7 @@ const stages = [
   {
     no: '03',
     title: 'Scale',
-    body: 'Independent companies, shared expertise, and durable long-term growth.',
+    body: 'Independent brands, shared expertise, and durable long-term growth.',
   },
 ]
 
@@ -96,7 +96,7 @@ export default function Philosophy() {
             <Reveal delay={0.1}>
               <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-white/55">
                 We partner with exceptional operators, provide long-term capital
-                and infrastructure, and help companies compound over decades -
+                and infrastructure, and help brands compound over decades,
                 not quarters.
               </p>
             </Reveal>

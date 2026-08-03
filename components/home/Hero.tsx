@@ -33,7 +33,7 @@ export default function Hero() {
       {/* Full-bleed (edge-padded) so the copy hugs the left on wide screens
           instead of sitting in the centered shell gutter; below ~1440px this
           is identical to the shell. */}
-      <div className="relative grid min-h-[100svh] w-full items-center gap-10 px-6 pb-14 pt-28 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:px-16 lg:pt-28">
+      <div className="relative grid min-h-[78svh] w-full items-center gap-10 px-6 pb-8 pt-24 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:px-16 lg:pt-24">
         <div className="max-w-2xl">
           <motion.div {...fade(0.05)}>
             <Eyebrow>A technology holding company</Eyebrow>
@@ -42,14 +42,14 @@ export default function Hero() {
           <TextReveal
             as="h1"
             trigger="mount"
-            className="display mt-8 text-hero"
+            className="display mt-8 text-[clamp(2.5rem,5vw,5rem)]"
             delay={0.12}
             lines={[
               <>Building the</>,
               <>
                 <em className="italic text-accent">next generation</em>
               </>,
-              <>of digital companies.</>,
+              <>of digital brands.</>,
             ]}
           />
 
@@ -57,14 +57,14 @@ export default function Hero() {
             className="mt-8 max-w-[500px] text-base leading-[1.7] text-muted sm:text-lg"
             {...fade(0.7)}
           >
-            We acquire, build, and scale exceptional internet businesses across
-            AI, SaaS, recruitment, and digital marketing-creating long-term
-            value through shared technology, talent, and operational excellence.
+            We build and scale exceptional internet businesses across AI, SaaS,
+            recruitment, and digital marketing-creating long-term value through
+            shared technology, talent, and operational excellence.
           </motion.p>
 
           <motion.div className="mt-10 flex flex-wrap gap-5" {...fade(0.82)}>
             <Button href="/#portfolio" variant="primary" arrow>
-              Meet Our Companies
+              Meet Our Brands
             </Button>
             <Button href="/#who-we-are" variant="ghost">
               Why We Build

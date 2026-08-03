@@ -36,7 +36,7 @@ export const groupLeadership: LeaderMember[] = [
   {
     name: 'Tarun Gogia',
     role: 'Group Director of People Operations',
-    bio: 'Builds the culture, leadership, talent strategy, and people systems that empower every Digital Next company.',
+    bio: 'Builds the culture, leadership, talent strategy, and people systems that empower every Digital Next brand.',
     photo: '/team/tarun-gogia.png',
   },
   {
@@ -143,15 +143,15 @@ export const awards: Award[] = []
 // ── Looking ahead ─────────────────────────────────────────────────────────
 export const lookingAhead: { lead: string; body: ReactNode }[] = [
   {
-    lead: 'More companies, held longer.',
+    lead: 'More brands, held longer.',
     body: 'We will keep founding and acquiring internet businesses - and keep them well past the point most groups would sell.',
   },
   {
     lead: 'A deeper shared platform.',
-    body: 'Every company inherits more each year: better infrastructure, sharper hiring, and technology that compounds across the group.',
+    body: 'Every brand inherits more each year: better infrastructure, sharper hiring, and technology that compounds across the group.',
   },
   {
     lead: 'Patient by design.',
-    body: 'The next decade is measured in durability and cash flow, not headlines - building the internet companies that are still here in twenty years.',
+    body: 'The next decade is measured in durability and cash flow, not headlines, building the internet brands that are still here in twenty years.',
   },
 ]

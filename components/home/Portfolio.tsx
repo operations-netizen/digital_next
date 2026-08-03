@@ -20,7 +20,7 @@ export default function Portfolio() {
         {/* Editorial introduction - centered, storytelling transition */}
         <div className="mx-auto flex max-w-[820px] flex-col items-center text-center">
           <Reveal>
-            <Eyebrow>Our companies</Eyebrow>
+            <Eyebrow>Our brands</Eyebrow>
           </Reveal>
 
           {/* ↓ 32px */}
@@ -28,7 +28,7 @@ export default function Portfolio() {
             as="h2"
             className="display text-statement mt-8 max-w-[700px]"
             lines={[
-              <>Six companies.</>,
+              <>Six brands.</>,
               <>
                 <em className="italic text-accent">One shared ecosystem.</em>
               </>,
@@ -38,8 +38,8 @@ export default function Portfolio() {
           {/* ↓ 28px */}
           <Reveal delay={0.12}>
             <p className="mt-8 max-w-[740px] text-lg leading-[1.7] text-muted">
-              Digital Next brings together six independent companies across AI,
-              SaaS, recruitment, SEO, and digital services. Every company
+              Digital Next brings together six independent brands across AI,
+              SaaS, recruitment, SEO, and digital services. Every brand
               operates independently while benefiting from shared expertise,
               technology, and long-term strategic support.
             </p>
@@ -49,7 +49,7 @@ export default function Portfolio() {
           <Reveal delay={0.2}>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[15px] font-medium tracking-[-0.005em] text-ink/70 sm:gap-x-7">
               <span>
-                <span className="font-semibold text-ink">6</span> Companies
+                <span className="font-semibold text-ink">6</span> Brands
               </span>
               <span aria-hidden="true" className="h-3.5 w-px bg-line" />
               <span>
@@ -89,7 +89,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
       href={company.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${company.name} - ${company.category}. Explore company website (opens in a new tab).`}
+      aria-label={`${company.name} - ${company.category}. Explore brand website (opens in a new tab).`}
       style={{ ['--brand' as string]: company.primaryColor } as React.CSSProperties}
       className="group relative flex h-full flex-col rounded-[20px] border border-line/60 bg-white p-7 shadow-[0_2px_8px_-4px_rgba(17,17,17,0.05)] outline-none transition-[transform,box-shadow,background-color,border-color] duration-[280ms] ease-out hover:-translate-y-1.5 hover:border-[color-mix(in_srgb,var(--brand)_26%,white)] hover:bg-[#FCFCFF] hover:shadow-[0_24px_60px_-28px_rgba(0,0,0,0.12),0_10px_34px_-22px_color-mix(in_srgb,var(--brand)_30%,transparent)] focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-4 focus-visible:ring-offset-bg sm:p-8"
     >
@@ -149,7 +149,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
       <div className="mt-auto flex items-center justify-between pt-6">
         <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink/50 transition-colors duration-[280ms] ease-out group-hover:text-[color:var(--brand)]">
           <span className="relative">
-            Explore Company
+            Explore Brand
             <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-[color:var(--brand)] transition-transform duration-[280ms] ease-out group-hover:scale-x-100" />
           </span>
           <span className="transition-transform duration-[280ms] ease-out group-hover:translate-x-[6px]">

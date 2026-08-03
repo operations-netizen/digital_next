@@ -20,7 +20,7 @@ type Key =
 const capabilities: { no: string; title: string; desc: string; key: Key }[] = [
   { no: '01', title: 'Capital', desc: 'Patient funding for decade-long bets.', key: 'capital' },
   { no: '02', title: 'Engineering', desc: 'Shared infrastructure and platforms.', key: 'engineering' },
-  { no: '03', title: 'Hiring', desc: 'A recruitment engine for every company.', key: 'hiring' },
+  { no: '03', title: 'Hiring', desc: 'A recruitment engine for every brand.', key: 'hiring' },
   { no: '04', title: 'Operations', desc: 'Finance, legal, and operations.', key: 'operations' },
   { no: '05', title: 'Marketing', desc: 'Demand generation at scale.', key: 'marketing' },
   { no: '06', title: 'Leadership', desc: 'Operators who have built before.', key: 'leadership' },
