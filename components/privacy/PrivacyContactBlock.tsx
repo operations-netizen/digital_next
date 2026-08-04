@@ -4,8 +4,14 @@ import CopyEmail from './CopyEmail'
 
 /** Final contact / grievance block. Optional roles render only when set. */
 export default function PrivacyContactBlock() {
-  const { legalEntityName, registeredAddress, privacyEmail, dpoContact, grievanceContact } =
-    privacyConfig
+  const {
+    legalEntityName,
+    registeredAddress,
+    privacyEmail,
+    contactPhone,
+    dpoContact,
+    grievanceContact,
+  } = privacyConfig
 
   return (
     <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
@@ -15,6 +21,16 @@ export default function PrivacyContactBlock() {
           <p><Ph>{legalEntityName}</Ph></p>
           <p><Ph>{registeredAddress}</Ph></p>
           <p><CopyEmail email={privacyEmail} /></p>
+          {contactPhone && (
+            <p>
+              <a
+                href={`tel:${contactPhone.replace(/[^\d+]/g, '')}`}
+                className="text-accent underline decoration-accent/40 underline-offset-4 transition-colors duration-300 ease-editorial hover:decoration-accent"
+              >
+                {contactPhone}
+              </a>
+            </p>
+          )}
         </div>
       </div>
 

@@ -11,9 +11,12 @@ export const metadata = {
     'Six independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
 }
 
-// Showcase copy per company (id-keyed); logos/urls/names come from the data.
-// `logoMax` optically normalizes each mark to a comparable visual height
-// (~54-78px) now that the logo stands alone on its side.
+// Showcase copy per company (id-keyed); logos/urls/names/founded come from the
+// data. `Founded <year>` is prepended to every fact list at render time (or the
+// brand's `status`, if it has not launched), so it stays in sync with
+// companies.ts rather than being retyped here.
+// `logoMax` optically normalizes each mark to a comparable visual weight
+// (~64-128px) - stacked marks run taller, horizontal wordmarks shorter.
 const showcase: Record<
   string,
   {
@@ -26,48 +29,46 @@ const showcase: Record<
   'digital-web-solutions': {
     category: 'Digital Marketing & SEO',
     description:
-      'A full-service performance marketing and SEO company delivering strategy, media, search, content, and web solutions for ambitious brands.',
-    metadata: ['Founded 2012', 'Digital Marketing', 'Global Clients'],
-    logoMax: 'h-24',
+      "Advanced digital marketing and performance strategy for agencies and enterprises - combining strategic insight, SEO, and growth-focused execution. The Group's largest and original brand, tracing back to the founding of Digital Web Solutions Pvt. Ltd. in 2006.",
+    metadata: ['Digital Marketing', 'Agencies & Enterprises', 'Original Brand'],
+    logoMax: 'h-32',
   },
   wytlabs: {
-    category: 'AI & Digital Solutions',
+    category: 'Full-Service Marketing (US)',
     description:
-      'An AI-driven digital solutions company helping businesses use search, automation, technology, and data as scalable growth channels.',
-    metadata: ['AI Solutions', 'Automation', 'Digital Growth'],
-    logoMax: 'h-14',
+      'A full-service marketing agency catering exclusively to eCommerce, SaaS, and healthcare brands in the United States. Specializations include SEO, email marketing automation, paid ads, and web development.',
+    metadata: ['United States', 'eCommerce, SaaS & Healthcare', 'SEO & Paid Ads'],
+    logoMax: 'h-20',
   },
   hirenext: {
-    category: 'Recruitment Technology',
+    category: 'ATS & Talent Platform',
     description:
-      'A recruitment-technology platform designed to help modern teams source, evaluate, and hire talent more efficiently.',
-    metadata: ['HR Technology', 'Recruitment', 'Talent Infrastructure'],
-    logoMax: 'h-14',
+      'An internally developed Applicant Tracking System (ATS) and talent-management platform, currently in development. On launch, it will support recruitment operations across all Digital Next brands, with a possible external commercialization path.',
+    metadata: ['In Development', 'HR Technology', 'Built In-House'],
+    logoMax: 'h-20',
   },
   rankwatch: {
-    category: 'SEO Intelligence Platform',
+    category: 'SEO & Rank-Tracking SaaS',
     description:
-      'An SEO intelligence and rank-tracking platform that turns search data into actionable insight through tracking, audits, and competitive analysis.',
-    metadata: ['SEO SaaS', 'Rank Tracking', 'Search Intelligence'],
-    logoMax: 'h-12',
-  },
-  collabx: {
-    category: 'Creator Economy Platform',
-    description:
-      'A collaboration platform connecting brands and creators through structured discovery, campaign briefs, execution, and performance measurement.',
-    metadata: ['Creator Economy', 'Brand Collaboration', 'Campaign Technology'],
+      "A proprietary SaaS platform helping businesses and agencies track SEO performance, analyze competitors, and make data-driven marketing decisions. Introduced in 2015; the Group's flagship product and recurring-revenue business.",
+    metadata: ['SEO SaaS', 'Flagship Product', 'Recurring Revenue'],
     logoMax: 'h-16',
   },
-  smegoweb: {
-    category: 'Enterprise Digital Solutions',
+  collabx: {
+    category: 'Influencer & Partnership Platform',
     description:
-      'Enterprise-grade digital solutions for growing businesses, including web, marketing, automation, and managed technology programs.',
-    metadata: ['Enterprise', 'Digital Services', 'Managed Solutions'],
-    logoMax: 'h-14',
+      'A new-age influencer and partnership management platform simplifying collaborations, campaign tracking, and performance analytics. Launched 2025; currently in a high-growth scale-up phase.',
+    metadata: ['Influencer Marketing', 'Campaign Analytics', 'Scale-Up Phase'],
+    logoMax: 'h-24',
+  },
+  smegoweb: {
+    category: 'Full-Service Marketing (ANZ)',
+    description:
+      'A full-service marketing agency serving small and medium businesses across Australia and New Zealand, launched in 2012, with a dedicated New Zealand operation run in local partnership.',
+    metadata: ['Australia & New Zealand', 'SME Focus', 'NZ Partnership'],
+    logoMax: 'h-20',
   },
 }
-
-const advantages = ['Capital', 'Technology', 'Talent', 'Distribution']
 
 const platform = [
   { no: '01', name: 'Capital', note: 'Patient, permanent funding.' },
@@ -155,46 +156,7 @@ export default function CompaniesPage() {
         </div>
       </section>
 
-      {/* 02 - Portfolio overview */}
-      <section className="pb-24 sm:pb-28 lg:pb-32">
-        <div className="shell">
-          <div className="border-t border-line pt-10 sm:pt-12">
-            <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12">
-              <Reveal className="lg:col-span-6">
-                <Eyebrow>The brands</Eyebrow>
-                <h2 className="display mt-6 max-w-[15ch] text-statement">
-                  Independent by design,{' '}
-                  <em className="italic text-accent">stronger together</em>.
-                </h2>
-                <p className="mt-7 max-w-[46ch] text-lg leading-relaxed text-muted">
-                  Every brand owns its identity, team, product, and operating
-                  roadmap. Digital Next provides long-term capital, shared
-                  technology, talent, and strategic infrastructure where it
-                  creates an advantage.
-                </p>
-              </Reveal>
-
-              <Reveal className="lg:col-span-4 lg:col-start-9 lg:pt-2" delay={0.12}>
-                {advantages.map((w, i) => (
-                  <div
-                    key={w}
-                    className="flex items-baseline gap-4 border-t border-line py-4 last:border-b"
-                  >
-                    <span className="font-mono text-[11px] tracking-[0.2em] text-muted/40">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="font-serif text-xl tracking-tight text-ink">
-                      {w}
-                    </span>
-                  </div>
-                ))}
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 03 - Company showcase */}
+      {/* 02 - Company showcase */}
       <section className="pt-0">
         <div className="shell">
           <Reveal>
@@ -213,14 +175,19 @@ export default function CompaniesPage() {
               name={c.name}
               category={s.category}
               description={s.description}
-              metadata={s.metadata}
+              metadata={[
+                c.founded
+                  ? `Founded ${c.founded}`
+                  : c.status ?? 'In development',
+                ...s.metadata,
+              ]}
               logo={c.logo}
               logoAlt={`${c.name} logo`}
               logoMax={s.logoMax}
               href={c.url}
               reverse={i % 2 === 1}
               fallback={
-                <span className="font-sans text-[3.25rem] font-bold leading-none tracking-[-0.02em] text-ink">
+                <span className="font-sans text-[2.25rem] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[3.25rem]">
                   HireNext
                   <span className="text-ink/40 transition-colors duration-500 ease-editorial group-hover:text-[#14B8A6]">
                     .io
@@ -232,7 +199,7 @@ export default function CompaniesPage() {
         })}
       </section>
 
-      {/* 04 - Shared platform (dark) */}
+      {/* 03 - Shared platform (dark) */}
       <section data-nav-dark className="section bg-dark text-white">
         <div className="shell">
           <Reveal>
@@ -271,7 +238,7 @@ export default function CompaniesPage() {
         </div>
       </section>
 
-      {/* 05 - Portfolio philosophy (bridge) */}
+      {/* 04 - Portfolio philosophy (bridge) */}
       <section className="py-20 sm:py-24 lg:py-28">
         <div className="shell">
           <div className="border-t border-line pt-10 sm:pt-12">
@@ -305,7 +272,7 @@ export default function CompaniesPage() {
         </div>
       </section>
 
-      {/* 06 - Final CTA (dark) */}
+      {/* 05 - Final CTA (dark) */}
       <section
         data-nav-dark
         className="relative overflow-hidden bg-[#0B0D12] pb-28 pt-32 text-center text-white sm:pb-32 sm:pt-40 lg:pb-36 lg:pt-44"

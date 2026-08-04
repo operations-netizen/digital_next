@@ -6,7 +6,7 @@ import TermsSection from '@/components/terms/TermsSection'
 import TermsTOC from '@/components/terms/TermsTOC'
 import TermsContact from '@/components/terms/TermsContact'
 import CopyEmail from '@/components/privacy/CopyEmail'
-import { P, Lead, UL, LI, ReviewNote, Ph } from '@/components/privacy/prose'
+import { P, Lead, UL, LI, Ph } from '@/components/privacy/prose'
 import { termsConfig, termsToc } from '@/lib/terms'
 
 const c = termsConfig
@@ -22,24 +22,156 @@ const sections: Record<string, () => ReactNode> = {
   introduction: () => (
     <>
       <P>
-        These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your access to
-        and use of the Digital Next website (the &ldquo;website&rdquo;). Digital
+        These Terms &amp; Conditions (&ldquo;Terms&rdquo;) form an agreement
+        between you (the &ldquo;Client&rdquo;) and Digital Next, and govern your
+        use of our services, platforms, deliverables, and this website. Digital
         Next is a technology holding company operating a group of independent
         internet businesses.
       </P>
       <P>
-        By accessing or using the website, you agree to be bound by these Terms.
-        If you do not agree, please do not use the website. Your continued use of
-        the website constitutes acceptance of these Terms as they may be updated
-        from time to time.
+        By accessing or using our services or this website, you agree to be
+        bound by these Terms. If you do not agree with them, you should not use
+        our services. Your continued use constitutes acceptance of these Terms
+        as they may be updated from time to time.
       </P>
     </>
   ),
-  eligibility: () => (
+  'who-we-work-with': () => (
+    <>
+      <P>These Terms apply to:</P>
+      <UL>
+        <LI>direct clients;</LI>
+        <LI>agencies and resellers;</LI>
+        <LI>platform users;</LI>
+        <LI>brand partners; and</LI>
+        <LI>visitors to this website.</LI>
+      </UL>
+      <P>
+        They cover one-time campaigns, monthly subscriptions, and white-label
+        arrangements alike, and apply whether services are delivered by Digital
+        Next or by one of its brands.
+      </P>
+    </>
+  ),
+  'information-we-collect': () => (
+    <>
+      <P>In the course of providing services we may collect:</P>
+      <UL>
+        <LI>business contact details;</LI>
+        <LI>campaign briefs and related materials; and</LI>
+        <LI>platform credentials you choose to share with us.</LI>
+      </UL>
+      <P>
+        We use this information to fulfil orders, manage communication, improve
+        our platforms, and ensure security. We do not sell or rent your data to
+        third parties. Our{' '}
+        <Link
+          href="/privacy"
+          className="text-accent underline decoration-accent/40 underline-offset-4 transition-colors duration-300 hover:decoration-accent"
+        >
+          Privacy Policy
+        </Link>{' '}
+        explains this in full.
+      </P>
+    </>
+  ),
+  'service-scope': () => (
+    <>
+      <P>
+        Depending on the engagement, services may include digital PR, content
+        strategy, outreach, search and performance marketing, platform access,
+        and white-label delivery.
+      </P>
+      <P>
+        We do not support spammy tactics, private blog networks, or paid links
+        disguised as editorial placements.
+      </P>
+      <Lead>Your responsibilities</Lead>
+      <UL>
+        <LI>provide accurate and complete information;</LI>
+        <LI>
+          avoid requesting tactics that violate search-engine guidelines; and
+        </LI>
+        <LI>respond to approval requests within a reasonable time.</LI>
+      </UL>
+    </>
+  ),
+  subscriptions: () => (
     <P>
-      You may use the website only if you are legally capable of entering into a
-      binding agreement under the laws applicable to you. By using the website,
-      you represent that you meet this requirement.
+      Monthly and quarterly subscriptions renew automatically unless cancelled
+      at least fifteen (15) days before the renewal date. By subscribing, you
+      authorise us to charge the applicable fee automatically on each renewal.
+    </P>
+  ),
+  payment: () => (
+    <>
+      <P>
+        Prepayment is required unless otherwise agreed in writing. Payments are
+        non-refundable once work has started or deliverables are in production.
+      </P>
+      <P>
+        Late payment may result in the suspension of active campaigns or
+        services until the outstanding amount is settled.
+      </P>
+    </>
+  ),
+  'trial-credits': () => (
+    <P>
+      Trial credits and promotional offers must be used within thirty (30) days
+      of issue. They are non-transferable and limited to one-time use per
+      business.
+    </P>
+  ),
+  delivery: () => (
+    <>
+      <P>
+        Delivery follows a transparent approval process. Nothing goes live
+        without your approval.
+      </P>
+      <P>
+        We do not guarantee one hundred per cent indexing of any placement. If a
+        placement is removed within twelve (12) months of going live, we will
+        provide a one-time replacement.
+      </P>
+    </>
+  ),
+  'account-security': () => (
+    <P>
+      You are responsible for keeping your account credentials secure and for
+      activity carried out under your account. We reserve the right to revoke
+      platform access where we identify misuse.
+    </P>
+  ),
+  'acceptable-use': () => (
+    <>
+      <P>You must not use our services or platforms to:</P>
+      <UL>
+        <LI>publish content depicting or promoting violence or hate;</LI>
+        <LI>carry out illegal activity;</LI>
+        <LI>distribute deceptive or misleading content;</LI>
+        <LI>pursue black-hat search tactics;</LI>
+        <LI>contact our publishers or partners without authorisation; or</LI>
+        <LI>interfere with, disrupt, or gain unauthorised access to our systems.</LI>
+      </UL>
+      <P>
+        Violations may result in suspension or termination of services without
+        refund.
+      </P>
+    </>
+  ),
+  confidentiality: () => (
+    <P>
+      We will not disclose your projects, data, or end clients, and we will not
+      reuse deliverables produced for you. Our team members are bound by
+      internal non-disclosure agreements, which supports white-label and
+      reseller arrangements.
+    </P>
+  ),
+  'data-retention': () => (
+    <P>
+      Information is retained for as long as needed to fulfil services, to meet
+      regulatory obligations, and for internal analytics. When it is no longer
+      required for those purposes, it is anonymised or securely deleted.
     </P>
   ),
   'website-use': () => (
@@ -64,34 +196,22 @@ const sections: Record<string, () => ReactNode> = {
   'intellectual-property': () => (
     <>
       <P>
-        The website and its contents - including its design, brand, logos,
-        trademarks, text, images, graphics, code, and other content - are owned
-        by <Ph>{c.legalEntity}</Ph>, its portfolio companies, or its licensors,
-        and are protected by applicable intellectual-property laws.
+        All original content created by <Ph>{c.legalEntity}</Ph> for your
+        campaign becomes your property upon full payment. Until payment is
+        received in full, we retain ownership of the deliverables.
       </P>
       <P>
-        No licence or right is granted to you except a limited, revocable,
-        non-exclusive right to view the website for your personal,
-        non-commercial use. You may not reproduce, distribute, modify, or create
-        derivative works from the website or its content without prior written
-        permission, except as permitted by applicable law.
-      </P>
-    </>
-  ),
-  'user-content': () => (
-    <>
-      <P>
-        If you submit inquiries or other information through the website, you
-        confirm that you have the right to submit it, and you grant Digital Next
-        permission to review and respond to it for the purposes of handling your
-        request.
+        We retain ownership of our internal tools, systems, platforms, and
+        processes at all times. Nothing in these Terms transfers any right in
+        them to you.
       </P>
       <P>
-        Submitting information does not automatically create any confidential,
-        advisory, fiduciary, employment, or other business relationship between
-        you and Digital Next. Please do not send information you consider
-        confidential unless we have agreed in writing to receive it on that
-        basis.
+        This website and its contents - including its design, brand, logos,
+        trademarks, text, images, graphics, and code - are owned by{' '}
+        <Ph>{c.legalEntity}</Ph>, its portfolio companies, or its licensors, and
+        are protected by applicable intellectual-property laws. You are granted
+        only a limited, revocable, non-exclusive right to view the website for
+        personal, non-commercial use.
       </P>
     </>
   ),
@@ -129,11 +249,6 @@ const sections: Record<string, () => ReactNode> = {
         goodwill, or other intangible losses, arising out of or relating to your
         use of, or inability to use, the website.
       </P>
-      <ReviewNote>
-        Legal review: confirm the liability cap, carve-outs, and any
-        jurisdiction-specific mandatory rights before publication. Do not
-        publish a limitation that is unenforceable in an applicable jurisdiction.
-      </ReviewNote>
     </>
   ),
   indemnification: () => (
@@ -160,20 +275,27 @@ const sections: Record<string, () => ReactNode> = {
   ),
   changes: () => (
     <P>
-      We may update these Terms from time to time. Where changes are material, we
-      will post the updated Terms on the website. The date at the top of this
-      page indicates when these Terms were last updated (
-      <Ph>{c.effectiveDate}</Ph>). Your continued use of the website after an
-      update constitutes acceptance of the revised Terms.
+      We may update these Terms from time to time. Changes take effect when the
+      updated Terms are posted, together with an updated date. The date at the
+      top of this page indicates when these Terms were last updated (
+      <Ph>{c.effectiveDate}</Ph>). Your continued use of our services or this
+      website after an update constitutes acceptance of the revised Terms.
     </P>
   ),
   termination: () => (
-    <P>
-      To the extent permitted by applicable law, we may suspend or terminate your
-      access to the website, in whole or in part, at any time and without notice,
-      including if we believe you have breached these Terms. Provisions that by
-      their nature should survive termination will continue to apply.
-    </P>
+    <>
+      <P>
+        Ongoing monthly services may be terminated by either party on thirty
+        (30) days&rsquo; written notice. Unused credits expire ninety (90) days
+        after the date of issue.
+      </P>
+      <P>
+        We may terminate or suspend services immediately in the event of a
+        breach of these Terms or non-payment, and may suspend access to this
+        website where we believe it is being misused. Provisions that by their
+        nature should survive termination will continue to apply.
+      </P>
+    </>
   ),
   'governing-law': () => (
     <>
@@ -188,11 +310,6 @@ const sections: Record<string, () => ReactNode> = {
       <p className="text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
         <Ph>{c.jurisdiction}</Ph>
       </p>
-      <ReviewNote>
-        Legal review: confirm governing law and forum, and add any dispute-
-        resolution, arbitration, or venue provisions counsel requires. Do not
-        publish placeholder values.
-      </ReviewNote>
     </>
   ),
   contact: () => (
@@ -235,9 +352,7 @@ export default function TermsPage() {
                 </div>
 
                 <p className="mt-16 border-t border-line pt-8 text-[13px] leading-relaxed text-muted/60">
-                  This document contains placeholders and clauses marked for
-                  legal review and must be reviewed and approved by counsel before
-                  publication. For questions, email{' '}
+                  For questions about these Terms, email{' '}
                   <CopyEmail email={c.contactEmail} />.
                 </p>
               </div>

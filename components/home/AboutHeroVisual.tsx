@@ -27,8 +27,10 @@ const fadeIn = (delay: number) => ({
 })
 
 export default function AboutHeroVisual() {
+  // Oldest brand first; anything without a launch year yet sorts last.
+  const year = (founded: string) => Number(founded) || Infinity
   const holdings = [...companies].sort(
-    (a, b) => Number(a.founded) - Number(b.founded)
+    (a, b) => year(a.founded) - year(b.founded)
   )
 
   return (
@@ -94,7 +96,7 @@ export default function AboutHeroVisual() {
               fill="#666"
               style={{ font: '400 11px var(--font-mono), monospace', letterSpacing: '0.08em' }}
             >
-              {c.founded}
+              {c.founded || 'In dev.'}
             </text>
           </g>
         ))}

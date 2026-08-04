@@ -7,7 +7,6 @@ export type CompanyTag =
   | 'Platform'
   | 'SaaS'
   | 'Recruitment'
-  | 'Enterprise'
   | 'SEO'
 
 export interface Company {
@@ -18,7 +17,11 @@ export interface Company {
   tags: CompanyTag[]
   description: string
   mission: string
+  /** Founding/launch year, or '' for brands that have not launched yet -
+   *  in which case `status` is shown in its place. Never invent a year. */
   founded: string
+  /** Lifecycle label used wherever `founded` is empty. */
+  status?: string
   industry: string
   employees: string
   url: string
@@ -36,9 +39,9 @@ export const companies: Company[] = [
     category: 'Digital Marketing & SEO',
     tags: ['Agency', 'SEO'],
     description:
-      'Full-service performance marketing and SEO - strategy, media, and web under one roof.',
+      'Advanced digital marketing and performance strategy for agencies and enterprises.',
     mission: 'Performance marketing that compounds.',
-    founded: '2012',
+    founded: '2006',
     industry: 'Digital Marketing',
     employees: '160+',
     url: 'https://www.digitalwebsolutions.com/',
@@ -49,13 +52,13 @@ export const companies: Company[] = [
     id: 'wytlabs',
     ticker: 'WYT',
     name: 'Wytlabs',
-    category: 'AI & Digital Solutions',
+    category: 'Full-Service Marketing (US)',
     tags: ['Agency', 'SEO'],
     description:
-      'AI-driven growth and digital solutions for teams where search and automation are core.',
-    mission: 'AI-native growth engineering.',
-    founded: '2016',
-    industry: 'AI & Growth',
+      'Full-service marketing for eCommerce, SaaS, and healthcare brands in the United States.',
+    mission: 'Growth engineered for US brands.',
+    founded: '2019',
+    industry: 'Marketing Agency',
     employees: '90+',
     url: 'https://wytlabs.com/',
     logo: '/logos/wytlabs.png',
@@ -64,13 +67,13 @@ export const companies: Company[] = [
   {
     id: 'hirenext',
     ticker: 'HRN',
-    name: 'HireNext',
-    category: 'Recruitment Technology',
+    name: 'Hire Next',
+    category: 'ATS & Talent Platform',
     tags: ['Platform', 'Recruitment'],
     description:
-      'Recruitment technology that streamlines how modern teams source, assess, and hire.',
+      'An internally developed applicant tracking and talent platform, currently in development.',
     mission: 'Hiring, re-engineered.',
-    founded: '2020',
+    founded: '2026',
     industry: 'HR Technology',
     employees: '40+',
     url: 'https://hirenext.io/',
@@ -81,12 +84,12 @@ export const companies: Company[] = [
     id: 'rankwatch',
     ticker: 'RKW',
     name: 'RankWatch',
-    category: 'SEO Intelligence Platform',
+    category: 'SEO & Rank-Tracking SaaS',
     tags: ['SaaS', 'SEO'],
     description:
-      'SEO intelligence and rank tracking that turns ranking data into confident decisions.',
+      'A proprietary SaaS platform for SEO tracking, competitor analysis, and data-driven decisions.',
     mission: 'See every rank, everywhere.',
-    founded: '2014',
+    founded: '2015',
     industry: 'SaaS | SEO',
     employees: '60+',
     url: 'https://www.rankwatch.com/',
@@ -97,13 +100,13 @@ export const companies: Company[] = [
     id: 'collabx',
     ticker: 'CBX',
     name: 'CollabX',
-    category: 'Creator Economy Platform',
+    category: 'Influencer & Partnership Platform',
     tags: ['Platform'],
     description:
-      'A collaboration platform connecting brands and creators with performance-grade rigor.',
-    mission: 'Where brands and creators meet.',
-    founded: '2021',
-    industry: 'Creator Economy',
+      'Influencer and partnership management, from collaboration to campaign analytics.',
+    mission: 'Where brands and influencers meet.',
+    founded: '2025',
+    industry: 'Influencer Marketing',
     employees: '35+',
     url: 'https://collabx.com/',
     logo: '/logos/collabx.svg',
@@ -112,14 +115,14 @@ export const companies: Company[] = [
   {
     id: 'smegoweb',
     ticker: 'SMG',
-    name: 'SMEGOWEB',
-    category: 'Enterprise Digital Solutions',
-    tags: ['Enterprise', 'Agency'],
+    name: 'Smego Web',
+    category: 'Full-Service Marketing (ANZ)',
+    tags: ['Agency'],
     description:
-      'Enterprise-grade web, marketing, and automation, delivered as managed programs.',
-    mission: 'Enterprise digital, delivered.',
-    founded: '2018',
-    industry: 'Enterprise Digital',
+      'Full-service marketing for small and medium businesses across Australia and New Zealand.',
+    mission: 'Full-service growth for ANZ.',
+    founded: '2012',
+    industry: 'Marketing Agency',
     employees: '70+',
     url: 'https://smegoweb.co.nz/',
     logo: '/logos/smegoweb.png',
@@ -133,7 +136,6 @@ export const filters = [
   'Platform',
   'SaaS',
   'Recruitment',
-  'Enterprise',
   'SEO',
 ] as const
 

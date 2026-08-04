@@ -54,16 +54,6 @@ const principles = [
 ]
 
 
-// Concise one-line descriptions for the ecosystem showcase.
-const ecoBlurb: Record<string, string> = {
-  'digital-web-solutions': 'Performance marketing & SEO.',
-  wytlabs: 'AI products and automation.',
-  hirenext: 'Recruitment technology.',
-  rankwatch: 'SEO intelligence platform.',
-  collabx: 'Creator collaboration platform.',
-  smegoweb: 'Enterprise digital solutions.',
-}
-
 export default function AboutPage() {
   return (
     <>
@@ -215,18 +205,18 @@ export default function AboutPage() {
               </Reveal>
             </div>
 
-            <div className="mt-14 grid gap-x-12 gap-y-16 sm:grid-cols-2 lg:gap-x-16 lg:gap-y-24">
+            <div className="mt-14 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
               {companies.map((c, i) => (
-                <Reveal key={c.id} delay={(i % 2) * 0.1}>
+                <Reveal key={c.id} delay={(i % 2) * 0.1} className="h-full">
                   <a
                     href={c.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${c.name} - ${ecoBlurb[c.id]} Visit website (opens in a new tab).`}
-                    className="group block border-t border-line pt-8 outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-4 focus-visible:ring-offset-bg lg:pt-10"
+                    aria-label={`${c.name} - ${c.category}. Visit website (opens in a new tab).`}
+                    className="group flex h-full flex-col border-t border-line pt-8 outline-none transition-colors duration-500 ease-editorial hover:border-ink/25 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-4 focus-visible:ring-offset-bg lg:pt-10"
                   >
-                    {/* Header row: index + name left, logo right */}
-                    <div className="flex items-center justify-between gap-6">
+                    {/* Header row: index + name + category left, logo right */}
+                    <div className="flex items-start justify-between gap-6">
                       <div className="min-w-0">
                         <span className="font-mono text-[11px] tracking-meta text-muted/45">
                           {String(i + 1).padStart(2, '0')}
@@ -240,16 +230,19 @@ export default function AboutPage() {
                             />
                           </span>
                         </h3>
+                        <span className="mt-3.5 block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/70">
+                          {c.category}
+                        </span>
                       </div>
 
                       {/* Logo - right side, mono → colour on hover */}
-                      <div className="flex h-9 shrink-0 items-center">
+                      <div className="flex h-10 shrink-0 items-center">
                         {c.logo ? (
                           <img
                             src={c.logo}
                             alt=""
                             loading="lazy"
-                            className="max-h-9 w-auto max-w-[160px] object-contain object-right opacity-80 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0"
+                            className="max-h-10 w-auto max-w-[170px] object-contain object-right opacity-80 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0"
                           />
                         ) : (
                           <span className="font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink">
@@ -262,16 +255,25 @@ export default function AboutPage() {
                       </div>
                     </div>
 
-                    {/* Description → link */}
-                    <p className="mt-5 max-w-[36ch] text-[15px] leading-relaxed text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
-                      {ecoBlurb[c.id]}
+                    {/* What the brand does - straight from the data */}
+                    <p className="mt-6 max-w-[42ch] text-[15px] leading-[1.7] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
+                      {c.description}
                     </p>
-                    <span className="mt-4 inline-flex translate-y-1 items-center gap-1.5 text-[13px] font-medium text-accent opacity-0 transition-all duration-500 ease-editorial group-hover:translate-y-0 group-hover:opacity-100">
-                      Explore Brand
-                      <span className="transition-transform duration-500 ease-editorial group-hover:translate-x-0.5">
-                        &rarr;
+
+                    {/* Footer rail - aligns across the row via mt-auto */}
+                    <div className="mt-auto flex items-center justify-between gap-6 border-t border-line pt-4 lg:mt-9">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted/60">
+                        {c.founded
+                          ? `Est. ${c.founded}`
+                          : c.status ?? 'In development'}
                       </span>
-                    </span>
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-muted transition-colors duration-500 ease-editorial group-hover:text-accent">
+                        Explore Brand
+                        <span className="transition-transform duration-500 ease-editorial group-hover:translate-x-1">
+                          &rarr;
+                        </span>
+                      </span>
+                    </div>
                   </a>
                 </Reveal>
               ))}

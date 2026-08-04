@@ -1,5 +1,5 @@
 import { cookiesConfig } from '@/lib/cookies'
-import { P, UL, LI, ReviewNote, Ph } from '@/components/privacy/prose'
+import { P, UL, LI, Ph } from '@/components/privacy/prose'
 import CookiePreferencesButton from '@/components/privacy/CookiePreferencesButton'
 
 /** How users can control cookies, plus the preferences entry point. */
@@ -22,11 +22,6 @@ export default function CookieManagement() {
         Please note that disabling some cookies may affect the functionality and
         performance of the website.
       </P>
-      <ReviewNote>
-        Legal review: connect the consent tool (<Ph>{cookiesConfig.cookieConsentTool}</Ph>)
-        and confirm the categories that can actually be toggled before
-        publication.
-      </ReviewNote>
     </>
   )
 }

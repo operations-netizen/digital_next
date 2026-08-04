@@ -5,11 +5,11 @@ import { CONTACT_EMAIL } from '@/lib/site'
 // Short, footer-specific category labels.
 const CATEGORY: Record<string, string> = {
   'digital-web-solutions': 'Digital Marketing',
-  wytlabs: 'AI Solutions',
-  hirenext: 'Recruitment Technology',
-  rankwatch: 'SEO Intelligence Platform',
-  collabx: 'Creator Economy',
-  smegoweb: 'Enterprise Digital',
+  wytlabs: 'Marketing Agency (US)',
+  hirenext: 'ATS Platform',
+  rankwatch: 'SEO SaaS Platform',
+  collabx: 'Influencer Platform',
+  smegoweb: 'Marketing Agency (ANZ)',
 }
 
 const explore = [

@@ -8,7 +8,7 @@ import PrivacyTableOfContents from '@/components/privacy/PrivacyTableOfContents'
 import PrivacyContactBlock from '@/components/privacy/PrivacyContactBlock'
 import CopyEmail from '@/components/privacy/CopyEmail'
 import CookiePreferencesButton from '@/components/privacy/CookiePreferencesButton'
-import { P, Lead, UL, LI, DetailBlock, ReviewNote, Ph } from '@/components/privacy/prose'
+import { P, Lead, UL, LI, DetailBlock, Ph } from '@/components/privacy/prose'
 import { privacyConfig } from '@/lib/privacy'
 
 const c = privacyConfig
@@ -33,8 +33,9 @@ const entries: Entry[] = [
       <>
         <P>
           Digital Next is a technology holding company operating a group of
-          independent internet businesses. The data controller responsible for
-          this website is:
+          independent internet businesses. Digital Next and its subsidiaries and
+          affiliates collect and control personal data described in this notice.
+          The entity responsible for this website is:
         </P>
         <DetailBlock>
           <p><Ph>{c.legalEntityName}</Ph></p>
@@ -54,90 +55,82 @@ const entries: Entry[] = [
     ),
   },
   {
-    id: 'scope',
-    title: 'Scope of This Notice',
-    kind: 'section',
-    render: () => (
-      <>
-        <P>This notice applies to:</P>
-        <UL>
-          <LI>visitors to the Digital Next website;</LI>
-          <LI>people who contact Digital Next;</LI>
-          <LI>business partners and prospective partners;</LI>
-          <LI>candidates who submit profiles or applications;</LI>
-          <LI>newsletter subscribers, where newsletters are enabled; and</LI>
-          <LI>other individuals who interact directly with Digital Next.</LI>
-        </UL>
-        <P>
-          It does not automatically govern the separate websites or services of
-          portfolio companies, which may maintain their own privacy notices.
-        </P>
-      </>
-    ),
-  },
-  {
     id: 'information-we-collect',
     title: 'Information We Collect',
     kind: 'section',
     render: () => (
       <>
-        <Lead>Information you provide directly</Lead>
+        <Lead>Information you provide voluntarily</Lead>
         <UL>
           <LI>name;</LI>
           <LI>email address;</LI>
-          <LI>phone number, if provided;</LI>
-          <LI>company and role;</LI>
-          <LI>message or inquiry details;</LI>
-          <LI>LinkedIn or website links;</LI>
-          <LI>resume, portfolio, and recruitment information;</LI>
-          <LI>newsletter preferences; and</LI>
+          <LI>physical address;</LI>
+          <LI>telephone number;</LI>
+          <LI>username, where an account is created;</LI>
+          <LI>company, role, and inquiry details; and</LI>
           <LI>any other information you voluntarily submit.</LI>
         </UL>
         <Lead>Information collected automatically</Lead>
         <UL>
-          <LI>IP address;</LI>
           <LI>browser type;</LI>
-          <LI>device information;</LI>
-          <LI>pages visited and referring pages;</LI>
-          <LI>approximate location derived from IP address;</LI>
-          <LI>cookie identifiers;</LI>
-          <LI>interaction and performance data; and</LI>
-          <LI>security and diagnostic logs.</LI>
+          <LI>IP address;</LI>
+          <LI>operating system;</LI>
+          <LI>domain name;</LI>
+          <LI>pages visited and time spent on them; and</LI>
+          <LI>click-through rates and similar usage data.</LI>
         </UL>
-        <Lead>Information from third parties</Lead>
-        <UL>
-          <LI>portfolio companies;</LI>
-          <LI>business partners;</LI>
-          <LI>recruitment platforms;</LI>
-          <LI>analytics providers;</LI>
-          <LI>publicly available professional sources; and</LI>
-          <LI>service providers.</LI>
-        </UL>
-        <ReviewNote>
-          Legal review: confirm each category above is actually collected;
-          remove any that do not apply.
-        </ReviewNote>
+        <Lead>Information we do not collect</Lead>
+        <P>
+          Digital Next does not collect sensitive personal information such as
+          information relating to health, race, ethnicity, sexual orientation,
+          or political opinions.
+        </P>
+        <P>
+          We do not collect payment information directly. Where a payment is
+          required, you enter your details on the site of a well-known payment
+          processor or payment gateway.
+        </P>
       </>
     ),
   },
   {
-    id: 'how-we-collect',
-    title: 'How We Collect Information',
+    id: 'cookies',
+    title: 'Cookies and Tracking Technologies',
     kind: 'section',
     render: () => (
       <>
-        <P>We may collect information through:</P>
+        <P>We may use the following cookies and similar technologies:</P>
         <UL>
-          <LI>contact forms;</LI>
-          <LI>careers or general-interest forms;</LI>
-          <LI>newsletter sign-up;</LI>
-          <LI>direct email;</LI>
-          <LI>meetings and business communications;</LI>
-          <LI>cookies and similar technologies;</LI>
-          <LI>service providers;</LI>
-          <LI>portfolio companies; and</LI>
-          <LI>professional and public sources.</LI>
+          <LI>
+            <strong className="font-medium text-ink">Session cookies</strong> -
+            expire when you close your browser; used for authentication and
+            fraud prevention.
+          </LI>
+          <LI>
+            <strong className="font-medium text-ink">Persistent cookies</strong> -
+            remain until they expire or are deleted; used to remember your
+            preferences.
+          </LI>
+          <LI>
+            <strong className="font-medium text-ink">Web beacons</strong> -
+            record that a page has been visited or an email opened.
+          </LI>
+          <LI>
+            <strong className="font-medium text-ink">Locally stored objects</strong>{' '}
+            - hold preference data outside ordinary browser cookies.
+          </LI>
         </UL>
+        <P>You can manage non-essential cookies at any time:</P>
+        <p>
+          <CookiePreferencesButton />
+        </p>
+        <P>
+          You can also adjust your browser settings to refuse cookies. Doing so
+          may limit the functionality available to you on this website.
+          {c.gpcStatus
+            ? ' This website detects and honours Global Privacy Control signals.'
+            : ''}
+        </P>
       </>
     ),
   },
@@ -147,54 +140,15 @@ const entries: Entry[] = [
     kind: 'section',
     render: () => (
       <>
-        <P>We may use personal information to:</P>
+        <P>Information collected may be used to:</P>
         <UL>
-          <LI>respond to inquiries;</LI>
-          <LI>evaluate partnerships or acquisition opportunities;</LI>
-          <LI>manage business relationships;</LI>
-          <LI>evaluate candidates and manage recruitment;</LI>
-          <LI>route inquiries to relevant portfolio companies;</LI>
-          <LI>operate and improve the website;</LI>
-          <LI>measure website performance;</LI>
-          <LI>prevent fraud and maintain security;</LI>
-          <LI>maintain records;</LI>
-          <LI>comply with legal obligations;</LI>
-          <LI>establish, exercise, or defend legal claims; and</LI>
-          <LI>send communications where consent or another lawful basis exists.</LI>
+          <LI>respond to inquiries and process orders;</LI>
+          <LI>develop our products and services;</LI>
+          <LI>provide targeted content and advertising;</LI>
+          <LI>send newsletters and promotional material;</LI>
+          <LI>carry out research and improve site operations; and</LI>
+          <LI>protect the security and integrity of our systems.</LI>
         </UL>
-      </>
-    ),
-  },
-  {
-    id: 'legal-bases',
-    title: 'Legal Bases',
-    kind: 'section',
-    render: () => (
-      <>
-        <P>
-          Where a data-protection law requires a legal basis for processing, we
-          rely, as applicable, on:
-        </P>
-        <UL>
-          <LI>your consent;</LI>
-          <LI>performance of a contract, or steps requested before a contract;</LI>
-          <LI>our legitimate interests;</LI>
-          <LI>compliance with legal obligations; and</LI>
-          <LI>the establishment or defence of legal claims.</LI>
-        </UL>
-        <P>
-          Where we rely on legitimate interests, those interests include
-          operating and securing our website, understanding and improving how it
-          is used, managing inquiries and recruitment, and running and
-          protecting our business. We balance those interests against your
-          rights and freedoms.
-        </P>
-        <ReviewNote>
-          Legal review: confirm each basis applies before publication. For
-          India-specific processing, align wording with applicable consent,
-          legitimate-use, notice, and rights obligations once confirmed by
-          counsel.
-        </ReviewNote>
       </>
     ),
   },
@@ -206,107 +160,65 @@ const entries: Entry[] = [
       <>
         <P>We may share personal information with:</P>
         <UL>
-          <LI>Digital Next portfolio companies;</LI>
-          <LI>hosting and infrastructure providers;</LI>
-          <LI>analytics providers (<Ph>{c.analyticsProviders}</Ph>);</LI>
-          <LI>CRM and communication providers (<Ph>{c.crmProviders}</Ph>);</LI>
-          <LI>recruitment platforms;</LI>
-          <LI>professional advisers, auditors, and insurers;</LI>
           <LI>
-            transaction counterparties in a merger, acquisition, financing, or
-            restructuring; and
+            service providers who perform business functions on our behalf;
           </LI>
           <LI>
-            regulators, courts, and law-enforcement authorities where required.
+            law-enforcement and regulatory agencies, where required by law; and
+          </LI>
+          <LI>
+            an acquiring entity in the event of a merger, acquisition, or
+            bankruptcy proceeding.
           </LI>
         </UL>
-        {c.saleOrSharingStatus ? (
-          <P>{c.saleOrSharingStatus}</P>
-        ) : (
-          <ReviewNote>
-            Legal review: confirm and insert a verified statement on whether
-            Digital Next sells personal information or shares it for
-            cross-context behavioural advertising (e.g. &ldquo;We do not sell
-            personal information&rdquo; or the applicable CCPA/CPRA disclosure).
-            Do not publish an unverified claim.
-          </ReviewNote>
-        )}
+        {c.saleOrSharingStatus && <P>{c.saleOrSharingStatus}</P>}
+        <P>
+          You may opt out of disclosure of your information to third parties by
+          emailing <CopyEmail email={c.privacyEmail} />.
+        </P>
       </>
     ),
   },
   {
-    id: 'retention',
-    title: 'Retention',
+    id: 'email-marketing',
+    title: 'Email Marketing',
     kind: 'section',
     render: () => (
       <>
         <P>
-          We retain personal information only for as long as reasonably
-          necessary for the purpose for which it was collected, and to meet
-          legal and regulatory obligations, resolve disputes, maintain security,
-          and keep records. Retention periods depend on the type of information
-          and the context in which it was collected.
+          Permission to send you marketing email may be created when you:
         </P>
         <UL>
-          <LI>Contact inquiries: <Ph>{c.retentionPeriods.contactInquiries}</Ph></LI>
-          <LI>Candidate profiles: <Ph>{c.retentionPeriods.candidateProfiles}</Ph></LI>
-          <LI>Newsletter records: <Ph>{c.retentionPeriods.newsletterRecords}</Ph></LI>
-          <LI>Website analytics: <Ph>{c.retentionPeriods.websiteAnalytics}</Ph></LI>
-          <LI>Security logs: <Ph>{c.retentionPeriods.securityLogs}</Ph></LI>
+          <LI>enter your email address without opting out;</LI>
+          <LI>complete a purchase or order form; or</LI>
+          <LI>
+            subscribe to a newsletter through an opt-in checkbox, which is
+            unchecked by default.
+          </LI>
         </UL>
-        <ReviewNote>
-          Legal review: insert verified retention periods. Do not publish
-          estimated or invented periods.
-        </ReviewNote>
+        <P>
+          Every marketing email we send includes a one-click unsubscribe or
+          opt-out option.
+        </P>
       </>
     ),
   },
   {
-    id: 'security',
-    title: 'Security',
+    id: 'telemarketing',
+    title: 'Telemarketing',
     kind: 'section',
     render: () => (
       <>
         <P>
-          We use reasonable administrative, technical, and organisational
-          safeguards designed to protect personal information. However, no
-          method of transmission or storage is completely secure, and we cannot
-          guarantee absolute security.
-        </P>
-        <ReviewNote>
-          Legal review: describe specific safeguards (e.g. access controls,
-          secure hosting, restricted access, monitoring, vendor controls) only
-          where they are actually in place.
-        </ReviewNote>
-      </>
-    ),
-  },
-  {
-    id: 'international-transfers',
-    title: 'International Transfers',
-    kind: 'section',
-    render: () => (
-      <>
-        <P>
-          Personal information may be processed in countries other than the one
-          in which you are located, including where our service providers or
-          portfolio companies operate. Those countries may have different data
-          protection laws than your own.
+          By providing your telephone number, you consent to receive future
+          information, including telemarketing, about products and services from
+          Digital Next and its affiliates. Such calls may use automated dialing
+          equipment or pre-recorded messages.
         </P>
         <P>
-          Where required, we put in place appropriate safeguards for such
-          transfers, which may include:
+          You may opt out at any time by contacting us using the details in the
+          Contact section below.
         </P>
-        <UL>
-          <LI>adequacy decisions;</LI>
-          <LI>standard contractual clauses;</LI>
-          <LI>contractual protections; and</LI>
-          <LI>other legally recognised transfer mechanisms.</LI>
-        </UL>
-        <ReviewNote>
-          Legal review: confirm the transfer mechanisms actually relied upon and
-          remove those that do not apply.
-        </ReviewNote>
       </>
     ),
   },
@@ -317,134 +229,71 @@ const entries: Entry[] = [
     render: () => (
       <>
         <P>
-          Depending on your location, you may have some or all of the following
-          rights in relation to your personal information:
+          Subject to applicable law, you may:
         </P>
         <UL>
-          <LI>access;</LI>
-          <LI>correction;</LI>
-          <LI>deletion;</LI>
-          <LI>restriction of processing;</LI>
-          <LI>objection to processing;</LI>
-          <LI>portability;</LI>
-          <LI>withdrawal of consent, where processing is based on consent;</LI>
-          <LI>complaint to a supervisory authority;</LI>
-          <LI>opting out of sale or sharing, where applicable;</LI>
-          <LI>limiting the use of sensitive personal information, where applicable; and</LI>
-          <LI>nomination or grievance rights, where applicable under Indian law.</LI>
+          <LI>access and update your personal information;</LI>
+          <LI>request correction of inaccurate information;</LI>
+          <LI>opt in to or out of data collection and processing;</LI>
+          <LI>
+            withdraw your consent, which may limit the services available to
+            you; and
+          </LI>
+          <LI>request erasure or removal of your information.</LI>
         </UL>
         <P>
           To make a request, email <CopyEmail email={c.privacyEmail} /> with the
           subject line &ldquo;Privacy Request&rdquo;. We may need to verify your
           identity before responding, and we may decline requests where
-          permitted by law. Where applicable law allows, an authorised agent may
-          submit a request on your behalf, subject to verification.
+          permitted by law.
         </P>
-        <P>We will respond within the period required by applicable law.</P>
       </>
     ),
   },
   {
-    id: 'california',
-    title: 'California Disclosures',
-    kind: 'disclosure',
-    render: () => (
-      <>
-        <P>
-          These disclosures supplement the notice above and apply to California
-          residents under the CCPA/CPRA.
-        </P>
-        <UL>
-          <LI>categories of personal information collected;</LI>
-          <LI>purposes for which each category is used;</LI>
-          <LI>categories of sources;</LI>
-          <LI>categories of recipients;</LI>
-          <LI>sale or sharing disclosures;</LI>
-          <LI>retention criteria;</LI>
-          <LI>consumer rights and how to exercise them;</LI>
-          <LI>authorised-agent requests;</LI>
-          <LI>the right to non-discrimination for exercising rights; and</LI>
-          <LI>
-            recognition of Global Privacy Control{' '}
-            {c.gpcStatus ? '(honoured by this website)' : '(pending verification)'}.
-          </LI>
-        </UL>
-        <ReviewNote>
-          Legal review: complete and verify each item, and add a &ldquo;Do Not
-          Sell or Share My Personal Information&rdquo; link where required,
-          before enabling this section publicly.
-        </ReviewNote>
-      </>
-    ),
-  },
-  {
-    id: 'india',
-    title: 'India Disclosures',
-    kind: 'disclosure',
-    render: () => (
-      <>
-        <P>
-          These disclosures address applicable Indian data-protection
-          obligations and supplement the notice above.
-        </P>
-        <UL>
-          <LI>identity of the Data Fiduciary: <Ph>{c.legalEntityName}</Ph>;</LI>
-          <LI>categories and purposes of processing;</LI>
-          <LI>consent and withdrawal of consent, where applicable;</LI>
-          <LI>access and correction requests;</LI>
-          <LI>erasure requests;</LI>
-          <LI>nomination rights, where applicable;</LI>
-          <LI>grievance contact and complaint escalation; and</LI>
-          <LI>security safeguards and breach-handling procedures at a high level.</LI>
-        </UL>
-        <ReviewNote>
-          Legal review: confirm which provisions are operational before
-          enabling this section. Do not state that a provision is in effect
-          without confirmation.
-        </ReviewNote>
-      </>
-    ),
-  },
-  {
-    id: 'cookies',
-    title: 'Cookies',
+    id: 'retention',
+    title: 'Data Storage, Retention, and Anonymisation',
     kind: 'section',
     render: () => (
       <>
-        <P>We may use the following categories of cookies and similar technologies:</P>
-        <UL>
-          <LI>
-            <strong className="font-medium text-ink">Strictly necessary</strong> -
-            required for the website to function.
-          </LI>
-          <LI>
-            <strong className="font-medium text-ink">Analytics</strong> - help us
-            understand how the website is used.
-          </LI>
-          <LI>
-            <strong className="font-medium text-ink">Preference</strong> - remember
-            choices you make.
-          </LI>
-        </UL>
         <P>
-          You can manage non-essential cookies at any time:
+          We retain personal information for as long as needed to fulfil the
+          services requested, to meet regulatory obligations, and for internal
+          analytics. When information is no longer required for those purposes,
+          it is anonymised or securely deleted.
         </P>
-        <p>
-          <CookiePreferencesButton />
-        </p>
+      </>
+    ),
+  },
+  {
+    id: 'security',
+    title: 'Security',
+    kind: 'section',
+    render: () => (
+      <>
         <P>
-          You can also control cookies through your browser settings; blocking
-          some cookies may affect how the website works.
-          {c.gpcStatus
-            ? ' This website detects and honours Global Privacy Control signals.'
-            : ''}
+          We have taken physical, administrative, and technical steps to
+          safeguard the information we hold. No method of transmission or
+          storage is completely secure, and we cannot guarantee absolute
+          security.
         </P>
-        <ReviewNote>
-          Legal review: confirm the cookie categories actually used, connect the
-          consent tool (<Ph>{c.cookieTool}</Ph>), add advertising cookies only
-          if used, and link a separate Cookie Policy if one will exist. Mention
-          Global Privacy Control only if the site technically honours it.
-        </ReviewNote>
+        <P>
+          Where we become aware of unauthorised or unlawful access to, or
+          alteration of, your personal information, we will promptly notify you.
+        </P>
+      </>
+    ),
+  },
+  {
+    id: 'european-users',
+    title: 'European Users (GDPR)',
+    kind: 'section',
+    render: () => (
+      <>
+        <P>
+          Where personal data is processed within the European Union, we comply
+          with the General Data Protection Regulation (GDPR).
+        </P>
       </>
     ),
   },
@@ -453,19 +302,13 @@ const entries: Entry[] = [
     title: 'Children',
     kind: 'section',
     render: () => (
-      <>
-        <P>
-          The website is not directed to children. We do not knowingly collect
-          personal information from children below the age applicable in their
-          jurisdiction. If you believe a child has provided us with personal
-          information, please contact <CopyEmail email={c.privacyEmail} /> and we
-          will take appropriate steps to remove it.
-        </P>
-        <ReviewNote>
-          Legal review: confirm the applicable minimum age and intended audience
-          before publication.
-        </ReviewNote>
-      </>
+      <P>
+        This website is not directed to children. We do not knowingly collect
+        any personal information from children under the age of thirteen. If you
+        believe a child has provided us with personal information, please
+        contact <CopyEmail email={c.privacyEmail} /> and we will take
+        appropriate steps to remove it.
+      </P>
     ),
   },
   {
@@ -475,9 +318,9 @@ const entries: Entry[] = [
     render: () => (
       <P>
         The website may link to portfolio-company and other third-party
-        websites. We are not responsible for the privacy practices or content of
-        those websites. We encourage you to review the privacy notices of any
-        website you visit.
+        websites. We are not responsible for the content, policies, or security
+        practices of those websites. We encourage you to review the privacy
+        notice of any website you visit.
       </P>
     ),
   },
@@ -486,11 +329,25 @@ const entries: Entry[] = [
     title: 'Changes',
     kind: 'section',
     render: () => (
+      <>
+        <P>
+          Digital Next reserves the right to revise this privacy statement at
+          any time. Where changes are material, we will provide appropriate
+          notice. The date at the top of this notice indicates when it was last
+          updated (<Ph>{c.effectiveDate}</Ph>). Please review it periodically.
+        </P>
+      </>
+    ),
+  },
+  {
+    id: 'governing-law',
+    title: 'Governing Law',
+    kind: 'section',
+    render: () => (
       <P>
-        We may update this notice from time to time. Where changes are material,
-        we may communicate them through the website or by other appropriate
-        means. The date at the top of this notice indicates when it was last
-        updated (<Ph>{c.effectiveDate}</Ph>). Please review it periodically.
+        Any dispute arising out of the usage of, or related to, this policy is
+        subject to <Ph>{c.governingLaw}</Ph>, and the parties submit to the
+        exclusive jurisdiction of <Ph>{c.jurisdiction}</Ph>.
       </P>
     ),
   },
@@ -505,18 +362,14 @@ const entries: Entry[] = [
           please contact us:
         </P>
         <PrivacyContactBlock />
-        <ReviewNote>
-          Legal review: include supervisory-authority information and any
-          Data Protection Officer or grievance-officer details where legally
-          appropriate for the relevant jurisdictions.
-        </ReviewNote>
       </>
     ),
   },
 ]
 
 export default function PrivacyPage() {
-  // Drop conditional jurisdiction blocks unless enabled by verified config.
+  // Conditional jurisdiction blocks are enabled only by verified config; the
+  // group policy this notice mirrors publishes none, so both stay off.
   const visible = entries.filter((e) => {
     if (e.id === 'california') return c.showCaliforniaDisclosures
     if (e.id === 'india') return c.showIndiaDisclosures
@@ -570,9 +423,9 @@ export default function PrivacyPage() {
                 </div>
 
                 <p className="mt-16 border-t border-line pt-8 text-[13px] leading-relaxed text-muted/60">
-                  This document contains placeholders and conditional clauses
-                  marked for legal review and must be reviewed and approved by
-                  counsel before publication. See also our{' '}
+                  If anything in this notice is unclear, or you would like to
+                  exercise a right described above, please get in touch. See also
+                  our{' '}
                   <Link
                     href="/contact"
                     className="text-accent underline decoration-accent/40 underline-offset-4 transition-colors duration-300 hover:decoration-accent"

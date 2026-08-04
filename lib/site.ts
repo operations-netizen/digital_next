@@ -47,12 +47,16 @@ export const philosophy = [
   },
 ]
 
+// Milestones are anchored to the brands' real founding years (see
+// lib/companies.ts) - the story opens in 2006 with the original brand, not
+// with the holding company that later formed around it.
 export const timeline = [
-  { year: '2017', title: 'Founded', body: 'Digital Next begins with a single agency and a long-term thesis.' },
-  { year: '2019', title: 'First acquisition', body: 'The group makes its first acquisition, proving the operating model.' },
-  { year: '2020', title: 'Expansion', body: 'New platforms launch as the group moves beyond services.' },
-  { year: '2022', title: 'Global growth', body: 'Teams and clients span multiple countries and time zones.' },
-  { year: '2026', title: 'Six brands', body: 'A group of six brands across agency, platform, and SaaS.' },
+  { year: '2006', title: 'Origins', body: 'Digital Web Solutions Pvt. Ltd. is founded - the first and still the largest brand in the group.' },
+  { year: '2012', title: 'Australia & New Zealand', body: 'Smego Web launches, taking the full-service agency model to SMBs across the ANZ market.' },
+  { year: '2015', title: 'First product', body: 'RankWatch is introduced, moving the group beyond services into proprietary SaaS.' },
+  { year: '2019', title: 'United States', body: 'Wytlabs is founded to serve US eCommerce, SaaS, and healthcare brands.' },
+  { year: '2025', title: 'New platforms', body: 'CollabX launches into influencer and partnership management, and enters a high-growth scale-up phase.' },
+  { year: '2026', title: 'Six brands', body: 'A group of six brands across agency, platform, and SaaS, with Hire Next in development as shared talent infrastructure.' },
   { year: 'Next', title: "Building what's next", body: 'The next decade of internet businesses - founded, built, and scaled.' },
 ]
 
@@ -89,9 +93,9 @@ export const brandOptions = [
   'The group',
   'Digital Web Solutions',
   'Wytlabs',
-  'HireNext',
+  'Hire Next',
   'RankWatch',
   'CollabX',
-  'SMEGOWEB',
+  'Smego Web',
   'Careers',
 ]

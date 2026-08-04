@@ -80,8 +80,8 @@ export const brandLeadership: LeaderMember[] = [
   },
   {
     name: 'Abhishek Bazieal',
-    role: 'Director - Smegoweb',
-    bio: 'Heads operations and business growth across Australia and New Zealand, helping SMBs achieve measurable digital success.',
+    role: 'Director & Partner - Smego Web (NZ)',
+    bio: 'Partners on the New Zealand venture, leading its operations and business growth, and helping SMBs achieve measurable digital success.',
     photo: '/team/abhishek-bazieal.png',
   },
 ]

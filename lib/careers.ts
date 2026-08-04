@@ -82,11 +82,11 @@ export const companyCareers: Record<
   { label: string; logoMax: string }
 > = {
   'digital-web-solutions': { label: 'Performance Marketing & SEO', logoMax: 'h-7' },
-  wytlabs: { label: 'AI & Digital Solutions', logoMax: 'h-5' },
-  hirenext: { label: 'Recruitment Technology', logoMax: 'h-6' },
-  rankwatch: { label: 'SEO Intelligence Platform', logoMax: 'h-5' },
-  collabx: { label: 'Creator Economy Platform', logoMax: 'h-6' },
-  smegoweb: { label: 'Enterprise Digital Solutions', logoMax: 'h-5' },
+  wytlabs: { label: 'Full-Service Marketing (US)', logoMax: 'h-5' },
+  hirenext: { label: 'ATS & Talent Platform', logoMax: 'h-6' },
+  rankwatch: { label: 'SEO & Rank-Tracking SaaS', logoMax: 'h-5' },
+  collabx: { label: 'Influencer & Partnership Platform', logoMax: 'h-6' },
+  smegoweb: { label: 'Full-Service Marketing (ANZ)', logoMax: 'h-5' },
 }
 
 export const hiringProcess = [
@@ -151,9 +151,9 @@ export const companyOptions = [
   'Digital Next',
   'Digital Web Solutions',
   'Wytlabs',
-  'HireNext',
+  'Hire Next',
   'RankWatch',
   'CollabX',
-  'SMEGOWEB',
+  'Smego Web',
   'Open to Any',
 ]

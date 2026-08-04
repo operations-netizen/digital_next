@@ -109,7 +109,10 @@ export default function PortfolioRow({
 
               <dl className="grid grid-cols-3 gap-6 sm:col-span-5 sm:grid-cols-1 sm:gap-5">
                 {[
-                  ['Founded', company.founded],
+                  // Unlaunched brands show their lifecycle stage, not a year.
+                  company.founded
+                    ? ['Founded', company.founded]
+                    : ['Status', company.status ?? 'In development'],
                   ['Industry', company.industry],
                   ['Employees', company.employees],
                 ].map(([k, v]) => (
