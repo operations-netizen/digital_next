@@ -30,13 +30,13 @@ export const groupLeadership: LeaderMember[] = [
   {
     name: 'Raghav Tayal',
     role: 'Group COO',
-    bio: 'Oversees operations, technology, delivery excellence, and cross-company execution throughout the Digital Next ecosystem.',
+    bio: 'Oversees group operations, R&D, delivery excellence, and cross-brand execution throughout the Digital Next ecosystem.',
     photo: '/team/raghav-tayal.jpg',
   },
   {
     name: 'Tarun Gogia',
     role: 'Group Director of People Operations',
-    bio: 'Builds the culture, leadership, talent strategy, and people systems that empower every Digital Next brand.',
+    bio: 'Runs the shared group functions - people, finance, IT, quality, recruitment, and legal - that every Digital Next brand is built on, and oversees Smego Web in Australia.',
     photo: '/team/tarun-gogia.png',
   },
   {
@@ -50,7 +50,7 @@ export const groupLeadership: LeaderMember[] = [
 export const brandLeadership: LeaderMember[] = [
   {
     name: 'Dawood Bukhari',
-    role: 'CEO - DWS Signature',
+    role: 'CEO - Digital Web Solutions',
     bio: 'Leads enterprise digital marketing initiatives with a focus on strategy, client partnerships, and long-term business growth.',
     photo: '/team/dawood-bukhari.png',
   },
@@ -62,8 +62,8 @@ export const brandLeadership: LeaderMember[] = [
   },
   {
     name: 'Harshit Gupta',
-    role: 'Director of Operations & Marketing - Wytlabs',
-    bio: 'Leads operational excellence and marketing execution while scaling client success across the organization.',
+    role: 'Director of Client Success & Product - Wytlabs',
+    bio: 'Leads client success and product direction, scaling delivery and outcomes across the Wytlabs client base.',
     photo: '/team/harshit-gupta.png',
   },
   {
@@ -87,8 +87,11 @@ export const brandLeadership: LeaderMember[] = [
 ]
 
 // ── Global presence ───────────────────────────────────────────────────────
-// Countries the group operates across (client-provided). Verify before
-// publishing. Digital Next is remote-first; these are where people are based.
+// Countries the group operates across, per section 7 of the internal Company
+// Reference Document (July 2026): Gurugram & Noida (India, primary delivery
+// hubs), Newark DE and Anaheim CA (USA), Epping NSW (Australia), and Auckland
+// (New Zealand). The document also lists a Manchester office; the UK is
+// deliberately excluded from all public-facing copy.
 export const locations = [
   'India',
   'United States',

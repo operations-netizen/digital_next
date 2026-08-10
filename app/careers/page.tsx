@@ -326,8 +326,16 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* 06 - Open roles */}
-      <section id="open-roles" className="py-20 sm:py-28 lg:py-32">
+      {/* 06 - Open roles. Padding follows the content: a full roles list
+          earns the generous rhythm, the empty state would just leave a void. */}
+      <section
+        id="open-roles"
+        className={
+          roles.length > 0
+            ? 'py-20 sm:py-28 lg:py-32'
+            : 'py-14 sm:py-16 lg:py-20'
+        }
+      >
         <div className="shell">
           <div className="border-t border-line pt-8 sm:pt-10">
             <Reveal>
@@ -381,46 +389,56 @@ export default function CareersPage() {
                 </div>
               </>
             ) : (
-              // Empty state - honest, calm, credible
+              // Empty state - honest, calm, credible. Deliberately a single
+              // narrow column: the 12-col split left an orphaned half-row of
+              // whitespace whenever there was nothing to list.
               <Reveal delay={0.12}>
-                <div className="mt-10 border-t border-line pt-8 sm:pt-10">
-                  <div className="grid gap-x-16 gap-y-8 lg:grid-cols-12 lg:items-start">
-                    <p className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-[1.15] tracking-tight text-ink lg:col-span-6">
-                      No open roles right now.
-                    </p>
-                    <div className="lg:col-span-5 lg:col-start-8">
-                      <p className="max-w-[46ch] text-lg leading-[1.75] text-muted">
-                        We hire selectively across the group. Share your profile
-                        and area of interest, and we will keep it in mind when a
-                        relevant opportunity opens.
-                      </p>
-                      <div className="mt-8 flex flex-col gap-x-10 gap-y-4 sm:flex-row sm:items-center">
-                        <a
-                          href="#general-interest"
-                          className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-accent"
-                        >
-                          <span className="relative">
-                            Share Your Profile
-                            <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[500ms] ease-editorial group-hover:bg-accent" />
-                          </span>
-                          <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
-                            &rarr;
-                          </span>
-                        </a>
-                        <Link
-                          href="/companies"
-                          className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
-                        >
-                          <span className="relative">
-                            Explore Our Brands
-                            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[500ms] ease-editorial group-hover:scale-x-100" />
-                          </span>
-                          <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
-                            &rarr;
-                          </span>
-                        </Link>
-                      </div>
-                    </div>
+                <div className="mt-10 max-w-[62ch] border-t border-line pt-7 sm:pt-8">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      aria-hidden="true"
+                      className="h-1.5 w-1.5 rounded-full bg-ink/25"
+                    />
+                    <span className="font-mono text-[11px] uppercase tracking-meta text-muted">
+                      0 roles open
+                    </span>
+                  </div>
+
+                  <p className="mt-5 font-serif text-[clamp(1.6rem,2.6vw,2.15rem)] font-light leading-[1.12] tracking-tightest text-ink">
+                    No open roles right now.
+                  </p>
+
+                  <p className="mt-4 max-w-[52ch] text-lg leading-[1.7] text-muted">
+                    We hire selectively across the group. Share your profile and
+                    area of interest, and we will keep it in mind when a
+                    relevant opportunity opens.
+                  </p>
+
+                  <div className="mt-7 flex flex-col gap-x-10 gap-y-4 sm:flex-row sm:items-center">
+                    <a
+                      href="#general-interest"
+                      className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-accent"
+                    >
+                      <span className="relative">
+                        Share Your Profile
+                        <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[500ms] ease-editorial group-hover:bg-accent" />
+                      </span>
+                      <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
+                        &rarr;
+                      </span>
+                    </a>
+                    <Link
+                      href="/companies"
+                      className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
+                    >
+                      <span className="relative">
+                        Explore Our Brands
+                        <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[500ms] ease-editorial group-hover:scale-x-100" />
+                      </span>
+                      <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
+                        &rarr;
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </Reveal>

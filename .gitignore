@@ -34,6 +34,7 @@ yarn-error.log*
 # internal assets — not for the public repo
 /DWS Group Deck.pptx
 /logo dn.png
+/Digital Next - Company Reference Document.docx
 
 # typescript
 *.tsbuildinfo

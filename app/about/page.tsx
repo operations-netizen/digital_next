@@ -205,7 +205,7 @@ export default function AboutPage() {
               </Reveal>
             </div>
 
-            <div className="mt-14 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
+            <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:mt-12 lg:gap-x-14 lg:gap-y-10">
               {companies.map((c, i) => (
                 <Reveal key={c.id} delay={(i % 2) * 0.1} className="h-full">
                   <a
@@ -213,36 +213,40 @@ export default function AboutPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${c.name} - ${c.category}. Visit website (opens in a new tab).`}
-                    className="group flex h-full flex-col border-t border-line pt-8 outline-none transition-colors duration-500 ease-editorial hover:border-ink/25 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-4 focus-visible:ring-offset-bg lg:pt-10"
+                    className="group relative flex h-full flex-col border-t border-line pt-6 outline-none transition-colors duration-500 ease-editorial hover:border-ink/25 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-4 focus-visible:ring-offset-bg lg:pt-7"
                   >
-                    {/* Header row: index + name + category left, logo right */}
-                    <div className="flex items-start justify-between gap-6">
+                    {/* Accent rule draws across the card's top hairline on
+                        hover - a card-level affordance, since the whole tile
+                        is the link, not just the name. */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-px left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                    />
+                    {/* Header row: index + name + category left, logo right.
+                        items-center so the mark sits on the vertical midpoint
+                        of the index/name/category stack rather than hanging
+                        off its top edge. */}
+                    <div className="flex items-center justify-between gap-6">
                       <div className="min-w-0">
-                        <span className="font-mono text-[11px] tracking-meta text-muted/45">
+                        <span className="font-mono text-[11px] tracking-meta text-muted/45 transition-colors duration-500 ease-editorial group-hover:text-accent">
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <h3 className="mt-2 font-serif text-3xl font-normal tracking-tight text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
-                          <span className="relative inline-block">
-                            {c.name}
-                            <span
-                              aria-hidden="true"
-                              className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-500 ease-editorial group-hover:scale-x-100"
-                            />
-                          </span>
+                        <h3 className="mt-1.5 font-serif text-[1.9rem] font-light leading-[1.06] tracking-tightest text-ink sm:text-[2.05rem]">
+                          {c.name}
                         </h3>
-                        <span className="mt-3.5 block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/70">
+                        <span className="mt-2.5 block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/70">
                           {c.category}
                         </span>
                       </div>
 
                       {/* Logo - right side, mono → colour on hover */}
-                      <div className="flex h-10 shrink-0 items-center">
+                      <div className="flex h-12 shrink-0 items-center">
                         {c.logo ? (
                           <img
                             src={c.logo}
                             alt=""
                             loading="lazy"
-                            className="max-h-10 w-auto max-w-[170px] object-contain object-right opacity-80 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0"
+                            className="max-h-12 w-auto max-w-[170px] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0"
                           />
                         ) : (
                           <span className="font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink">
@@ -256,12 +260,12 @@ export default function AboutPage() {
                     </div>
 
                     {/* What the brand does - straight from the data */}
-                    <p className="mt-6 max-w-[42ch] text-[15px] leading-[1.7] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
+                    <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
                       {c.description}
                     </p>
 
                     {/* Footer rail - aligns across the row via mt-auto */}
-                    <div className="mt-auto flex items-center justify-between gap-6 border-t border-line pt-4 lg:mt-9">
+                    <div className="mt-auto flex items-center justify-between gap-6 border-t border-line pt-3.5 transition-colors duration-500 ease-editorial group-hover:border-ink/15 lg:mt-6">
                       <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted/60">
                         {c.founded
                           ? `Est. ${c.founded}`

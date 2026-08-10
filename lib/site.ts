@@ -13,20 +13,27 @@ export const nav = [
 ]
 
 // Headline group figures shown in the strip just under the hero.
+// All figures below trace to the internal "Digital Next - Company Reference
+// Document" (July 2026): 6 brands (5 active, 1 pre-launch), 450+ people,
+// 100+ global partners, and 2006 as the founding year. Country and office
+// counts exclude the UK, which stays out of all public-facing copy: 4
+// countries (India, USA, Australia, New Zealand) and 5 offices. The previous
+// "5,000+ Clients", "12M+ Users" and "100+ Products shipped" figures had no
+// source and were removed.
 export const quickStats = [
   { value: 6, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'Employees' },
   { value: 4, suffix: '', label: 'Countries' },
-  { value: 5000, suffix: '+', label: 'Clients' },
+  { value: 20, suffix: '+', label: 'Years' },
 ]
 
 export const impactStats = [
   { value: 6, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'People' },
   { value: 4, suffix: '', label: 'Countries' },
-  { value: 5000, suffix: '+', label: 'Clients' },
-  { value: 12, suffix: 'M+', label: 'Users' },
-  { value: 100, suffix: '+', label: 'Products shipped' },
+  { value: 5, suffix: '', label: 'Offices' },
+  { value: 100, suffix: '+', label: 'Global partners' },
+  { value: 20, suffix: '+', label: 'Years building' },
 ]
 
 export const philosophy = [
@@ -47,16 +54,18 @@ export const philosophy = [
   },
 ]
 
-// Milestones are anchored to the brands' real founding years (see
-// lib/companies.ts) - the story opens in 2006 with the original brand, not
-// with the holding company that later formed around it.
+// Milestones follow section 4 of the internal Company Reference Document
+// (July 2026). The story opens in 2006 with the original brand, not with the
+// holding company that later formed around it. The document's 2009, 2012 and
+// 2014 UK milestones are intentionally omitted - the UK stays out of all
+// public-facing copy.
 export const timeline = [
-  { year: '2006', title: 'Origins', body: 'Digital Web Solutions Pvt. Ltd. is founded - the first and still the largest brand in the group.' },
+  { year: '2006', title: 'Origins', body: 'Digital Web Solutions Pvt. Ltd. is founded in India - the first and still the largest brand in the group, and the start of an agency for agencies.' },
   { year: '2012', title: 'Australia & New Zealand', body: 'Smego Web launches, taking the full-service agency model to SMBs across the ANZ market.' },
   { year: '2015', title: 'First product', body: 'RankWatch is introduced, moving the group beyond services into proprietary SaaS.' },
   { year: '2019', title: 'United States', body: 'Wytlabs is founded to serve US eCommerce, SaaS, and healthcare brands.' },
   { year: '2025', title: 'New platforms', body: 'CollabX launches into influencer and partnership management, and enters a high-growth scale-up phase.' },
-  { year: '2026', title: 'Six brands', body: 'A group of six brands across agency, platform, and SaaS, with Hire Next in development as shared talent infrastructure.' },
+  { year: '2026', title: 'One group, six brands', body: 'The group takes the Digital Next name across six brands, four countries, and 450+ people, with Hire Next in development as shared talent infrastructure.' },
   { year: 'Next', title: "Building what's next", body: 'The next decade of internet businesses - founded, built, and scaled.' },
 ]
 

@@ -1,6 +1,11 @@
 // Portfolio companies - single source of truth. Edit copy, tags,
 // stats and URLs here; the whole site reads from this file.
 // Swap `ticker` wordmarks for real logos later.
+//
+// Founding years and headcounts come from the internal "Digital Next -
+// Company Reference Document" (July 2026). Per-brand headcounts in that
+// document were last recorded Dec 2025 and are flagged there as pending a
+// refresh - re-verify before treating them as current.
 
 export type CompanyTag =
   | 'Agency'
@@ -43,7 +48,7 @@ export const companies: Company[] = [
     mission: 'Performance marketing that compounds.',
     founded: '2006',
     industry: 'Digital Marketing',
-    employees: '160+',
+    employees: '~180',
     url: 'https://www.digitalwebsolutions.com/',
     logo: '/logos/digital-web-solutions.svg',
     primaryColor: '#2563EB', // blue
@@ -59,7 +64,7 @@ export const companies: Company[] = [
     mission: 'Growth engineered for US brands.',
     founded: '2019',
     industry: 'Marketing Agency',
-    employees: '90+',
+    employees: '~99',
     url: 'https://wytlabs.com/',
     logo: '/logos/wytlabs.png',
     primaryColor: '#7C3AED', // purple
@@ -75,7 +80,7 @@ export const companies: Company[] = [
     mission: 'Hiring, re-engineered.',
     founded: '2026',
     industry: 'HR Technology',
-    employees: '40+',
+    employees: 'Pre-launch',
     url: 'https://hirenext.io/',
     logo: '', // official logo is client-rendered inline SVG; not retrievable as a file
     primaryColor: '#14B8A6', // teal
@@ -91,7 +96,7 @@ export const companies: Company[] = [
     mission: 'See every rank, everywhere.',
     founded: '2015',
     industry: 'SaaS | SEO',
-    employees: '60+',
+    employees: '~23',
     url: 'https://www.rankwatch.com/',
     logo: '/logos/rankwatch.png',
     primaryColor: '#16A34A', // green
@@ -107,7 +112,7 @@ export const companies: Company[] = [
     mission: 'Where brands and influencers meet.',
     founded: '2025',
     industry: 'Influencer Marketing',
-    employees: '35+',
+    employees: '~18',
     url: 'https://collabx.com/',
     logo: '/logos/collabx.svg',
     primaryColor: '#22C55E', // bright green
@@ -123,7 +128,7 @@ export const companies: Company[] = [
     mission: 'Full-service growth for ANZ.',
     founded: '2012',
     industry: 'Marketing Agency',
-    employees: '70+',
+    employees: '~19',
     url: 'https://smegoweb.co.nz/',
     logo: '/logos/smegoweb.png',
     primaryColor: '#1E3A8A', // navy

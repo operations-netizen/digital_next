@@ -72,7 +72,7 @@ export default function WhoWeAre() {
               <p className="max-w-[32rem] text-lg leading-[1.78] text-ink sm:text-xl">
                 Digital Next is a multi-brand digital services and technology
                 group, headquartered in India with operating presence across the
-                United States, United Kingdom, Australia, and New Zealand.
+                United States, Australia, and New Zealand.
               </p>
               <p className="mt-6 max-w-[32rem] text-base leading-[1.85] text-muted">
                 Under a single group identity, we bring together specialist

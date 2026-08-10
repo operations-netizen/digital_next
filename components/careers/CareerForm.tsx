@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import SelectField from '@/components/ui/SelectField'
 import { areaOptions, companyOptions } from '@/lib/careers'
 
 /**
@@ -10,7 +11,7 @@ import { areaOptions, companyOptions } from '@/lib/careers'
  */
 
 const field =
-  'mt-2 w-full border-b border-white/20 bg-transparent py-2.5 text-white outline-none transition-colors duration-[500ms] ease-editorial placeholder:text-white/30 focus:border-accent'
+  'mt-2 w-full border-b border-white/20 bg-transparent py-2.5 text-white outline-none transition-colors duration-[500ms] ease-editorial placeholder:text-white/30 hover:border-white/35 focus:border-accent'
 
 function Label({ children }: { children: string }) {
   return (
@@ -28,9 +29,17 @@ export default function CareerForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError('')
+
+    const body = new FormData(e.currentTarget)
+    // Area posts through a hidden input, and hidden inputs are barred from
+    // constraint validation - so `required` has to be enforced here.
+    if (!String(body.get('area') ?? '').trim()) {
+      setError('Please choose an area of interest.')
+      return
+    }
+
     setSubmitting(true)
     try {
-      const body = new FormData(e.currentTarget)
       body.set('form', 'careers')
       const res = await fetch('/api/forms', { method: 'POST', body })
       if (!res.ok) {
@@ -91,30 +100,22 @@ export default function CareerForm() {
         <input type="text" name="location" autoComplete="address-level2" placeholder="City, Country" className={field} />
       </label>
 
-      <label className="block">
-        <Label>Area of interest</Label>
-        <div className="relative">
-          <select name="area" required defaultValue="" className={`${field} appearance-none pr-6 [&>option]:text-ink`}>
-            <option value="" disabled>Select an area</option>
-            {areaOptions.map((a) => (
-              <option key={a} value={a}>{a}</option>
-            ))}
-          </select>
-          <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-0 font-mono text-[11px] text-white/40">&#9662;</span>
-        </div>
-      </label>
+      <SelectField
+        name="area"
+        label="Area of interest"
+        options={areaOptions}
+        placeholder="Select an area"
+        required
+      />
 
-      <label className="block sm:col-span-2">
-        <Label>Preferred brand</Label>
-        <div className="relative">
-          <select name="company" defaultValue="Open to Any" className={`${field} appearance-none pr-6 [&>option]:text-ink`}>
-            {companyOptions.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-          <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-0 font-mono text-[11px] text-white/40">&#9662;</span>
-        </div>
-      </label>
+      <div className="sm:col-span-2">
+        <SelectField
+          name="company"
+          label="Preferred brand"
+          options={companyOptions}
+          defaultValue="Open to Any"
+        />
+      </div>
 
       <label className="block sm:col-span-2">
         <Label>Short introduction</Label>
