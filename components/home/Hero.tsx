@@ -33,7 +33,10 @@ export default function Hero() {
       {/* Full-bleed (edge-padded) so the copy hugs the left on wide screens
           instead of sitting in the centered shell gutter; below ~1440px this
           is identical to the shell. */}
-      <div className="relative grid min-h-[78svh] w-full items-center gap-10 px-6 pb-8 pt-24 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:px-16 lg:pt-24">
+      {/* The left track is capped to the headline's own measure rather than
+          taking a 1.1fr share: a fractional track left a band of dead space
+          between the copy's ragged edge and the orbit. */}
+      <div className="relative grid min-h-[72svh] w-full items-center gap-8 px-6 pb-8 pt-24 sm:px-10 lg:grid-cols-[minmax(0,38rem)_1fr] lg:gap-10 lg:px-16 lg:pt-24">
         <div className="max-w-2xl">
           <motion.div {...fade(0.05)}>
             <Eyebrow>A technology holding company</Eyebrow>
@@ -54,7 +57,7 @@ export default function Hero() {
           />
 
           <motion.p
-            className="mt-8 max-w-[500px] text-base leading-[1.7] text-muted sm:text-lg"
+            className="mt-8 max-w-[34rem] text-base leading-[1.7] text-muted sm:text-lg"
             {...fade(0.7)}
           >
             We build and scale exceptional internet businesses across AI, SaaS,
@@ -73,7 +76,7 @@ export default function Hero() {
         </div>
 
         <motion.div
-          className="flex w-full items-center justify-center lg:h-full lg:-translate-x-6 lg:self-stretch"
+          className="flex w-full items-center justify-center lg:h-full lg:self-stretch"
           initial={reduce ? false : { opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: reduce ? 0 : 0.4, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}

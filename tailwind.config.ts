@@ -3,6 +3,17 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
+    // Declared in full rather than via `extend`: extended screens are
+    // appended after the defaults, so an `xs` added there would emit its
+    // rules *after* `sm`/`lg` and override them at large sizes.
+    screens: {
+      xs: '400px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         bg: '#FFFFFF',

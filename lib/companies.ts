@@ -32,6 +32,12 @@ export interface Company {
   url: string
   /** Path under /public to the official logo, or '' if none retrieved. */
   logo: string
+  /** Intrinsic pixel dimensions of `logo`. Set as width/height attributes on
+   *  every <img> so the browser reserves the aspect ratio before the asset
+   *  loads - without them the logos jump from zero width and shift the
+   *  layout. Omit only when there is no logo file. */
+  logoWidth?: number
+  logoHeight?: number
   /** Brand color, for subtle accents. */
   primaryColor: string
 }
@@ -51,6 +57,8 @@ export const companies: Company[] = [
     employees: '~180',
     url: 'https://www.digitalwebsolutions.com/',
     logo: '/logos/digital-web-solutions.svg',
+    logoWidth: 149,
+    logoHeight: 74,
     primaryColor: '#2563EB', // blue
   },
   {
@@ -67,6 +75,8 @@ export const companies: Company[] = [
     employees: '~99',
     url: 'https://wytlabs.com/',
     logo: '/logos/wytlabs.png',
+    logoWidth: 237,
+    logoHeight: 38,
     primaryColor: '#7C3AED', // purple
   },
   {
@@ -99,6 +109,8 @@ export const companies: Company[] = [
     employees: '~23',
     url: 'https://www.rankwatch.com/',
     logo: '/logos/rankwatch.png',
+    logoWidth: 143,
+    logoHeight: 32,
     primaryColor: '#16A34A', // green
   },
   {
@@ -115,6 +127,8 @@ export const companies: Company[] = [
     employees: '~18',
     url: 'https://collabx.com/',
     logo: '/logos/collabx.svg',
+    logoWidth: 158,
+    logoHeight: 35,
     primaryColor: '#22C55E', // bright green
   },
   {
@@ -131,6 +145,8 @@ export const companies: Company[] = [
     employees: '~19',
     url: 'https://smegoweb.co.nz/',
     logo: '/logos/smegoweb.png',
+    logoWidth: 234,
+    logoHeight: 43,
     primaryColor: '#1E3A8A', // navy
   },
 ]

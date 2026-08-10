@@ -90,15 +90,10 @@ export default function EcosystemOrbit() {
     }
   }, [selectedId])
 
-  // Card sits in the corner opposite the active node, so it never covers
-  // the node and always stays inside the orbit's bounds.
-  const vertical = active && active.y <= 50 ? 'bottom' : 'top'
-  const horizontal = active && active.x < 50 ? 'right' : 'left'
-  const posClass = [
-    vertical === 'bottom' ? 'bottom-0' : 'top-0',
-    horizontal === 'left' ? 'left-0' : 'right-0',
-  ].join(' ')
-  const slideY = vertical === 'bottom' ? 8 : -8
+  // The card takes the hub's place at the centre of the ring. A corner
+  // placement always buried two or three of the six nodes; the centre is
+  // the one spot inside the orbit that no node occupies, and it keeps the
+  // connecting line from the hub to the active node readable.
 
   return (
     <div
@@ -182,7 +177,12 @@ export default function EcosystemOrbit() {
                     setSelectedId((prev) => (prev === n.id ? null : n.id))
                   }}
                   className={[
-                    'flex h-16 w-16 items-center justify-center rounded-full border bg-bg outline-none transition-all duration-300 ease-editorial focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:h-[4.5rem] sm:w-[4.5rem]',
+                    // Nodes sit on a ring at 40% radius, so half a node hangs
+                    // past the container edge. At 64px that exceeds the 10%
+                    // margin on viewports under ~368px (common Android
+                    // widths), so the base size steps down and only grows
+                    // once there is room for it.
+                    'flex h-12 w-12 items-center justify-center rounded-full border bg-bg outline-none transition-all duration-300 ease-editorial focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg xs:h-14 xs:w-14 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]',
                     isActive
                       ? 'scale-[1.1] border-accent text-accent shadow-[0_16px_44px_-16px_rgba(79,70,255,0.4)]'
                       : 'border-line/80 text-ink shadow-[0_8px_28px_-18px_rgba(17,17,17,0.22)] hover:border-accent',
@@ -200,7 +200,15 @@ export default function EcosystemOrbit() {
         })}
       </div>
 
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      {/* Hub - steps aside for the detail card, which occupies the same
+          centre spot. */}
+      <div
+        className={[
+          'pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ease-editorial',
+          active ? 'opacity-0' : 'opacity-100',
+        ].join(' ')}
+        aria-hidden={active ? 'true' : undefined}
+      >
         <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-ink text-bg shadow-[0_20px_50px_-26px_rgba(17,17,17,0.45)] sm:h-32 sm:w-32">
           {!reduce && (
             <span className="absolute inset-0 animate-pulse rounded-full ring-1 ring-accent/40" />
@@ -217,14 +225,17 @@ export default function EcosystemOrbit() {
         {active && (
           <motion.div
             key={active.id}
-            initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: slideY }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: reduce ? 1 : 0.98, y: reduce ? 0 : slideY / 2 }}
+            // Centring runs through motion's own x/y, not Tailwind's
+            // -translate-*: motion writes an inline `transform` for the
+            // scale, and an inline transform beats the utility class.
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.94, x: '-50%', y: '-50%' }}
+            animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
+            exit={{ opacity: 0, scale: reduce ? 1 : 0.97, x: '-50%', y: '-50%' }}
             transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
-            style={{ transformOrigin: `${vertical} ${horizontal}` }}
             className={[
-              'absolute z-20 w-[16rem] max-w-[78%] rounded-2xl bg-bg p-6 shadow-[0_20px_56px_-28px_rgba(17,17,17,0.22)] ring-1 ring-black/[0.04]',
-              posClass,
+              'absolute left-1/2 top-1/2 z-20 w-[15rem] max-w-[68%] rounded-2xl bg-bg p-5 text-center shadow-[0_24px_64px_-24px_rgba(17,17,17,0.28)] ring-1 ring-black/[0.05] sm:p-6 sm:text-left',
+              // Room for the close affordance, which only exists on touch.
+              selectedId !== null ? 'pt-9 sm:pt-9' : '',
             ].join(' ')}
           >
             {selectedId !== null && (
@@ -248,18 +259,18 @@ export default function EcosystemOrbit() {
               </button>
             )}
 
-            <span className="block pr-6 font-mono text-[9px] uppercase tracking-meta text-muted">
+            <span className="block font-mono text-[9px] uppercase tracking-meta text-muted">
               {active.category}
             </span>
-            <h3 className="mt-2 font-serif text-2xl font-light leading-tight tracking-tighter text-ink">
+            <h3 className="mt-2 font-serif text-xl font-light leading-tight tracking-tighter text-ink sm:text-2xl">
               {active.name}
             </h3>
-            <p className="mt-2.5 text-[13px] leading-relaxed text-muted">{active.mission}</p>
+            <p className="mt-2 text-[13px] leading-relaxed text-muted">{active.mission}</p>
             <a
               href={active.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/cta mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent outline-none focus-visible:underline"
+              className="group/cta mt-3.5 inline-flex items-center gap-1.5 text-sm font-medium text-accent outline-none focus-visible:underline"
             >
               Visit Brand
               <span className="transition-transform duration-300 ease-out group-hover/cta:translate-x-0.5">

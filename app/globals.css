@@ -11,10 +11,37 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    /* Reserve the scrollbar track. Scroll-revealed sections change page
+       height as they animate in; without this the scrollbar can appear
+       mid-scroll and shift every centred layout sideways by its width. */
+    scrollbar-gutter: stable;
+    /* iOS inflates type in landscape, which breaks fixed ch/px measures. */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Nothing may scroll the page sideways. `clip` rather than `hidden`:
+     overflow-hidden on the root turns it into a scroll container and
+     silently kills `position: sticky`, which the nav relies on. `clip`
+     confines the paint without creating a scroll container. */
+  html,
+  body {
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   body {
     text-rendering: optimizeLegibility;
+    /* Long URLs, emails and tickers in the legal pages would otherwise
+       set a minimum width wider than a phone viewport. */
+    overflow-wrap: break-word;
+  }
+
+  /* Media never exceeds its column, whatever intrinsic size it carries. */
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
   }
 
   /* Deliberate keyboard focus */

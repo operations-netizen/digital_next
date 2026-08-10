@@ -68,10 +68,12 @@ export default function Portfolio() {
           <div className="mt-12 h-px w-full bg-line" />
         </Reveal>
 
-        {/* Cards: 1 col mobile, 2 cols tablet + desktop (3 rows) */}
+        {/* Cards: 1 col mobile, 2 cols tablet + desktop (3 rows).
+            min-w-0 on each item: grid items default to min-width:auto, which
+            lets a long brand name size the track wider than the viewport. */}
         <div className="mt-12 grid items-stretch gap-x-5 gap-y-3 sm:grid-cols-2 lg:gap-x-6 lg:gap-y-4">
           {companies.map((company, i) => (
-            <Reveal key={company.id} delay={i * 0.08} className="h-full">
+            <Reveal key={company.id} delay={i * 0.08} className="h-full min-w-0">
               <CompanyCard company={company} index={i} />
             </Reveal>
           ))}
@@ -117,14 +119,18 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
               alt={`${company.name} logo`}
               loading="lazy"
               decoding="async"
+              width={company.logoWidth}
+              height={company.logoHeight}
               className={[
                 'w-auto origin-right object-contain object-right transition-transform duration-[280ms] ease-out group-hover:scale-[1.03]',
-                // Per-logo sizing - square marks (DWS) and wordmarks need different heights.
+                // Per-logo sizing - square marks (DWS) and wordmarks need
+                // different heights. The narrow-screen caps keep the logo
+                // from crowding the brand name out of the card.
                 company.id === 'digital-web-solutions'
-                  ? 'max-h-20 max-w-[140px]'
+                  ? 'max-h-16 max-w-[96px] xs:max-h-20 xs:max-w-[140px]'
                   : company.id === 'rankwatch'
-                    ? 'max-h-14 max-w-[220px]'
-                    : 'max-h-7 max-w-[140px]',
+                    ? 'max-h-12 max-w-[150px] xs:max-h-14 xs:max-w-[220px]'
+                    : 'max-h-6 max-w-[104px] xs:max-h-7 xs:max-w-[140px]',
               ].join(' ')}
             />
           ) : company.id === 'hirenext' ? (

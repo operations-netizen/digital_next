@@ -205,9 +205,12 @@ export default function AboutPage() {
               </Reveal>
             </div>
 
+            {/* min-w-0 on each item: grid items default to min-width:auto,
+                so a long brand name can size the track wider than the
+                viewport. */}
             <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:mt-12 lg:gap-x-14 lg:gap-y-10">
               {companies.map((c, i) => (
-                <Reveal key={c.id} delay={(i % 2) * 0.1} className="h-full">
+                <Reveal key={c.id} delay={(i % 2) * 0.1} className="h-full min-w-0">
                   <a
                     href={c.url}
                     target="_blank"
@@ -226,12 +229,12 @@ export default function AboutPage() {
                         items-center so the mark sits on the vertical midpoint
                         of the index/name/category stack rather than hanging
                         off its top edge. */}
-                    <div className="flex items-center justify-between gap-6">
+                    <div className="flex items-center justify-between gap-4 xs:gap-6">
                       <div className="min-w-0">
                         <span className="font-mono text-[11px] tracking-meta text-muted/45 transition-colors duration-500 ease-editorial group-hover:text-accent">
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <h3 className="mt-1.5 font-serif text-[1.9rem] font-light leading-[1.06] tracking-tightest text-ink sm:text-[2.05rem]">
+                        <h3 className="mt-1.5 font-serif text-[1.55rem] font-light leading-[1.06] tracking-tightest text-ink xs:text-[1.9rem] sm:text-[2.05rem]">
                           {c.name}
                         </h3>
                         <span className="mt-2.5 block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/70">
@@ -240,16 +243,18 @@ export default function AboutPage() {
                       </div>
 
                       {/* Logo - right side, mono → colour on hover */}
-                      <div className="flex h-12 shrink-0 items-center">
+                      <div className="flex h-9 shrink-0 items-center xs:h-11 sm:h-12">
                         {c.logo ? (
                           <img
                             src={c.logo}
                             alt=""
                             loading="lazy"
-                            className="max-h-12 w-auto max-w-[170px] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0"
+                            width={c.logoWidth}
+                            height={c.logoHeight}
+                            className="max-h-9 w-auto max-w-[104px] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0 xs:max-h-11 xs:max-w-[140px] sm:max-h-12 sm:max-w-[170px]"
                           />
                         ) : (
-                          <span className="font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink">
+                          <span className="whitespace-nowrap font-sans text-[1.15rem] font-bold leading-none tracking-[-0.02em] text-ink xs:text-[1.35rem] sm:text-[1.5rem]">
                             HireNext
                             <span className="text-ink/40 transition-colors duration-500 ease-editorial group-hover:text-[#14B8A6]">
                               .io

@@ -183,6 +183,8 @@ export default function CompaniesPage() {
               ]}
               logo={c.logo}
               logoAlt={`${c.name} logo`}
+              logoWidth={c.logoWidth}
+              logoHeight={c.logoHeight}
               logoMax={s.logoMax}
               href={c.url}
               reverse={i % 2 === 1}

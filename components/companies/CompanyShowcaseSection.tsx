@@ -25,6 +25,10 @@ export interface CompanyShowcaseSectionProps {
   metadata: string[]
   logo: string
   logoAlt: string
+  /** Intrinsic size of `logo`, so the browser reserves its aspect ratio
+   *  before the file loads instead of growing it from zero width. */
+  logoWidth?: number
+  logoHeight?: number
   href: string
   reverse?: boolean
   /** Tailwind explicit-height class (e.g. `h-14`) - forces small/low-res
@@ -42,6 +46,8 @@ export default function CompanyShowcaseSection({
   metadata,
   logo,
   logoAlt,
+  logoWidth,
+  logoHeight,
   href,
   reverse = false,
   logoMax = 'h-14',
@@ -92,6 +98,8 @@ export default function CompanyShowcaseSection({
                   src={logo}
                   alt={logoAlt}
                   loading="lazy"
+                  width={logoWidth}
+                  height={logoHeight}
                   className={`w-auto max-w-full object-contain opacity-[0.9] transition-[opacity,transform] duration-[600ms] ease-editorial group-hover:-translate-y-1 group-hover:opacity-100 ${logoMax}`}
                 />
               ) : (
