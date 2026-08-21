@@ -14,24 +14,24 @@ function Wordmark({ dark, onClick }: { dark?: boolean; onClick?: () => void }) {
       href="/"
       onClick={onClick}
       aria-label="Digital Next - home"
-      className="group inline-flex items-baseline font-serif text-2xl leading-none tracking-tight sm:text-[1.6rem]"
+      className="group inline-flex items-center"
     >
-      <span
+      {/* One asset for both tones: the file is black ink on real alpha, so
+          `invert` turns it white without touching the transparency - no
+          second download and no src swap as the nav crosses a dark
+          section. width/height are the intrinsic size, so the browser
+          reserves the aspect ratio before it loads. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-dn.png"
+        alt=""
+        width={565}
+        height={120}
         className={[
-          'font-medium transition-colors duration-300',
-          dark ? 'text-white/90 group-hover:text-white' : 'text-ink/90 group-hover:text-ink',
+          'h-7 w-auto opacity-90 transition-opacity duration-300 group-hover:opacity-100 sm:h-8',
+          dark ? 'invert' : '',
         ].join(' ')}
-      >
-        Digital
-      </span>
-      <span
-        className={[
-          'ml-[0.26em] font-normal italic transition-colors duration-300',
-          dark ? 'text-white/55 group-hover:text-white/80' : 'text-ink/55 group-hover:text-ink/80',
-        ].join(' ')}
-      >
-        Next
-      </span>
+      />
     </Link>
   )
 }

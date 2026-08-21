@@ -52,10 +52,17 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="Digital Next - home"
-              className="inline-flex items-baseline font-serif text-2xl leading-none tracking-tight"
+              className="group inline-flex items-center"
             >
-              <span className="font-medium text-white/90">Digital</span>
-              <span className="ml-[0.26em] font-normal italic text-white/55">Next</span>
+              {/* Inverted for the dark footer - see the note in Nav. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-dn.png"
+                alt=""
+                width={565}
+                height={120}
+                className="h-8 w-auto opacity-90 invert transition-opacity duration-300 group-hover:opacity-100"
+              />
             </Link>
             <p className={`mt-6 ${heading}`}>Technology Holding Company</p>
             <h2 className="mt-8 max-w-sm font-serif text-2xl font-light leading-snug tracking-tighter text-white/85 sm:text-[1.75rem]">
