@@ -23,7 +23,7 @@ export default function PrivacySection({
       className="scroll-mt-28 border-t border-line pt-10 first:border-t-0 first:pt-0 sm:pt-12"
     >
       <div className="flex items-baseline gap-4">
-        <span className="font-mono text-[11px] tabular-nums tracking-meta text-accent/50">
+        <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/50">
           {index}
         </span>
         <h2

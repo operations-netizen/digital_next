@@ -29,7 +29,7 @@ export default function InsightArticlePage({
         <Reveal>
           <Link
             href="/insights"
-            className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial hover:text-ink"
+            className="group inline-flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial hover:text-ink"
           >
             <span className="transition-transform duration-300 ease-editorial group-hover:-translate-x-1">
               &larr;
@@ -40,7 +40,7 @@ export default function InsightArticlePage({
 
         <div className="mt-10 max-w-[22ch]">
           <Reveal>
-            <span className="block font-mono text-[10px] uppercase tracking-meta text-accent">
+            <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-accent">
               {insight.category}
             </span>
           </Reveal>
@@ -53,7 +53,7 @@ export default function InsightArticlePage({
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-6 font-mono text-[11px] uppercase tracking-meta text-muted/70">
+          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-6 font-mono text-[0.6875rem] uppercase tracking-meta text-muted/70">
             <span>{insight.author}</span>
             <span aria-hidden="true" className="h-2.5 w-px bg-line" />
             <time dateTime={insight.publishedDate}>{insight.dateLabel}</time>

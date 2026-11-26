@@ -128,19 +128,19 @@ export default function BuildTimeline() {
         {/* baseline */}
         <span
           aria-hidden="true"
-          className="absolute left-0 right-0 top-[58px] h-[2px] -translate-y-1/2 bg-line"
+          className="absolute left-0 right-0 top-[3.625rem] h-[0.125rem] -translate-y-1/2 bg-line"
         />
         {/* drawing accent */}
         <motion.span
           aria-hidden="true"
-          className="absolute left-0 right-0 top-[58px] h-[2px] origin-left -translate-y-1/2 bg-accent"
+          className="absolute left-0 right-0 top-[3.625rem] h-[0.125rem] origin-left -translate-y-1/2 bg-accent"
           style={reduce ? { scaleX: 1 } : { scaleX }}
         />
         {/* moving indicator */}
         {!reduce && (
           <motion.span
             aria-hidden="true"
-            className="absolute top-[58px] z-10 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-[5px] ring-accent/15"
+            className="absolute top-[3.625rem] z-10 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-[0.3125rem] ring-accent/15"
             style={{ left: headLeft }}
           />
         )}
@@ -151,16 +151,16 @@ export default function BuildTimeline() {
               <div className="flex flex-col items-start">
                 <Glyph>{st.icon}</Glyph>
                 {/* node */}
-                <span className="relative mt-[22px] flex h-[13px] items-center">
-                  <span className="h-[10px] w-[10px] rounded-full border border-ink bg-bg transition-colors duration-[600ms] ease-editorial group-hover:border-accent group-hover:bg-accent" />
+                <span className="relative mt-[1.375rem] flex h-[0.8125rem] items-center">
+                  <span className="h-[0.625rem] w-[0.625rem] rounded-full border border-ink bg-bg transition-colors duration-[600ms] ease-editorial group-hover:border-accent group-hover:bg-accent" />
                 </span>
-                <span className="mt-8 font-mono text-[10px] uppercase tracking-meta text-accent/70">
+                <span className="mt-8 font-mono text-[0.625rem] uppercase tracking-meta text-accent/70">
                   {st.no}
                 </span>
                 <h3 className="mt-3 font-serif text-[1.4rem] leading-[1.15] tracking-tight text-ink">
                   {st.title}
                 </h3>
-                <p className="mt-4 max-w-[24ch] text-[15px] leading-[1.65] text-muted">
+                <p className="mt-4 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-muted">
                   {st.body}
                 </p>
               </div>
@@ -173,19 +173,19 @@ export default function BuildTimeline() {
       <div className="relative lg:hidden">
         <span
           aria-hidden="true"
-          className="absolute bottom-0 left-[6px] top-2 w-[2px] bg-line"
+          className="absolute bottom-0 left-[0.375rem] top-2 w-[0.125rem] bg-line"
         />
         <motion.span
           aria-hidden="true"
-          className="absolute left-[6px] top-2 w-[2px] origin-top bg-accent"
+          className="absolute left-[0.375rem] top-2 w-[0.125rem] origin-top bg-accent"
           style={reduce ? { scaleY: 1, bottom: 0 } : { scaleY, bottom: 0 }}
         />
         <ol className="space-y-12">
           {stages.map((st) => (
             <li key={st.no} className="group relative pl-10">
-              <span className="absolute left-[2px] top-1.5 h-[9px] w-[9px] rounded-full border border-ink bg-bg group-hover:border-accent group-hover:bg-accent" />
+              <span className="absolute left-[0.125rem] top-1.5 h-[0.5625rem] w-[0.5625rem] rounded-full border border-ink bg-bg group-hover:border-accent group-hover:bg-accent" />
               <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] uppercase tracking-meta text-accent/70">
+                <span className="font-mono text-[0.625rem] uppercase tracking-meta text-accent/70">
                   {st.no}
                 </span>
                 <Glyph>{st.icon}</Glyph>
@@ -193,7 +193,7 @@ export default function BuildTimeline() {
               <h3 className="mt-2 font-serif text-2xl leading-tight tracking-tight text-ink">
                 {st.title}
               </h3>
-              <p className="mt-2 max-w-[46ch] text-[15px] leading-relaxed text-muted">
+              <p className="mt-2 max-w-[46ch] text-[0.9375rem] leading-relaxed text-muted">
                 {st.body}
               </p>
             </li>

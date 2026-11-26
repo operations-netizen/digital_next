@@ -29,7 +29,7 @@ const social = [
   { label: 'YouTube', href: 'https://www.youtube.com' },
 ]
 
-const heading = 'font-mono text-[11px] uppercase tracking-meta text-white/40'
+const heading = 'font-mono text-[0.6875rem] uppercase tracking-meta text-white/40'
 const textLink =
   'group inline-flex items-center text-sm text-white/60 transition-all duration-300 ease-out hover:translate-x-0.5 hover:text-white'
 
@@ -39,7 +39,7 @@ export default function Footer() {
       {/* Subtle radial glow behind the brand */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-0 h-[460px] w-[560px]"
+        className="pointer-events-none absolute left-0 top-0 h-[28.75rem] w-[35rem]"
         style={{
           background:
             'radial-gradient(circle at top left, rgba(77,76,255,0.12), transparent 45%)',
@@ -116,7 +116,7 @@ export default function Footer() {
                       &#8599;
                     </span>
                   </span>
-                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-meta text-white/35">
+                  <span className="mt-1 block font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
                     {CATEGORY[c.id] ?? c.category}
                   </span>
                 </a>

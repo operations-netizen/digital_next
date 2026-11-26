@@ -37,7 +37,7 @@ export default function AboutTimeline() {
               {/* Spine - fades out below the final node */}
               <span
                 aria-hidden="true"
-                className="absolute bottom-0 left-[5px] top-3 w-px bg-gradient-to-b from-line via-line to-transparent sm:left-[calc(5.5rem+5px)]"
+                className="absolute bottom-0 left-[0.3125rem] top-3 w-px bg-gradient-to-b from-line via-line to-transparent sm:left-[calc(5.5rem+5px)]"
               />
               {timeline.map((t, i) => (
                 <Reveal
@@ -49,18 +49,18 @@ export default function AboutTimeline() {
                   {/* node */}
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 top-[2.05rem] flex h-[11px] w-[11px] items-center justify-center rounded-full border border-line bg-bg sm:left-[5.5rem]"
+                    className="absolute left-0 top-[2.05rem] flex h-[0.6875rem] w-[0.6875rem] items-center justify-center rounded-full border border-line bg-bg sm:left-[5.5rem]"
                   >
-                    <span className="h-[3px] w-[3px] rounded-full bg-accent" />
+                    <span className="h-[0.1875rem] w-[0.1875rem] rounded-full bg-accent" />
                   </span>
-                  <span className="font-mono text-[13px] tabular-nums tracking-[0.1em] text-accent/80 sm:pr-3 sm:pt-1 sm:text-right">
+                  <span className="font-mono text-[0.8125rem] tabular-nums tracking-[0.1em] text-accent/80 sm:pr-3 sm:pt-1 sm:text-right">
                     {t.year}
                   </span>
                   <div>
                     <h3 className="font-serif text-2xl font-normal tracking-tight text-ink">
                       {t.title}
                     </h3>
-                    <p className="mt-2.5 max-w-[46ch] text-[15px] leading-[1.7] text-muted">
+                    <p className="mt-2.5 max-w-[46ch] text-[0.9375rem] leading-[1.7] text-muted">
                       {t.body}
                     </p>
                   </div>

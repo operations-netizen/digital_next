@@ -9,7 +9,7 @@ export default function CookiesSummary() {
       <div className="shell">
         <div className="border-t border-line pt-10 sm:pt-12">
           <Eyebrow>Summary</Eyebrow>
-          <div className="mt-8 max-w-[880px]">
+          <div className="mt-8 max-w-[55rem]">
             {cookiesSummary.map((row) => (
               <div
                 key={row.label}
@@ -18,7 +18,7 @@ export default function CookiesSummary() {
                 <h3 className="font-serif text-xl tracking-tight text-ink sm:col-span-4">
                   {row.label}
                 </h3>
-                <p className="text-[17px] leading-[1.75] text-muted sm:col-span-8 sm:text-[18px]">
+                <p className="text-[1.0625rem] leading-[1.75] text-muted sm:col-span-8 sm:text-[1.125rem]">
                   {row.body}
                 </p>
               </div>
@@ -27,12 +27,12 @@ export default function CookiesSummary() {
               <h3 className="font-serif text-xl tracking-tight text-ink sm:col-span-4">
                 Contact
               </h3>
-              <p className="text-[17px] leading-[1.75] text-muted sm:col-span-8 sm:text-[18px]">
+              <p className="text-[1.0625rem] leading-[1.75] text-muted sm:col-span-8 sm:text-[1.125rem]">
                 <CopyEmail email={cookiesConfig.contactEmail} />
               </p>
             </div>
           </div>
-          <p className="mt-8 max-w-[62ch] text-[15px] leading-relaxed text-muted/70">
+          <p className="mt-8 max-w-[62ch] text-[0.9375rem] leading-relaxed text-muted/70">
             This summary is provided for convenience only and does not replace
             the full policy below.
           </p>

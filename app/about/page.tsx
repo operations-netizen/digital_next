@@ -85,7 +85,7 @@ export default function AboutPage() {
                 </p>
               </Reveal>
               <Reveal delay={0.28}>
-                <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-meta text-muted">
+                <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                   <span>Est. 2017</span>
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
                   <span>Technology holding company</span>
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 ]}
               />
             </div>
-            <div className="relative lg:col-span-5 lg:col-start-8 lg:mt-[14px]">
+            <div className="relative lg:col-span-5 lg:col-start-8 lg:mt-[0.875rem]">
               {/* Editorial divider between columns - a faint gradient line */}
               <span
                 aria-hidden="true"
@@ -232,13 +232,13 @@ export default function AboutPage() {
                         off its top edge. */}
                     <div className="flex items-center justify-between gap-4 xs:gap-6">
                       <div className="min-w-0">
-                        <span className="font-mono text-[11px] tracking-meta text-muted/45 transition-colors duration-500 ease-editorial group-hover:text-accent">
+                        <span className="font-mono text-[0.6875rem] tracking-meta text-muted/45 transition-colors duration-500 ease-editorial group-hover:text-accent">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         <h3 className="mt-1.5 font-serif text-[1.55rem] font-light leading-[1.06] tracking-tightest text-ink xs:text-[1.9rem] sm:text-[2.05rem]">
                           {c.name}
                         </h3>
-                        <span className="mt-2.5 block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/70">
+                        <span className="mt-2.5 block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/70">
                           {c.category}
                         </span>
                       </div>
@@ -252,7 +252,7 @@ export default function AboutPage() {
                             loading="lazy"
                             width={c.logoWidth}
                             height={c.logoHeight}
-                            className="max-h-9 w-auto max-w-[104px] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0 xs:max-h-11 xs:max-w-[140px] sm:max-h-12 sm:max-w-[170px]"
+                            className="max-h-9 w-auto max-w-[6.5rem] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0 xs:max-h-11 xs:max-w-[8.75rem] sm:max-h-12 sm:max-w-[10.625rem]"
                           />
                         ) : (
                           <span className="whitespace-nowrap font-sans text-[1.15rem] font-bold leading-none tracking-[-0.02em] text-ink xs:text-[1.35rem] sm:text-[1.5rem]">
@@ -266,18 +266,18 @@ export default function AboutPage() {
                     </div>
 
                     {/* What the brand does - straight from the data */}
-                    <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
+                    <p className="mt-4 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
                       {c.description}
                     </p>
 
                     {/* Footer rail - aligns across the row via mt-auto */}
                     <div className="mt-auto flex items-center justify-between gap-6 border-t border-line pt-3.5 transition-colors duration-500 ease-editorial group-hover:border-ink/15 lg:mt-6">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted/60">
+                      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted/60">
                         {c.founded
                           ? `Est. ${c.founded}`
                           : c.status ?? 'In development'}
                       </span>
-                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-muted transition-colors duration-500 ease-editorial group-hover:text-accent">
+                      <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-muted transition-colors duration-500 ease-editorial group-hover:text-accent">
                         Explore Brand
                         <span className="transition-transform duration-500 ease-editorial group-hover:translate-x-1">
                           &rarr;
@@ -292,10 +292,10 @@ export default function AboutPage() {
             {/* Shared foundation - independent brands stand on one platform */}
             <Reveal delay={0.1}>
               <div className="mt-16 border-t border-line pt-8 text-center sm:mt-20">
-                <span className="font-mono text-[11px] uppercase tracking-meta text-muted">
+                <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                   One shared platform
                 </span>
-                <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-meta text-muted/50">
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted/50">
                   <span>Capital</span>
                   <span aria-hidden="true">·</span>
                   <span>Technology</span>
@@ -344,7 +344,7 @@ export default function AboutPage() {
                   />
                   <div className="grid grid-cols-1 gap-x-8 gap-y-6 py-12 transition-transform duration-300 ease-editorial group-hover:-translate-y-0.5 sm:py-16 lg:grid-cols-12 lg:items-baseline lg:gap-x-10">
                     {/* Index */}
-                    <span className="font-mono text-[13px] tracking-meta text-accent/80 lg:col-span-1 lg:pt-2">
+                    <span className="font-mono text-[0.8125rem] tracking-meta text-accent/80 lg:col-span-1 lg:pt-2">
                       {p.no}
                     </span>
 
@@ -355,7 +355,7 @@ export default function AboutPage() {
 
                     {/* Meta + description - right column fills the spread */}
                     <div className="lg:col-span-4 lg:col-start-9 lg:pt-2">
-                      <span className="block font-mono text-[10px] uppercase tracking-meta text-white/35">
+                      <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
                         {p.meta}
                       </span>
                       <p className="mt-3.5 max-w-[42ch] text-lg leading-relaxed text-white/55">
@@ -381,7 +381,7 @@ export default function AboutPage() {
         {/* Soft ambient glow behind the heading (~9%) */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[40%] z-0 h-[440px] w-[760px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute left-1/2 top-[40%] z-0 h-[27.5rem] w-[47.5rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(79,70,255,0.09), transparent 70%)',
@@ -389,7 +389,7 @@ export default function AboutPage() {
         />
 
         <div className="shell relative z-10">
-          <div className="mx-auto flex max-w-[880px] flex-col items-center">
+          <div className="mx-auto flex max-w-[55rem] flex-col items-center">
             <Reveal>
               <Eyebrow tone="light">What&rsquo;s next</Eyebrow>
             </Reveal>
@@ -404,7 +404,7 @@ export default function AboutPage() {
               ]}
             />
             <Reveal delay={0.15}>
-              <p className="mx-auto mt-8 max-w-[640px] text-lg leading-relaxed text-white/60">
+              <p className="mx-auto mt-8 max-w-[40rem] text-lg leading-relaxed text-white/60">
                 Digital Next exists to build and own enduring internet
                 businesses. If you&rsquo;re building for the long term, we&rsquo;d
                 love to start a conversation.

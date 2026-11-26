@@ -73,7 +73,7 @@ export default function PrinciplesPanel({
         {p.principles.map((item) => (
           <li
             key={item}
-            className="flex items-center gap-3.5 border-b border-white/12 py-3.5 text-[15px] text-white/70"
+            className="flex items-center gap-3.5 border-b border-white/12 py-3.5 text-[0.9375rem] text-white/70"
           >
             <span aria-hidden="true" className="h-1 w-1 shrink-0 rounded-full bg-accent" />
             {item}
@@ -82,7 +82,7 @@ export default function PrinciplesPanel({
       </ul>
 
       {/* Stage indicator */}
-      <p className="mt-8 font-mono text-[11px] tracking-meta text-white/40">
+      <p className="mt-8 font-mono text-[0.6875rem] tracking-meta text-white/40">
         <span className="text-accent">{p.step.split(' / ')[0]}</span> / {p.step.split(' / ')[1]}
       </p>
     </div>

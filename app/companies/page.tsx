@@ -111,7 +111,7 @@ export default function CompaniesPage() {
                 </p>
               </Reveal>
               <Reveal delay={0.28}>
-                <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-meta text-muted">
+                <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                   <span>
                     <span className="text-ink">6</span> Brands
                   </span>
@@ -129,7 +129,7 @@ export default function CompaniesPage() {
 
             {/* Vertical company index - an editorial contents list */}
             <Reveal className="lg:col-span-4 lg:col-start-9 lg:pt-3" delay={0.2}>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
                 Index
               </span>
               <ul className="mt-7">
@@ -141,7 +141,7 @@ export default function CompaniesPage() {
                       rel="noopener noreferrer"
                       className="group flex items-baseline gap-5 border-t border-ink/[0.07] py-3.5 outline-none transition-colors duration-[600ms] ease-editorial last:border-b focus-visible:text-ink"
                     >
-                      <span className="w-6 shrink-0 font-mono text-[10px] tabular-nums tracking-[0.2em] text-muted/40 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                      <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-[0.2em] text-muted/40 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span className="font-serif text-lg tracking-tight text-muted transition-all duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-ink">
@@ -224,7 +224,7 @@ export default function CompaniesPage() {
             {platform.map((p) => (
               <Reveal key={p.no}>
                 <div className="group border-t border-white/10 pt-7 transition-colors duration-[600ms] ease-editorial">
-                  <span className="font-mono text-[11px] tracking-meta text-accent/80">
+                  <span className="font-mono text-[0.6875rem] tracking-meta text-accent/80">
                     {p.no}
                   </span>
                   <h3 className="mt-6 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-white/90 transition-colors duration-[600ms] ease-editorial group-hover:text-white">
@@ -281,14 +281,14 @@ export default function CompaniesPage() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[40%] z-0 h-[440px] w-[760px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute left-1/2 top-[40%] z-0 h-[27.5rem] w-[47.5rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(79,70,255,0.09), transparent 70%)',
           }}
         />
         <div className="shell relative z-10">
-          <div className="mx-auto flex max-w-[880px] flex-col items-center">
+          <div className="mx-auto flex max-w-[55rem] flex-col items-center">
             <Reveal>
               <Eyebrow tone="light">Build with us</Eyebrow>
             </Reveal>
@@ -304,7 +304,7 @@ export default function CompaniesPage() {
               ]}
             />
             <Reveal delay={0.15}>
-              <p className="mx-auto mt-7 max-w-[560px] text-lg leading-relaxed text-white/60">
+              <p className="mx-auto mt-7 max-w-[35rem] text-lg leading-relaxed text-white/60">
                 Whether you are building, operating, or considering the future of
                 an internet business, we are always open to thoughtful
                 conversations.

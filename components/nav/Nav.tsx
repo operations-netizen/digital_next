@@ -127,7 +127,7 @@ export default function Nav() {
       <div
         className={[
           'shell flex items-center justify-between transition-all duration-300 ease-out',
-          scrolled ? 'h-16' : 'h-[76px]',
+          scrolled ? 'h-16' : 'h-[4.75rem]',
         ].join(' ')}
       >
         <Wordmark dark={dark} />
@@ -142,7 +142,7 @@ export default function Nav() {
                 href={l.href}
                 aria-current={active ? 'page' : undefined}
                 className={[
-                  'group relative py-1 text-[15px] font-medium tracking-[-0.01em] transition-colors duration-[250ms] ease-out',
+                  'group relative py-1 text-[0.9375rem] font-medium tracking-[-0.01em] transition-colors duration-[250ms] ease-out',
                   active
                     ? dark
                       ? 'text-white'
@@ -168,7 +168,7 @@ export default function Nav() {
           <Link
             href={contact.href}
             className={[
-              'group ml-3 inline-flex h-12 items-center gap-2 rounded-xl px-8 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5',
+              'group ml-3 inline-flex h-12 items-center gap-2 rounded-xl px-8 text-[0.9375rem] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5',
               dark
                 ? 'bg-white text-ink hover:bg-white/90 hover:shadow-[0_12px_30px_-12px_rgba(255,255,255,0.35)]'
                 : 'bg-ink text-white hover:bg-ink/90 hover:shadow-[0_12px_30px_-12px_rgba(17,17,17,0.45)]',
@@ -192,13 +192,13 @@ export default function Nav() {
             <span
               className={[
                 'absolute left-0 top-0 h-px w-6 transition-all duration-300 ease-out',
-                open ? 'translate-y-[6px] rotate-45 bg-ink' : dark ? 'bg-white' : 'bg-ink',
+                open ? 'translate-y-[0.375rem] rotate-45 bg-ink' : dark ? 'bg-white' : 'bg-ink',
               ].join(' ')}
             />
             <span
               className={[
                 'absolute bottom-0 left-0 h-px w-6 transition-all duration-300 ease-out',
-                open ? '-translate-y-[6px] -rotate-45 bg-ink' : dark ? 'bg-white' : 'bg-ink',
+                open ? '-translate-y-[0.375rem] -rotate-45 bg-ink' : dark ? 'bg-white' : 'bg-ink',
               ].join(' ')}
             />
           </span>

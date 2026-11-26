@@ -26,7 +26,7 @@ export function Ph({ children }: { children: string }) {
 
 export function P({ children }: { children: ReactNode }) {
   return (
-    <p className="text-[17px] leading-[1.8] text-ink/80 sm:text-[18px]">
+    <p className="text-[1.0625rem] leading-[1.8] text-ink/80 sm:text-[1.125rem]">
       {children}
     </p>
   )
@@ -34,7 +34,7 @@ export function P({ children }: { children: ReactNode }) {
 
 export function Lead({ children }: { children: ReactNode }) {
   return (
-    <p className="font-mono text-[11px] uppercase tracking-meta text-muted">
+    <p className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
       {children}
     </p>
   )
@@ -46,7 +46,7 @@ export function UL({ children }: { children: ReactNode }) {
 
 export function LI({ children }: { children: ReactNode }) {
   return (
-    <li className="relative pl-6 text-[17px] leading-[1.75] text-ink/80 sm:text-[18px]">
+    <li className="relative pl-6 text-[1.0625rem] leading-[1.75] text-ink/80 sm:text-[1.125rem]">
       <span
         aria-hidden="true"
         className="absolute left-0 top-[0.85em] h-px w-3 bg-line"
@@ -59,7 +59,7 @@ export function LI({ children }: { children: ReactNode }) {
 /** A definition-style address / detail block. */
 export function DetailBlock({ children }: { children: ReactNode }) {
   return (
-    <div className="border-l border-line pl-6 text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+    <div className="border-l border-line pl-6 text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
       {children}
     </div>
   )
@@ -68,7 +68,7 @@ export function DetailBlock({ children }: { children: ReactNode }) {
 /** Inline note that a clause is conditional / awaiting verification. */
 export function ReviewNote({ children }: { children: ReactNode }) {
   return (
-    <p className="border-l-2 border-accent/40 bg-accent/[0.03] py-2 pl-4 font-mono text-[11px] uppercase leading-[1.7] tracking-meta text-accent/80">
+    <p className="border-l-2 border-accent/40 bg-accent/[0.03] py-2 pl-4 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-accent/80">
       {children}
     </p>
   )

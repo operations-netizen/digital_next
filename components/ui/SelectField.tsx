@@ -154,7 +154,7 @@ export default function SelectField({
     <div className="block" ref={rootRef}>
       <span
         id={labelId}
-        className="font-mono text-[10px] uppercase tracking-meta text-white/45"
+        className="font-mono text-[0.625rem] uppercase tracking-meta text-white/45"
       >
         {label}
       </span>
@@ -175,7 +175,7 @@ export default function SelectField({
           onClick={() => (open ? closeList({ refocus: false }) : openList())}
           onKeyDown={onKeyDown}
           className={[
-            'flex w-full items-center justify-between gap-4 border-b bg-transparent py-2.5 text-left text-[15px] outline-none transition-colors duration-[500ms] ease-editorial',
+            'flex w-full items-center justify-between gap-4 border-b bg-transparent py-2.5 text-left text-[0.9375rem] outline-none transition-colors duration-[500ms] ease-editorial',
             open ? 'border-accent' : 'border-white/20 hover:border-white/35',
             'focus-visible:border-accent',
           ].join(' ')}
@@ -219,7 +219,7 @@ export default function SelectField({
                   onMouseEnter={() => setActive(i)}
                   onClick={() => choose(i)}
                   className={[
-                    'relative cursor-pointer px-4 py-2.5 pl-5 text-[15px] transition-colors duration-200',
+                    'relative cursor-pointer px-4 py-2.5 pl-5 text-[0.9375rem] transition-colors duration-200',
                     isActive ? 'bg-white/[0.055]' : '',
                     isSelected
                       ? 'text-accent'

@@ -93,7 +93,7 @@ export default function BuildCycle() {
   const inView = useInView(ref, { once: true, amount: 0.4 })
 
   return (
-    <div ref={ref} className="mx-auto w-full max-w-[520px]">
+    <div ref={ref} className="mx-auto w-full max-w-[32.5rem]">
       {/* Radial diagram - md and up, where the labels have room beside it. */}
       <div className="relative mx-auto hidden aspect-square w-full md:block">
         <div className="absolute left-1/2 top-1/2 w-[55%] -translate-x-1/2 -translate-y-1/2">
@@ -109,10 +109,10 @@ export default function BuildCycle() {
           const place = isTop
             ? '-translate-x-1/2 -translate-y-[calc(100%+16px)] items-center text-center'
             : isBottom
-              ? '-translate-x-1/2 translate-y-[16px] items-center text-center'
+              ? '-translate-x-1/2 translate-y-[1rem] items-center text-center'
               : onLeft
                 ? '-translate-x-[calc(100%+18px)] -translate-y-1/2 items-end text-right'
-                : 'translate-x-[18px] -translate-y-1/2 items-start text-left'
+                : 'translate-x-[1.125rem] -translate-y-1/2 items-start text-left'
           return (
             <motion.div
               key={n.label}
@@ -125,10 +125,10 @@ export default function BuildCycle() {
               {/* Labels wrap rather than run on: a nowrap "Generate Cash
                   Flow" is wider than the space beside the ring. */}
               <div className={`flex max-w-[6.5rem] flex-col lg:max-w-[7.5rem] ${place}`}>
-                <span className="font-mono text-[10px] tracking-meta text-accent/70">
+                <span className="font-mono text-[0.625rem] tracking-meta text-accent/70">
                   {String(n.i + 1).padStart(2, '0')}
                 </span>
-                <span className="mt-1 font-serif text-[14px] leading-[1.25] tracking-tight text-white/90 lg:text-[15px]">
+                <span className="mt-1 font-serif text-[0.875rem] leading-[1.25] tracking-tight text-white/90 lg:text-[0.9375rem]">
                   {n.label}
                 </span>
               </div>
@@ -138,7 +138,7 @@ export default function BuildCycle() {
 
         {/* center caption */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <span className="font-mono text-[10px] uppercase tracking-meta text-white/35">
+          <span className="font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
             The engine
           </span>
         </div>
@@ -146,10 +146,10 @@ export default function BuildCycle() {
 
       {/* Below md: the ring stays as the visual, the steps read as a list. */}
       <div className="md:hidden">
-        <div className="relative mx-auto w-full max-w-[240px]">
+        <div className="relative mx-auto w-full max-w-[15rem]">
           <Ring inView={inView} reduce={reduce} />
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <span className="font-mono text-[10px] uppercase tracking-meta text-white/35">
+            <span className="font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
               The engine
             </span>
           </div>
@@ -161,10 +161,10 @@ export default function BuildCycle() {
               key={n.label}
               className="flex items-baseline gap-4 border-t border-white/10 py-3 last:border-b"
             >
-              <span className="font-mono text-[10px] tracking-meta text-accent/70">
+              <span className="font-mono text-[0.625rem] tracking-meta text-accent/70">
                 {String(n.i + 1).padStart(2, '0')}
               </span>
-              <span className="font-serif text-[15px] tracking-tight text-white/90">
+              <span className="font-serif text-[0.9375rem] tracking-tight text-white/90">
                 {n.label}
               </span>
             </li>

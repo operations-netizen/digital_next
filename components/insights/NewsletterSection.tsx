@@ -36,7 +36,7 @@ export default function NewsletterSection() {
     <div className="border-t border-line py-14 sm:py-16">
       <div className="grid gap-x-16 gap-y-6 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-4">
-          <span className="block font-mono text-[10px] uppercase tracking-meta text-muted/60">
+          <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-muted/60">
             Digital Next Notes
           </span>
           <p className="mt-2 font-serif text-2xl tracking-tight text-ink">
@@ -72,7 +72,7 @@ export default function NewsletterSection() {
                 required
                 autoComplete="email"
                 placeholder="Email address"
-                className="min-h-[32px] w-full bg-transparent text-ink outline-none placeholder:text-muted/40"
+                className="min-h-[2rem] w-full bg-transparent text-ink outline-none placeholder:text-muted/40"
               />
               <button
                 type="submit"
@@ -89,11 +89,11 @@ export default function NewsletterSection() {
             </form>
           )}
           {error && (
-            <p role="alert" className="mt-3 text-[13px] text-muted">
+            <p role="alert" className="mt-3 text-[0.8125rem] text-muted">
               {error}
             </p>
           )}
-          <p className="mt-3 text-[13px] leading-relaxed text-muted/70">
+          <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted/70">
             No weekly noise. Only when we have something worth sharing.
           </p>
         </div>

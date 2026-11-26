@@ -46,7 +46,7 @@ export default function PrivacyTableOfContents({ items }: { items: TocItem[] }) 
               }`}
             >
               <span
-                className={`font-mono text-[10px] tabular-nums tracking-meta transition-colors duration-300 ${
+                className={`font-mono text-[0.625rem] tabular-nums tracking-meta transition-colors duration-300 ${
                   isActive ? 'text-accent' : 'text-muted/40'
                 }`}
               >
@@ -71,7 +71,7 @@ export default function PrivacyTableOfContents({ items }: { items: TocItem[] }) 
     <>
       {/* Mobile - On this page disclosure */}
       <details className="group border-y border-line lg:hidden">
-        <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-mono text-[11px] uppercase tracking-meta text-ink outline-none focus-visible:text-accent">
+        <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-mono text-[0.6875rem] uppercase tracking-meta text-ink outline-none focus-visible:text-accent">
           On this page
           <span aria-hidden="true" className="text-muted transition-transform duration-300 ease-editorial group-open:rotate-180">
             &#9662;
@@ -87,7 +87,7 @@ export default function PrivacyTableOfContents({ items }: { items: TocItem[] }) 
         aria-label="Table of contents"
         className="sticky top-28 hidden lg:block"
       >
-        <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+        <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
           On this page
         </span>
         <div className="mt-5">{list}</div>

@@ -45,13 +45,13 @@ export default function LifeGallery() {
                     ) : (
                       <span
                         aria-hidden="true"
-                        className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-meta text-muted/40"
+                        className="absolute right-5 top-5 font-mono text-[0.625rem] uppercase tracking-meta text-muted/40"
                       >
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     )}
                   </div>
-                  <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-meta text-muted">
+                  <figcaption className="mt-4 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                     {f.caption}
                   </figcaption>
                 </figure>

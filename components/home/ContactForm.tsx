@@ -23,7 +23,7 @@ const field =
 
 function FieldLabel({ n, children }: { n: string; children: string }) {
   return (
-    <span className="font-mono text-[11px] uppercase tracking-meta text-muted">
+    <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
       <span className="mr-2 text-accent/70">{n}</span>
       {children}
     </span>
@@ -135,7 +135,7 @@ export default function ContactForm() {
           </select>
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute bottom-3 right-0 font-mono text-[11px] text-muted"
+            className="pointer-events-none absolute bottom-3 right-0 font-mono text-[0.6875rem] text-muted"
           >
             &#9662;
           </span>

@@ -11,12 +11,12 @@ export default function PrivacyHero() {
         <h1 className="display mt-6 text-[clamp(2.5rem,5vw,4rem)] leading-[1.05]">
           Privacy Policy
         </h1>
-        <p className="mt-8 max-w-[62ch] text-[17px] leading-[1.8] text-muted sm:text-[18px]">
+        <p className="mt-8 max-w-[62ch] text-[1.0625rem] leading-[1.8] text-muted sm:text-[1.125rem]">
           This notice explains how Digital Next collects, uses, shares, and
           protects personal information when you visit our website, contact us,
           apply for opportunities, or otherwise interact with the group.
         </p>
-        <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-4 border-t border-line pt-6 font-mono text-[11px] uppercase tracking-meta">
+        <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-4 border-t border-line pt-6 font-mono text-[0.6875rem] uppercase tracking-meta">
           <div className="flex items-baseline gap-2.5">
             <dt className="text-muted/50">Last updated</dt>
             <dd className="text-ink"><Ph>{privacyConfig.effectiveDate}</Ph></dd>

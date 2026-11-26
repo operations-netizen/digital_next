@@ -17,7 +17,7 @@ export default function PrivacyContactBlock() {
     <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
       <div>
         <Lead>Privacy contact</Lead>
-        <div className="mt-4 space-y-1 text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+        <div className="mt-4 space-y-1 text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
           <p><Ph>{legalEntityName}</Ph></p>
           <p><Ph>{registeredAddress}</Ph></p>
           <p><CopyEmail email={privacyEmail} /></p>
@@ -37,7 +37,7 @@ export default function PrivacyContactBlock() {
       {dpoContact && (
         <div>
           <Lead>Data Protection Officer</Lead>
-          <div className="mt-4 space-y-1 text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+          <div className="mt-4 space-y-1 text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
             <p><Ph>{dpoContact.name}</Ph></p>
             <p><CopyEmail email={dpoContact.email} /></p>
           </div>
@@ -47,7 +47,7 @@ export default function PrivacyContactBlock() {
       {grievanceContact && (
         <div>
           <Lead>Grievance contact (India)</Lead>
-          <div className="mt-4 space-y-1 text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+          <div className="mt-4 space-y-1 text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
             <p><Ph>{grievanceContact.name}</Ph></p>
             <p><Ph>{grievanceContact.address}</Ph></p>
             <p><CopyEmail email={grievanceContact.email} /></p>

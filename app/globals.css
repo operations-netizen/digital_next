@@ -19,6 +19,18 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Large screens: scale the whole 1440 composition instead of letting it
+     float in white space. Every size is in rem (the shell is 90rem), so
+     growing the root font grows the layout proportionally. The scale follows
+     the tighter of width and height relative to the 1440x900 design, so an
+     ultrawide (e.g. 5120x1440) doesn't blow the hero past the fold. Never
+     below the user's default size; untouched at 1440px and under. */
+  @media (min-width: 1441px) {
+    html {
+      font-size: max(100%, min(calc(100vw / 90), calc(100vh / 56.25)));
+    }
+  }
+
   /* Nothing may scroll the page sideways. `clip` rather than `hidden`:
      overflow-hidden on the root turns it into a scroll container and
      silently kills `position: sticky`, which the nav relies on. `clip`
@@ -70,7 +82,7 @@
 
   /* Mono eyebrow with a leading accent tick */
   .eyebrow {
-    @apply inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-meta text-muted;
+    @apply inline-flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-meta text-muted;
   }
   .eyebrow::before {
     content: '';

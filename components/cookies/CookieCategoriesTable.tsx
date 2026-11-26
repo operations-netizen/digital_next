@@ -20,7 +20,7 @@ export default function CookieCategoriesTable() {
                 <th
                   key={h}
                   scope="col"
-                  className="py-4 pr-6 font-mono text-[10px] font-normal uppercase tracking-meta text-muted/60"
+                  className="py-4 pr-6 font-mono text-[0.625rem] font-normal uppercase tracking-meta text-muted/60"
                 >
                   {h}
                 </th>
@@ -36,13 +36,13 @@ export default function CookieCategoriesTable() {
                 >
                   {row.category}
                 </th>
-                <td className="py-5 pr-6 text-[15px] leading-[1.6] text-muted">
+                <td className="py-5 pr-6 text-[0.9375rem] leading-[1.6] text-muted">
                   {row.purpose}
                 </td>
-                <td className="py-5 pr-6 text-[15px] leading-[1.6] text-muted">
+                <td className="py-5 pr-6 text-[0.9375rem] leading-[1.6] text-muted">
                   {row.example}
                 </td>
-                <td className="py-5 text-[15px] leading-[1.6] text-muted">
+                <td className="py-5 text-[0.9375rem] leading-[1.6] text-muted">
                   {row.duration}
                 </td>
               </tr>
@@ -65,10 +65,10 @@ export default function CookieCategoriesTable() {
                 ['Duration', row.duration],
               ].map(([label, value]) => (
                 <div key={label} className="grid grid-cols-[7rem_1fr] gap-x-3">
-                  <dt className="font-mono text-[10px] uppercase tracking-meta text-muted/50">
+                  <dt className="font-mono text-[0.625rem] uppercase tracking-meta text-muted/50">
                     {label}
                   </dt>
-                  <dd className="text-[15px] leading-[1.55] text-muted">{value}</dd>
+                  <dd className="text-[0.9375rem] leading-[1.55] text-muted">{value}</dd>
                 </div>
               ))}
             </div>

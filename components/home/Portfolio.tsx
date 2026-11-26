@@ -19,7 +19,7 @@ export default function Portfolio() {
     >
       <div className="shell">
         {/* Editorial introduction - centered, storytelling transition */}
-        <div className="mx-auto flex max-w-[820px] flex-col items-center text-center">
+        <div className="mx-auto flex max-w-[51.25rem] flex-col items-center text-center">
           <Reveal>
             <Eyebrow>Our brands</Eyebrow>
           </Reveal>
@@ -27,7 +27,7 @@ export default function Portfolio() {
           {/* ↓ 32px */}
           <TextReveal
             as="h2"
-            className="display text-statement mt-8 max-w-[700px]"
+            className="display text-statement mt-8 max-w-[43.75rem]"
             lines={[
               <>Six brands.</>,
               <>
@@ -38,7 +38,7 @@ export default function Portfolio() {
 
           {/* ↓ 28px */}
           <Reveal delay={0.12}>
-            <p className="mt-8 max-w-[740px] text-lg leading-[1.7] text-muted">
+            <p className="mt-8 max-w-[46.25rem] text-lg leading-[1.7] text-muted">
               Digital Next brings together six independent brands across AI,
               SaaS, recruitment, SEO, and digital services. Every brand
               operates independently while benefiting from shared expertise,
@@ -48,7 +48,7 @@ export default function Portfolio() {
 
           {/* ↓ 24px - trust indicators (supporting proof, kept close) */}
           <Reveal delay={0.2}>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[15px] font-medium tracking-[-0.005em] text-ink/70 sm:gap-x-7">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[0.9375rem] font-medium tracking-[-0.005em] text-ink/70 sm:gap-x-7">
               <span>
                 <span className="font-semibold text-ink">6</span> Brands
               </span>
@@ -94,7 +94,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
       rel="noopener noreferrer"
       aria-label={`${company.name} - ${company.category}. Explore brand website (opens in a new tab).`}
       style={{ ['--brand' as string]: company.primaryColor } as React.CSSProperties}
-      className="group relative flex h-full flex-col rounded-[20px] border border-line/60 bg-white p-7 shadow-[0_2px_8px_-4px_rgba(17,17,17,0.05)] outline-none transition-[transform,box-shadow,background-color,border-color] duration-[280ms] ease-out hover:-translate-y-1.5 hover:border-[color-mix(in_srgb,var(--brand)_26%,white)] hover:bg-[#FCFCFF] hover:shadow-[0_24px_60px_-28px_rgba(0,0,0,0.12),0_10px_34px_-22px_color-mix(in_srgb,var(--brand)_30%,transparent)] focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-4 focus-visible:ring-offset-bg sm:p-8"
+      className="group relative flex h-full flex-col rounded-[1.25rem] border border-line/60 bg-white p-7 shadow-[0_2px_8px_-4px_rgba(17,17,17,0.05)] outline-none transition-[transform,box-shadow,background-color,border-color] duration-[280ms] ease-out hover:-translate-y-1.5 hover:border-[color-mix(in_srgb,var(--brand)_26%,white)] hover:bg-[#FCFCFF] hover:shadow-[0_24px_60px_-28px_rgba(0,0,0,0.12),0_10px_34px_-22px_color-mix(in_srgb,var(--brand)_30%,transparent)] focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-4 focus-visible:ring-offset-bg sm:p-8"
     >
       {/* Thin brand accent line, animates left -> right along the top edge */}
       <span
@@ -108,7 +108,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
           <h3 className="font-serif text-2xl font-normal leading-tight tracking-tight text-ink/85 transition-[color,transform] duration-[250ms] ease-out group-hover:translate-x-0.5 group-hover:text-ink">
             {company.name}
           </h3>
-          <span className="mt-1.5 block font-mono text-[11px] uppercase tracking-meta text-muted">
+          <span className="mt-1.5 block font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
             {company.category}
           </span>
         </div>
@@ -128,10 +128,10 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
                 // different heights. The narrow-screen caps keep the logo
                 // from crowding the brand name out of the card.
                 company.id === 'digital-web-solutions'
-                  ? 'max-h-16 max-w-[96px] xs:max-h-20 xs:max-w-[140px]'
+                  ? 'max-h-16 max-w-[6rem] xs:max-h-20 xs:max-w-[8.75rem]'
                   : company.id === 'rankwatch'
-                    ? 'max-h-12 max-w-[150px] xs:max-h-14 xs:max-w-[220px]'
-                    : 'max-h-6 max-w-[104px] xs:max-h-7 xs:max-w-[140px]',
+                    ? 'max-h-12 max-w-[9.375rem] xs:max-h-14 xs:max-w-[13.75rem]'
+                    : 'max-h-6 max-w-[6.5rem] xs:max-h-7 xs:max-w-[8.75rem]',
               ].join(' ')}
             />
           ) : company.id === 'hirenext' ? (
@@ -148,22 +148,22 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
       </div>
 
       {/* Description - concise, max 2 lines */}
-      <p className="mt-5 line-clamp-2 max-w-[40ch] text-[15px] leading-relaxed text-muted transition-colors duration-[280ms] ease-out group-hover:text-ink/75">
+      <p className="mt-5 line-clamp-2 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted transition-colors duration-[280ms] ease-out group-hover:text-ink/75">
         {company.description}
       </p>
 
       {/* Footer - CTA left, editorial index right */}
       <div className="mt-auto flex items-center justify-between pt-6">
-        <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-ink/50 transition-colors duration-[280ms] ease-out group-hover:text-[color:var(--brand)]">
+        <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-ink/50 transition-colors duration-[280ms] ease-out group-hover:text-[color:var(--brand)]">
           <span className="relative">
             Explore Brand
             <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-[color:var(--brand)] transition-transform duration-[280ms] ease-out group-hover:scale-x-100" />
           </span>
-          <span className="transition-transform duration-[280ms] ease-out group-hover:translate-x-[6px]">
+          <span className="transition-transform duration-[280ms] ease-out group-hover:translate-x-[0.375rem]">
             &rarr;
           </span>
         </span>
-        <span className="font-mono text-[11px] tracking-meta text-muted/50 transition-colors duration-[280ms] group-hover:text-muted">
+        <span className="font-mono text-[0.6875rem] tracking-meta text-muted/50 transition-colors duration-[280ms] group-hover:text-muted">
           {no} <span className="text-line">/</span>
         </span>
       </div>

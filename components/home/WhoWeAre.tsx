@@ -67,7 +67,7 @@ export default function WhoWeAre() {
             />
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-7 lg:mt-[14px]">
+          <div className="lg:col-span-5 lg:col-start-7 lg:mt-[0.875rem]">
             <Reveal delay={0.15}>
               <p className="max-w-[32rem] text-lg leading-[1.78] text-ink sm:text-xl">
                 Digital Next is a multi-brand digital services and technology
@@ -86,13 +86,13 @@ export default function WhoWeAre() {
             <Reveal delay={0.3}>
               <Link
                 href="/companies"
-                className="group mt-11 inline-flex items-center gap-2.5 text-[15px] font-medium text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
+                className="group mt-11 inline-flex items-center gap-2.5 text-[0.9375rem] font-medium text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
               >
                 <span className="relative">
                   Explore Our Brands
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100" />
                 </span>
-                <span className="text-accent transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[5px]">
+                <span className="text-accent transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[0.3125rem]">
                   &rarr;
                 </span>
               </Link>
@@ -106,7 +106,7 @@ export default function WhoWeAre() {
             <Reveal key={p.no} delay={i * 0.12}>
               <Link
                 href={p.href}
-                className="group relative flex flex-col rounded-2xl border border-line/70 bg-white p-7 shadow-[0_6px_24px_-14px_rgba(17,17,17,0.12)] transition-[transform,box-shadow,border-color] duration-[250ms] ease-editorial hover:-translate-y-[3px] hover:border-line hover:shadow-[0_18px_44px_-26px_rgba(17,17,17,0.20),0_12px_36px_-18px_rgba(79,70,255,0.22)]"
+                className="group relative flex flex-col rounded-2xl border border-line/70 bg-white p-7 shadow-[0_6px_24px_-14px_rgba(17,17,17,0.12)] transition-[transform,box-shadow,border-color] duration-[250ms] ease-editorial hover:-translate-y-[0.1875rem] hover:border-line hover:shadow-[0_18px_44px_-26px_rgba(17,17,17,0.20),0_12px_36px_-18px_rgba(79,70,255,0.22)]"
               >
                 {/* Top accent line, inset clear of the rounded corners */}
                 <span
@@ -114,28 +114,28 @@ export default function WhoWeAre() {
                   className="absolute left-7 right-7 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100"
                 />
 
-                <span className="block font-mono text-[11px] tracking-meta text-accent">
+                <span className="block font-mono text-[0.6875rem] tracking-meta text-accent">
                   {p.no}
                 </span>
                 <h3 className="mt-7 font-serif text-2xl font-normal leading-tight tracking-tight text-ink/85 transition-[transform,color] duration-[250ms] ease-editorial group-hover:-translate-y-0.5 group-hover:text-ink">
                   {p.title}
                 </h3>
-                <p className="mt-5 max-w-[32ch] text-[15px] leading-relaxed text-muted transition-colors duration-[250ms] ease-editorial group-hover:text-ink/75">
+                <p className="mt-5 max-w-[32ch] text-[0.9375rem] leading-relaxed text-muted transition-colors duration-[250ms] ease-editorial group-hover:text-ink/75">
                   {p.body}
                 </p>
 
                 {/* Progressive disclosure: one extra line, revealed on hover */}
-                <span className="block max-h-0 max-w-[32ch] overflow-hidden text-[13px] leading-relaxed text-muted/85 opacity-0 transition-all duration-[250ms] ease-editorial group-hover:mt-3 group-hover:max-h-20 group-hover:opacity-100">
+                <span className="block max-h-0 max-w-[32ch] overflow-hidden text-[0.8125rem] leading-relaxed text-muted/85 opacity-0 transition-all duration-[250ms] ease-editorial group-hover:mt-3 group-hover:max-h-20 group-hover:opacity-100">
                   {p.more}
                 </span>
 
                 {/* Understated editorial CTA */}
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[13px] font-medium text-ink/45 transition-colors duration-[250ms] ease-editorial group-hover:text-accent">
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[0.8125rem] font-medium text-ink/45 transition-colors duration-[250ms] ease-editorial group-hover:text-accent">
                   <span className="relative">
                     {p.cta}
                     <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100" />
                   </span>
-                  <span className="transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[5px]">
+                  <span className="transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[0.3125rem]">
                     &rarr;
                   </span>
                 </span>

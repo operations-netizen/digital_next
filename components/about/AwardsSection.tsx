@@ -25,13 +25,13 @@ export default function AwardsSection() {
             {awards.map((a, i) => (
               <Reveal key={`${a.title}-${i}`} delay={(i % 2) * 0.05}>
                 <li className="grid gap-x-12 gap-y-1 border-t border-line py-7 last:border-b lg:grid-cols-12">
-                  <span className="font-mono text-[13px] tabular-nums tracking-meta text-accent/80 lg:col-span-2">
+                  <span className="font-mono text-[0.8125rem] tabular-nums tracking-meta text-accent/80 lg:col-span-2">
                     {a.year}
                   </span>
                   <h3 className="font-serif text-2xl font-normal tracking-tight text-ink lg:col-span-7">
                     {a.title}
                   </h3>
-                  <span className="font-mono text-[11px] uppercase tracking-meta text-muted lg:col-span-3 lg:text-right">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted lg:col-span-3 lg:text-right">
                     {a.org}
                   </span>
                 </li>

@@ -31,7 +31,7 @@ export default function InsightRow({
           className="group grid items-baseline gap-x-16 gap-y-4 border-t border-line py-10 outline-none transition-colors duration-[500ms] ease-editorial last:border-b focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/40 sm:py-12 lg:grid-cols-12 lg:py-14"
         >
           <div className={textCol}>
-            <span className="block font-mono text-[10px] uppercase tracking-meta text-accent">
+            <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-accent">
               {insight.category}
             </span>
             <h3 className="mt-4 max-w-[22ch] font-serif text-[clamp(1.75rem,3vw,2.75rem)] font-normal leading-[1.1] tracking-tight text-ink transition-transform duration-[500ms] ease-editorial group-hover:-translate-y-0.5">
@@ -52,7 +52,7 @@ export default function InsightRow({
           </div>
 
           <div
-            className={`flex items-center gap-3 font-mono text-[11px] uppercase tracking-meta text-muted/70 lg:flex-col lg:items-start lg:gap-2 ${metaCol}`}
+            className={`flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-meta text-muted/70 lg:flex-col lg:items-start lg:gap-2 ${metaCol}`}
           >
             <time dateTime={insight.publishedDate}>{insight.dateLabel}</time>
             <span aria-hidden="true" className="h-2.5 w-px bg-line lg:hidden" />

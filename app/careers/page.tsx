@@ -68,7 +68,7 @@ export default function CareersPage() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href="#open-roles"
-                    className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-xl bg-ink px-8 py-4 text-sm font-medium text-white transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent"
+                    className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl bg-ink px-8 py-4 text-sm font-medium text-white transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent"
                   >
                     View Open Roles
                     <span className="transition-transform duration-300 ease-editorial group-hover:translate-y-0.5">
@@ -77,7 +77,7 @@ export default function CareersPage() {
                   </a>
                   <Link
                     href="/companies"
-                    className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-xl border border-black/[0.08] px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                    className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl border border-black/[0.08] px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
                     Meet the Brands
                     <span className="transition-transform duration-300 ease-editorial group-hover:translate-x-1.5">
@@ -87,7 +87,7 @@ export default function CareersPage() {
                 </div>
               </Reveal>
               <Reveal delay={0.34}>
-                <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-meta text-muted/70">
+                <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.625rem] uppercase tracking-meta text-muted/70">
                   {heroMeta.map((m, i) => (
                     <span key={m} className="flex items-center gap-4">
                       {i > 0 && <span aria-hidden="true" className="h-2.5 w-px bg-line" />}
@@ -100,7 +100,7 @@ export default function CareersPage() {
 
             {/* Career index - editorial, not a menu */}
             <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.2}>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
                 Where people build
               </span>
               <ul className="mt-7">
@@ -109,7 +109,7 @@ export default function CareersPage() {
                     key={c}
                     className="flex items-baseline gap-5 border-t border-line py-[0.9rem] last:border-b"
                   >
-                    <span className="w-6 shrink-0 font-mono text-[10px] tabular-nums tracking-meta text-accent/50">
+                    <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/50">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <span className="font-serif text-lg tracking-tight text-ink/90">
@@ -191,7 +191,7 @@ export default function CareersPage() {
                     aria-hidden="true"
                     className="absolute left-0 top-0 h-px w-12 origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
                   />
-                  <span className="font-mono text-[11px] tracking-meta text-accent/70">
+                  <span className="font-mono text-[0.6875rem] tracking-meta text-accent/70">
                     {p.no}
                   </span>
                   <h3 className="mt-4 font-serif text-2xl font-normal tracking-tight text-white/90 transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5 sm:text-[1.75rem]">
@@ -301,7 +301,7 @@ export default function CareersPage() {
                         <h3 className="font-serif text-[1.65rem] font-normal leading-tight tracking-tight text-ink transition-transform duration-[500ms] ease-editorial group-hover:-translate-y-0.5 sm:text-[1.75rem]">
                           {c.name}
                         </h3>
-                        <span className="mt-2 block font-mono text-[10px] uppercase tracking-meta text-muted">
+                        <span className="mt-2 block font-mono text-[0.625rem] uppercase tracking-meta text-muted">
                           {cc.label}
                         </span>
                       </div>
@@ -357,7 +357,7 @@ export default function CareersPage() {
               <>
                 {/* Filters (only when roles exist) */}
                 <Reveal delay={0.12}>
-                  <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-meta text-muted">
+                  <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                     {roleFilters.map((f, i) => (
                       <span key={f} className={i === 0 ? 'text-ink' : 'text-muted/60'}>
                         {f}
@@ -375,10 +375,10 @@ export default function CareersPage() {
                         <h3 className="font-serif text-2xl tracking-tight text-ink transition-transform duration-[500ms] ease-editorial group-hover:-translate-y-0.5 lg:col-span-5">
                           {r.title}
                         </h3>
-                        <span className="font-mono text-[11px] uppercase tracking-meta text-muted lg:col-span-3">
+                        <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted lg:col-span-3">
                           {r.company}
                         </span>
-                        <span className="font-mono text-[11px] uppercase tracking-meta text-muted/70 lg:col-span-3">
+                        <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted/70 lg:col-span-3">
                           {r.department} · {r.workModel}
                         </span>
                         <span className="inline-flex items-center gap-2 text-sm font-medium text-accent lg:col-span-1 lg:justify-end">
@@ -400,7 +400,7 @@ export default function CareersPage() {
                       aria-hidden="true"
                       className="h-1.5 w-1.5 rounded-full bg-ink/25"
                     />
-                    <span className="font-mono text-[11px] uppercase tracking-meta text-muted">
+                    <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                       0 roles open
                     </span>
                   </div>
@@ -418,7 +418,7 @@ export default function CareersPage() {
                   <div className="mt-7 flex flex-col gap-x-10 gap-y-4 sm:flex-row sm:items-center">
                     <a
                       href="#general-interest"
-                      className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-accent"
+                      className="group inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-accent"
                     >
                       <span className="relative">
                         Share Your Profile
@@ -430,7 +430,7 @@ export default function CareersPage() {
                     </a>
                     <Link
                       href="/companies"
-                      className="group inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
+                      className="group inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
                     >
                       <span className="relative">
                         Explore Our Brands
@@ -505,7 +505,7 @@ export default function CareersPage() {
               <Reveal delay={0.22}>
                 <Link
                   href="/contact"
-                  className="group mt-10 inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-white transition-colors duration-300 ease-editorial hover:text-accent"
+                  className="group mt-10 inline-flex min-h-[2.75rem] items-center gap-2 text-sm font-medium text-white transition-colors duration-300 ease-editorial hover:text-accent"
                 >
                   <span className="relative">
                     Contact Us
@@ -519,7 +519,7 @@ export default function CareersPage() {
             </div>
 
             <Reveal className="lg:col-span-6 lg:col-start-7 lg:border-l lg:border-white/10 lg:pl-16" delay={0.12}>
-              <span className="mb-8 block font-mono text-[10px] uppercase tracking-meta text-white/40">
+              <span className="mb-8 block font-mono text-[0.625rem] uppercase tracking-meta text-white/40">
                 Share your profile
               </span>
               <CareerForm />

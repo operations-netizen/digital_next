@@ -169,10 +169,10 @@ export default function CulturePage() {
                       aria-hidden="true"
                       className="absolute left-0 top-0 h-px w-8 bg-accent"
                     />
-                    <span className="font-mono text-[10px] uppercase tracking-meta text-muted/60">
+                    <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted/60">
                       {t.when}
                     </span>
-                    <p className="mt-4 text-[17px] leading-[1.65] text-ink/80">
+                    <p className="mt-4 text-[1.0625rem] leading-[1.65] text-ink/80">
                       {t.body}
                     </p>
                   </li>
@@ -191,7 +191,7 @@ export default function CulturePage() {
               <Reveal>
                 <div className="flex items-baseline gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-muted/40" />
-                  <span className="font-mono text-[10px] uppercase tracking-meta text-muted">
+                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted">
                     Things you&rsquo;ll never hear
                   </span>
                 </div>
@@ -210,7 +210,7 @@ export default function CulturePage() {
               <Reveal delay={0.12}>
                 <div className="flex items-baseline gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-accent" />
-                  <span className="font-mono text-[10px] uppercase tracking-meta text-accent">
+                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-accent">
                     Things you&rsquo;ll hear often
                   </span>
                 </div>
@@ -303,7 +303,7 @@ export default function CulturePage() {
                     <h3 className="font-serif text-[1.7rem] font-normal leading-tight tracking-tight text-ink">
                       {b.title}
                     </h3>
-                    <p className="mt-3 max-w-[26ch] text-[15px] leading-[1.65] text-muted">
+                    <p className="mt-3 max-w-[26ch] text-[0.9375rem] leading-[1.65] text-muted">
                       {b.body}
                     </p>
                   </div>
@@ -335,7 +335,7 @@ export default function CulturePage() {
               <Reveal key={g.stage}>
                 <li className="group grid gap-x-12 gap-y-2 border-t border-white/10 py-8 last:border-b lg:grid-cols-12 lg:py-9">
                   <div className="flex items-baseline gap-6 lg:col-span-5">
-                    <span className="font-mono text-[11px] tabular-nums tracking-meta text-accent/60">
+                    <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/60">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="font-serif text-[1.9rem] font-normal leading-tight tracking-tight text-white/90 transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
@@ -359,7 +359,7 @@ export default function CulturePage() {
             <Reveal>
               <Eyebrow>Ideas we keep coming back to</Eyebrow>
             </Reveal>
-            <ul className="mt-10 max-w-[900px]">
+            <ul className="mt-10 max-w-[56.25rem]">
               {ideas.map((idea, i) => (
                 <Reveal key={idea} delay={(i % 3) * 0.05}>
                   <li className="border-t border-line py-6 font-serif text-[clamp(1.6rem,3vw,2.6rem)] font-light leading-tight tracking-tight text-ink last:border-b">
@@ -369,7 +369,7 @@ export default function CulturePage() {
               ))}
             </ul>
             <Reveal delay={0.1}>
-              <p className="mt-8 max-w-[52ch] text-[15px] leading-relaxed text-muted/70">
+              <p className="mt-8 max-w-[52ch] text-[0.9375rem] leading-relaxed text-muted/70">
                 Recurring ideas, not a required reading list - the ones that keep
                 showing up in how we work.
               </p>
@@ -397,7 +397,7 @@ export default function CulturePage() {
             ))}
           </div>
           <Reveal delay={0.1}>
-            <p className="mx-auto mt-12 max-w-[40ch] text-[13px] leading-relaxed text-white/40">
+            <p className="mx-auto mt-12 max-w-[40ch] text-[0.8125rem] leading-relaxed text-white/40">
               Representative of how people describe the work - shared anonymously.
             </p>
           </Reveal>
@@ -438,14 +438,14 @@ export default function CulturePage() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[42%] z-0 h-[420px] w-[720px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute left-1/2 top-[42%] z-0 h-[26.25rem] w-[45rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(79,70,255,0.08), transparent 70%)',
           }}
         />
         <div className="shell relative z-10">
-          <div className="mx-auto flex max-w-[860px] flex-col items-center">
+          <div className="mx-auto flex max-w-[53.75rem] flex-col items-center">
             <Reveal>
               <Eyebrow tone="light">Join us</Eyebrow>
             </Reveal>

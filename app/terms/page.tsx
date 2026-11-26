@@ -303,11 +303,11 @@ const sections: Record<string, () => ReactNode> = {
         These Terms, and any dispute arising out of or relating to them or the
         website, are governed by:
       </P>
-      <p className="text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+      <p className="text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
         <Ph>{c.governingLaw}</Ph>
       </p>
       <P>The courts of the following jurisdiction shall have jurisdiction:</P>
-      <p className="text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+      <p className="text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
         <Ph>{c.jurisdiction}</Ph>
       </p>
     </>
@@ -337,7 +337,7 @@ export default function TermsPage() {
               </div>
 
               {/* Legal content */}
-              <div className="max-w-[820px] lg:col-span-8 lg:col-start-5 xl:col-span-8">
+              <div className="max-w-[51.25rem] lg:col-span-8 lg:col-start-5 xl:col-span-8">
                 <div className="space-y-12 sm:space-y-16">
                   {termsToc.map((entry, i) => (
                     <TermsSection
@@ -351,7 +351,7 @@ export default function TermsPage() {
                   ))}
                 </div>
 
-                <p className="mt-16 border-t border-line pt-8 text-[13px] leading-relaxed text-muted/60">
+                <p className="mt-16 border-t border-line pt-8 text-[0.8125rem] leading-relaxed text-muted/60">
                   For questions about these Terms, email{' '}
                   <CopyEmail email={c.contactEmail} />.
                 </p>

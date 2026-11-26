@@ -17,7 +17,7 @@ export default function ClosingThought() {
       className="scroll-mt-24 border-t border-line bg-bg py-24 text-center sm:py-28 lg:py-32"
     >
       <div className="shell">
-        <div className="mx-auto flex max-w-[840px] flex-col items-center">
+        <div className="mx-auto flex max-w-[52.5rem] flex-col items-center">
           <Reveal>
             <Eyebrow>Final thought</Eyebrow>
           </Reveal>
@@ -34,7 +34,7 @@ export default function ClosingThought() {
           />
 
           <Reveal delay={0.15}>
-            <p className="mx-auto mt-8 max-w-[660px] text-lg leading-relaxed text-muted">
+            <p className="mx-auto mt-8 max-w-[41.25rem] text-lg leading-relaxed text-muted">
               Digital Next partners with exceptional founders to build, acquire,
               and scale independent internet businesses. Through shared
               expertise, long-term capital, and operational excellence, every

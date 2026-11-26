@@ -73,7 +73,7 @@ export default function CompanyShowcaseSection({
         <div className="grid grid-cols-1 gap-x-8 gap-y-8 py-20 sm:py-24 lg:grid-cols-12 lg:items-start lg:gap-x-16 lg:py-28">
           {/* Index */}
           <Reveal as="div" className={indexCol}>
-            <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-muted/50 tabular-nums">
+            <span className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-muted/50 tabular-nums">
               {index}
             </span>
           </Reveal>
@@ -110,7 +110,7 @@ export default function CompanyShowcaseSection({
               )}
 
               {/* Fact list - hairline rows, reads as a specimen label */}
-              <ul className="w-full max-w-[300px] font-mono text-[11px] uppercase tracking-[0.16em]">
+              <ul className="w-full max-w-[18.75rem] font-mono text-[0.6875rem] uppercase tracking-[0.16em]">
                 {metadata.map((m) => (
                   <li
                     key={m}
@@ -130,7 +130,7 @@ export default function CompanyShowcaseSection({
               <h2 className="font-serif font-normal leading-[1.02] tracking-tightest text-ink text-[clamp(2.25rem,4vw,3.75rem)] transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
                 {name}
               </h2>
-              <span className="mt-4 block font-mono text-[11px] uppercase tracking-[0.26em] text-muted">
+              <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.26em] text-muted">
                 {category}
               </span>
               <span
@@ -146,7 +146,7 @@ export default function CompanyShowcaseSection({
             </Reveal>
 
             <Reveal delay={0.24}>
-              <span className="mt-9 inline-flex min-h-[44px] items-center gap-2 text-base font-medium text-accent">
+              <span className="mt-9 inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-accent">
                 <span className="relative">
                   Visit Brand
                   <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[600ms] ease-editorial group-hover:bg-accent" />
@@ -164,7 +164,7 @@ export default function CompanyShowcaseSection({
             the brand name) rather than floating in the gutter on wide screens. */}
         <span
           aria-hidden="true"
-          className={`absolute bottom-0 h-0.5 w-[150px] bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 ${
+          className={`absolute bottom-0 h-0.5 w-[9.375rem] bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 ${
             reverse
               ? 'right-6 origin-right scale-x-[0.48] sm:right-10 lg:right-16'
               : 'left-6 origin-left scale-x-[0.48] sm:left-10 lg:left-16'

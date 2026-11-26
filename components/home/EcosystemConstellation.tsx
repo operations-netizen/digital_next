@@ -46,7 +46,7 @@ export default function EcosystemConstellation() {
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       aria-hidden="true"
-      className="relative mx-auto aspect-square w-full max-w-[460px]"
+      className="relative mx-auto aspect-square w-full max-w-[28.75rem]"
     >
       <div
         ref={innerRef}

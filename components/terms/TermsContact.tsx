@@ -8,7 +8,7 @@ export default function TermsContact() {
   return (
     <div>
       <Lead>Contact</Lead>
-      <div className="mt-4 space-y-1 text-[17px] leading-[1.9] text-ink/80 sm:text-[18px]">
+      <div className="mt-4 space-y-1 text-[1.0625rem] leading-[1.9] text-ink/80 sm:text-[1.125rem]">
         <p><Ph>{legalEntity}</Ph></p>
         <p><Ph>{address}</Ph></p>
         <p><CopyEmail email={contactEmail} /></p>

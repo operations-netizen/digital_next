@@ -31,7 +31,7 @@ export default function GlobalPresence() {
           </div>
 
           <Reveal className="lg:col-span-5 lg:col-start-8 lg:pt-2" delay={0.12}>
-            <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-white/40">
+            <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-white/40">
               Where we work
             </span>
             <ul className="mt-6">
@@ -40,7 +40,7 @@ export default function GlobalPresence() {
                   key={loc}
                   className="flex items-baseline gap-5 border-t border-white/10 py-4 last:border-b"
                 >
-                  <span className="w-6 shrink-0 font-mono text-[10px] tabular-nums tracking-meta text-accent/60">
+                  <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="font-serif text-xl tracking-tight text-white/90">

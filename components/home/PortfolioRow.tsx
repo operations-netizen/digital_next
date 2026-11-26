@@ -55,7 +55,7 @@ export default function PortfolioRow({
           >
             {company.name}
           </span>
-          <span className="mt-2 block font-mono text-[11px] uppercase tracking-meta text-muted">
+          <span className="mt-2 block font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
             {company.category}
           </span>
         </span>
@@ -117,7 +117,7 @@ export default function PortfolioRow({
                   ['Employees', company.employees],
                 ].map(([k, v]) => (
                   <div key={k} className="border-t border-line pt-3 sm:flex sm:justify-between">
-                    <dt className="font-mono text-[11px] uppercase tracking-meta text-muted">
+                    <dt className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                       {k}
                     </dt>
                     <dd className="mt-1 text-sm font-medium text-ink sm:mt-0">{v}</dd>

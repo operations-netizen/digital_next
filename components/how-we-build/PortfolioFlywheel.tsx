@@ -55,7 +55,7 @@ export default function PortfolioFlywheel() {
   const show = inView || reduce
 
   return (
-    <div ref={ref} className="relative mx-auto w-full max-w-[560px]">
+    <div ref={ref} className="relative mx-auto w-full max-w-[35rem]">
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full overflow-visible">
         {edges.map((e, i) => {
           const t = trim(e.from, e.to)
@@ -105,7 +105,7 @@ export default function PortfolioFlywheel() {
         return (
           <motion.span
             key={`l${i}`}
-            className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-bg px-3 font-mono text-[10px] uppercase tracking-meta text-ink/55"
+            className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-bg px-3 font-mono text-[0.625rem] uppercase tracking-meta text-ink/55"
             style={{ left: `${(t.mx / W) * 100}%`, top: `${(t.my / H) * 100}%` }}
             initial={{ opacity: 0 }}
             animate={show ? { opacity: 1 } : { opacity: 0 }}
@@ -134,7 +134,7 @@ export default function PortfolioFlywheel() {
             {/* label - hung off the disc without shifting it */}
             <span
               className={[
-                'absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-meta text-muted',
+                'absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[0.625rem] uppercase tracking-meta text-muted',
                 isTop ? 'bottom-full mb-3' : 'top-full mt-3',
               ].join(' ')}
             >
@@ -152,7 +152,7 @@ export default function PortfolioFlywheel() {
         animate={show ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        <span className="font-mono text-[10px] uppercase tracking-meta text-muted/70">
+        <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted/70">
           Shared platform
         </span>
         <span className="mt-2.5 max-w-[11ch] font-serif text-xl italic leading-tight tracking-tight text-accent">

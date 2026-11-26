@@ -24,7 +24,7 @@ export default function StatsStrip() {
             <div className="font-serif text-[3rem] font-light leading-none tracking-tighter text-ink sm:text-[3.75rem]">
               <CountUp value={s.value} suffix={s.suffix} />
             </div>
-            <div className="mt-4 font-mono text-[11px] uppercase tracking-meta text-muted">
+            <div className="mt-4 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
               {s.label}
             </div>
           </Reveal>

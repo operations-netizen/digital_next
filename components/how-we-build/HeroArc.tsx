@@ -18,7 +18,7 @@ export default function HeroArc() {
 
   return (
     <div>
-      <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+      <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
         The operating arc
       </span>
 
@@ -26,12 +26,12 @@ export default function HeroArc() {
         {/* base rail */}
         <span
           aria-hidden="true"
-          className="absolute left-[3px] top-1 h-[calc(100%-0.5rem)] w-px bg-line"
+          className="absolute left-[0.1875rem] top-1 h-[calc(100%-0.5rem)] w-px bg-line"
         />
         {/* drawing blue progress */}
         <motion.span
           aria-hidden="true"
-          className="absolute left-[3px] top-1 h-[calc(100%-0.5rem)] w-px origin-top bg-accent"
+          className="absolute left-[0.1875rem] top-1 h-[calc(100%-0.5rem)] w-px origin-top bg-accent"
           initial={reduce ? { scaleY: 1 } : { scaleY: 0 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: reduce ? 0 : DRAW, ease: EASE }}
@@ -45,13 +45,13 @@ export default function HeroArc() {
                 {/* node */}
                 <motion.span
                   aria-hidden="true"
-                  className="absolute left-[-31px] h-[9px] w-[9px] rounded-full border border-accent bg-bg"
+                  className="absolute left-[-1.9375rem] h-[0.5625rem] w-[0.5625rem] rounded-full border border-accent bg-bg"
                   initial={reduce ? { backgroundColor: '#4F46FF' } : { backgroundColor: 'rgba(255,255,255,1)' }}
                   animate={{ backgroundColor: '#4F46FF' }}
                   transition={{ duration: 0.4, delay: t, ease: EASE }}
                 />
                 <motion.span
-                  className="font-mono text-[10px] tabular-nums tracking-meta text-accent/60"
+                  className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60"
                   initial={reduce ? { opacity: 1 } : { opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: t, ease: EASE }}

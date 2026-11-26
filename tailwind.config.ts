@@ -35,7 +35,7 @@ const config: Config = {
         meta: '0.2em',
       },
       maxWidth: {
-        shell: '1440px',
+        shell: '90rem',
         prose: '68ch',
       },
       transitionTimingFunction: {

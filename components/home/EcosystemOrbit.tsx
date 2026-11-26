@@ -98,7 +98,7 @@ export default function EcosystemOrbit() {
   return (
     <div
       ref={containerRef}
-      className="relative mx-auto aspect-square w-full max-w-[540px]"
+      className="relative mx-auto aspect-square w-full max-w-[33.75rem]"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => {
         setHovering(false)
@@ -189,7 +189,7 @@ export default function EcosystemOrbit() {
                     dim ? 'opacity-30' : 'opacity-100',
                   ].join(' ')}
                 >
-                  <span className="font-mono text-[11px] font-medium tracking-widest sm:text-xs">
+                  <span className="font-mono text-[0.6875rem] font-medium tracking-widest sm:text-xs">
                     {n.ticker}
                   </span>
                 </button>
@@ -259,13 +259,13 @@ export default function EcosystemOrbit() {
               </button>
             )}
 
-            <span className="block font-mono text-[9px] uppercase tracking-meta text-muted">
+            <span className="block font-mono text-[0.5625rem] uppercase tracking-meta text-muted">
               {active.category}
             </span>
             <h3 className="mt-2 font-serif text-xl font-light leading-tight tracking-tighter text-ink sm:text-2xl">
               {active.name}
             </h3>
-            <p className="mt-2 text-[13px] leading-relaxed text-muted">{active.mission}</p>
+            <p className="mt-2 text-[0.8125rem] leading-relaxed text-muted">{active.mission}</p>
             <a
               href={active.url}
               target="_blank"

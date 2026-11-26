@@ -16,7 +16,7 @@ const field =
 
 function Label({ children }: { children: string }) {
   return (
-    <span className="font-mono text-[10px] uppercase tracking-meta text-white/45">
+    <span className="font-mono text-[0.625rem] uppercase tracking-meta text-white/45">
       {children}
     </span>
   )
@@ -130,9 +130,9 @@ export default function CareerForm() {
           name="resume"
           accept=".pdf,.doc,.docx"
           aria-describedby="resume-help"
-          className="mt-3 block w-full text-sm text-white/70 file:mr-4 file:cursor-pointer file:rounded-none file:border file:border-white/25 file:bg-transparent file:px-4 file:py-2 file:font-mono file:text-[11px] file:uppercase file:tracking-meta file:text-white file:transition-colors file:duration-300 hover:file:border-accent hover:file:text-accent"
+          className="mt-3 block w-full text-sm text-white/70 file:mr-4 file:cursor-pointer file:rounded-none file:border file:border-white/25 file:bg-transparent file:px-4 file:py-2 file:font-mono file:text-[0.6875rem] file:uppercase file:tracking-meta file:text-white file:transition-colors file:duration-300 hover:file:border-accent hover:file:text-accent"
         />
-        <p id="resume-help" className="mt-2 font-mono text-[10px] uppercase tracking-meta text-white/35">
+        <p id="resume-help" className="mt-2 font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
           PDF, DOC, or DOCX · Max 5MB
         </p>
       </div>
@@ -142,7 +142,7 @@ export default function CareerForm() {
           <button
             type="submit"
             disabled={submitting}
-            className="group inline-flex min-h-[44px] items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-white disabled:hover:text-ink"
+            className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:text-white disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-white disabled:hover:text-ink"
           >
             {submitting ? 'Submitting…' : 'Submit Profile'}
             {!submitting && (
@@ -155,7 +155,7 @@ export default function CareerForm() {
             </p>
           )}
         </div>
-        <p className="max-w-[42ch] text-[13px] leading-relaxed text-white/40">
+        <p className="max-w-[42ch] text-[0.8125rem] leading-relaxed text-white/40">
           We use your details only to consider you for roles across Digital Next
           and its brands. We don&rsquo;t share them with third parties.
         </p>

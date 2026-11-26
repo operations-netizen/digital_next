@@ -24,7 +24,7 @@ export default function JurisdictionDisclosure({
     <section id={id} aria-labelledby={`${id}-heading`} className="scroll-mt-28 border-t border-line pt-10 sm:pt-12">
       <details className="group" open={open}>
         <summary className="flex cursor-pointer list-none items-baseline gap-4 outline-none focus-visible:[&_h2]:text-accent">
-          <span className="font-mono text-[11px] tabular-nums tracking-meta text-accent/50">
+          <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/50">
             {index}
           </span>
           <h2

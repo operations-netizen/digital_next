@@ -34,7 +34,7 @@ export default function FeaturedVisual({
         <circle cx="250" cy="135" r="3.5" fill="#4F46FF" />
       </svg>
 
-      <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-meta text-muted/50">
+      <span className="absolute bottom-5 left-5 font-mono text-[0.625rem] uppercase tracking-meta text-muted/50">
         Notes from Digital Next
       </span>
     </div>

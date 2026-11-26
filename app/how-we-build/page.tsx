@@ -159,7 +159,7 @@ export default function HowWeBuildPage() {
                   />
                   <div className="relative grid gap-x-12 gap-y-5 py-16 transition-[padding] duration-[600ms] ease-editorial group-hover:pl-3 lg:grid-cols-12 lg:py-24">
                     <div className="flex items-baseline gap-6 lg:col-span-6">
-                      <span className="font-mono text-[11px] tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                      <span className="font-mono text-[0.6875rem] tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
                         {p.no}
                       </span>
                       <h3 className="font-serif text-3xl font-normal leading-tight tracking-tight text-white/90 transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5 sm:text-4xl">
@@ -232,13 +232,13 @@ export default function HowWeBuildPage() {
                       aria-hidden="true"
                       className="absolute left-0 top-0 h-px w-10 origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
                     />
-                    <span className="font-mono text-[10px] tabular-nums tracking-meta text-accent/60">
+                    <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="mt-5 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-ink">
                       {c.name}
                     </h3>
-                    <p className="mt-3 max-w-[24ch] text-[15px] leading-[1.65] text-muted">
+                    <p className="mt-3 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-muted">
                       {c.note}
                     </p>
                   </div>
@@ -266,7 +266,7 @@ export default function HowWeBuildPage() {
               <Reveal>
                 <div className="flex items-baseline gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-muted/40" />
-                  <span className="font-mono text-[10px] uppercase tracking-meta text-muted">
+                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted">
                     We never interfere with
                   </span>
                 </div>
@@ -294,7 +294,7 @@ export default function HowWeBuildPage() {
               <Reveal delay={0.12}>
                 <div className="flex items-baseline gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-accent" />
-                  <span className="font-mono text-[10px] uppercase tracking-meta text-accent">
+                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-accent">
                     We always support
                   </span>
                 </div>
@@ -383,14 +383,14 @@ export default function HowWeBuildPage() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[42%] z-0 h-[440px] w-[760px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute left-1/2 top-[42%] z-0 h-[27.5rem] w-[47.5rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(79,70,255,0.09), transparent 70%)',
           }}
         />
         <div className="shell relative z-10">
-          <div className="mx-auto flex max-w-[900px] flex-col items-center">
+          <div className="mx-auto flex max-w-[56.25rem] flex-col items-center">
             <Reveal>
               <Eyebrow tone="light">The long game</Eyebrow>
             </Reveal>

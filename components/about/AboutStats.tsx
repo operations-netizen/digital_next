@@ -44,7 +44,7 @@ export default function AboutStats() {
                   <dd className="font-serif text-[clamp(3rem,5.5vw,4.5rem)] font-light leading-[0.95] tracking-tightest text-ink tabular-nums">
                     <CountUp value={s.value} suffix={s.suffix} />
                   </dd>
-                  <dt className="mt-5 font-mono text-[11px] uppercase tracking-meta text-muted">
+                  <dt className="mt-5 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                     {s.label}
                   </dt>
                 </div>

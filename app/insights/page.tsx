@@ -94,7 +94,7 @@ export default function InsightsPage() {
                   {manifesto.map((m) => (
                     <span
                       key={m}
-                      className="font-mono text-[11px] uppercase tracking-meta text-white/45"
+                      className="font-mono text-[0.6875rem] uppercase tracking-meta text-white/45"
                     >
                       {m}
                     </span>
@@ -143,7 +143,7 @@ export default function InsightsPage() {
                 <Reveal key={l.href} delay={i * 0.06}>
                   <Link
                     href={l.href}
-                    className="group inline-flex min-h-[44px] items-center gap-2 font-serif text-[clamp(1.75rem,3vw,2.5rem)] tracking-tight text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
+                    className="group inline-flex min-h-[2.75rem] items-center gap-2 font-serif text-[clamp(1.75rem,3vw,2.5rem)] tracking-tight text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
                   >
                     <span className="relative">
                       {l.label}

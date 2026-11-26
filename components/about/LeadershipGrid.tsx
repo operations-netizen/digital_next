@@ -45,7 +45,7 @@ function Profile({ m, delay }: { m: LeaderMember; delay: number }) {
           {!m.photo && (
             <span
               aria-hidden="true"
-              className="absolute right-4 top-4 font-mono text-[10px] uppercase tracking-meta text-white/30"
+              className="absolute right-4 top-4 font-mono text-[0.625rem] uppercase tracking-meta text-white/30"
             >
               {initials(m.name)}
             </span>
@@ -55,10 +55,10 @@ function Profile({ m, delay }: { m: LeaderMember; delay: number }) {
         <h4 className="mt-6 font-serif text-[2.35rem] font-normal leading-[1.1] tracking-tight text-ink">
           {m.name}
         </h4>
-        <span className="mt-2.5 block font-mono text-[12px] uppercase tracking-meta text-accent">
+        <span className="mt-2.5 block font-mono text-[0.75rem] uppercase tracking-meta text-accent">
           {m.role}
         </span>
-        <p className="mt-4 max-w-[42ch] text-[19px] leading-[1.65] text-muted">
+        <p className="mt-4 max-w-[42ch] text-[1.1875rem] leading-[1.65] text-muted">
           {m.bio}
         </p>
         {m.linkedin && (
@@ -67,7 +67,7 @@ function Profile({ m, delay }: { m: LeaderMember; delay: number }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${m.name} on LinkedIn`}
-            className="group/li mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial hover:text-accent"
+            className="group/li mt-4 inline-flex items-center gap-1.5 font-mono text-[0.6875rem] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial hover:text-accent"
           >
             LinkedIn
             <span className="transition-transform duration-300 ease-editorial group-hover/li:translate-x-0.5 group-hover/li:-translate-y-0.5">
@@ -118,7 +118,7 @@ export default function LeadershipGrid() {
           {/* Group leadership */}
           <div className="mt-16 sm:mt-20">
             <Reveal>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
                 Group Leadership
               </span>
             </Reveal>
@@ -132,7 +132,7 @@ export default function LeadershipGrid() {
           {/* Brand leadership */}
           <div className="mt-20 sm:mt-24">
             <Reveal>
-              <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-muted/50">
+              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
                 Brand Leadership
               </span>
             </Reveal>

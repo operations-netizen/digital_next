@@ -147,7 +147,7 @@ export default function CookiesPage() {
               </div>
 
               {/* Legal content */}
-              <div className="max-w-[820px] lg:col-span-8 lg:col-start-5 xl:col-span-8">
+              <div className="max-w-[51.25rem] lg:col-span-8 lg:col-start-5 xl:col-span-8">
                 <div className="space-y-12 sm:space-y-16">
                   {cookiesToc.map((entry, i) => (
                     <CookieSection
@@ -161,7 +161,7 @@ export default function CookiesPage() {
                   ))}
                 </div>
 
-                <p className="mt-16 border-t border-line pt-8 text-[13px] leading-relaxed text-muted/60">
+                <p className="mt-16 border-t border-line pt-8 text-[0.8125rem] leading-relaxed text-muted/60">
                   This document contains placeholders and clauses marked for
                   legal review and must be reviewed and approved by counsel before
                   publication. For questions, email{' '}

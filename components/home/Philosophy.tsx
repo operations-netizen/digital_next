@@ -101,7 +101,7 @@ export default function Philosophy() {
               </p>
             </Reveal>
             <Reveal delay={0.18}>
-              <p className="mt-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-meta text-white/40">
+              <p className="mt-10 flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-meta text-white/40">
                 Begin the journey
                 <span aria-hidden="true" className="text-accent">
                   ↓
@@ -149,7 +149,7 @@ export default function Philosophy() {
               >
                 <span
                   className={[
-                    'font-mono text-[11px] tracking-meta transition-colors duration-500 ease-out',
+                    'font-mono text-[0.6875rem] tracking-meta transition-colors duration-500 ease-out',
                     state === 'active' ? 'text-accent' : 'text-white/30',
                   ].join(' ')}
                 >
@@ -201,7 +201,7 @@ export default function Philosophy() {
               >
                 {/* Node - sits on the center line (desktop) / badge (mobile) */}
                 <div className="order-first flex justify-center lg:order-none lg:col-start-2">
-                  <span className="relative hidden h-[26px] w-[26px] items-center justify-center lg:flex">
+                  <span className="relative hidden h-[1.625rem] w-[1.625rem] items-center justify-center lg:flex">
                     {state === 'active' && !reduce && (
                       <span className="absolute inset-0 animate-ping rounded-full bg-accent/30" />
                     )}
@@ -218,7 +218,7 @@ export default function Philosophy() {
                   </span>
                   <span
                     className={[
-                      'flex h-9 w-9 items-center justify-center rounded-full border font-mono text-[11px] tracking-meta transition-colors duration-500 lg:hidden',
+                      'flex h-9 w-9 items-center justify-center rounded-full border font-mono text-[0.6875rem] tracking-meta transition-colors duration-500 lg:hidden',
                       state === 'active' ? 'border-accent text-accent' : 'border-white/20 text-white/40',
                     ].join(' ')}
                   >

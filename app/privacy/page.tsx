@@ -393,7 +393,7 @@ export default function PrivacyPage() {
               </div>
 
               {/* Legal content */}
-              <div className="max-w-[820px] lg:col-span-8 lg:col-start-5 xl:col-span-8">
+              <div className="max-w-[51.25rem] lg:col-span-8 lg:col-start-5 xl:col-span-8">
                 <div className="space-y-12 sm:space-y-16">
                   {visible.map((entry, i) => {
                     const index = String(i + 1).padStart(2, '0')
@@ -422,7 +422,7 @@ export default function PrivacyPage() {
                   })}
                 </div>
 
-                <p className="mt-16 border-t border-line pt-8 text-[13px] leading-relaxed text-muted/60">
+                <p className="mt-16 border-t border-line pt-8 text-[0.8125rem] leading-relaxed text-muted/60">
                   If anything in this notice is unclear, or you would like to
                   exercise a right described above, please get in touch. See also
                   our{' '}

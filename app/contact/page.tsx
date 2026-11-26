@@ -69,7 +69,7 @@ export default function ContactPage() {
                   const inner = (
                     <>
                       <div>
-                        <span className="block font-mono text-[10px] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial group-hover:text-ink/60">
+                        <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial group-hover:text-ink/60">
                           {c.label}
                         </span>
                         <span className="mt-1.5 block font-serif text-xl tracking-tight text-ink">
@@ -132,7 +132,7 @@ export default function ContactPage() {
                 </p>
 
                 <div className="mt-10 border-t border-line pt-8">
-                  <span className="block font-mono text-[10px] uppercase tracking-meta text-muted">
+                  <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-muted">
                     Prefer email
                   </span>
                   <a
@@ -144,7 +144,7 @@ export default function ContactPage() {
                       <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 ease-editorial group-hover:scale-x-100" />
                     </span>
                   </a>
-                  <p className="mt-6 max-w-[34ch] text-[13px] leading-relaxed text-muted/80">
+                  <p className="mt-6 max-w-[34ch] text-[0.8125rem] leading-relaxed text-muted/80">
                     Every message is read by the team. We reply within two
                     business days.
                   </p>
@@ -173,7 +173,7 @@ export default function ContactPage() {
               {faqs.map((f, i) => (
                 <Reveal key={f.q} delay={i * 0.08}>
                   <div className="grid gap-x-10 gap-y-3 border-t border-line py-8 last:border-b lg:grid-cols-12 lg:py-10">
-                    <span className="font-mono text-[13px] tracking-meta text-accent/70 lg:col-span-1 lg:pt-2">
+                    <span className="font-mono text-[0.8125rem] tracking-meta text-accent/70 lg:col-span-1 lg:pt-2">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="font-serif text-2xl font-normal tracking-tight text-ink lg:col-span-5">
@@ -197,7 +197,7 @@ export default function ContactPage() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[380px] w-[680px] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[23.75rem] w-[42.5rem] max-w-[92vw] -translate-x-1/2 -translate-y-1/2"
           style={{
             background:
               'radial-gradient(ellipse at center, rgba(79,70,255,0.08), transparent 70%)',
@@ -213,7 +213,7 @@ export default function ContactPage() {
           <Reveal delay={0.15}>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="group mt-10 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-meta text-white/55 transition-colors duration-300 ease-editorial hover:text-white"
+              className="group mt-10 inline-flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-meta text-white/55 transition-colors duration-300 ease-editorial hover:text-white"
             >
               {CONTACT_EMAIL}
               <span className="text-accent transition-transform duration-300 ease-editorial group-hover:translate-x-1">

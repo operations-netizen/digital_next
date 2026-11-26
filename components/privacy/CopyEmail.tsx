@@ -43,7 +43,7 @@ export default function CopyEmail({ email }: { email: string }) {
       <button
         type="button"
         onClick={copy}
-        className="font-mono text-[10px] uppercase tracking-meta text-muted outline-none transition-colors duration-300 ease-editorial hover:text-ink focus-visible:text-accent"
+        className="font-mono text-[0.625rem] uppercase tracking-meta text-muted outline-none transition-colors duration-300 ease-editorial hover:text-ink focus-visible:text-accent"
         aria-live="polite"
       >
         {copied ? 'Copied' : 'Copy'}

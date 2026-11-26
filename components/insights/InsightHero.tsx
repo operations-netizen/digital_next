@@ -28,7 +28,7 @@ export default function InsightHero() {
           </p>
         </Reveal>
         <Reveal delay={0.24}>
-          <span className="mt-12 block font-mono text-[10px] uppercase tracking-meta text-muted/50">
+          <span className="mt-12 block font-mono text-[0.625rem] uppercase tracking-meta text-muted/50">
             Notes from Digital Next · Written by operators · Published occasionally
           </span>
         </Reveal>
