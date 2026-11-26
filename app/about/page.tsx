@@ -61,7 +61,7 @@ export default function AboutPage() {
   return (
     <>
       {/* 01 - Opening */}
-      <section className="overflow-hidden pt-32 pb-14 sm:pt-40 sm:pb-16 lg:pb-20">
+      <section className="overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-20">
         <div className="shell">
           <div className="grid items-center gap-y-16 lg:grid-cols-[55fr_45fr] lg:gap-x-16">
             <div>

@@ -115,7 +115,7 @@ export default function CompaniesPage() {
           brands as a compact hover-reveal list (hover a name: the rest dim,
           it takes its brand colour, a preview card follows the cursor). It
           doubles as the index - each name jumps to its showcase below. */}
-      <section className="pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pb-24">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-28 lg:pb-24">
         <div className="shell">
           <div className="grid gap-y-14 lg:grid-cols-12 lg:gap-x-16">
             <div className="lg:col-span-6">
