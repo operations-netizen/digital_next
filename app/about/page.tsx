@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -246,7 +247,7 @@ export default function AboutPage() {
                       <div className="flex h-9 shrink-0 items-center xs:h-11 sm:h-12">
                         {c.logo ? (
                           <img
-                            src={c.logo}
+                            src={withBase(c.logo)}
                             alt=""
                             loading="lazy"
                             width={c.logoWidth}

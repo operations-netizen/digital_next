@@ -1,5 +1,6 @@
 'use client'
 
+import { withBase } from '@/lib/asset'
 import { useState } from 'react'
 import SelectField from '@/components/ui/SelectField'
 import { areaOptions, companyOptions } from '@/lib/careers'
@@ -41,7 +42,7 @@ export default function CareerForm() {
     setSubmitting(true)
     try {
       body.set('form', 'careers')
-      const res = await fetch('/api/forms', { method: 'POST', body })
+      const res = await fetch(withBase('/api/forms'), { method: 'POST', body })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
         throw new Error(data.error || 'Something went wrong. Please try again.')

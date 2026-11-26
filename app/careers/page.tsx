@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -280,7 +281,7 @@ export default function CareersPage() {
                       <div className="flex h-8 items-center lg:col-span-3">
                         {c.logo ? (
                           <img
-                            src={c.logo}
+                            src={withBase(c.logo)}
                             alt={`${c.name} logo`}
                             loading="lazy"
                             className={`w-auto object-contain object-left opacity-75 grayscale transition-[filter,opacity] duration-[600ms] ease-editorial group-hover:opacity-100 group-hover:grayscale-0 ${cc.logoMax}`}

@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import { lifeFrames } from '@/lib/about'
@@ -36,7 +37,7 @@ export default function LifeGallery() {
                     {f.image ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
-                        src={f.image}
+                        src={withBase(f.image)}
                         alt={f.caption}
                         loading="lazy"
                         className="h-full w-full object-cover grayscale transition-[filter] duration-500 ease-editorial group-hover:grayscale-0"

@@ -1,5 +1,6 @@
 'use client'
 
+import { withBase } from '@/lib/asset'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -23,7 +24,7 @@ function Wordmark({ dark, onClick }: { dark?: boolean; onClick?: () => void }) {
           reserves the aspect ratio before it loads. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/logo-dn.png"
+        src={withBase("/logo-dn.png")}
         alt=""
         width={565}
         height={120}

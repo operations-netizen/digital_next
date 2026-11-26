@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
@@ -28,7 +29,7 @@ function Profile({ m, delay }: { m: LeaderMember; delay: number }) {
           {m.photo ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
-              src={m.photo}
+              src={withBase(m.photo)}
               alt={`${m.name}, ${m.role}`}
               loading="lazy"
               className="h-full w-full object-cover object-top"

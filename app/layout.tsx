@@ -8,7 +8,8 @@ import BackToTop from '@/components/ui/BackToTop'
 
 const serif = Fraunces({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  // Variable font (no fixed weights): static-weight requests make Google
+  // return extensionless URLs that next@14.2's font loader can't parse.
   style: ['normal', 'italic'],
   variable: '--font-serif',
   display: 'swap',

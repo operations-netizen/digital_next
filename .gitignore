@@ -44,3 +44,6 @@ next-env.d.ts
 # internal / local-only
 /.claude/
 CLAUDE.md
+
+# deploy build
+/.next-deploy/

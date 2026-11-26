@@ -1,5 +1,6 @@
 'use client'
 
+import { withBase } from '@/lib/asset'
 import { useState } from 'react'
 
 /**
@@ -41,7 +42,7 @@ export default function ContactForm() {
     try {
       const body = new FormData(e.currentTarget)
       body.set('form', 'contact')
-      const res = await fetch('/api/forms', { method: 'POST', body })
+      const res = await fetch(withBase('/api/forms'), { method: 'POST', body })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
         throw new Error(data.error || 'Something went wrong. Please try again.')

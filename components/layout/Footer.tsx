@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import { companies } from '@/lib/companies'
 import { CONTACT_EMAIL } from '@/lib/site'
@@ -57,7 +58,7 @@ export default function Footer() {
               {/* Inverted for the dark footer - see the note in Nav. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo-dn.png"
+                src={withBase("/logo-dn.png")}
                 alt=""
                 width={565}
                 height={120}
@@ -194,9 +195,9 @@ export default function Footer() {
               { label: 'Terms', href: '/terms' },
               { label: 'Cookies', href: '/cookies' },
             ].map((l) => (
-              <a key={l.label} href={l.href} className="transition-colors duration-300 hover:text-white">
+              <Link key={l.label} href={l.href} className="transition-colors duration-300 hover:text-white">
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

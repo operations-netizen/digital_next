@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import { companies, type Company } from '@/lib/companies'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -115,7 +116,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
         <div className="flex shrink-0 items-start pt-0.5">
           {company.logo ? (
             <img
-              src={company.logo}
+              src={withBase(company.logo)}
               alt={`${company.name} logo`}
               loading="lazy"
               decoding="async"

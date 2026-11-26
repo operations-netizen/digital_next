@@ -1,3 +1,4 @@
+import { withBase } from '@/lib/asset'
 import type { ReactNode } from 'react'
 import Reveal from '@/components/ui/Reveal'
 
@@ -95,7 +96,7 @@ export default function CompanyShowcaseSection({
               {logo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={logo}
+                  src={withBase(logo)}
                   alt={logoAlt}
                   loading="lazy"
                   width={logoWidth}
