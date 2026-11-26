@@ -30,7 +30,7 @@ export default function AboutTimeline() {
                 </h2>
                 <p className="mt-7 max-w-[36ch] text-base leading-relaxed text-muted">
                   Two decades of building internet businesses - from a single
-                  agency in 2006 to six brands across agency, platform, and
+                  agency in 2006 to five brands across agency, platform, and
                   SaaS.
                 </p>
               </Reveal>

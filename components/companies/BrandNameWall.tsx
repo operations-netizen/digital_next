@@ -150,8 +150,8 @@ export default function BrandNameWall() {
                     }`}
                   />
                 ) : (
-                  <span className="font-sans text-xl font-bold leading-none tracking-[-0.02em] text-ink">
-                    HireNext<span className="text-[#14B8A6]">.io</span>
+                  <span className="font-serif text-xl leading-none tracking-tight text-ink">
+                    {current.name}
                   </span>
                 )}
               </div>

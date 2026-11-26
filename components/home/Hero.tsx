@@ -66,7 +66,7 @@ export default function Hero() {
             {...fade(0.7)}
           >
             We build and scale exceptional internet businesses across AI, SaaS,
-            recruitment, and digital marketing-creating long-term value through
+            SEO, and digital marketing-creating long-term value through
             shared technology, talent, and operational excellence.
           </motion.p>
 

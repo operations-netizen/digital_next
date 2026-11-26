@@ -41,7 +41,7 @@ export interface CompanyShowcaseSectionProps {
   /** Tailwind height class for the logo inside the tile (square marks need
    *  more height than wordmarks to read at the same optical size). */
   logoMax?: string
-  /** Rendered in place of the logo when no logo asset exists (e.g. HireNext). */
+  /** Rendered in place of the logo when no logo asset exists. */
   fallback?: ReactNode
 }
 

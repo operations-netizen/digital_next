@@ -7,7 +7,6 @@ import { CONTACT_EMAIL } from '@/lib/site'
 const CATEGORY: Record<string, string> = {
   'digital-web-solutions': 'Digital Marketing',
   wytlabs: 'Marketing Agency (US)',
-  hirenext: 'ATS Platform',
   rankwatch: 'SEO SaaS Platform',
   collabx: 'Influencer Platform',
   smegoweb: 'Marketing Agency (ANZ)',

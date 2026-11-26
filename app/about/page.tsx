@@ -17,6 +17,7 @@ import AwardsSection from '@/components/about/AwardsSection'
 import LookingAhead from '@/components/about/LookingAhead'
 import { CONTACT_EMAIL } from '@/lib/site'
 import { companies } from '@/lib/companies'
+import { span2then3 } from '@/components/ui/gridSpan'
 
 export const metadata = pageMetadata({
   title: 'About',
@@ -93,12 +94,12 @@ export default function AboutPage() {
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
                   <span>Technology holding company</span>
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
-                  <span>Six brands</span>
+                  <span>Five brands</span>
                 </div>
               </Reveal>
             </div>
 
-            {/* Portfolio constellation - Digital Next and its six companies */}
+            {/* Portfolio constellation - Digital Next and its brands */}
             <div className="hidden lg:block">
               <AboutHeroVisual />
             </div>
@@ -233,9 +234,9 @@ export default function AboutPage() {
                 Hover speaks the brand's own colour: a faint tint, a rule
                 drawn across the top, the logo lifting, the CTA tinting.
                 min-w-0: grid items default to min-width:auto. */}
-            <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+            <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:mt-12 lg:grid-cols-6">
               {companies.map((c, i) => (
-                <Reveal key={c.id} delay={(i % 3) * 0.08} className="h-full min-w-0">
+                <Reveal key={c.id} delay={(i % 3) * 0.08} className={`h-full min-w-0 ${span2then3(i, companies.length)}`}>
                   <a
                     href={c.url}
                     target="_blank"
@@ -266,8 +267,8 @@ export default function AboutPage() {
                           }`}
                         />
                       ) : (
-                        <span className="whitespace-nowrap font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
-                          HireNext<span className="text-[#14B8A6]">.io</span>
+                        <span className="whitespace-nowrap font-serif text-[1.5rem] leading-none tracking-tight text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
+                          {c.name}
                         </span>
                       )}
                       <span className="self-start font-mono text-[0.6875rem] tabular-nums tracking-meta text-[var(--brand)]">
@@ -301,7 +302,7 @@ export default function AboutPage() {
             </div>
 
             {/* Shared foundation - fused to the bottom of the brand panel so
-                the six brands literally stand on it: a tinted strip with an
+                the brands literally stand on it: a tinted strip with an
                 accent rule on top, the label left and the four pillars right. */}
             <Reveal delay={0.1}>
               <div className="flex flex-col gap-3 border-x border-b border-line border-t-2 border-t-accent bg-[#F6F6FA] px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">

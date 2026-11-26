@@ -2,10 +2,11 @@
 
 import { useRef } from 'react'
 import { useReducedMotion } from '@/lib/motion'
+import { companies } from '@/lib/companies'
 
 /**
  * Ultra-minimal ecosystem constellation for the "How we operate" intro.
- * Digital Next sits at the center of six connected nodes on faint orbital
+ * Digital Next sits at the center of one connected node per brand on faint orbital
  * rings - a system diagram, not an illustration. Pure SVG + CSS transforms
  * (opacity/transform only) for 60fps; everything sits at 4-15% opacity so
  * it reinforces the headline without competing with it.
@@ -17,8 +18,9 @@ export default function EcosystemConstellation() {
 
   const C = 200
   const R = 128
-  const nodes = Array.from({ length: 6 }, (_, i) => {
-    const theta = (-90 + i * 60) * (Math.PI / 180)
+  const n = companies.length
+  const nodes = Array.from({ length: n }, (_, i) => {
+    const theta = (-90 + i * (360 / n)) * (Math.PI / 180)
     return {
       i,
       x: C + R * Math.cos(theta),

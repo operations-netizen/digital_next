@@ -4,6 +4,7 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 import { companies } from '@/lib/companies'
+import { span3 } from '@/components/ui/gridSpan'
 
 const principles: {
   no: string
@@ -51,7 +52,7 @@ export default function WhoWeAre() {
         {/* A 2x2 of equal halves, so the columns mirror row by row.
             Row 1: statement | standfirst. Row 2: logo wall | body + CTA - the
             body opens level with the wall's top edge and the CTA sits on its
-            bottom edge. The six brands as a logo wall make "independent
+            bottom edge. The brands as a logo wall make "independent
             brands" concrete. On phones: statement, standfirst, body + CTA,
             wall (DOM order). */}
         <div className="mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-24 lg:gap-y-12">
@@ -111,9 +112,9 @@ export default function WhoWeAre() {
               a soft radial wash behind the mark plus a drop-shadow halo around
               it. Each opens the brand's site. */}
           <Reveal delay={0.25} className="lg:col-start-1 lg:row-start-2">
-            <ul className="grid grid-cols-3 border-l border-t border-line">
-              {companies.map((c) => (
-                <li key={c.id} className="border-b border-r border-line">
+            <ul className="grid grid-cols-6 border-l border-t border-line">
+              {companies.map((c, i) => (
+                <li key={c.id} className={`border-b border-r border-line ${span3(i, companies.length)}`}>
                   <a
                     href={c.url}
                     target="_blank"
@@ -148,9 +149,9 @@ export default function WhoWeAre() {
                         ].join(' ')}
                       />
                     ) : (
-                      // HireNext's logo is a typographic wordmark (no file).
-                      <span className="relative font-sans text-base font-bold leading-none tracking-[-0.02em] text-ink transition-[text-shadow] duration-[500ms] ease-editorial [text-shadow:0_0_0_transparent] group-hover:[text-shadow:0_0_0.75rem_var(--brand-glow)] group-focus-visible:[text-shadow:0_0_0.75rem_var(--brand-glow)] sm:text-lg">
-                        HireNext<span className="text-[#14B8A6]">.io</span>
+                      // Brand without a logo file: its name in the display serif.
+                      <span className="relative font-serif text-base leading-none tracking-tight text-ink sm:text-lg">
+                        {c.name}
                       </span>
                     )}
                   </a>

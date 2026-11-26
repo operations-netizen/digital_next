@@ -11,7 +11,6 @@ export type CompanyTag =
   | 'Agency'
   | 'Platform'
   | 'SaaS'
-  | 'Recruitment'
   | 'SEO'
 
 export interface Company {
@@ -80,22 +79,6 @@ export const companies: Company[] = [
     primaryColor: '#7C3AED', // purple
   },
   {
-    id: 'hirenext',
-    ticker: 'HRN',
-    name: 'Hire Next',
-    category: 'ATS & Talent Platform',
-    tags: ['Platform', 'Recruitment'],
-    description:
-      'An internally developed applicant tracking and talent platform, currently in development.',
-    mission: 'Hiring, re-engineered.',
-    founded: '2026',
-    industry: 'HR Technology',
-    employees: 'Pre-launch',
-    url: 'https://hirenext.io/',
-    logo: '', // official logo is client-rendered inline SVG; not retrievable as a file
-    primaryColor: '#14B8A6', // teal
-  },
-  {
     id: 'rankwatch',
     ticker: 'RKW',
     name: 'RankWatch',
@@ -156,7 +139,6 @@ export const filters = [
   'Agency',
   'Platform',
   'SaaS',
-  'Recruitment',
   'SEO',
 ] as const
 

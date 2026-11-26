@@ -108,7 +108,7 @@ export const insights: Insight[] = [
   },
   {
     slug: 'what-independent-companies-learn',
-    title: 'What six independent companies can learn from one another.',
+    title: 'What five independent companies can learn from one another.',
     excerpt:
       'Shared knowledge compounds when each business keeps its own identity.',
     category: 'Portfolio Notes',

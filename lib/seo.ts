@@ -16,7 +16,7 @@ export const SITE_LEGAL_NAME = 'Digital Next Group'
 export const SITE_TITLE = 'Digital Next - Building companies that build the future'
 // Kept under ~155 characters so search results show it untruncated.
 export const SITE_DESCRIPTION =
-  'Digital Next is a technology holding company that builds, acquires, and scales internet businesses across AI, SaaS, recruitment, and digital marketing.'
+  'Digital Next is a technology holding company that builds, acquires, and scales internet businesses across AI, SaaS, SEO, and digital marketing.'
 
 /** The site-wide share card (app/opengraph-image.tsx). */
 const SITE_OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630, alt: SITE_TITLE }

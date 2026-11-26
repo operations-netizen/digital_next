@@ -23,7 +23,7 @@ export default function ClosingThought() {
           <div className="flex items-center justify-between gap-6 border-b border-line pb-5">
             <Eyebrow>Final thought</Eyebrow>
             <span className="hidden font-mono text-[0.6875rem] uppercase tracking-meta text-muted sm:block">
-              Six brands <span className="px-2 text-line">/</span> One group
+              Five brands <span className="px-2 text-line">/</span> One group
               <span className="px-2 text-line">/</span> Est. 2017
             </span>
           </div>

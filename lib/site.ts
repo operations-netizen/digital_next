@@ -14,21 +14,22 @@ export const nav = [
 
 // Headline group figures shown in the strip just under the hero.
 // All figures below trace to the internal "Digital Next - Company Reference
-// Document" (July 2026): 6 brands (5 active, 1 pre-launch), 450+ people,
+// Document" (July 2026): 5 brands (Hire Next, pre-launch, removed from all
+// public copy on 2026-11-26 at the owner's request), 450+ people,
 // 100+ global partners, and 2006 as the founding year. Country and office
 // counts exclude the UK, which stays out of all public-facing copy: 4
 // countries (India, USA, Australia, New Zealand) and 5 offices. The previous
 // "5,000+ Clients", "12M+ Users" and "100+ Products shipped" figures had no
 // source and were removed.
 export const quickStats = [
-  { value: 6, suffix: '', label: 'Brands' },
+  { value: 5, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'Employees' },
   { value: 4, suffix: '', label: 'Countries' },
   { value: 20, suffix: '+', label: 'Years' },
 ]
 
 export const impactStats = [
-  { value: 6, suffix: '', label: 'Brands' },
+  { value: 5, suffix: '', label: 'Brands' },
   { value: 450, suffix: '+', label: 'People' },
   { value: 4, suffix: '', label: 'Countries' },
   { value: 5, suffix: '', label: 'Offices' },
@@ -65,7 +66,7 @@ export const timeline = [
   { year: '2015', title: 'First product', body: 'RankWatch is introduced, moving the group beyond services into proprietary SaaS.' },
   { year: '2019', title: 'United States', body: 'Wytlabs is founded to serve US eCommerce, SaaS, and healthcare brands.' },
   { year: '2025', title: 'New platforms', body: 'CollabX launches into influencer and partnership management, and enters a high-growth scale-up phase.' },
-  { year: '2026', title: 'One group, six brands', body: 'The group takes the Digital Next name across six brands, four countries, and 450+ people, with Hire Next in development as shared talent infrastructure.' },
+  { year: '2026', title: 'One group, five brands', body: 'The group takes the Digital Next name across five brands, four countries, and 450+ people.' },
   { year: 'Next', title: "Building what's next", body: 'The next decade of internet businesses - founded, built, and scaled.' },
 ]
 
@@ -102,7 +103,6 @@ export const brandOptions = [
   'The group',
   'Digital Web Solutions',
   'Wytlabs',
-  'Hire Next',
   'RankWatch',
   'CollabX',
   'Smego Web',

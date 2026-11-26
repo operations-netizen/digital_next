@@ -3,14 +3,19 @@ import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
+import CountUp from '@/components/ui/CountUp'
 import CompanyShowcaseSection from '@/components/companies/CompanyShowcaseSection'
 import BrandNameWall from '@/components/companies/BrandNameWall'
 import { companies } from '@/lib/companies'
+import { impactStats } from '@/lib/site'
+
+// "20+ years building" - read from the shared group figures so it stays in sync.
+const yearsBuilding = impactStats.find((x) => x.label === 'Years building') ?? { value: 20, suffix: '+' }
 
 export const metadata = pageMetadata({
   title: 'Brands',
   description:
-    'Six independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
+    'Five independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
   path: '/brands',
 })
 
@@ -28,7 +33,7 @@ const showcase: Record<
     /** Labelled facts beside the logo (founded/status and website are
      *  added from the company record). */
     facts: { label: string; value: string }[]
-    /** Logo height inside the brand tile - one optical size for all six. */
+    /** Logo height inside the brand tile - one optical size for every brand. */
     logoMax: string
   }
 > = {
@@ -53,16 +58,6 @@ const showcase: Record<
       { label: 'Services', value: 'SEO & paid ads' },
     ],
     logoMax: 'h-9',
-  },
-  hirenext: {
-    category: 'ATS & Talent Platform',
-    description:
-      'An internally developed Applicant Tracking System (ATS) and talent-management platform, currently in development. On launch, it will support recruitment operations across all Digital Next brands, with a possible external commercialization path.',
-    facts: [
-      { label: 'Category', value: 'HR technology' },
-      { label: 'Built', value: 'In-house' },
-    ],
-    logoMax: 'h-12',
   },
   rankwatch: {
     category: 'SEO & Rank-Tracking SaaS',
@@ -111,11 +106,11 @@ const platform = [
 export default function CompaniesPage() {
   return (
     <>
-      {/* 01 - Hero: statement + copy on the left; on the right the six
+      {/* 01 - Hero: statement + copy on the left; on the right the
           brands as a compact hover-reveal list (hover a name: the rest dim,
           it takes its brand colour, a preview card follows the cursor). It
           doubles as the index - each name jumps to its showcase below. */}
-      <section className="pt-28 pb-16 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-16 lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center lg:pt-28 lg:pb-16">
         <div className="shell">
           <div className="grid gap-y-14 lg:grid-cols-12 lg:gap-x-16">
             <div className="lg:col-span-6">
@@ -132,7 +127,7 @@ export default function CompaniesPage() {
                 trigger="mount"
                 className="display text-statement mt-6 max-w-[15ch] [text-wrap:balance]"
                 lines={[
-                  <>Six brands.</>,
+                  <>Five brands.</>,
                   <>
                     One <em className="italic text-accent">shared ambition</em>.
                   </>,
@@ -141,8 +136,8 @@ export default function CompaniesPage() {
               <Reveal delay={0.15}>
                 <p className="mt-8 max-w-[34rem] text-base leading-[1.7] text-muted [text-wrap:pretty] sm:text-[1.0625rem]">
                   Digital Next brings together independent internet businesses
-                  across digital marketing, AI, SaaS, recruitment,
-                  collaboration, SEO, and enterprise technology. Each brand
+                  across digital marketing, AI, SaaS, collaboration, SEO,
+                  and enterprise technology. Each brand
                   operates with its own identity, team, and roadmap while
                   benefiting from the strength of the group.
                 </p>
@@ -191,11 +186,8 @@ export default function CompaniesPage() {
               href={c.url}
               reverse={i % 2 === 1}
               fallback={
-                <span className="font-sans text-[2rem] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[2.5rem]">
-                  HireNext
-                  <span className="text-[#14B8A6]">
-                    .io
-                  </span>
+                <span className="font-serif text-[2rem] leading-none tracking-tight text-ink sm:text-[2.5rem]">
+                  {c.name}
                 </span>
               }
             />
@@ -267,36 +259,47 @@ export default function CompaniesPage() {
         </div>
       </section>
 
-      {/* 04 - Portfolio philosophy (bridge) */}
-      <section className="pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28 lg:pt-16">
+      {/* 04 - Portfolio philosophy (bridge). Follows the dark platform band,
+          so no hairline of its own. Symmetric header like the other sections:
+          the figure block's top lines up with the eyebrow, the paragraph's
+          bottom with the headline's. */}
+      <section className="pb-20 pt-16 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
         <div className="shell">
-          <div className="border-t border-line pt-10 sm:pt-12">
-            <div className="grid gap-x-16 gap-y-8 lg:grid-cols-12 lg:items-end">
-              <div className="lg:col-span-8">
-                <Reveal>
-                  <Eyebrow>Our model</Eyebrow>
-                </Reveal>
-                <TextReveal
-                  as="h2"
-                  className="display mt-6 max-w-[26ch] text-statement"
-                  lines={[
-                    <>We do not assemble brands for a quick exit.</>,
-                    <>
-                      We build a group{' '}
-                      <em className="italic text-accent">designed to compound</em>.
-                    </>,
-                  ]}
-                />
-              </div>
-              <Reveal className="lg:col-span-4" delay={0.15}>
-                <p className="max-w-[44ch] text-lg leading-relaxed text-muted">
-                  Every business keeps its identity and operating autonomy. Digital
-                  Next focuses on long-term ownership, shared expertise, and
-                  patient company building rather than short-term financial
-                  engineering.
-                </p>
+          <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12 lg:items-stretch">
+            <div className="lg:col-span-8 lg:flex lg:flex-col lg:items-start lg:justify-between">
+              <Reveal className="flex">
+                <Eyebrow>Our model</Eyebrow>
               </Reveal>
+              <TextReveal
+                as="h2"
+                className="display mt-6 text-statement"
+                lines={[
+                  <>We do not assemble brands for a quick exit.</>,
+                  <>
+                    We build a group{' '}
+                    <em className="italic text-accent">designed to compound</em>.
+                  </>,
+                ]}
+              />
             </div>
+            <Reveal className="lg:col-span-4 lg:col-start-9 lg:flex lg:flex-col lg:justify-between" delay={0.15}>
+              <div className="flex items-end gap-5 border-b border-line pb-6">
+                <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] font-light leading-[0.8] tracking-tightest text-ink tabular-nums">
+                  <CountUp value={yearsBuilding.value} suffix={yearsBuilding.suffix} />
+                </span>
+                <span className="pb-1 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-muted">
+                  Years building
+                  <br />
+                  for the long term
+                </span>
+              </div>
+              <p className="mt-6 text-lg leading-relaxed text-muted [text-wrap:pretty] lg:text-xl lg:leading-[1.65]">
+                Every business keeps its identity and operating autonomy. Digital
+                Next focuses on long-term ownership, shared expertise, and
+                patient company building rather than short-term financial
+                engineering.
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>

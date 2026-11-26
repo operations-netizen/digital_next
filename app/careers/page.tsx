@@ -7,6 +7,7 @@ import TextReveal from '@/components/ui/TextReveal'
 import ProcessTimeline from '@/components/careers/ProcessTimeline'
 import CareerForm from '@/components/careers/CareerForm'
 import { companies } from '@/lib/companies'
+import { span2then3 } from '@/components/ui/gridSpan'
 import {
   careerIndex,
   whyJoin,
@@ -55,8 +56,7 @@ export default function CareersPage() {
               <Reveal delay={0.15}>
                 <p className="mt-6 max-w-[58ch] text-base leading-[1.65] text-muted">
                   Join teams building and operating independent internet businesses
-                  across technology, AI, marketing, recruitment, SEO, and digital
-                  products.
+                  across technology, AI, marketing, SEO, and digital products.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
@@ -316,7 +316,7 @@ export default function CareersPage() {
             <Reveal>
               <Eyebrow>Careers across the group</Eyebrow>
               <h2 className="display mt-6 max-w-[16ch] text-statement">
-                Six brands.{' '}
+                Five brands.{' '}
                 <em className="italic text-accent">Many ways to build</em>.
               </h2>
             </Reveal>
@@ -326,11 +326,11 @@ export default function CareersPage() {
                 as an sr-only heading), category, what the brand does, then a
                 footer rail. Hover speaks the brand's own colour: faint tint,
                 rule drawn across the top, logo lifting, CTA tinting. */}
-            <div className="mt-10 grid border-l border-t border-line sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid border-l border-t border-line sm:mt-12 sm:grid-cols-2 lg:grid-cols-6">
               {companies.map((c, i) => {
                 const cc = companyCareers[c.id]
                 return (
-                  <Reveal key={c.id} delay={(i % 3) * 0.06} className="h-full min-w-0">
+                  <Reveal key={c.id} delay={(i % 3) * 0.06} className={`h-full min-w-0 ${span2then3(i, companies.length)}`}>
                     <a
                       href={c.url}
                       target="_blank"
@@ -357,8 +357,8 @@ export default function CareersPage() {
                             }`}
                           />
                         ) : (
-                          <span className="whitespace-nowrap font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
-                            HireNext<span className="text-[#14B8A6]">.io</span>
+                          <span className="whitespace-nowrap font-serif text-[1.5rem] leading-none tracking-tight text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
+                            {c.name}
                           </span>
                         )}
                         <span className="self-start font-mono text-[0.6875rem] tabular-nums tracking-meta text-[var(--brand)]">

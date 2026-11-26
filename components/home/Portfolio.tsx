@@ -1,12 +1,13 @@
 import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import { companies, type Company } from '@/lib/companies'
+import { span2 } from '@/components/ui/gridSpan'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 
 /**
- * Signature portfolio showcase. Six companies in a 2x3 editorial grid,
+ * Signature portfolio showcase. The brands in a 2-column editorial grid,
  * rendered entirely from the shared `companies` array. Each card is a
  * single semantic link to the company's site (opens in a new tab), with
  * a restrained premium hover: lift, ambient shadow, a thin accent line,
@@ -32,7 +33,7 @@ export default function Portfolio() {
               as="h2"
               className="display text-statement mt-6 max-w-[15ch] [text-wrap:balance]"
               lines={[
-                <>Six brands.</>,
+                <>Five brands.</>,
                 <>
                   <em className="italic text-accent">One shared ecosystem.</em>
                 </>,
@@ -42,8 +43,8 @@ export default function Portfolio() {
 
           <Reveal delay={0.12}>
             <p className="text-base leading-[1.7] text-muted [text-wrap:pretty] sm:text-[1.0625rem]">
-              Digital Next brings together six independent brands across AI,
-              SaaS, recruitment, SEO, and digital services. Every brand
+              Digital Next brings together five independent brands across AI,
+              SaaS, SEO, and digital services. Every brand
               operates independently while benefiting from shared expertise,
               technology, and long-term strategic support.
             </p>
@@ -67,12 +68,12 @@ export default function Portfolio() {
           <div className="mt-12 h-px w-full bg-line" />
         </Reveal>
 
-        {/* Cards: 1 col mobile, 2 cols tablet + desktop (3 rows).
+        {/* Cards: 1 col mobile, 2 cols tablet + desktop (an odd last card sits centred at the same width).
             min-w-0 on each item: grid items default to min-width:auto, which
             lets a long brand name size the track wider than the viewport. */}
         <div className="mt-12 grid items-stretch gap-x-5 gap-y-3 sm:grid-cols-2 lg:gap-x-6 lg:gap-y-4">
           {companies.map((company, i) => (
-            <Reveal key={company.id} delay={i * 0.08} className="h-full min-w-0">
+            <Reveal key={company.id} delay={i * 0.08} className={`h-full min-w-0 ${span2(i, companies.length)}`}>
               <CompanyCard company={company} index={i} />
             </Reveal>
           ))}
@@ -132,11 +133,6 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
                     : 'max-h-6 max-w-[6.5rem] xs:max-h-7 xs:max-w-[8.75rem]',
               ].join(' ')}
             />
-          ) : company.id === 'hirenext' ? (
-            // Typographic wordmark - HireNext renders its logo as styled text.
-            <span className="origin-right font-sans text-[1.4rem] font-bold leading-none tracking-[-0.02em] text-ink transition-transform duration-[280ms] ease-out group-hover:scale-[1.03]">
-              HireNext<span className="text-[#14B8A6]">.io</span>
-            </span>
           ) : (
             <span className="origin-right font-serif text-[1.4rem] font-normal leading-none tracking-tight text-ink transition-transform duration-[280ms] ease-out group-hover:scale-[1.03]">
               {company.name}

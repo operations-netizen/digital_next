@@ -14,7 +14,7 @@ export default async function OpengraphImage() {
       <OgFrame
         logo={logo}
         eyebrow="A technology holding company"
-        footerLeft="6 brands · 450+ people · 4 countries"
+        footerLeft="5 brands · 450+ people · 4 countries"
       >
         <div
           style={{
