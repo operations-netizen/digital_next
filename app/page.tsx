@@ -61,8 +61,8 @@ export default function Home() {
       <Hero />
       <StatsStrip />
       <AnimatedDivider />
+      {/* WhoWeAre closes on a full-bleed dark band - that is the seam. */}
       <WhoWeAre />
-      <AnimatedDivider />
       <Portfolio />
       <Philosophy />
       <ClosingThought />

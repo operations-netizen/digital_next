@@ -1,4 +1,5 @@
 import { withBase } from '@/lib/asset'
+import Link from 'next/link'
 import { companies, type Company } from '@/lib/companies'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -15,52 +16,49 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="scroll-mt-24 pb-24 pt-6 sm:pb-32 sm:pt-8 lg:pb-40 lg:pt-10"
+      className="scroll-mt-24 pb-24 pt-20 sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-28"
     >
       <div className="shell">
-        {/* Editorial introduction - centered, storytelling transition */}
-        <div className="mx-auto flex max-w-[51.25rem] flex-col items-center text-center">
-          <Reveal>
-            <Eyebrow>Our brands</Eyebrow>
-          </Reveal>
+        {/* Split header, the same grammar as Who We Are: label + statement
+            on the left; on the right the copy and a route into /companies,
+            bottom-aligned to the headline's last line. (The old centred
+            stat line repeated the StatsStrip and contradicted it.) */}
+        <div className="grid gap-y-8 lg:grid-cols-2 lg:items-end lg:gap-x-24">
+          <div>
+            <Reveal>
+              <Eyebrow>Our brands</Eyebrow>
+            </Reveal>
+            <TextReveal
+              as="h2"
+              className="display text-statement mt-6 max-w-[15ch] [text-wrap:balance]"
+              lines={[
+                <>Six brands.</>,
+                <>
+                  <em className="italic text-accent">One shared ecosystem.</em>
+                </>,
+              ]}
+            />
+          </div>
 
-          {/* ↓ 32px */}
-          <TextReveal
-            as="h2"
-            className="display text-statement mt-8 max-w-[43.75rem]"
-            lines={[
-              <>Six brands.</>,
-              <>
-                <em className="italic text-accent">One shared ecosystem.</em>
-              </>,
-            ]}
-          />
-
-          {/* ↓ 28px */}
           <Reveal delay={0.12}>
-            <p className="mt-8 max-w-[46.25rem] text-lg leading-[1.7] text-muted">
+            <p className="text-base leading-[1.7] text-muted [text-wrap:pretty] sm:text-[1.0625rem]">
               Digital Next brings together six independent brands across AI,
               SaaS, recruitment, SEO, and digital services. Every brand
               operates independently while benefiting from shared expertise,
               technology, and long-term strategic support.
             </p>
-          </Reveal>
-
-          {/* ↓ 24px - trust indicators (supporting proof, kept close) */}
-          <Reveal delay={0.2}>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-[0.9375rem] font-medium tracking-[-0.005em] text-ink/70 sm:gap-x-7">
-              <span>
-                <span className="font-semibold text-ink">6</span> Brands
+            <Link
+              href="/companies"
+              className="group mt-6 flex w-fit items-center gap-2.5 text-[0.9375rem] font-medium leading-snug text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
+            >
+              <span className="relative">
+                Explore all brands
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100" />
               </span>
-              <span aria-hidden="true" className="h-3.5 w-px bg-line" />
-              <span>
-                <span className="font-semibold text-ink">450+</span> Employees
+              <span className="text-accent transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[0.3125rem]">
+                &rarr;
               </span>
-              <span aria-hidden="true" className="h-3.5 w-px bg-line" />
-              <span>
-                <span className="font-semibold text-ink">5+</span> Industries
-              </span>
-            </div>
+            </Link>
           </Reveal>
         </div>
 

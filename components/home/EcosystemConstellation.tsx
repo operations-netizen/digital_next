@@ -70,7 +70,7 @@ export default function EcosystemConstellation() {
             style={{
               transformBox: 'fill-box',
               transformOrigin: 'center',
-              animation: anim('cst-breathe 6.5s ease-in-out infinite'),
+              animation: anim('cst-breathe 4s ease-in-out infinite'),
             }}
           />
 
@@ -84,7 +84,7 @@ export default function EcosystemConstellation() {
             style={{
               transformBox: 'view-box',
               transformOrigin: '200px 200px',
-              animation: anim('cst-spin 90s linear infinite'),
+              animation: anim('cst-spin 55s linear infinite'),
             }}
           >
             <circle
@@ -104,7 +104,7 @@ export default function EcosystemConstellation() {
             style={{
               transformBox: 'view-box',
               transformOrigin: '200px 200px',
-              animation: anim('cst-spin 140s linear infinite reverse'),
+              animation: anim('cst-spin 85s linear infinite reverse'),
             }}
           >
             <circle
@@ -146,7 +146,7 @@ export default function EcosystemConstellation() {
               strokeOpacity="0"
               style={{
                 animation: anim(
-                  `cst-line 7s ease-in-out ${n.i * 1.15}s infinite`
+                  `cst-line 4.4s ease-in-out ${n.i * 0.72}s infinite`
                 ),
               }}
             />
@@ -165,7 +165,7 @@ export default function EcosystemConstellation() {
                   transformBox: 'fill-box',
                   transformOrigin: 'center',
                   animation: anim(
-                    `cst-pulse 6s ease-in-out ${n.i * 0.9}s infinite`
+                    `cst-pulse 3.8s ease-in-out ${n.i * 0.56}s infinite`
                   ),
                 }}
               />
@@ -176,9 +176,9 @@ export default function EcosystemConstellation() {
           {/* Drifting particles */}
           {!reduce && (
             <>
-              <circle cx="120" cy="96" r="1.6" fill="#fff" fillOpacity="0.4" style={{ animation: 'cst-drift-a 11s ease-in-out infinite' }} />
-              <circle cx="300" cy="150" r="1.4" fill="#4F46FF" fillOpacity="0.5" style={{ animation: 'cst-drift-b 14s ease-in-out infinite' }} />
-              <circle cx="150" cy="300" r="1.5" fill="#fff" fillOpacity="0.35" style={{ animation: 'cst-drift-c 13s ease-in-out infinite' }} />
+              <circle cx="120" cy="96" r="1.6" fill="#fff" fillOpacity="0.4" style={{ animation: 'cst-drift-a 7s ease-in-out infinite' }} />
+              <circle cx="300" cy="150" r="1.4" fill="#4F46FF" fillOpacity="0.5" style={{ animation: 'cst-drift-b 9s ease-in-out infinite' }} />
+              <circle cx="150" cy="300" r="1.5" fill="#fff" fillOpacity="0.35" style={{ animation: 'cst-drift-c 8s ease-in-out infinite' }} />
             </>
           )}
 
@@ -193,7 +193,7 @@ export default function EcosystemConstellation() {
             style={{
               transformBox: 'fill-box',
               transformOrigin: 'center',
-              animation: anim('cst-pulse 5.5s ease-in-out infinite'),
+              animation: anim('cst-pulse 3.4s ease-in-out infinite'),
             }}
           />
           <text
