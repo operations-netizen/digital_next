@@ -99,7 +99,15 @@ export default function InsightArticlePage({
         <div className="mx-auto max-w-[68ch]">
           {insight.content.map((para, i) => (
             <Reveal key={i} delay={Math.min(i, 3) * 0.04}>
-              <p className="mb-7 text-[1.25rem] leading-[1.8] text-ink/80 first:text-[1.4rem] first:leading-[1.7] first:text-ink">
+              {/* Index, not first:, because Reveal wraps each paragraph -
+                  first: matched every one and set the whole article as lead. */}
+              <p
+                className={
+                  i === 0
+                    ? 'mb-7 text-[1.4rem] leading-[1.7] text-ink'
+                    : 'mb-7 text-[1.25rem] leading-[1.8] text-ink/80'
+                }
+              >
                 {para}
               </p>
             </Reveal>

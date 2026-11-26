@@ -174,7 +174,7 @@ export default function ContactPage() {
             <div className="mt-12 sm:mt-16">
               {faqs.map((f, i) => (
                 <Reveal key={f.q} delay={i * 0.08}>
-                  <div className="grid gap-x-10 gap-y-3 border-t border-line py-8 last:border-b lg:grid-cols-12 lg:py-10">
+                  <div className={`grid gap-x-10 gap-y-3 border-t border-line py-8 lg:grid-cols-12 lg:py-10${i === faqs.length - 1 ? ' border-b' : ''}`}>
                     <span className="font-mono text-[0.8125rem] tracking-meta text-accent/70 lg:col-span-1 lg:pt-2">
                       {String(i + 1).padStart(2, '0')}
                     </span>

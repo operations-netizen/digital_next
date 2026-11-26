@@ -144,9 +144,12 @@ export default function HowWeBuildPage() {
           </Reveal>
 
           <div className="mt-16 sm:mt-24">
-            {principles.map((p) => (
+            {principles.map((p, i) => (
               <Reveal key={p.no}>
-                <div className="group relative overflow-hidden border-t border-white/10 last:border-b">
+                {/* Index, not last:, because Reveal wraps each row. */}
+                <div
+                  className={`group relative overflow-hidden border-t border-white/10${i === principles.length - 1 ? ' border-b' : ''}`}
+                >
                   {/* huge background number */}
                   <span
                     aria-hidden="true"

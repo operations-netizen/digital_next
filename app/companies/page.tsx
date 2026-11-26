@@ -141,7 +141,7 @@ export default function CompaniesPage() {
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-baseline gap-5 border-t border-ink/[0.07] py-3.5 outline-none transition-colors duration-[600ms] ease-editorial last:border-b focus-visible:text-ink"
+                      className={`group flex items-baseline gap-5 border-t border-ink/[0.07] py-3.5 outline-none transition-colors duration-[600ms] ease-editorial focus-visible:text-ink`}
                     >
                       <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-[0.2em] text-muted/40 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
                         {String(i + 1).padStart(2, '0')}

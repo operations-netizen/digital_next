@@ -277,7 +277,7 @@ export default function CareersPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${c.name} - ${cc.label}. View opportunities (opens in a new tab).`}
-                      className="group grid grid-cols-1 items-center gap-x-8 gap-y-4 border-t border-line py-8 outline-none transition-colors duration-[500ms] ease-editorial last:border-b focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/40 sm:py-10 lg:grid-cols-12 lg:gap-x-12"
+                      className={`group grid grid-cols-1 items-center gap-x-8 gap-y-4 border-t border-line py-8 outline-none transition-colors duration-[500ms] ease-editorial focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/40 sm:py-10 lg:grid-cols-12 lg:gap-x-12`}
                     >
                       {/* Logo - its own aligned column */}
                       <div className="flex h-8 items-center lg:col-span-3">

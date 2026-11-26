@@ -275,7 +275,7 @@ export default function CulturePage() {
               <div className="lg:col-span-7 lg:col-start-6">
                 {communication.map((line, i) => (
                   <Reveal key={line} delay={(i % 2) * 0.05}>
-                    <p className="border-t border-line py-6 font-serif text-[clamp(1.35rem,2.2vw,1.85rem)] font-light leading-snug tracking-tight text-ink last:border-b">
+                    <p className={`${i === 0 ? '' : 'border-t border-line '}py-6 font-serif text-[clamp(1.35rem,2.2vw,1.85rem)] font-light leading-snug tracking-tight text-ink${i === communication.length - 1 ? ' border-b' : ''}`}>
                       {line}
                     </p>
                   </Reveal>
@@ -335,7 +335,7 @@ export default function CulturePage() {
           <ol className="mt-14 sm:mt-16">
             {growth.map((g, i) => (
               <Reveal key={g.stage}>
-                <li className="group grid gap-x-12 gap-y-2 border-t border-white/10 py-8 last:border-b lg:grid-cols-12 lg:py-9">
+                <li className={`group grid gap-x-12 gap-y-2 border-t border-white/10 py-8 lg:grid-cols-12 lg:py-9${i === growth.length - 1 ? ' border-b' : ''}`}>
                   <div className="flex items-baseline gap-6 lg:col-span-5">
                     <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/60">
                       {String(i + 1).padStart(2, '0')}
@@ -364,7 +364,7 @@ export default function CulturePage() {
             <ul className="mt-10 max-w-[56.25rem]">
               {ideas.map((idea, i) => (
                 <Reveal key={idea} delay={(i % 3) * 0.05}>
-                  <li className="border-t border-line py-6 font-serif text-[clamp(1.6rem,3vw,2.6rem)] font-light leading-tight tracking-tight text-ink last:border-b">
+                  <li className={`border-t border-line py-6 font-serif text-[clamp(1.6rem,3vw,2.6rem)] font-light leading-tight tracking-tight text-ink${i === ideas.length - 1 ? ' border-b' : ''}`}>
                     {idea}
                   </li>
                 </Reveal>
@@ -420,7 +420,18 @@ export default function CulturePage() {
             <ul className="mt-12 grid gap-x-16 sm:mt-14 sm:grid-cols-2">
               {celebrate.map((item, i) => (
                 <Reveal key={item} delay={(i % 2) * 0.05}>
-                  <li className="flex items-center gap-5 border-t border-line py-6 last:border-b">
+                  {/* Index, not last:, because Reveal wraps each item. The
+                      closing rule goes under the last row: the last item on
+                      phones, the last two in the sm two-column grid. */}
+                  <li
+                    className={`flex items-center gap-5 border-t border-line py-6${
+                      i === celebrate.length - 1
+                        ? ' border-b'
+                        : celebrate.length % 2 === 0 && i === celebrate.length - 2
+                          ? ' sm:border-b'
+                          : ''
+                    }`}
+                  >
                     <span aria-hidden="true" className="h-px w-6 shrink-0 bg-accent" />
                     <span className="font-serif text-xl tracking-tight text-ink sm:text-2xl">
                       {item}

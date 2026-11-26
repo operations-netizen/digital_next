@@ -14,7 +14,7 @@ export default function TopicIndex() {
           <li>
             <a
               href="#latest-writing"
-              className="group flex min-h-[2.75rem] items-center justify-between gap-6 border-t border-line py-6 outline-none transition-colors duration-[500ms] ease-editorial last:border-b focus-visible:text-accent"
+              className="group flex min-h-[2.75rem] items-center justify-between gap-6 border-t border-line py-6 outline-none transition-colors duration-[500ms] ease-editorial focus-visible:text-accent"
             >
               <span className="relative font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] tracking-tight text-muted transition-colors duration-[500ms] ease-editorial group-hover:text-ink">
                 {t.name}

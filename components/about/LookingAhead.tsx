@@ -29,7 +29,17 @@ export default function LookingAhead() {
             <div className="lg:col-span-6 lg:col-start-7">
               {lookingAhead.map((item, i) => (
                 <Reveal key={item.lead} delay={(i % 3) * 0.06}>
-                  <div className="border-t border-line py-7 first:pt-0 last:pb-0 sm:py-8">
+                  {/* Index, not first:/last:, because Reveal wraps each item
+                      (every item matched both, losing all padding). The first
+                      item has no rule of its own - the section rule above is
+                      its top line. */}
+                  <div
+                    className={[
+                      'py-7 sm:py-8',
+                      i === 0 ? 'pt-0 sm:pt-0' : 'border-t border-line',
+                      i === lookingAhead.length - 1 ? 'pb-0 sm:pb-0' : '',
+                    ].join(' ')}
+                  >
                     <h3 className="font-serif text-2xl font-normal tracking-tight text-ink sm:text-[1.6rem]">
                       {item.lead}
                     </h3>
