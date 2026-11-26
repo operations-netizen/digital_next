@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import { hiringProcess } from '@/lib/careers'
 
 /**

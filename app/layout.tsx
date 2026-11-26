@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import Nav from '@/components/nav/Nav'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
+import MotionProvider from '@/components/providers/MotionProvider'
 
 const serif = Fraunces({
   subsets: ['latin'],
@@ -56,10 +57,12 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
-        <BackToTop />
+        <MotionProvider>
+          <Nav />
+          <main id="main">{children}</main>
+          <Footer />
+          <BackToTop />
+        </MotionProvider>
         <Analytics />
       </body>
     </html>

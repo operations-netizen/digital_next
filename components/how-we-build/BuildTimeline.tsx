@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef, type ReactNode } from 'react'
-import { motion, useScroll, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * How Every Company Is Built - a horizontal editorial timeline.

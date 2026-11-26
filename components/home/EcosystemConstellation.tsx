@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * Ultra-minimal ecosystem constellation for the "How we operate" intro.

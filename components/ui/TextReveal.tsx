@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * Line-mask reveal: each line sits in an overflow-hidden clip and rises

@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * Build Cycle - a circular lifecycle on the dark section. A thin ring with

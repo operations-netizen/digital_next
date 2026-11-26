@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * A hairline rule that draws itself across the shell as it scrolls into

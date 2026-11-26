@@ -1,6 +1,7 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * The hero's operating arc - an editorial index of the operating system.

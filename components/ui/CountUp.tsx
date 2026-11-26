@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useInView, useReducedMotion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * Counts from 0 to `value` when scrolled into view. Renders the final
@@ -23,7 +24,13 @@ export default function CountUp({
   const [display, setDisplay] = useState(reduce ? value : 0)
 
   useEffect(() => {
-    if (!inView || reduce) return
+    // `reduce` is false on the hydrating render (lib/motion.ts) and can flip
+    // true after mount, so the initial state alone isn't enough.
+    if (reduce) {
+      setDisplay(value)
+      return
+    }
+    if (!inView) return
     let raf = 0
     let start: number | undefined
     const ms = duration * 1000

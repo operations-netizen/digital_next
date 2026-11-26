@@ -4,7 +4,8 @@ import { withBase } from '@/lib/asset'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import { nav, CONTACT_EMAIL } from '@/lib/site'
 
 const EASE = [0.16, 1, 0.3, 1] as const

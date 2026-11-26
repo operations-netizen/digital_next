@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * Portfolio Flywheel - three companies sharing capabilities around a loop.
@@ -100,13 +101,32 @@ export default function PortfolioFlywheel() {
       </svg>
 
       {/* edge labels + company nodes as HTML for crisp type */}
+      {/* Below sm the diagram shrinks but the mono labels don't: horizontal
+          one-line labels on the two slanted edges collided with each other
+          and with the centre caption (and the bottom one with the B/C discs
+          at 320px). There each label wraps one word per line (w-min), is
+          rotated to run along its own edge, and the slanted ones are pushed
+          just outside the triangle (translateY after the rotate = along the
+          edge's outward normal for both slants), leaving the interior to the
+          caption. The SVG scales uniformly, so viewBox angles hold. */}
       {edges.map((e, i) => {
         const t = trim(e.from, e.to)
+        let deg = (Math.atan2(e.to.y - e.from.y, e.to.x - e.from.x) * 180) / Math.PI
+        if (deg > 90) deg -= 180
+        if (deg < -90) deg += 180
+        const slanted = Math.abs(deg) > 1
         return (
           <motion.span
             key={`l${i}`}
-            className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-bg px-3 font-mono text-[0.625rem] uppercase tracking-meta text-ink/55"
-            style={{ left: `${(t.mx / W) * 100}%`, top: `${(t.my / H) * 100}%` }}
+            className="absolute w-min bg-bg px-1.5 text-center font-mono text-[0.625rem] uppercase leading-snug tracking-meta text-ink/55 [transform:translate(-50%,-50%)_rotate(var(--edge-rot))_translateY(var(--edge-off))] sm:w-auto sm:whitespace-nowrap sm:px-3 sm:leading-normal sm:[transform:translate(-50%,-50%)]"
+            style={
+              {
+                left: `${(t.mx / W) * 100}%`,
+                top: `${(t.my / H) * 100}%`,
+                '--edge-rot': `${deg.toFixed(2)}deg`,
+                '--edge-off': slanted ? 'calc(-50% - 0.25rem)' : '0px',
+              } as React.CSSProperties
+            }
             initial={{ opacity: 0 }}
             animate={show ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.6 + i * 0.25 }}
@@ -152,10 +172,12 @@ export default function PortfolioFlywheel() {
         animate={show ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted/70">
+        {/* Wider than the triangle's interior on phones; kept for screen
+            readers there, the italic line carries the idea visually. */}
+        <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted/70 max-sm:sr-only">
           Shared platform
         </span>
-        <span className="mt-2.5 max-w-[11ch] font-serif text-xl italic leading-tight tracking-tight text-accent">
+        <span className="mt-2 max-w-[11ch] font-serif text-base italic leading-tight tracking-tight text-accent sm:mt-2.5 sm:text-xl">
           everyone grows faster
         </span>
       </motion.div>

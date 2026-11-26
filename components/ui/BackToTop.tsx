@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 
 /**
  * A quiet, editorial "back to top" control. Appears only after the user has

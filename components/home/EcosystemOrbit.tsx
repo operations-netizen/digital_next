@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import { companies } from '@/lib/companies'
 
 const SPIN = 58 // seconds per revolution - calm, premium (~10% livelier)

@@ -1,6 +1,7 @@
 'use client'
 
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import type { Company } from '@/lib/companies'
 
 export default function PortfolioRow({

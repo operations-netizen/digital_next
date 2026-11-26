@@ -1,6 +1,7 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Button from '@/components/ui/Button'
 import TextReveal from '@/components/ui/TextReveal'

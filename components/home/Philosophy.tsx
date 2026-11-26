@@ -1,14 +1,8 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useMotionValueEvent,
-  useReducedMotion,
-} from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useReducedMotion } from '@/lib/motion'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import EcosystemConstellation from './EcosystemConstellation'
@@ -53,6 +47,12 @@ export default function Philosophy() {
   })
   const lineScaleY = reduce ? 1 : progress
   const particleTop = useTransform(progress, [0, 1], ['0%', '100%'])
+
+  // `reduce` is false on the hydrating render (lib/motion.ts) and can flip
+  // true after mount; the static reduced-motion state is the final stage.
+  useEffect(() => {
+    if (reduce) setActive(stages.length - 1)
+  }, [reduce])
 
   useMotionValueEvent(progress, 'change', (v) => {
     if (reduce) return
