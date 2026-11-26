@@ -37,10 +37,11 @@ export default function InsightsPage() {
       {/* 01 - Hero */}
       <InsightHero />
 
-      {/* 02 - Featured essay */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      {/* 02 - Featured essay. Flows on from the white hero: no top padding
+          or hairline; the hero's bottom padding sets the gap. */}
+      <section className="pb-16 sm:pb-20 lg:pb-24">
         <div className="shell">
-          <div className="border-t border-line pt-12 sm:pt-16">
+          <div>
             <Reveal>
               <Eyebrow>Featured essay</Eyebrow>
             </Reveal>

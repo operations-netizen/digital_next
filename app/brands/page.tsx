@@ -115,7 +115,7 @@ export default function CompaniesPage() {
           brands as a compact hover-reveal list (hover a name: the rest dim,
           it takes its brand colour, a preview card follows the cursor). It
           doubles as the index - each name jumps to its showcase below. */}
-      <section className="pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-28 lg:pb-24">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16">
         <div className="shell">
           <div className="grid gap-y-14 lg:grid-cols-12 lg:gap-x-16">
             <div className="lg:col-span-6">
@@ -160,7 +160,7 @@ export default function CompaniesPage() {
       <section className="pt-0">
         <div className="shell">
           <Reveal>
-            <div className="border-t border-line pb-4 pt-6">
+            <div className="pb-4">
               <Eyebrow>The companies</Eyebrow>
             </div>
           </Reveal>
@@ -204,25 +204,29 @@ export default function CompaniesPage() {
       </section>
 
       {/* 03 - Shared platform (dark) */}
-      <section data-nav-dark className="section bg-dark text-white">
+      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-24">
         <div className="shell">
-          <Reveal>
-            <Eyebrow tone="light">The shared platform</Eyebrow>
-            <h2 className="display mt-6 max-w-[16ch] text-statement text-white">
-              Different brands.
-              <br />
-              <em className="italic text-accent">One operating advantage</em>.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-white/55">
-              Each brand operates independently while gaining access to the
-              shared capabilities that help internet businesses compound over
-              time.
-            </p>
-          </Reveal>
+          {/* Header split like the homepage Portfolio header: statement left,
+              supporting copy right, bottom-aligned to the headline. */}
+          <div className="grid gap-y-7 lg:grid-cols-12 lg:items-end lg:gap-x-16">
+            <Reveal className="lg:col-span-7">
+              <Eyebrow tone="light">The shared platform</Eyebrow>
+              <h2 className="display mt-6 max-w-[16ch] text-statement text-white">
+                Different brands.
+                <br />
+                <em className="italic text-accent">One operating advantage</em>.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pb-2">
+              <p className="max-w-[30rem] text-lg leading-relaxed text-white/55 [text-wrap:pretty]">
+                Each brand operates independently while gaining access to the
+                shared capabilities that help internet businesses compound over
+                time.
+              </p>
+            </Reveal>
+          </div>
 
-          <div className="mt-16 grid gap-x-16 gap-y-14 sm:mt-24 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-3">
+          <div className="mt-14 grid gap-x-16 gap-y-14 sm:mt-16 sm:grid-cols-2 sm:gap-y-16 lg:mt-20 lg:grid-cols-3">
             {platform.map((p) => (
               <Reveal key={p.no}>
                 {/* Hover: an accent rule draws across the top hairline, a soft
@@ -264,7 +268,7 @@ export default function CompaniesPage() {
       </section>
 
       {/* 04 - Portfolio philosophy (bridge) */}
-      <section className="py-20 sm:py-24 lg:py-28">
+      <section className="pb-20 pt-12 sm:pb-24 sm:pt-14 lg:pb-28 lg:pt-16">
         <div className="shell">
           <div className="border-t border-line pt-10 sm:pt-12">
             <div className="grid gap-x-16 gap-y-8 lg:grid-cols-12 lg:items-end">
@@ -300,7 +304,7 @@ export default function CompaniesPage() {
       {/* 05 - Final CTA (dark) */}
       <section
         data-nav-dark
-        className="relative overflow-hidden bg-[#0B0D12] pb-28 pt-32 text-center text-white sm:pb-32 sm:pt-40 lg:pb-36 lg:pt-44"
+        className="relative overflow-hidden bg-[#0B0D12] pb-20 pt-20 text-center text-white sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
       >
         <div
           aria-hidden="true"

@@ -13,9 +13,12 @@ import { timeline } from '@/lib/site'
  */
 export default function AboutTimeline() {
   return (
-    <section className="py-14 sm:py-16 lg:py-20">
+    <section className="pb-14 sm:pb-16">
+      {/* Follows the stats row, whose bottom border already divides the two -
+          so no top padding or second hairline here (they stacked into a large
+          gap); the stats section's own bottom padding sets the spacing. */}
       <div className="shell">
-        <div className="border-t border-line pt-8 sm:pt-10">
+        <div>
           <div className="grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
             {/* Heading - sticks alongside the scrolling milestones */}
             <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">

@@ -5,7 +5,7 @@ import { Ph } from '@/components/privacy/prose'
 /** Compact, formal masthead - no marketing emphasis in the heading. */
 export default function CookiesHero() {
   return (
-    <section className="pt-32 pb-10 sm:pt-40 sm:pb-14">
+    <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pt-28">
       <div className="shell">
         <Eyebrow>Legal</Eyebrow>
         <h1 className="display mt-6 text-[clamp(2.5rem,5vw,4rem)] leading-[1.05]">

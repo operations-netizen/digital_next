@@ -16,7 +16,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="scroll-mt-24 pb-24 pt-20 sm:pb-32 sm:pt-24 lg:pb-40 lg:pt-28"
+      className="scroll-mt-24 pb-16 pt-12 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-16"
     >
       <div className="shell">
         {/* Split header, the same grammar as Who We Are: label + statement

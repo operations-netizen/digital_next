@@ -34,7 +34,7 @@ export default function AboutHeroVisual() {
   )
 
   return (
-    <div className="ml-auto w-full max-w-[27.5rem]">
+    <div className="mx-auto w-full max-w-[27.5rem]">
       <svg viewBox="0 0 480 520" className="h-auto w-full overflow-visible">
         {/* Connector lines - hub → each company */}
         {holdings.map((c, i) => (

@@ -121,7 +121,7 @@ export default function CulturePage() {
   return (
     <>
       {/* 01 - Hero */}
-      <section className="pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pb-28">
+      <section className="pt-28 pb-16 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16">
         <div className="shell">
           <div className="grid gap-y-10 lg:grid-cols-12 lg:items-end lg:gap-x-16">
             <div className="lg:col-span-8">
@@ -152,9 +152,11 @@ export default function CulturePage() {
       </section>
 
       {/* 02 - Your first week → five years */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      {/* Flows on from the white hero: no top padding or hairline (a rule
+          could sit at the fold as a stray line); the hero's padding sets the gap. */}
+      <section className="pb-16 sm:pb-20 lg:pb-24">
         <div className="shell">
-          <div className="border-t border-line pt-10 sm:pt-14">
+          <div>
             <Reveal>
               <Eyebrow>The shape of time here</Eyebrow>
               <h2 className="display mt-6 max-w-[18ch] text-statement">

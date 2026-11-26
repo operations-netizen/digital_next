@@ -64,7 +64,7 @@ export default function Philosophy() {
     <section
       id="philosophy"
       data-nav-dark
-      className="section relative scroll-mt-24 overflow-hidden bg-dark text-white"
+      className="relative scroll-mt-24 overflow-hidden bg-dark pb-24 pt-14 text-white sm:pb-32 sm:pt-16 lg:pb-40 lg:pt-14"
     >
       {/* Ultra-subtle depth grid (texture, not decoration) */}
       <div
@@ -145,7 +145,7 @@ export default function Philosophy() {
             const text = (
               <Reveal
                 delay={0.05}
-                className={even ? 'lg:col-start-1 lg:text-right' : 'lg:col-start-3 lg:text-left'}
+                className={`lg:row-start-1 ${even ? 'lg:col-start-1 lg:text-right' : 'lg:col-start-3 lg:text-left'}`}
               >
                 <span
                   className={[
@@ -183,7 +183,7 @@ export default function Philosophy() {
             const viz = (
               <div
                 className={[
-                  'flex justify-center transition-opacity duration-500 ease-out',
+                  'flex justify-center transition-opacity duration-500 ease-out lg:row-start-1',
                   even ? 'lg:col-start-3' : 'lg:col-start-1',
                   state === 'active' ? 'opacity-100' : 'opacity-40',
                 ].join(' ')}
@@ -200,7 +200,7 @@ export default function Philosophy() {
                 className="relative grid items-center gap-y-8 py-14 lg:min-h-[86vh] lg:grid-cols-[1fr_auto_1fr] lg:gap-x-16 lg:py-0"
               >
                 {/* Node - sits on the center line (desktop) / badge (mobile) */}
-                <div className="order-first flex justify-center lg:order-none lg:col-start-2">
+                <div className="order-first flex justify-center lg:order-none lg:col-start-2 lg:row-start-1">
                   <span className="relative hidden h-[1.625rem] w-[1.625rem] items-center justify-center lg:flex">
                     {state === 'active' && !reduce && (
                       <span className="absolute inset-0 animate-ping rounded-full bg-accent/30" />

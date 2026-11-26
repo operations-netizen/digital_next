@@ -2,6 +2,7 @@ import { withBase } from '@/lib/asset'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
+import CountUp from '@/components/ui/CountUp'
 import { groupLeadership, brandLeadership, type LeaderMember } from '@/lib/about'
 import { companies } from '@/lib/companies'
 
@@ -128,27 +129,43 @@ export default function LeadershipGrid() {
     <section className="pb-14 pt-4 sm:pb-16 sm:pt-6 lg:pb-20 lg:pt-8">
       <div className="shell">
         <div>
-          {/* Section heading */}
-          <Reveal>
-            <Eyebrow>Leadership</Eyebrow>
-          </Reveal>
-          <TextReveal
-            as="h2"
-            className="display mt-6 max-w-[16ch] text-statement"
-            lines={[
-              <>The people building</>,
-              <>
-                what&rsquo;s <em className="italic text-accent">next</em>.
-              </>,
-            ]}
-          />
-          <Reveal delay={0.15}>
-            <p className="mt-7 max-w-[60ch] text-lg leading-relaxed text-muted">
-              Behind every company is a team of operators, builders, and
-              specialists working together to create long-term value across the
-              Digital Next ecosystem.
-            </p>
-          </Reveal>
+          {/* Section heading - symmetric like the other /about headers: the
+              figure block's top lines up with the eyebrow, the paragraph's
+              bottom with the headline's. */}
+          <div className="grid gap-x-10 gap-y-10 lg:grid-cols-12 lg:items-stretch lg:gap-x-16">
+            <div className="lg:col-span-7 lg:flex lg:flex-col lg:items-start lg:justify-between">
+              <Reveal className="flex">
+                <Eyebrow>Leadership</Eyebrow>
+              </Reveal>
+              <TextReveal
+                as="h2"
+                className="display mt-6 text-statement"
+                lines={[
+                  <>The people building</>,
+                  <>
+                    what&rsquo;s <em className="italic text-accent">next</em>.
+                  </>,
+                ]}
+              />
+            </div>
+            <Reveal delay={0.15} className="lg:col-span-5 lg:col-start-8 lg:flex lg:flex-col lg:justify-between">
+              <div className="flex items-end gap-5 border-b border-line pb-6">
+                <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] font-light leading-[0.8] tracking-tightest text-ink tabular-nums">
+                  <CountUp value={groupLeadership.length + brandLeadership.length} />
+                </span>
+                <span className="pb-1 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-muted">
+                  Leaders across
+                  <br />
+                  the group
+                </span>
+              </div>
+              <p className="mt-6 text-lg leading-relaxed text-muted [text-wrap:pretty]">
+                Behind every company is a team of operators, builders, and
+                specialists working together to create long-term value across
+                the Digital Next ecosystem.
+              </p>
+            </Reveal>
+          </div>
 
           {/* Group leadership */}
           <div className="mt-12 sm:mt-14">

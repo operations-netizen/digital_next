@@ -42,7 +42,7 @@ export default function ContactPage() {
           the top, and an accent glow behind the card. */}
       <section
         data-nav-dark
-        className="relative overflow-hidden bg-[#0B0D12] pb-16 pt-32 text-white sm:pb-20 sm:pt-36 lg:pb-24 lg:pt-36"
+        className="relative overflow-hidden bg-[#0B0D12] pb-16 pt-28 text-white sm:pb-20 sm:pt-32 lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center lg:pb-24 lg:pt-28"
       >
         <div
           aria-hidden="true"

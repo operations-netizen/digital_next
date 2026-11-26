@@ -62,18 +62,15 @@ export default function CompanyShowcaseSection({
   logoMax = 'h-12',
   fallback,
 }: CompanyShowcaseSectionProps) {
-  // 12-col placement, split 6/6. Copy occupies one side across two rows
-  // (numeral above body); the logo side takes the other six and stretches
-  // the full row height so its hairline spine runs edge to edge.
-  const indexCol = reverse
+  // 12-col placement, split 6/6. Copy (numeral sits on the name's line)
+  // takes one side; the logo side takes the other six and stretches the
+  // full row height so its hairline spine runs edge to edge.
+  const bodyCol = reverse
     ? 'lg:col-span-6 lg:col-start-7 lg:row-start-1'
     : 'lg:col-span-6 lg:col-start-1 lg:row-start-1'
-  const bodyCol = reverse
-    ? 'lg:col-span-6 lg:col-start-7 lg:row-start-2'
-    : 'lg:col-span-6 lg:col-start-1 lg:row-start-2'
   const logoCol = reverse
-    ? 'lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:row-span-2'
-    : 'lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2'
+    ? 'lg:col-span-6 lg:col-start-1 lg:row-start-1'
+    : 'lg:col-span-6 lg:col-start-7 lg:row-start-1'
 
   const host = href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
 
@@ -84,14 +81,7 @@ export default function CompanyShowcaseSection({
       style={{ '--brand': color } as React.CSSProperties}
     >
       <div className="shell relative">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 py-12 sm:py-14 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-4 lg:py-14">
-          {/* Numeral */}
-          <Reveal as="div" className={indexCol}>
-            <span className="font-serif text-[2.25rem] font-light leading-none tracking-tight text-[var(--brand)] tabular-nums">
-              {index}
-            </span>
-          </Reveal>
-
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 py-12 sm:py-14 lg:grid-cols-12 lg:items-start lg:gap-x-16 lg:py-14">
           {/* Logo side - brand tile + labelled facts, divided from the copy
               by a vertical hairline spine. */}
           <Reveal
@@ -156,9 +146,17 @@ export default function CompanyShowcaseSection({
           {/* Body - name (headline), category, accent, description, CTA */}
           <div className={bodyCol}>
             <Reveal delay={0.08}>
-              <h2 className="font-serif font-normal leading-[1.04] tracking-tightest text-ink text-[clamp(2rem,3.4vw,3.25rem)] transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
-                {name}
-              </h2>
+              <div className="flex items-baseline gap-4 sm:gap-5">
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 font-serif text-[2.25rem] font-light leading-none tracking-tight text-[var(--brand)] tabular-nums"
+                >
+                  {index}
+                </span>
+                <h2 className="font-serif font-normal leading-[1.04] tracking-tightest text-ink text-[clamp(2rem,3.4vw,3.25rem)] transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
+                  {name}
+                </h2>
+              </div>
               <span className="mt-3 block font-mono text-[0.6875rem] uppercase tracking-[0.26em] text-muted">
                 {category}
               </span>

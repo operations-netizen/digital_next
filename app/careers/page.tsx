@@ -139,10 +139,13 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* 02 - Why join the group */}
-      <section className="py-10 sm:py-12 lg:py-16">
+      {/* 02 - Why join the group. Flows straight on from the white hero:
+          no top padding and no hairline (a rule here could sit right at the
+          fold and read as a stray line); the hero's bottom padding sets the
+          gap. */}
+      <section className="pb-10 sm:pb-12 lg:pb-16">
         <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
+          <div>
             <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
                 <Reveal>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
+import CountUp from '@/components/ui/CountUp'
 import HeroArc from '@/components/how-we-build/HeroArc'
 import BuildTimeline from '@/components/how-we-build/BuildTimeline'
 import BuildCycle from '@/components/how-we-build/BuildCycle'
@@ -56,7 +57,7 @@ export default function HowWeBuildPage() {
   return (
     <>
       {/* 01 - Hero */}
-      <section className="pt-32 pb-12 sm:pt-40 sm:pb-16 lg:pb-20">
+      <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-20">
         <div className="shell">
           <div className="grid gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-20">
             <div className="lg:col-span-7">
@@ -90,17 +91,17 @@ export default function HowWeBuildPage() {
         </div>
       </section>
 
-      {/* 02 - Why We Exist: a dark manifesto band. Centred thesis (the
-          "exits" line muted so "endurance" lands), one short paragraph, and
-          the closing line as a serif pull-quote. A faint accent glow sits
-          behind the headline. */}
+      {/* 02 - Why We Exist, in two parts. The thesis sits on a dark band
+          (after the white hero); the closing line follows as a serif
+          pull-quote on white, which then hands over to the dark principles
+          section - so the page alternates cleanly. */}
       <section
         data-nav-dark
-        className="relative overflow-hidden bg-dark py-24 text-white sm:py-28 lg:py-36"
+        className="relative overflow-hidden bg-dark py-16 text-white sm:py-20 lg:py-24"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[30%] h-[28rem] w-[48rem] max-w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,rgba(79,70,255,0.18),transparent)]"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[48rem] max-w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,rgba(79,70,255,0.18),transparent)]"
         />
         <div className="shell relative">
           <div className="mx-auto flex max-w-[52rem] flex-col items-center text-center">
@@ -111,7 +112,7 @@ export default function HowWeBuildPage() {
               as="h2"
               className="display mt-8 text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[1.06] [text-wrap:balance]"
               lines={[
-                <span key="a" className="text-white/45">Most companies optimize for exits.</span>,
+                <span key="a" className="text-white">Most companies optimize for exits.</span>,
                 <span key="b" className="text-white">
                   We optimize for <em className="italic text-accent">endurance</em>.
                 </span>,
@@ -124,63 +125,110 @@ export default function HowWeBuildPage() {
                 pace its market actually allows.
               </p>
             </Reveal>
-            <Reveal delay={0.3}>
-              <figure className="mt-14 sm:mt-16">
-                <span aria-hidden="true" className="mx-auto block h-px w-12 bg-accent" />
-                <blockquote className="mt-10 max-w-[28ch] font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.3] tracking-tight text-white/90 [text-wrap:balance]">
-                  &ldquo;Success is measured in{' '}
-                  <em className="italic text-accent">durability and cash flow</em>{' '}
-                  - not in the timing of an exit.&rdquo;
-                </blockquote>
-              </figure>
-            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 03 - Operating Principles (dark) - follows the dark manifesto, so it
-          opens on a hairline instead of its own top padding. */}
-      <section data-nav-dark className="bg-dark pb-16 text-white sm:pb-20 lg:pb-28">
+      {/* 02b - The closing line of "Why we exist", in a white card inset
+          within the shell on the continuing dark background (1rem corners,
+          no shadow). Spacing above/below comes from the neighbouring dark
+          bands' own padding, so it sits evenly between them. */}
+      <section data-nav-dark className="bg-dark">
         <div className="shell">
-          <Reveal className="border-t border-white/10 pt-12 sm:pt-14 lg:pt-16">
-            <Eyebrow tone="light">Operating principles</Eyebrow>
-            <h2 className="display mt-6 max-w-[18ch] text-statement text-white">
-              Four rules that never{' '}
-              <em className="italic text-accent">change</em>.
-            </h2>
+          <Reveal>
+            <figure className="flex flex-col items-center rounded-2xl bg-bg px-6 py-14 text-center sm:px-10 sm:py-16 lg:py-20">
+              <span aria-hidden="true" className="block h-px w-12 bg-accent" />
+              <blockquote className="mt-10 max-w-[28ch] font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.3] tracking-tight text-ink [text-wrap:balance]">
+                &ldquo;Success is measured in{' '}
+                <em className="italic text-accent">durability and cash flow</em>{' '}
+                - not in the timing of an exit.&rdquo;
+              </blockquote>
+            </figure>
           </Reveal>
+        </div>
+      </section>
 
-          <div className="mt-16 sm:mt-24">
+      {/* 03 - Operating Principles (dark) - follows the quote card, so it
+          opens on its own top padding. */}
+      <section data-nav-dark className="bg-dark pb-16 pt-16 text-white sm:pb-20 sm:pt-20 lg:pb-28 lg:pt-24">
+        <div className="shell">
+          {/* Header split like the shared-platform header: statement left,
+              a figure block right (count + label, hairline, one line of
+              copy), bottom-aligned to the headline. */}
+          <div className="grid gap-y-10 lg:grid-cols-12 lg:items-stretch lg:gap-x-16">
+            <Reveal className="lg:col-span-7 lg:flex lg:flex-col lg:items-start lg:justify-between">
+              <Eyebrow tone="light">Operating principles</Eyebrow>
+              <h2 className="display mt-6 max-w-[18ch] text-statement text-white">
+                Four rules that never{' '}
+                <em className="italic text-accent">change</em>.
+              </h2>
+            </Reveal>
+            <Reveal className="lg:col-span-4 lg:col-start-9 lg:flex lg:flex-col lg:justify-between" delay={0.15}>
+              <div className="flex items-end gap-5 border-b border-white/10 pb-6">
+                <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] font-light leading-[0.8] tracking-tightest text-white tabular-nums">
+                  <CountUp value={principles.length} />
+                </span>
+                <span className="pb-1 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-white/40">
+                  Rules
+                  <br />
+                  Never change
+                </span>
+              </div>
+              <p className="mt-6 max-w-[40ch] text-lg leading-relaxed text-white/55 [text-wrap:pretty]">
+                The commitments behind every decision the group makes - from
+                what we buy to how each brand is run.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="mt-14 sm:mt-16 lg:mt-20">
             {principles.map((p, i) => (
               <Reveal key={p.no}>
-                {/* Index, not last:, because Reveal wraps each row. */}
-                <div
-                  className={`group relative overflow-hidden border-t border-white/10${i === principles.length - 1 ? ' border-b' : ''}`}
-                >
-                  {/* huge background number */}
+                {/* Hover (the site's row language): the row takes a soft tint
+                    that bleeds a little into the gutter, an accent glow rises
+                    behind the title, a 2px accent rule draws across the top
+                    hairline, the index + title turn accent (title nudges
+                    right), the body brightens and the ghost numeral warms. */}
+                <div className="group relative -mx-4 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-2 top-1/2 -translate-y-1/2 select-none font-serif text-[8rem] leading-none tracking-tightest text-white/[0.05] transition-colors duration-[600ms] ease-editorial group-hover:text-white/[0.09] sm:text-[11rem]"
-                  >
-                    {p.no}
-                  </span>
-                  {/* hover accent line */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-0 h-px w-16 origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
+                    className="pointer-events-none absolute inset-0 bg-white/[0.035] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
                   />
-                  <div className="relative grid gap-x-12 gap-y-5 py-16 transition-[padding] duration-[600ms] ease-editorial group-hover:pl-3 lg:grid-cols-12 lg:py-24">
-                    <div className="flex items-baseline gap-6 lg:col-span-6">
-                      <span className="font-mono text-[0.6875rem] tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
-                        {p.no}
-                      </span>
-                      <h3 className="font-serif text-3xl font-normal leading-tight tracking-tight text-white/90 transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5 sm:text-4xl">
-                        {p.title}
-                      </h3>
+                  {/* Glow fades to fully transparent inside its own box
+                      (closest-side), so the row's clipping never shows an edge. */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 left-0 w-[70%] bg-[radial-gradient(closest-side,rgba(79,70,255,0.16),rgba(79,70,255,0.05)_55%,transparent)] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
+                  />
+                  {/* Index, not last:, because Reveal wraps each row. */}
+                  <div
+                    className={`relative border-t border-white/10${i === principles.length - 1 ? ' border-b' : ''}`}
+                  >
+                    {/* accent rule drawing across the top hairline */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-accent shadow-[0_0_1rem_0.125rem_rgba(79,70,255,0.5)] transition-transform duration-[700ms] ease-editorial group-hover:scale-x-100"
+                    />
+                    {/* huge background number */}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -right-2 top-1/2 -translate-y-1/2 select-none font-serif text-[8rem] leading-none tracking-tightest text-white/[0.05] transition-colors duration-[600ms] ease-editorial group-hover:text-accent/[0.16] sm:text-[11rem]"
+                    >
+                      {p.no}
+                    </span>
+                    <div className="relative grid gap-x-12 gap-y-5 py-16 lg:grid-cols-12 lg:py-24">
+                      <div className="flex items-baseline gap-6 lg:col-span-6">
+                        <span className="font-mono text-[0.6875rem] tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                          {p.no}
+                        </span>
+                        <h3 className="font-serif text-3xl font-normal leading-tight tracking-tight text-white/90 transition-[color,transform] duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-accent sm:text-4xl">
+                          {p.title}
+                        </h3>
+                      </div>
+                      <p className="max-w-[44ch] text-xl leading-[1.65] text-white/55 transition-colors duration-[600ms] ease-editorial group-hover:text-white/85 lg:col-span-5 lg:col-start-8">
+                        {p.body}
+                      </p>
                     </div>
-                    <p className="max-w-[44ch] text-xl leading-[1.65] text-white/55 transition-colors duration-[600ms] ease-editorial group-hover:text-white/80 lg:col-span-5 lg:col-start-8">
-                      {p.body}
-                    </p>
                   </div>
                 </div>
               </Reveal>
@@ -192,44 +240,61 @@ export default function HowWeBuildPage() {
       {/* 04 - How Every Company Is Built (the centerpiece) */}
       <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-28 lg:pb-12">
         <div className="shell">
-          <Reveal>
-            <Eyebrow>The build</Eyebrow>
-            <h2 className="display mt-6 max-w-[20ch] text-statement">
-              How every brand is{' '}
-              <em className="italic text-accent">built</em>.
-            </h2>
-            <p className="mt-7 max-w-[54ch] text-lg leading-relaxed text-muted">
-              Every business in the group travels the same path, from a single
-              thesis to a durable, independent brand. The steps rarely skip; the
-              order rarely changes.
-            </p>
-          </Reveal>
+          {/* Header split like the site's other section headers: statement
+              left, supporting copy right, bottom-aligned to the headline. */}
+          <div className="grid gap-y-7 lg:grid-cols-12 lg:items-end lg:gap-x-16">
+            <Reveal className="lg:col-span-7">
+              <Eyebrow>The build</Eyebrow>
+              <h2 className="display mt-6 max-w-[20ch] text-statement">
+                How every brand is{' '}
+                <em className="italic text-accent">built</em>.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:pb-2">
+              <p className="max-w-[30rem] text-lg leading-relaxed text-muted [text-wrap:pretty]">
+                Every business in the group travels the same path, from a single
+                thesis to a durable, independent brand. The steps rarely skip;
+                the order rarely changes.
+              </p>
+            </Reveal>
+          </div>
 
-          <div className="mt-16 sm:mt-20 lg:mt-24">
+          <div className="mt-12 sm:mt-14 lg:mt-16">
             <BuildTimeline />
           </div>
         </div>
       </section>
 
-      {/* 05 - Shared Platform */}
-      <section className="pt-6 pb-8 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-12">
+      {/* 05 - Shared Platform (dark) */}
+      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-24">
         <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
-            <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12 lg:items-end">
-              <Reveal className="lg:col-span-7">
-                <Eyebrow>The shared platform</Eyebrow>
+          <div>
+            <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12 lg:items-stretch">
+              <Reveal className="lg:col-span-7 lg:flex lg:flex-col lg:items-start lg:justify-between">
+                <Eyebrow tone="light">The shared platform</Eyebrow>
                 <TextReveal
                   as="h2"
-                  className="display mt-6 max-w-[16ch] text-statement"
+                  className="display mt-6 text-statement text-white"
                   lines={[
                     <>Every brand inherits</>,
-                    <>the strength</>,
-                    <>of the <em className="italic text-accent">group</em>.</>,
+                    <>the strength of the <em className="italic text-accent">group</em>.</>,
                   ]}
                 />
               </Reveal>
-              <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.15}>
-                <p className="max-w-[40ch] text-lg leading-relaxed text-muted">
+              {/* Figure block - the count of shared capabilities set large,
+                  so the right side carries weight instead of a lone line. */}
+              <Reveal className="lg:col-span-4 lg:col-start-9 lg:flex lg:flex-col lg:justify-between" delay={0.15}>
+                <div className="flex items-end gap-5 border-b border-white/10 pb-6">
+                  <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] font-light leading-[0.8] tracking-tightest text-white tabular-nums">
+                    <CountUp value={platform.length} />
+                  </span>
+                  <span className="pb-1 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-white/40">
+                    Shared
+                    <br />
+                    capabilities
+                  </span>
+                </div>
+                <p className="mt-6 max-w-[40ch] text-lg leading-relaxed text-white/55 [text-wrap:pretty]">
                   Eight capabilities that would take a standalone brand years to
                   build, available from day one.
                 </p>
@@ -239,23 +304,23 @@ export default function HowWeBuildPage() {
             <div className="mt-16 grid gap-x-14 gap-y-16 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
               {platform.map((c, i) => (
                 <Reveal key={c.name} delay={(i % 4) * 0.06}>
-                  {/* Hover (same language as the /brands platform grid, tuned
-                      for white): an accent rule draws across the top hairline
+                  {/* Hover (same language as the /brands platform grid, on
+                      dark): an accent rule draws across the top hairline
                       with a soft glow, a faint accent glow spills past the item
                       (fading to transparent before its edge - no hard
                       boundary), the number lights up with a growing tick, the
                       title nudges right in accent. Decorative - not links. */}
-                  <div className="group relative border-t border-line pb-4 pt-6">
+                  <div className="group relative border-t border-white/10 pb-4 pt-6">
                     <span
                       aria-hidden="true"
-                      className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-accent shadow-[0_0_0.875rem_0.0625rem_rgba(79,70,255,0.4)] transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
+                      className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-accent shadow-[0_0_1rem_0.125rem_rgba(79,70,255,0.55)] transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
                     />
                     <span
                       aria-hidden="true"
-                      className="pointer-events-none absolute -inset-x-10 -top-14 h-[14rem] bg-[radial-gradient(closest-side,rgba(79,70,255,0.09),rgba(79,70,255,0.03)_55%,transparent)] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
+                      className="pointer-events-none absolute -inset-x-10 -top-14 h-[14rem] bg-[radial-gradient(closest-side,rgba(79,70,255,0.2),rgba(79,70,255,0.06)_55%,transparent)] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
                     />
                     <span className="relative flex items-center gap-4">
-                      <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                      <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/80 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <span
@@ -263,10 +328,10 @@ export default function HowWeBuildPage() {
                         className="h-px w-0 bg-accent transition-[width] duration-[600ms] ease-editorial group-hover:w-8"
                       />
                     </span>
-                    <h3 className="relative mt-5 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-ink transition-[color,transform] duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-accent">
+                    <h3 className="relative mt-5 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-white/90 transition-[color,transform] duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-accent">
                       {c.name}
                     </h3>
-                    <p className="relative mt-3 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-[600ms] ease-editorial group-hover:text-ink/75">
+                    <p className="relative mt-3 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-white/45 transition-colors duration-[600ms] ease-editorial group-hover:text-white/80">
                       {c.note}
                     </p>
                   </div>
@@ -277,10 +342,11 @@ export default function HowWeBuildPage() {
         </div>
       </section>
 
-      {/* 06 - What We Never Control */}
-      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14">
+      {/* 06 - What We Never Control - follows the dark shared-platform
+          band, so it opens on its own top padding instead of a hairline. */}
+      <section className="pt-16 pb-10 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14">
         <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
+          <div>
             {/* Header centred over the symmetric panel, so it sits on the
                 boundary's axis; on desktop a short accent line drops from it
                 into the boundary itself (translate-x-px: the panel's 2px

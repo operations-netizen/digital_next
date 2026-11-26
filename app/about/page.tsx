@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
+import CountUp from '@/components/ui/CountUp'
 import AboutHeroVisual from '@/components/home/AboutHeroVisual'
 import SharedPlatform from '@/components/home/SharedPlatform'
 import AboutStats from '@/components/about/AboutStats'
@@ -71,7 +72,7 @@ export default function AboutPage() {
               <TextReveal
                 as="h1"
                 trigger="mount"
-                className="display mt-8 max-w-[16ch] text-hero"
+                className="display mt-8 text-hero [text-wrap:balance] lg:text-[clamp(2.5rem,4.2vw,4.125rem)]"
                 lines={[
                   <>We build internet brands</>,
                   <>
@@ -158,11 +159,12 @@ export default function AboutPage() {
       {/* Our story - visual timeline */}
       <AboutTimeline />
 
-      {/* 03 - How we build */}
-      <section className="py-14 sm:py-16 lg:py-20">
+      {/* 03 - How we build. No top padding: the section above supplies the
+          space before the hairline, so the rule sits evenly between them. */}
+      <section className="pb-14 sm:pb-16">
         <div className="shell">
           {/* Centred header over the symmetric capability panel. */}
-          <div className="flex flex-col items-center border-t border-line pt-8 text-center sm:pt-10">
+          <div className="flex flex-col items-center border-t border-line pt-14 text-center sm:pt-16">
             <Reveal>
               <Eyebrow>How we build</Eyebrow>
             </Reveal>
@@ -186,20 +188,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 04 - The ecosystem */}
-      <section className="py-14 sm:py-16 lg:py-20">
+      {/* 04 - The ecosystem. No divider line; the section above's bottom
+          padding alone sets the gap. */}
+      <section className="pb-14 sm:pb-16 lg:pb-20">
         <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
-            <div className="grid gap-x-10 gap-y-10 lg:grid-cols-12 lg:items-end lg:gap-x-16">
-              <Reveal className="lg:col-span-6">
+          <div>
+            {/* Symmetric header (same as /how-we-build): both columns share a
+                height - the figure block's top lines up with the eyebrow, the
+                two-line statement's bottom with the headline's. */}
+            <div className="grid gap-x-10 gap-y-10 lg:grid-cols-12 lg:items-stretch lg:gap-x-16">
+              <Reveal className="lg:col-span-7 lg:flex lg:flex-col lg:items-start lg:justify-between">
                 <Eyebrow>The ecosystem</Eyebrow>
-                <h2 className="display mt-6 max-w-[13ch] text-statement">
-                  Independent by design,{' '}
+                <h2 className="display mt-6 text-statement">
+                  Independent by design,
+                  <br className="hidden sm:block" />{' '}
                   <em className="italic text-accent">stronger together</em>.
                 </h2>
               </Reveal>
-              <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.12}>
-                <p className="max-w-[40ch] text-xl leading-snug text-muted">
+              <Reveal className="lg:col-span-5 lg:col-start-8 lg:flex lg:flex-col lg:justify-between" delay={0.12}>
+                <div className="flex items-end gap-5 border-b border-line pb-6">
+                  <span className="font-serif text-[clamp(3rem,5vw,4.5rem)] font-light leading-[0.8] tracking-tightest text-ink tabular-nums">
+                    <CountUp value={companies.length} />
+                  </span>
+                  <span className="pb-1 font-mono text-[0.6875rem] uppercase leading-[1.7] tracking-meta text-muted">
+                    Independent
+                    <br />
+                    brands
+                  </span>
+                </div>
+                <p className="mt-6 text-lg leading-relaxed text-muted">
                   <span className="text-ink">Shared</span> capital, technology,
                   and infrastructure.
                   <br />

@@ -53,7 +53,7 @@ export default function InsightArticlePage({
   }
 
   return (
-    <article className="pt-32 sm:pt-40">
+    <article className="pt-28 sm:pt-32 lg:pt-28">
       <JsonLd data={articleLd} />
       {/* Header */}
       <header className="shell">

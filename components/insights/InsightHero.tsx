@@ -5,7 +5,7 @@ import TextReveal from '@/components/ui/TextReveal'
 /** Editorial masthead - title-led, no statistics, generous whitespace. */
 export default function InsightHero() {
   return (
-    <section className="pt-32 pb-20 sm:pt-44 sm:pb-28 lg:pb-32">
+    <section className="pt-28 pb-16 sm:pt-32 sm:pb-16 lg:pt-28 lg:pb-16">
       <div className="shell">
         <Reveal>
           <Eyebrow>Insights</Eyebrow>
