@@ -102,13 +102,12 @@ function Profile({
 }
 
 /** Tier label - accent tick, name, count. */
-function TierLabel({ label, count }: { label: string; count: number }) {
+function TierLabel({ label }: { label: string }) {
   return (
     <Reveal>
       <div className="flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-meta">
         <span aria-hidden="true" className="h-px w-6 bg-accent" />
         <span className="text-ink/70">{label}</span>
-        <span className="tabular-nums text-accent">{String(count).padStart(2, '0')}</span>
       </div>
     </Reveal>
   )
@@ -169,7 +168,7 @@ export default function LeadershipGrid() {
 
           {/* Group leadership */}
           <div className="mt-12 sm:mt-14">
-            <TierLabel label="Group leadership" count={groupLeadership.length} />
+            <TierLabel label="Group leadership" />
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 lg:grid-cols-4">
               {groupLeadership.map((m, i) => (
                 <Profile key={m.name} m={m} delay={(i % 4) * 0.06} size="group" />
@@ -179,7 +178,7 @@ export default function LeadershipGrid() {
 
           {/* Brand leadership */}
           <div className="mt-16 sm:mt-20">
-            <TierLabel label="Brand leadership" count={brandLeadership.length} />
+            <TierLabel label="Brand leadership" />
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-8 lg:grid-cols-4">
               {brandLeadership.map((m, i) => (
                 <Profile key={m.name} m={m} delay={(i % 4) * 0.05} size="brand" />
