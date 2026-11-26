@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
@@ -16,11 +17,12 @@ import {
   roleFilters,
 } from '@/lib/careers'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Careers',
   description:
     'Build and operate independent internet businesses across the Digital Next group - meaningful ownership, long-term company building, and shared support.',
-}
+  path: '/careers',
+})
 
 const heroMeta = [
   'Independent Teams',

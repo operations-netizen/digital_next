@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -5,11 +6,12 @@ import TextReveal from '@/components/ui/TextReveal'
 import CompanyShowcaseSection from '@/components/companies/CompanyShowcaseSection'
 import { companies } from '@/lib/companies'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Brands',
   description:
     'Six independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
-}
+  path: '/companies',
+})
 
 // Showcase copy per company (id-keyed); logos/urls/names/founded come from the
 // data. `Founded <year>` is prepended to every fact list at render time (or the

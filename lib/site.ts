@@ -1,7 +1,7 @@
 // Site-wide content: navigation, group stats, philosophy, timeline,
 // advantages, insights, and contact. Editable in one place.
 
-export const CONTACT_EMAIL = 'hello@digitalnext.com'
+export const CONTACT_EMAIL = 'hello@digitalnextgroup.com'
 
 export const nav = [
   { label: 'Home', href: '/' },

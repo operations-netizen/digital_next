@@ -39,7 +39,6 @@ export interface PrivacyConfig {
   /** toggle conditional jurisdiction blocks on only after counsel confirms. */
   showCaliforniaDisclosures: boolean
   showIndiaDisclosures: boolean
-  canonicalUrl: string
 }
 
 // All company-specific values live here. Nothing unverified is hardcoded in
@@ -78,7 +77,6 @@ export const privacyConfig: PrivacyConfig = {
   gpcStatus: false,
   showCaliforniaDisclosures: false, // DWS makes no CCPA/CPRA claims - leave off
   showIndiaDisclosures: false, // DWS publishes no separate India disclosures
-  canonicalUrl: '[PRIVACY POLICY URL]',
 }
 
 // Table of contents - id must match each PrivacySection's id.

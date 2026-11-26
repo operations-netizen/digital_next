@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import TermsHero from '@/components/terms/TermsHero'
@@ -11,12 +12,12 @@ import { termsConfig, termsToc } from '@/lib/terms'
 
 const c = termsConfig
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Terms & Conditions',
   description:
     'Read the Terms & Conditions governing the use of the Digital Next website.',
-  alternates: { canonical: c.canonicalUrl },
-}
+  path: '/terms',
+})
 
 const sections: Record<string, () => ReactNode> = {
   introduction: () => (

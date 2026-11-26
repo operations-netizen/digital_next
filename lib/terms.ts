@@ -14,7 +14,6 @@ export interface TermsConfig {
   effectiveDate: string
   governingLaw: string
   jurisdiction: string
-  canonicalUrl: string
 }
 
 // All company-specific values live here - nothing unverified is hardcoded in
@@ -30,7 +29,6 @@ export const termsConfig: TermsConfig = {
   effectiveDate: '[EFFECTIVE DATE]', // the group's terms carry no date
   governingLaw: 'the laws of India',
   jurisdiction: 'the courts at Gurugram, Haryana, India',
-  canonicalUrl: '[TERMS URL]',
 }
 
 // Table of contents - each id must match a TermsSection id.

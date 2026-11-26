@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -7,11 +8,12 @@ import BuildTimeline from '@/components/how-we-build/BuildTimeline'
 import BuildCycle from '@/components/how-we-build/BuildCycle'
 import PortfolioFlywheel from '@/components/how-we-build/PortfolioFlywheel'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'How We Build',
   description:
     'The operating system behind Digital Next - how we found, back, and scale internet companies designed to compound for decades.',
-}
+  path: '/how-we-build',
+})
 
 const principles = [
   {

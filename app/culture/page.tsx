@@ -1,13 +1,15 @@
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Culture',
   description:
     'What it actually feels like to work inside Digital Next - how decisions get made, how we communicate, how people grow, and what we celebrate.',
-}
+  path: '/culture',
+})
 
 const timeline = [
   {

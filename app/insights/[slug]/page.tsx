@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import { insights, getInsight } from '@/lib/insights'
+import JsonLd from '@/components/seo/JsonLd'
+import { SITE_NAME, SITE_URL, absoluteUrl, pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }))
@@ -10,8 +12,15 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const insight = getInsight(params.slug)
-  if (!insight) return { title: 'Insight' }
-  return { title: insight.title, description: insight.excerpt }
+  if (!insight) return { title: 'Insight', robots: { index: false } }
+  return pageMetadata({
+    title: insight.title,
+    description: insight.excerpt,
+    path: `/insights/${insight.slug}`,
+    type: 'article',
+    publishedTime: insight.publishedDate,
+    authors: [insight.author],
+  })
 }
 
 export default function InsightArticlePage({
@@ -22,8 +31,30 @@ export default function InsightArticlePage({
   const insight = getInsight(params.slug)
   if (!insight) notFound()
 
+  const url = absoluteUrl(`/insights/${insight.slug}`)
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: insight.title,
+    description: insight.excerpt,
+    datePublished: insight.publishedDate,
+    articleSection: insight.category,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${url}/opengraph-image`,
+    // Bylines are the team, not a named person.
+    author: { '@type': 'Organization', name: insight.author, url: SITE_URL },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: absoluteUrl('/logo-dn.png') },
+    },
+  }
+
   return (
     <article className="pt-32 sm:pt-40">
+      <JsonLd data={articleLd} />
       {/* Header */}
       <header className="shell">
         <Reveal>

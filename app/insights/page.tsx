@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
@@ -9,11 +10,12 @@ import TopicIndex from '@/components/insights/TopicIndex'
 import NewsletterSection from '@/components/insights/NewsletterSection'
 import { featuredInsight, latestInsights } from '@/lib/insights'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Insights',
   description:
     'Selected writing from Digital Next on company building, acquisitions, technology, leadership, and long-term ownership.',
-}
+  path: '/insights',
+})
 
 const manifesto = [
   'No weekly newsletters.',

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
@@ -16,11 +17,12 @@ import LookingAhead from '@/components/about/LookingAhead'
 import { CONTACT_EMAIL } from '@/lib/site'
 import { companies } from '@/lib/companies'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'About',
   description:
     'Digital Next is a technology holding company that founds, acquires, and scales internet businesses - and holds them for decades.',
-}
+  path: '/about',
+})
 
 // Operating principles - the group's beliefs, in its own words.
 const principles = [

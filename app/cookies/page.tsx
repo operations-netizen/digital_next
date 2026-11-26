@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import CookiesHero from '@/components/cookies/CookiesHero'
@@ -13,12 +14,12 @@ import { cookiesConfig, cookiesToc } from '@/lib/cookies'
 
 const c = cookiesConfig
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Cookies Policy',
   description:
     'Learn how Digital Next uses cookies and similar technologies to improve website functionality and user experience.',
-  alternates: { canonical: c.canonicalUrl },
-}
+  path: '/cookies',
+})
 
 const sections: Record<string, () => ReactNode> = {
   introduction: () => (

@@ -1,14 +1,16 @@
+import { pageMetadata } from '@/lib/seo'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 import ContactForm from '@/components/home/ContactForm'
 import { CONTACT_EMAIL } from '@/lib/site'
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Contact',
   description:
     'Reach Digital Next - founders exploring a sale, operators who want to build, and partners across the group.',
-}
+  path: '/contact',
+})
 
 const channels = [
   { label: 'Email', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}`, cue: '→' },

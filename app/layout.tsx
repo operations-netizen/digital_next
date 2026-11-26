@@ -6,6 +6,14 @@ import Nav from '@/components/nav/Nav'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
 import MotionProvider from '@/components/providers/MotionProvider'
+import {
+  INDEXABLE,
+  SITE_DESCRIPTION,
+  SITE_LEGAL_NAME,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from '@/lib/seo'
 
 const serif = Fraunces({
   subsets: ['latin'],
@@ -30,19 +38,45 @@ const mono = IBM_Plex_Mono({
   display: 'swap',
 })
 
+// Site-wide defaults. Every page sets its own title, description, canonical
+// and social tags through pageMetadata() (lib/seo.ts); the canonical is
+// deliberately not set here, or pages without one would inherit "/".
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Digital Next - Building companies that build the future',
-    template: '%s | Digital Next',
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'Digital Next is a technology holding company. We build, acquire, and scale internet businesses - and hold them for the long term.',
-  metadataBase: new URL('https://digitalnext.com'),
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_LEGAL_NAME, url: SITE_URL }],
+  creator: SITE_LEGAL_NAME,
+  publisher: SITE_LEGAL_NAME,
+  formatDetection: { telephone: false, address: false, email: false },
+  robots: INDEXABLE
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+          'max-video-preview': -1,
+        },
+      }
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
   openGraph: {
-    title: 'Digital Next - Building companies that build the future',
-    description:
-      'A technology holding company building, acquiring, and scaling internet businesses for the long term.',
     type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_US',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 }
 

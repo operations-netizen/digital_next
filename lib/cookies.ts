@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from './site'
 // Cookies Policy - configuration + content.
 //
 // ⚠️ LEGAL REVIEW REQUIRED. Every value in `cookiesConfig` and every clause on
@@ -10,17 +11,15 @@ export interface CookiesConfig {
   contactEmail: string
   effectiveDate: string
   cookieConsentTool: string
-  canonicalUrl: string
 }
 
 // All company-specific values live here - nothing unverified is hardcoded in
 // the presentation components.
 export const cookiesConfig: CookiesConfig = {
   legalEntity: '[LEGAL ENTITY NAME]',
-  contactEmail: 'hello@digitalnext.com',
+  contactEmail: CONTACT_EMAIL,
   effectiveDate: '[EFFECTIVE DATE]',
   cookieConsentTool: '[COOKIE CONSENT TOOL]',
-  canonicalUrl: '[COOKIES URL]',
 }
 
 // Table of contents - each id must match a CookieSection id.

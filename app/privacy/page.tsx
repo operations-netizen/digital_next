@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/seo'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import PrivacyHero from '@/components/privacy/PrivacyHero'
@@ -13,12 +14,12 @@ import { privacyConfig } from '@/lib/privacy'
 
 const c = privacyConfig
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy Policy',
   description:
     'Learn how Digital Next collects, uses, shares, and protects personal information.',
-  alternates: { canonical: c.canonicalUrl },
-}
+  path: '/privacy',
+})
 
 // Single source for both the sticky TOC and the rendered sections, so
 // numbering stays consistent when conditional jurisdiction blocks toggle.
