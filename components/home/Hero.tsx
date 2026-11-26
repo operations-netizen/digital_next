@@ -17,26 +17,30 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Oversized background typography (~2-3% opacity) */}
+      {/* Oversized background typography (~2-3% opacity). Sized in vw up to
+          the 1440px shell, then capped and centred with it, so on wide
+          screens the composition stays the 1440 one instead of the type
+          ballooning across the whole viewport. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 flex flex-col justify-center overflow-hidden"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <span className="select-none whitespace-nowrap font-serif text-[20vw] font-light leading-[0.82] tracking-tightest text-ink/[0.012]">
-          Digital
-        </span>
-        <span className="-mt-[2vw] select-none whitespace-nowrap pl-[8vw] font-serif text-[20vw] font-light italic leading-[0.82] tracking-tightest text-ink/[0.012]">
-          Next
-        </span>
+        <div className="mx-auto flex h-full w-full max-w-shell flex-col justify-center">
+          <span className="select-none whitespace-nowrap font-serif text-[length:min(20vw,18rem)] font-light leading-[0.82] tracking-tightest text-ink/[0.012]">
+            Digital
+          </span>
+          <span className="-mt-[min(2vw,1.8rem)] select-none whitespace-nowrap pl-[min(8vw,7.2rem)] font-serif text-[length:min(20vw,18rem)] font-light italic leading-[0.82] tracking-tightest text-ink/[0.012]">
+            Next
+          </span>
+        </div>
       </div>
 
-      {/* Full-bleed (edge-padded) so the copy hugs the left on wide screens
-          instead of sitting in the centered shell gutter; below ~1440px this
-          is identical to the shell. */}
+      {/* In the shell like every other section, so the copy lines up with
+          the nav wordmark and the orbit stays beside it on wide screens. */}
       {/* The left track is capped to the headline's own measure rather than
           taking a 1.1fr share: a fractional track left a band of dead space
           between the copy's ragged edge and the orbit. */}
-      <div className="relative grid min-h-[72svh] w-full items-center gap-8 px-6 pb-8 pt-24 sm:px-10 lg:grid-cols-[minmax(0,38rem)_1fr] lg:gap-10 lg:px-16 lg:pt-24">
+      <div className="shell relative grid min-h-[72svh] items-center gap-8 pb-8 pt-24 lg:grid-cols-[minmax(0,38rem)_1fr] lg:gap-10 lg:pt-24">
         <div className="max-w-2xl">
           <motion.div {...fade(0.05)}>
             <Eyebrow>A technology holding company</Eyebrow>

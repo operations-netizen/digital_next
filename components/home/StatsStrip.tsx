@@ -3,12 +3,15 @@ import CountUp from '@/components/ui/CountUp'
 import { quickStats } from '@/lib/site'
 
 /**
- * Group figures, shown as a full-width band directly beneath the hero.
+ * Group figures, directly beneath the hero. The rule above sits on the shell
+ * content edge, matching the AnimatedDivider that closes the strip below
+ * (a full-bleed border here doubled up against that shell-width divider and
+ * read as a broken line on wide screens).
  */
 export default function StatsStrip() {
   return (
-    <section className="border-y border-line">
-      <div className="shell grid grid-cols-2 gap-y-10 py-10 sm:grid-cols-4 sm:gap-y-0 sm:py-12">
+    <section className="shell">
+      <div className="grid grid-cols-2 gap-y-10 border-t border-line py-10 sm:grid-cols-4 sm:gap-y-0 sm:py-12">
         {quickStats.map((s, i) => (
           <Reveal
             key={s.label}

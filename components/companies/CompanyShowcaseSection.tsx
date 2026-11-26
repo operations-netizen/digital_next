@@ -159,13 +159,15 @@ export default function CompanyShowcaseSection({
           </div>
         </div>
 
-        {/* Active accent - short blue line at the bottom, grows toward centre on hover */}
+        {/* Active accent - short blue line at the bottom, grows toward centre on hover.
+            Inset by the shell gutters so it starts on the content edge (under
+            the brand name) rather than floating in the gutter on wide screens. */}
         <span
           aria-hidden="true"
           className={`absolute bottom-0 h-0.5 w-[150px] bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 ${
             reverse
-              ? 'right-0 origin-right scale-x-[0.48]'
-              : 'left-0 origin-left scale-x-[0.48]'
+              ? 'right-6 origin-right scale-x-[0.48] sm:right-10 lg:right-16'
+              : 'left-6 origin-left scale-x-[0.48] sm:left-10 lg:left-16'
           }`}
         />
 
