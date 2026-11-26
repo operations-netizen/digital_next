@@ -6,7 +6,7 @@ type Entry = MetadataRoute.Sitemap[number]
 
 const pages: Array<{ path: string; priority: number; changeFrequency: Entry['changeFrequency'] }> = [
   { path: '/', priority: 1, changeFrequency: 'weekly' },
-  { path: '/companies', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/brands', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/how-we-build', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/careers', priority: 0.7, changeFrequency: 'weekly' },

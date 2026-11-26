@@ -15,7 +15,7 @@ const CATEGORY: Record<string, string> = {
 
 const explore = [
   { label: 'Home', href: '/' },
-  { label: 'Brands', href: '/companies' },
+  { label: 'Brands', href: '/brands' },
   { label: 'Careers', href: '/careers' },
 ]
 const group = [

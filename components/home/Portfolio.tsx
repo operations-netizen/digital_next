@@ -48,7 +48,7 @@ export default function Portfolio() {
               technology, and long-term strategic support.
             </p>
             <Link
-              href="/companies"
+              href="/brands"
               className="group mt-6 flex w-fit items-center gap-2.5 text-[0.9375rem] font-medium leading-snug text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
             >
               <span className="relative">

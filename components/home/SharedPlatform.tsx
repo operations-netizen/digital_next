@@ -1,10 +1,10 @@
 import Reveal from '@/components/ui/Reveal'
 
 /**
- * The group's shared platform - eight capability cards that read as one
- * connected operating system every company inherits. Editorial content
- * blocks: light borders, soft ambient shadow, restrained hover, a stepped
- * second row for rhythm, and a single soft radial glow unifying the grid.
+ * The group's shared platform - eight capabilities as one hairline grid
+ * under a header strip: an operating system every brand inherits, not eight
+ * floating cards. No radius, no shadow; hover tints the cell and draws an
+ * accent rule across its top (the site-wide hover language).
  */
 
 type Key =
@@ -106,60 +106,49 @@ function Icon({ k }: { k: Key }) {
 
 export default function SharedPlatform() {
   return (
-    <div>
-      {/* Editorial chapter divider - label with a rule extending across */}
-      <div className="mb-9 flex flex-wrap items-center gap-x-4 gap-y-3">
-        <span aria-hidden="true" className="h-px w-8 shrink-0 bg-accent" />
-        <span className="min-w-0 font-mono text-[0.6875rem] uppercase leading-relaxed tracking-[0.2em] text-muted">
-          Shared resources · Independent execution
-        </span>
-        <span aria-hidden="true" className="hidden h-px flex-1 bg-line/70 sm:block" />
-      </div>
-
-      <div className="relative">
-        {/* Single soft radial glow - unifies the grid as one system */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 62% 56% at 50% 42%, rgba(79,70,255,0.06), transparent 72%)',
-          }}
-        />
-
-        <div className="relative z-10 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {capabilities.map((c, i) => (
-            <Reveal
-              key={c.no}
-              delay={i * 0.08}
-              className={`h-full ${i >= 4 ? 'lg:mt-2.5' : ''}`}
-            >
-              <div className="group relative flex h-full flex-col rounded-[1.25rem] border border-black/[0.04] bg-white p-8 shadow-[0_4px_24px_-18px_rgba(17,17,17,0.09)] transition-[transform,box-shadow,border-color] duration-500 ease-editorial hover:-translate-y-1.5 hover:border-accent/30 hover:shadow-[0_26px_56px_-32px_rgba(17,17,17,0.2)] sm:p-9">
-                {/* Top-left accent line, grows 24px → 48px on hover */}
-                <span
-                  aria-hidden="true"
-                  className="absolute left-8 top-0 h-0.5 w-6 rounded-full bg-accent transition-[width] duration-500 ease-editorial group-hover:w-12 sm:left-9"
-                />
-
-                <div className="flex items-center justify-between">
-                  <span className="text-ink/65 transition-[color,transform] duration-500 ease-editorial group-hover:scale-[1.07] group-hover:text-accent">
-                    <Icon k={c.key} />
-                  </span>
-                  <span className="font-mono text-[0.6875rem] tracking-meta text-muted">
-                    {c.no}
-                  </span>
-                </div>
-
-                <h3 className="mt-8 font-serif text-xl font-normal leading-tight tracking-tight text-ink transition-[color,transform] duration-500 ease-editorial group-hover:-translate-y-0.5 group-hover:text-accent">
-                  {c.title}
-                </h3>
-                <p className="mt-3 max-w-[30ch] text-[0.9375rem] leading-[1.6] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
-                  {c.desc}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+    <div className="border-l border-t border-line">
+      {/* Header strip - names the system and counts it */}
+      <Reveal>
+        <div className="flex flex-col gap-1 border-b border-r border-line px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <span className="flex items-center gap-3 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
+            <span aria-hidden="true" className="h-px w-6 bg-accent" />
+            Shared resources · Independent execution
+          </span>
+          <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-accent">
+            {String(capabilities.length).padStart(2, '0')} capabilities
+          </span>
         </div>
+      </Reveal>
+
+      {/* One hairline grid (collapsed borders: container top/left, each
+          cell right/bottom) - an operating system, not eight floating
+          cards. Hover: soft tint, an accent rule draws across the cell's
+          top, icon and title turn accent, title nudges right. */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+        {capabilities.map((c, i) => (
+          <Reveal key={c.no} delay={(i % 4) * 0.06} className="h-full">
+            <div className="group relative flex h-full flex-col border-b border-r border-line px-6 py-7 transition-colors duration-500 ease-editorial hover:bg-[#FAFAFC] sm:px-8 sm:py-8">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-editorial group-hover:scale-x-100"
+              />
+              <div className="flex items-center gap-3">
+                <span className="text-ink/60 transition-colors duration-500 ease-editorial group-hover:text-accent">
+                  <Icon k={c.key} />
+                </span>
+                <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/70">
+                  {c.no}
+                </span>
+              </div>
+              <h3 className="mt-6 font-serif text-[1.375rem] font-normal leading-tight tracking-tight text-ink transition-[color,transform] duration-500 ease-editorial group-hover:translate-x-1 group-hover:text-accent">
+                {c.title}
+              </h3>
+              <p className="mt-2.5 max-w-[30ch] text-[0.9375rem] leading-[1.6] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
+                {c.desc}
+              </p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </div>
   )

@@ -34,9 +34,9 @@ export default function CareersPage() {
   return (
     <>
       {/* 01 - Hero */}
-      <section className="pt-32 pb-10 sm:pt-40 sm:pb-14 lg:pb-16">
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pt-28 lg:pb-16">
         <div className="shell">
-          <div className="grid gap-y-16 lg:grid-cols-12 lg:items-center lg:gap-x-16">
+          <div className="grid gap-y-16 lg:grid-cols-12 lg:items-start lg:gap-x-16">
             <div className="lg:col-span-7">
               <Reveal>
                 <Eyebrow>Careers</Eyebrow>
@@ -44,7 +44,7 @@ export default function CareersPage() {
               <TextReveal
                 as="h1"
                 trigger="mount"
-                className="display mt-8 max-w-[12ch] text-hero"
+                className="display mt-6 max-w-[12ch] text-hero"
                 lines={[
                   <>Build work</>,
                   <>
@@ -53,21 +53,21 @@ export default function CareersPage() {
                 ]}
               />
               <Reveal delay={0.15}>
-                <p className="mt-9 max-w-[50ch] text-lg leading-[1.75] text-muted">
+                <p className="mt-6 max-w-[58ch] text-base leading-[1.65] text-muted">
                   Join teams building and operating independent internet businesses
                   across technology, AI, marketing, recruitment, SEO, and digital
                   products.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-5 max-w-[50ch] text-lg leading-[1.75] text-muted">
+                <p className="mt-3 max-w-[58ch] text-base leading-[1.65] text-muted">
                   Digital Next brands move with the ownership and speed of
                   independent businesses while benefiting from shared talent,
                   technology, and long-term support.
                 </p>
               </Reveal>
               <Reveal delay={0.28}>
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+                <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
                   <a
                     href="#open-roles"
                     className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl bg-ink px-8 py-4 text-sm font-medium text-white transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent"
@@ -78,7 +78,7 @@ export default function CareersPage() {
                     </span>
                   </a>
                   <Link
-                    href="/companies"
+                    href="/brands"
                     className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl border border-black/[0.08] px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
                     Meet the Brands
@@ -89,7 +89,7 @@ export default function CareersPage() {
                 </div>
               </Reveal>
               <Reveal delay={0.34}>
-                <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.625rem] uppercase tracking-meta text-muted/70">
+                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.625rem] uppercase tracking-meta text-muted/70">
                   {heroMeta.map((m, i) => (
                     <span key={m} className="flex items-center gap-4">
                       {i > 0 && <span aria-hidden="true" className="h-2.5 w-px bg-line" />}
@@ -100,23 +100,37 @@ export default function CareersPage() {
               </Reveal>
             </div>
 
-            {/* Career index - editorial, not a menu */}
+            {/* Career index - the areas people build in, as a contents list
+                (same treatment as the /brands index): label aligned with the
+                Careers eyebrow, each row jumps to open roles. Hover: number
+                and name turn accent, name nudges right, a down arrow shows. */}
             <Reveal className="lg:col-span-4 lg:col-start-9" delay={0.2}>
-              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
-                Where people build
-              </span>
-              <ul className="mt-7">
+              <Eyebrow>Where people build</Eyebrow>
+              <ul className="mt-8 border-b border-line">
                 {careerIndex.map((c, i) => (
-                  <li
-                    key={c}
-                    className="flex items-baseline gap-5 border-t border-line py-[0.9rem] last:border-b"
-                  >
-                    <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/50">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className="font-serif text-lg tracking-tight text-ink/90">
-                      {c}
-                    </span>
+                  <li key={c.name}>
+                    <a
+                      href="#open-roles"
+                      className="group flex items-center gap-5 border-t border-line py-3 outline-none focus-visible:bg-[#FAFAFC]"
+                    >
+                      <span className="w-6 shrink-0 font-mono text-[0.6875rem] tabular-nums tracking-[0.12em] text-accent/70 transition-colors duration-[400ms] ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="min-w-0 flex-1 transition-transform duration-[400ms] ease-editorial group-hover:translate-x-1">
+                        <span className="block font-serif text-[1.25rem] leading-tight tracking-tight text-ink transition-colors duration-[400ms] ease-editorial group-hover:text-accent">
+                          {c.name}
+                        </span>
+                        <span className="mt-1 block truncate font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                          {c.focus}
+                        </span>
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="text-accent opacity-0 transition-[opacity,transform] duration-[400ms] ease-editorial group-hover:translate-y-0.5 group-hover:opacity-100 group-focus-visible:opacity-100"
+                      >
+                        &darr;
+                      </span>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -155,14 +169,31 @@ export default function CareersPage() {
               </Reveal>
             </div>
 
-            <div className="mt-10 grid gap-x-16 gap-y-14 sm:mt-12 lg:grid-cols-3">
+            {/* One hairline panel (collapsed borders: grid top/left, cells
+                right/bottom), 3-up - the site's panel language. Hover: soft
+                tint, accent rule across the top, number + tick light up,
+                title nudges right in accent. */}
+            <div className="mt-10 grid border-l border-t border-line sm:mt-12 lg:grid-cols-3">
               {whyJoin.map((w, i) => (
-                <Reveal key={w.title} delay={i * 0.08}>
-                  <div className="border-t border-line pt-6">
-                    <h3 className="font-serif text-[1.9rem] font-normal leading-tight tracking-tight text-ink">
+                <Reveal key={w.title} delay={i * 0.08} className="h-full">
+                  <div className="group relative h-full border-b border-r border-line px-6 py-8 transition-colors duration-500 ease-editorial hover:bg-[#FAFAFC] sm:px-8 sm:py-9">
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-editorial group-hover:scale-x-100"
+                    />
+                    <span className="flex items-center gap-3">
+                      <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/70 transition-colors duration-500 ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-0 bg-accent transition-[width] duration-500 ease-editorial group-hover:w-8"
+                      />
+                    </span>
+                    <h3 className="mt-6 font-serif text-[1.625rem] font-normal leading-tight tracking-tight text-ink transition-[color,transform] duration-500 ease-editorial group-hover:translate-x-1 group-hover:text-accent">
                       {w.title}
                     </h3>
-                    <p className="mt-4 max-w-[30ch] text-lg leading-[1.7] text-muted">
+                    <p className="mt-3 max-w-[34ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
                       {w.body}
                     </p>
                   </div>
@@ -230,33 +261,53 @@ export default function CareersPage() {
                 />
               </div>
               <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.15}>
-                <p className="max-w-[44ch] text-lg leading-[1.75] text-muted">
+                <p className="max-w-[44ch] text-[1.0625rem] leading-[1.7] text-muted lg:pb-2">
                   We look for people who combine ambition with judgment - people
                   who care about craft, ownership, and useful outcomes.
                 </p>
               </Reveal>
             </div>
 
-            <div className="mt-10 grid gap-x-16 sm:mt-12 sm:grid-cols-2">
-              {values.map((v, i) => (
-                <Reveal key={v.title} delay={(i % 2) * 0.06}>
-                  <div className="border-t border-line py-8">
-                    <h3 className="font-serif text-2xl font-normal tracking-tight text-ink">
-                      {v.title}
-                    </h3>
-                    <p className="mt-3 max-w-[42ch] text-base leading-relaxed text-muted">
-                      {v.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+            {/* Values as their own contrast: each is "X over Y", so the kept
+                word is set large in ink and "over Y" sits beneath it, quieter
+                and in italic. One hairline panel, 3-up; the site's hover. */}
+            <div className="mt-10 grid border-l border-t border-line sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+              {values.map((v, i) => {
+                const [keep, over] = v.title.split(/\s+over\s+/i)
+                return (
+                  <Reveal key={v.title} delay={(i % 3) * 0.06} className="h-full">
+                    <div className="group relative h-full border-b border-r border-line px-6 py-7 transition-colors duration-500 ease-editorial hover:bg-[#FAFAFC] sm:px-8 sm:py-8">
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-editorial group-hover:scale-x-100"
+                      />
+                      <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent/70 transition-colors duration-500 ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="mt-5 transition-transform duration-500 ease-editorial group-hover:translate-x-1">
+                        <span className="block font-serif text-[1.75rem] font-normal leading-none tracking-tight text-ink transition-colors duration-500 ease-editorial group-hover:text-accent">
+                          {keep}
+                        </span>
+                        {over && (
+                          <span className="mt-1.5 block font-serif text-[1.0625rem] italic leading-snug text-muted">
+                            over {over}
+                          </span>
+                        )}
+                      </h3>
+                      <p className="mt-4 max-w-[36ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
+                        {v.body}
+                      </p>
+                    </div>
+                  </Reveal>
+                )
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* 05 - Companies and career paths */}
-      <section className="py-10 sm:py-12 lg:py-16">
+      <section className="pt-10 sm:pt-12 lg:pt-16">
         <div className="shell">
           <div className="border-t border-line pt-8 sm:pt-10">
             <Reveal>
@@ -267,55 +318,66 @@ export default function CareersPage() {
               </h2>
             </Reveal>
 
-            <div className="mt-10 sm:mt-12">
+            {/* Brand panel - the /about ecosystem treatment: one hairline grid,
+                3-up, logo leading in full colour at one optical size (name kept
+                as an sr-only heading), category, what the brand does, then a
+                footer rail. Hover speaks the brand's own colour: faint tint,
+                rule drawn across the top, logo lifting, CTA tinting. */}
+            <div className="mt-10 grid border-l border-t border-line sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
               {companies.map((c, i) => {
                 const cc = companyCareers[c.id]
                 return (
-                  <Reveal key={c.id} delay={(i % 2) * 0.05}>
+                  <Reveal key={c.id} delay={(i % 3) * 0.06} className="h-full min-w-0">
                     <a
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${c.name} - ${cc.label}. View opportunities (opens in a new tab).`}
-                      className={`group grid grid-cols-1 items-center gap-x-8 gap-y-4 border-t border-line py-8 outline-none transition-colors duration-[500ms] ease-editorial focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/40 sm:py-10 lg:grid-cols-12 lg:gap-x-12`}
+                      className="group relative flex h-full flex-col border-b border-r border-line px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
+                      style={{ '--brand': c.primaryColor } as React.CSSProperties}
                     >
-                      {/* Logo - its own aligned column */}
-                      <div className="flex h-8 items-center lg:col-span-3">
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-500 ease-editorial group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                      />
+                      <div className="flex h-12 items-center justify-between gap-4">
                         {c.logo ? (
+                          // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={withBase(c.logo)}
-                            alt={`${c.name} logo`}
+                            alt=""
                             loading="lazy"
-                            className={`w-auto object-contain object-left opacity-75 grayscale transition-[filter,opacity] duration-[600ms] ease-editorial group-hover:opacity-100 group-hover:grayscale-0 ${cc.logoMax}`}
+                            width={c.logoWidth}
+                            height={c.logoHeight}
+                            className={`w-auto object-contain object-left transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5 ${
+                              c.id === 'digital-web-solutions' ? 'max-h-12 max-w-[6rem]' : 'max-h-7 max-w-[10rem]'
+                            }`}
                           />
                         ) : (
-                          <span className="font-sans text-xl font-bold tracking-[-0.02em] text-ink">
-                            HireNext
-                            <span className="text-ink/40 transition-colors duration-[600ms] ease-editorial group-hover:text-[#14B8A6]">
-                              .io
-                            </span>
+                          <span className="whitespace-nowrap font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
+                            HireNext<span className="text-[#14B8A6]">.io</span>
                           </span>
                         )}
-                      </div>
-
-                      {/* Name + category */}
-                      <div className="lg:col-span-6">
-                        <h3 className="font-serif text-[1.65rem] font-normal leading-tight tracking-tight text-ink transition-transform duration-[500ms] ease-editorial group-hover:-translate-y-0.5 sm:text-[1.75rem]">
-                          {c.name}
-                        </h3>
-                        <span className="mt-2 block font-mono text-[0.625rem] uppercase tracking-meta text-muted">
-                          {cc.label}
+                        <span className="self-start font-mono text-[0.6875rem] tabular-nums tracking-meta text-[var(--brand)]">
+                          {String(i + 1).padStart(2, '0')}
                         </span>
                       </div>
 
-                      {/* Hiring CTA */}
-                      <div className="lg:col-span-3 lg:justify-self-end">
-                        <span className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors duration-[500ms] ease-editorial group-hover:text-accent">
-                          <span className="relative">
-                            View opportunities
-                            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[500ms] ease-editorial group-hover:scale-x-100" />
-                          </span>
-                          <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1 group-hover:-translate-y-1">
+                      <h3 className="sr-only">{c.name}</h3>
+                      <span className="mt-6 block font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                        {cc.label}
+                      </span>
+                      <p className="mt-2.5 max-w-[40ch] text-[0.9375rem] leading-[1.6] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
+                        {c.description}
+                      </p>
+
+                      <div className="mt-auto flex items-center justify-between gap-6 pt-6">
+                        <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted/70">
+                          {c.founded ? `Est. ${c.founded}` : c.status ?? 'In development'}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-ink/70 transition-colors duration-500 ease-editorial group-hover:text-[var(--brand)]">
+                          View opportunities
+                          <span className="transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                             &#8599;
                           </span>
                         </span>
@@ -336,11 +398,22 @@ export default function CareersPage() {
         className={
           roles.length > 0
             ? 'py-20 sm:py-28 lg:py-32'
-            : 'py-14 sm:py-16 lg:py-20'
+            : 'pb-12 pt-12 sm:pb-14 sm:pt-14 lg:pb-16 lg:pt-16'
         }
       >
         <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
+          {/* No rule of its own: the brand panel's bottom edge above is the
+              seam (a second rule there read as an empty band). */}
+          {/* Empty state: headline left, the status card right (both centred
+              on one axis), so the right half isn't left blank. With roles,
+              the list runs full width under the header. */}
+          <div
+            className={
+              roles.length === 0
+                ? 'grid gap-y-10 lg:grid-cols-2 lg:items-center lg:gap-x-24'
+                : ''
+            }
+          >
             <Reveal>
               <Eyebrow>Open roles</Eyebrow>
               <TextReveal
@@ -396,42 +469,30 @@ export default function CareersPage() {
               // narrow column: the 12-col split left an orphaned half-row of
               // whitespace whenever there was nothing to list.
               <Reveal delay={0.12}>
-                <div className="mt-10 max-w-[62ch] border-t border-line pt-7 sm:pt-8">
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      aria-hidden="true"
-                      className="h-1.5 w-1.5 rounded-full bg-ink/25"
-                    />
-                    <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
-                      0 roles open
-                    </span>
-                  </div>
+                <div className="border border-line border-t-2 border-t-accent bg-[#F6F6FA] px-7 py-8 sm:px-9 sm:py-9">
 
-                  <p className="mt-5 font-serif text-[clamp(1.6rem,2.6vw,2.15rem)] font-light leading-[1.12] tracking-tightest text-ink">
+                  <p className="font-serif text-[clamp(1.5rem,2.3vw,1.875rem)] font-light leading-[1.12] tracking-tightest text-ink">
                     No open roles right now.
                   </p>
 
-                  <p className="mt-4 max-w-[52ch] text-lg leading-[1.7] text-muted">
+                  <p className="mt-3 max-w-[52ch] text-[0.9375rem] leading-[1.65] text-muted sm:text-base">
                     We hire selectively across the group. Share your profile and
                     area of interest, and we will keep it in mind when a
                     relevant opportunity opens.
                   </p>
 
-                  <div className="mt-7 flex flex-col gap-x-10 gap-y-4 sm:flex-row sm:items-center">
+                  <div className="mt-7 flex flex-col gap-x-8 gap-y-4 sm:flex-row sm:items-center">
                     <a
                       href="#general-interest"
-                      className="group inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-accent"
+                      className="group inline-flex min-h-[2.75rem] items-center gap-2.5 rounded-xl bg-ink px-6 py-3 text-sm font-medium text-white transition-[background-color,transform] duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent"
                     >
-                      <span className="relative">
-                        Share Your Profile
-                        <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[500ms] ease-editorial group-hover:bg-accent" />
-                      </span>
-                      <span className="transition-transform duration-[500ms] ease-editorial group-hover:translate-x-1.5">
+                      <span>Share Your Profile</span>
+                      <span className="transition-transform duration-300 ease-editorial group-hover:translate-x-1">
                         &rarr;
                       </span>
                     </a>
                     <Link
-                      href="/companies"
+                      href="/brands"
                       className="group inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-ink transition-colors duration-[500ms] ease-editorial hover:text-accent"
                     >
                       <span className="relative">
@@ -482,35 +543,64 @@ export default function CareersPage() {
         className="bg-[#0B0D12] py-14 text-white sm:py-16 lg:py-20"
       >
         <div className="shell">
-          <div className="grid gap-y-16 lg:grid-cols-12 lg:items-start lg:gap-x-16">
-            <div className="lg:col-span-5 lg:pt-1">
+          <div className="grid gap-y-12 lg:grid-cols-12 lg:items-center lg:gap-x-16">
+            {/* Left: pitch + what happens next, centred on the form panel's
+                axis so the two columns balance. */}
+            <div className="lg:col-span-5">
               <Reveal>
                 <Eyebrow tone="light">Don&rsquo;t see the right role?</Eyebrow>
               </Reveal>
               <TextReveal
                 as="h2"
-                className="display mt-7 max-w-[16ch] text-statement text-white"
+                className="display mt-7 text-[clamp(2.25rem,3.6vw,3.25rem)] text-white"
                 lines={[
-                  <>Good people are worth</>,
-                  <>knowing</>,
+                  <>Good people are</>,
+                  <>worth knowing</>,
                   <>
-                    <em className="italic text-accent">before the opening exists</em>.
+                    <em className="italic text-accent">before the role exists</em>.
                   </>,
                 ]}
               />
               <Reveal delay={0.15}>
-                <p className="mt-8 max-w-[38ch] text-lg leading-[1.75] text-white/60">
+                <p className="mt-6 max-w-[40ch] text-base leading-[1.7] text-white/60">
                   Tell us what you do, what kind of problems you want to solve, and
                   which Digital Next brand interests you.
                 </p>
               </Reveal>
+
+              {/* What happens next - three quiet steps on hairlines */}
               <Reveal delay={0.22}>
+                <ol className="mt-9 max-w-[26rem] border-t border-white/10">
+                  {[
+                    ['Share your profile', 'Two minutes, one form.'],
+                    ['We review it', 'With the brand closest to your work.'],
+                    ['We reach out', 'When a role that fits opens.'],
+                  ].map(([title, body], i) => (
+                    <li
+                      key={title}
+                      className="group flex items-baseline gap-5 border-b border-white/10 py-4"
+                    >
+                      <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/70 transition-colors duration-300 ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="whitespace-nowrap text-[0.9375rem] text-white transition-[color,transform] duration-300 ease-editorial group-hover:translate-x-1 group-hover:text-accent">
+                        {title}
+                      </span>
+                      <span className="ml-auto hidden text-right text-[0.8125rem] text-white/45 sm:inline">
+                        {body}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </Reveal>
+
+              <Reveal delay={0.28}>
                 <Link
                   href="/contact"
-                  className="group mt-10 inline-flex min-h-[2.75rem] items-center gap-2 text-sm font-medium text-white transition-colors duration-300 ease-editorial hover:text-accent"
+                  className="group mt-8 inline-flex min-h-[2.75rem] items-center gap-2 text-sm font-medium text-white transition-colors duration-300 ease-editorial hover:text-accent"
                 >
                   <span className="relative">
-                    Contact Us
+                    Or contact us directly
                     <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 ease-editorial group-hover:scale-x-100" />
                   </span>
                   <span className="text-accent transition-transform duration-300 ease-editorial group-hover:translate-x-1.5">
@@ -520,10 +610,7 @@ export default function CareersPage() {
               </Reveal>
             </div>
 
-            <Reveal className="lg:col-span-6 lg:col-start-7 lg:border-l lg:border-white/10 lg:pl-16" delay={0.12}>
-              <span className="mb-8 block font-mono text-[0.625rem] uppercase tracking-meta text-white/40">
-                Share your profile
-              </span>
+            <Reveal className="lg:col-span-7 lg:col-start-6 xl:col-span-6 xl:col-start-7" delay={0.12}>
               <CareerForm />
             </Reveal>
           </div>

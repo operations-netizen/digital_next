@@ -5,7 +5,7 @@ export const CONTACT_EMAIL = 'hello@digitalnextgroup.com'
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'Brands', href: '/companies' },
+  { label: 'Brands', href: '/brands' },
   { label: 'How We Build', href: '/how-we-build' },
   { label: 'About', href: '/about' },
   { label: 'Careers', href: '/careers' },

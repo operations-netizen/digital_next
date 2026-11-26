@@ -55,18 +55,6 @@ export const brandLeadership: LeaderMember[] = [
     photo: '/team/dawood-bukhari.png',
   },
   {
-    name: 'Marc Bishop',
-    role: 'Director - Wytlabs',
-    bio: 'Drives growth strategy and performance marketing initiatives for clients across the United States.',
-    photo: '/team/marc-bishop.png',
-  },
-  {
-    name: 'Harshit Gupta',
-    role: 'Director of Client Success & Product - Wytlabs',
-    bio: 'Leads client success and product direction, scaling delivery and outcomes across the Wytlabs client base.',
-    photo: '/team/harshit-gupta.png',
-  },
-  {
     name: 'Sahil Kakkar',
     role: 'CEO - RankWatch',
     bio: 'Leads product vision, engineering, and innovation for RankWatch, building intelligent SEO software used by businesses worldwide.',
@@ -102,15 +90,16 @@ export const locations = [
 // ── Technology ────────────────────────────────────────────────────────────
 // Tools and platforms used across the group (client-provided). Trim to only
 // those actually in use before publishing.
-export const techStack = [
-  'AWS',
-  'Google Cloud',
-  'Cloudflare',
-  'OpenAI',
-  'GitHub',
-  'Microsoft',
-  'HubSpot',
-  'MongoDB',
+/** Platforms used across the group, with what each is used for. */
+export const techStack: { name: string; role: string }[] = [
+  { name: 'AWS', role: 'Cloud infrastructure' },
+  { name: 'Google Cloud', role: 'Cloud & data' },
+  { name: 'Cloudflare', role: 'Edge & security' },
+  { name: 'OpenAI', role: 'AI models' },
+  { name: 'GitHub', role: 'Code & delivery' },
+  { name: 'Microsoft', role: 'Workplace' },
+  { name: 'HubSpot', role: 'CRM & marketing' },
+  { name: 'MongoDB', role: 'Databases' },
 ]
 
 // ── Life at Digital Next ──────────────────────────────────────────────────

@@ -3,27 +3,33 @@ import type { ReactNode } from 'react'
 import Reveal from '@/components/ui/Reveal'
 
 /**
- * A single company chapter for the Companies page.
+ * A single brand chapter for the Brands page.
  *
  * A full-width, two-column editorial row split 6/6 by a vertical hairline
- * spine. The copy side is pure editorial: NAME as the headline, category,
- * description, CTA. The opposite side holds the LOGO set large (never boxed,
- * never with a duplicate name beneath it) above the fact list, so both halves
- * carry mass instead of one being whitespace. Layout alternates via `reverse`
- * for rhythm, while DOM order stays reading-logical for accessibility.
+ * spine. The copy side: a large serif numeral, the NAME as the headline,
+ * category, description, CTA. The other side: the logo in a calm brand tile
+ * (soft wash of the brand colour, brand-colour rule on top, one consistent
+ * logo size) above a labelled fact table - each fact says what it is.
  *
- * Interaction is CSS-only (group hover); entrance uses the shared `Reveal`
- * so it stays reduced-motion safe. The whole row is one link via a stretched
- * overlay anchor - single tab stop, name kept out of the anchor.
+ * Each row speaks in its own brand colour (`color`): numeral, accent rule,
+ * CTA, the tile and a faint hover tint - the same
+ * treatment as the hero name list. Layout alternates via `reverse` for
+ * rhythm; DOM order stays reading-logical. Interaction is CSS-only (group
+ * hover); entrance uses the shared `Reveal`, so it stays reduced-motion
+ * safe. The whole row is one link via a stretched overlay anchor.
  */
 
 export interface CompanyShowcaseSectionProps {
+  /** Anchor id, so the hero index can jump to this row. */
+  id?: string
   index: string
   name: string
   category: string
   description: string
-  /** Fact list rendered as hairline rows under the logo. */
-  metadata: string[]
+  /** Labelled facts for the table beside the logo. */
+  facts: { label: string; value: string }[]
+  /** Brand primary colour - drives every accent in the row. */
+  color: string
   logo: string
   logoAlt: string
   /** Intrinsic size of `logo`, so the browser reserves its aspect ratio
@@ -32,31 +38,33 @@ export interface CompanyShowcaseSectionProps {
   logoHeight?: number
   href: string
   reverse?: boolean
-  /** Tailwind explicit-height class (e.g. `h-14`) - forces small/low-res
-   *  logos to scale up to a consistent optical height. */
+  /** Tailwind height class for the logo inside the tile (square marks need
+   *  more height than wordmarks to read at the same optical size). */
   logoMax?: string
   /** Rendered in place of the logo when no logo asset exists (e.g. HireNext). */
   fallback?: ReactNode
 }
 
 export default function CompanyShowcaseSection({
+  id,
   index,
   name,
   category,
   description,
-  metadata,
+  facts,
+  color,
   logo,
   logoAlt,
   logoWidth,
   logoHeight,
   href,
   reverse = false,
-  logoMax = 'h-14',
+  logoMax = 'h-12',
   fallback,
 }: CompanyShowcaseSectionProps) {
-  // 12-col placement, split 6/6. Content occupies one side across two rows
-  // (index above body); the logo side takes the other six and stretches the
-  // full row height so its hairline spine runs edge to edge.
+  // 12-col placement, split 6/6. Copy occupies one side across two rows
+  // (numeral above body); the logo side takes the other six and stretches
+  // the full row height so its hairline spine runs edge to edge.
   const indexCol = reverse
     ? 'lg:col-span-6 lg:col-start-7 lg:row-start-1'
     : 'lg:col-span-6 lg:col-start-1 lg:row-start-1'
@@ -67,109 +75,118 @@ export default function CompanyShowcaseSection({
     ? 'lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:row-span-2'
     : 'lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2'
 
+  const host = href.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+
   return (
-    <article className="group relative border-b border-ink/[0.08] transition-colors duration-500 ease-editorial hover:bg-[#FCFCFF]">
+    <article
+      id={id}
+      className="group relative scroll-mt-24 border-b border-ink/[0.08] transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_2.5%,white)]"
+      style={{ '--brand': color } as React.CSSProperties}
+    >
       <div className="shell relative">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-8 py-20 sm:py-24 lg:grid-cols-12 lg:items-start lg:gap-x-16 lg:py-28">
-          {/* Index */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 py-12 sm:py-14 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-4 lg:py-14">
+          {/* Numeral */}
           <Reveal as="div" className={indexCol}>
-            <span className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-muted/50 tabular-nums">
+            <span className="font-serif text-[2.25rem] font-light leading-none tracking-tight text-[var(--brand)] tabular-nums">
               {index}
             </span>
           </Reveal>
 
-          {/* Logo side - a full-height panel divided from the copy by a
-              vertical hairline "spine": the mark set large, with the fact
-              list beneath it so this half carries real content, not void. */}
+          {/* Logo side - brand tile + labelled facts, divided from the copy
+              by a vertical hairline spine. */}
           <Reveal
             as="div"
-            delay={0.34}
+            delay={0.3}
             className={`order-last lg:order-none lg:self-stretch ${logoCol}`}
           >
             <div
-              className={`flex h-full flex-col items-start justify-center gap-12 lg:items-center lg:gap-14 ${
+              className={`flex h-full flex-col justify-center gap-5 ${
                 reverse
                   ? 'lg:border-r lg:border-line lg:pr-16'
                   : 'lg:border-l lg:border-line lg:pl-16'
               }`}
             >
-              {logo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={withBase(logo)}
-                  alt={logoAlt}
-                  loading="lazy"
-                  width={logoWidth}
-                  height={logoHeight}
-                  className={`w-auto max-w-full object-contain opacity-[0.9] transition-[opacity,transform] duration-[600ms] ease-editorial group-hover:-translate-y-1 group-hover:opacity-100 ${logoMax}`}
-                />
-              ) : (
-                <div className="transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-1">
-                  {fallback}
-                </div>
-              )}
+              {/* Brand tile: soft wash of the brand colour, brand rule on top */}
+              <div
+                className="relative flex h-40 w-full items-center justify-center overflow-hidden border-t-2 border-[var(--brand)]"
+                style={{ background: `color-mix(in srgb, ${color} 6%, white)` }}
+              >
+                {logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={withBase(logo)}
+                    alt={logoAlt}
+                    loading="lazy"
+                    width={logoWidth}
+                    height={logoHeight}
+                    className={`w-auto max-w-[70%] object-contain transition-transform duration-[600ms] ease-editorial group-hover:scale-[1.03] ${logoMax}`}
+                  />
+                ) : (
+                  <div className="transition-transform duration-[600ms] ease-editorial group-hover:scale-[1.03]">
+                    {fallback}
+                  </div>
+                )}
+              </div>
 
-              {/* Fact list - hairline rows, reads as a specimen label */}
-              <ul className="w-full max-w-[18.75rem] font-mono text-[0.6875rem] uppercase tracking-[0.16em]">
-                {metadata.map((m) => (
-                  <li
-                    key={m}
-                    className="border-t border-line py-3.5 text-muted/70 transition-colors duration-[600ms] ease-editorial last:border-b group-hover:border-ink/[0.11] group-hover:text-muted"
+              {/* Labelled fact table */}
+              <dl className="border-b border-line">
+                {facts.map((f) => (
+                  <div
+                    key={f.label}
+                    className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-t border-line py-2.5"
                   >
-                    {m}
-                  </li>
+                    <dt className="font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                      {f.label}
+                    </dt>
+                    <dd className="text-[0.9375rem] text-ink">{f.value}</dd>
+                  </div>
                 ))}
-              </ul>
+                <div className="grid grid-cols-[7.5rem_1fr] items-baseline gap-4 border-t border-line py-2.5">
+                  <dt className="font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                    Website
+                  </dt>
+                  <dd className="text-[0.9375rem] text-ink">
+                    {host} <span className="text-[var(--brand)]">&#8599;</span>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </Reveal>
 
-          {/* Body - name (headline), category, accent, description, CTA.
-              The fact list lives on the logo side to balance the row. */}
+          {/* Body - name (headline), category, accent, description, CTA */}
           <div className={bodyCol}>
             <Reveal delay={0.08}>
-              <h2 className="font-serif font-normal leading-[1.02] tracking-tightest text-ink text-[clamp(2.25rem,4vw,3.75rem)] transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
+              <h2 className="font-serif font-normal leading-[1.04] tracking-tightest text-ink text-[clamp(2rem,3.4vw,3.25rem)] transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-0.5">
                 {name}
               </h2>
-              <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.26em] text-muted">
+              <span className="mt-3 block font-mono text-[0.6875rem] uppercase tracking-[0.26em] text-muted">
                 {category}
               </span>
               <span
                 aria-hidden="true"
-                className="mt-6 block h-px w-10 bg-accent transition-[width] duration-[600ms] ease-editorial group-hover:w-16"
+                className="mt-5 block h-0.5 w-10 bg-[var(--brand)] transition-[width] duration-[600ms] ease-editorial group-hover:w-16"
               />
             </Reveal>
 
             <Reveal delay={0.16}>
-              <p className="mt-8 max-w-[48ch] text-[clamp(1.0625rem,1.2vw,1.1875rem)] leading-[1.7] text-muted transition-colors duration-[600ms] ease-editorial group-hover:text-ink/80">
+              <p className="mt-5 max-w-[46ch] text-base leading-[1.65] text-muted transition-colors duration-[600ms] ease-editorial group-hover:text-ink/80">
                 {description}
               </p>
             </Reveal>
 
             <Reveal delay={0.24}>
-              <span className="mt-9 inline-flex min-h-[2.75rem] items-center gap-2 text-base font-medium text-accent">
+              <span className="mt-4 inline-flex min-h-[2.75rem] items-center gap-2 text-[0.9375rem] font-medium text-[var(--brand)]">
                 <span className="relative">
-                  Visit Brand
-                  <span className="absolute -bottom-1 left-0 h-px w-full bg-accent/30 transition-colors duration-[600ms] ease-editorial group-hover:bg-accent" />
+                  Visit brand
+                  <span className="absolute -bottom-1 left-0 h-px w-full bg-[var(--brand)] opacity-30 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100" />
                 </span>
-                <span className="transition-transform duration-[600ms] ease-editorial group-hover:translate-x-1.5 group-hover:-translate-y-1">
+                <span className="transition-transform duration-[600ms] ease-editorial group-hover:-translate-y-1 group-hover:translate-x-1.5">
                   &#8599;
                 </span>
               </span>
             </Reveal>
           </div>
         </div>
-
-        {/* Active accent - short blue line at the bottom, grows toward centre on hover.
-            Inset by the shell gutters so it starts on the content edge (under
-            the brand name) rather than floating in the gutter on wide screens. */}
-        <span
-          aria-hidden="true"
-          className={`absolute bottom-0 h-0.5 w-[9.375rem] bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 ${
-            reverse
-              ? 'right-6 origin-right scale-x-[0.48] sm:right-10 lg:right-16'
-              : 'left-6 origin-left scale-x-[0.48] sm:left-10 lg:left-16'
-          }`}
-        />
 
         {/* Stretched link - whole row is one accessible tap target */}
         <a

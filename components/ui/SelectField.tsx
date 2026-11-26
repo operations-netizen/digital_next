@@ -151,10 +151,10 @@ export default function SelectField({
   }
 
   return (
-    <div className="block" ref={rootRef}>
+    <div className="group/f block" ref={rootRef}>
       <span
         id={labelId}
-        className="font-mono text-[0.625rem] uppercase tracking-meta text-white/45"
+        className="font-mono text-[0.625rem] uppercase tracking-meta text-white/45 transition-colors duration-300 ease-editorial group-focus-within/f:text-accent"
       >
         {label}
       </span>

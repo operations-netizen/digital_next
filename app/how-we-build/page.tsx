@@ -90,52 +90,59 @@ export default function HowWeBuildPage() {
         </div>
       </section>
 
-      {/* 02 - Why We Exist */}
-      <section className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14">
-        <div className="shell">
-          <div className="border-t border-line pt-8 sm:pt-10">
-            <div className="grid gap-x-16 gap-y-10 lg:grid-cols-12">
-              <div className="lg:col-span-6">
-                <Reveal>
-                  <Eyebrow>Why we exist</Eyebrow>
-                </Reveal>
-                <TextReveal
-                  as="h2"
-                  className="display mt-7 max-w-[16ch] text-statement"
-                  lines={[
-                    <>Most companies</>,
-                    <>optimize for exits.</>,
-                    <>We optimize</>,
-                    <>for <em className="italic text-accent">endurance</em>.</>,
-                  ]}
-                />
-              </div>
-              <Reveal className="space-y-8 lg:col-span-5 lg:col-start-8 lg:pt-3" delay={0.15}>
-                <p className="max-w-[42ch] text-lg leading-[1.8] text-muted">
-                  The internet rewards patience. The businesses that matter in a
-                  decade are rarely the ones engineered for a quick sale - they are
-                  the ones that keep serving customers, compounding advantages, and
-                  reinvesting for years.
-                </p>
-                <p className="max-w-[42ch] text-lg leading-[1.8] text-muted">
-                  So we structure everything around endurance. We hold for the long
-                  term, back operators who think in decades, and let each brand
-                  grow at the pace its market actually allows.
-                </p>
-                <p className="max-w-[42ch] text-lg leading-[1.8] text-muted">
-                  The result is a group where success is measured in durability and
-                  cash flow - not in the timing of an exit.
-                </p>
-              </Reveal>
-            </div>
+      {/* 02 - Why We Exist: a dark manifesto band. Centred thesis (the
+          "exits" line muted so "endurance" lands), one short paragraph, and
+          the closing line as a serif pull-quote. A faint accent glow sits
+          behind the headline. */}
+      <section
+        data-nav-dark
+        className="relative overflow-hidden bg-dark py-24 text-white sm:py-28 lg:py-36"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-[30%] h-[28rem] w-[48rem] max-w-[100vw] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,rgba(79,70,255,0.18),transparent)]"
+        />
+        <div className="shell relative">
+          <div className="mx-auto flex max-w-[52rem] flex-col items-center text-center">
+            <Reveal>
+              <Eyebrow tone="light">Why we exist</Eyebrow>
+            </Reveal>
+            <TextReveal
+              as="h2"
+              className="display mt-8 text-[clamp(2.25rem,4.6vw,4.25rem)] leading-[1.06] [text-wrap:balance]"
+              lines={[
+                <span key="a" className="text-white/45">Most companies optimize for exits.</span>,
+                <span key="b" className="text-white">
+                  We optimize for <em className="italic text-accent">endurance</em>.
+                </span>,
+              ]}
+            />
+            <Reveal delay={0.2}>
+              <p className="mt-10 max-w-[44ch] text-[1.0625rem] leading-[1.7] text-white/60 sm:text-lg">
+                The internet rewards patience. We hold for the long term, back
+                operators who think in decades, and let each brand grow at the
+                pace its market actually allows.
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <figure className="mt-14 sm:mt-16">
+                <span aria-hidden="true" className="mx-auto block h-px w-12 bg-accent" />
+                <blockquote className="mt-10 max-w-[28ch] font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.3] tracking-tight text-white/90 [text-wrap:balance]">
+                  &ldquo;Success is measured in{' '}
+                  <em className="italic text-accent">durability and cash flow</em>{' '}
+                  - not in the timing of an exit.&rdquo;
+                </blockquote>
+              </figure>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 03 - Operating Principles (dark) */}
-      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-28">
+      {/* 03 - Operating Principles (dark) - follows the dark manifesto, so it
+          opens on a hairline instead of its own top padding. */}
+      <section data-nav-dark className="bg-dark pb-16 text-white sm:pb-20 lg:pb-28">
         <div className="shell">
-          <Reveal>
+          <Reveal className="border-t border-white/10 pt-12 sm:pt-14 lg:pt-16">
             <Eyebrow tone="light">Operating principles</Eyebrow>
             <h2 className="display mt-6 max-w-[18ch] text-statement text-white">
               Four rules that never{' '}
@@ -232,18 +239,34 @@ export default function HowWeBuildPage() {
             <div className="mt-16 grid gap-x-14 gap-y-16 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
               {platform.map((c, i) => (
                 <Reveal key={c.name} delay={(i % 4) * 0.06}>
-                  <div className="group relative border-t border-line pt-6">
+                  {/* Hover (same language as the /brands platform grid, tuned
+                      for white): an accent rule draws across the top hairline
+                      with a soft glow, a faint accent glow spills past the item
+                      (fading to transparent before its edge - no hard
+                      boundary), the number lights up with a growing tick, the
+                      title nudges right in accent. Decorative - not links. */}
+                  <div className="group relative border-t border-line pb-4 pt-6">
                     <span
                       aria-hidden="true"
-                      className="absolute left-0 top-0 h-px w-10 origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
+                      className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-accent shadow-[0_0_0.875rem_0.0625rem_rgba(79,70,255,0.4)] transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
                     />
-                    <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60">
-                      {String(i + 1).padStart(2, '0')}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -inset-x-10 -top-14 h-[14rem] bg-[radial-gradient(closest-side,rgba(79,70,255,0.09),rgba(79,70,255,0.03)_55%,transparent)] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
+                    />
+                    <span className="relative flex items-center gap-4">
+                      <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-0 bg-accent transition-[width] duration-[600ms] ease-editorial group-hover:w-8"
+                      />
                     </span>
-                    <h3 className="mt-5 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-ink">
+                    <h3 className="relative mt-5 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-ink transition-[color,transform] duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-accent">
                       {c.name}
                     </h3>
-                    <p className="mt-3 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-muted">
+                    <p className="relative mt-3 max-w-[24ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-[600ms] ease-editorial group-hover:text-ink/75">
                       {c.note}
                     </p>
                   </div>
@@ -258,36 +281,45 @@ export default function HowWeBuildPage() {
       <section className="pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14">
         <div className="shell">
           <div className="border-t border-line pt-8 sm:pt-10">
-            <Reveal>
+            {/* Header centred over the symmetric panel, so it sits on the
+                boundary's axis; on desktop a short accent line drops from it
+                into the boundary itself (translate-x-px: the panel's 2px
+                border-l sits 1px right of the true centre). */}
+            <Reveal className="flex flex-col items-center text-center">
               <Eyebrow>The boundary</Eyebrow>
-              <h2 className="display mt-6 max-w-[18ch] text-statement">
+              <h2 className="display mt-6 max-w-[18ch] text-statement [text-wrap:balance]">
                 Independent brands.{' '}
                 <em className="italic text-accent">Shared advantage</em>.
               </h2>
             </Reveal>
+            <div
+              aria-hidden="true"
+              className="mx-auto mt-10 hidden h-14 w-0.5 translate-x-px bg-gradient-to-b from-accent/0 to-accent lg:block"
+            />
 
-            <div className="mt-16 grid gap-x-20 gap-y-16 sm:mt-20 lg:grid-cols-2">
-              {/* Never interfere */}
-              <Reveal>
-                <div className="flex items-baseline gap-3">
+            {/* The boundary, drawn literally: one panel split by a 2px
+                accent line. Left (white, muted, dashes) is what each brand
+                owns outright; right (accent-tinted, ink, checks) is what the
+                group provides. Stacks on phones with the line between. */}
+            <div className="mt-12 grid border border-line sm:mt-14 lg:mt-0 lg:grid-cols-2">
+              <Reveal className="px-7 py-9 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
+                <div className="flex items-center gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-muted/40" />
-                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                     We never interfere with
                   </span>
                 </div>
-                <ul className="mt-9">
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
+                  Each business keeps its brand, product, and culture.
+                </p>
+                <ul className="mt-7">
                   {neverControl.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-5 border-t border-line py-6 last:border-b"
+                      className="flex items-center gap-4 border-t border-line py-3.5"
                     >
-                      <span
-                        aria-hidden="true"
-                        className="flex h-4 w-4 shrink-0 items-center justify-center"
-                      >
-                        <span className="h-px w-3.5 bg-muted/50" />
-                      </span>
-                      <span className="font-serif text-[1.75rem] tracking-tight text-muted">
+                      <span aria-hidden="true" className="h-px w-3.5 shrink-0 bg-muted/50" />
+                      <span className="font-serif text-[1.375rem] tracking-tight text-ink/55 sm:text-[1.5rem]">
                         {item}
                       </span>
                     </li>
@@ -295,19 +327,24 @@ export default function HowWeBuildPage() {
                 </ul>
               </Reveal>
 
-              {/* Always support */}
-              <Reveal delay={0.12}>
-                <div className="flex items-baseline gap-3">
+              <Reveal
+                delay={0.12}
+                className="border-t-2 border-accent bg-[#F6F6FA] px-7 py-9 sm:px-10 sm:py-10 lg:border-l-2 lg:border-t-0 lg:px-12 lg:py-12"
+              >
+                <div className="flex items-center gap-3">
                   <span aria-hidden="true" className="h-px w-6 bg-accent" />
-                  <span className="font-mono text-[0.625rem] uppercase tracking-meta text-accent">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-accent">
                     We always support
                   </span>
                 </div>
-                <ul className="mt-9">
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink/65">
+                  Support arrives only when a team asks.
+                </p>
+                <ul className="mt-7">
                   {alwaysSupport.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-5 border-t border-line py-6 last:border-b"
+                      className="flex items-center gap-4 border-t border-ink/[0.07] py-3.5"
                     >
                       <svg
                         aria-hidden="true"
@@ -321,7 +358,7 @@ export default function HowWeBuildPage() {
                       >
                         <path d="M3 8.5l3.5 3.5L13 4.5" />
                       </svg>
-                      <span className="font-serif text-[1.75rem] tracking-tight text-ink">
+                      <span className="font-serif text-[1.375rem] tracking-tight text-ink sm:text-[1.5rem]">
                         {item}
                       </span>
                     </li>
@@ -419,7 +456,7 @@ export default function HowWeBuildPage() {
             <Reveal delay={0.28}>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
                 <Link
-                  href="/companies"
+                  href="/brands"
                   className="group inline-flex items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:text-white"
                 >
                   Explore Brands

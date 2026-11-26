@@ -161,25 +161,26 @@ export default function AboutPage() {
       {/* 03 - How we build */}
       <section className="py-14 sm:py-16 lg:py-20">
         <div className="shell">
-          <Reveal>
-            <div className="border-t border-line pt-8 sm:pt-10">
+          {/* Centred header over the symmetric capability panel. */}
+          <div className="flex flex-col items-center border-t border-line pt-8 text-center sm:pt-10">
+            <Reveal>
               <Eyebrow>How we build</Eyebrow>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="display mt-6 max-w-[20ch] text-statement">
-              Every brand inherits the{' '}
-              <em className="italic text-accent">strength of the group</em>.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-7 max-w-[52ch] text-lg leading-relaxed text-muted">
-              Every brand starts independently, but grows with the same
-              shared platform.
-            </p>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="display mt-5 max-w-[22ch] text-statement [text-wrap:balance]">
+                Every brand inherits the{' '}
+                <em className="italic text-accent">strength of the group</em>.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-4 max-w-[44ch] text-[1.0625rem] leading-[1.7] text-muted">
+                Every brand starts independently, but grows with the same
+                shared platform.
+              </p>
+            </Reveal>
+          </div>
 
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <SharedPlatform />
           </div>
         </div>
@@ -208,81 +209,72 @@ export default function AboutPage() {
               </Reveal>
             </div>
 
-            {/* min-w-0 on each item: grid items default to min-width:auto,
-                so a long brand name can size the track wider than the
-                viewport. */}
-            <div className="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:mt-12 lg:gap-x-14 lg:gap-y-10">
+            {/* Brand panel: one hairline grid (collapsed borders: container
+                top/left, cells right/bottom), 3-up on desktop. The logo leads
+                each cell in full colour at one optical size; the name is the
+                cell's (visually hidden) heading so it isn't printed twice.
+                Hover speaks the brand's own colour: a faint tint, a rule
+                drawn across the top, the logo lifting, the CTA tinting.
+                min-w-0: grid items default to min-width:auto. */}
+            <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
               {companies.map((c, i) => (
-                <Reveal key={c.id} delay={(i % 2) * 0.1} className="h-full min-w-0">
+                <Reveal key={c.id} delay={(i % 3) * 0.08} className="h-full min-w-0">
                   <a
                     href={c.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${c.name} - ${c.category}. Visit website (opens in a new tab).`}
-                    className="group relative flex h-full flex-col border-t border-line pt-6 outline-none transition-colors duration-500 ease-editorial hover:border-ink/25 focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-4 focus-visible:ring-offset-bg lg:pt-7"
+                    className="group relative flex h-full flex-col border-b border-r border-line px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
+                    style={{ '--brand': c.primaryColor } as React.CSSProperties}
                   >
-                    {/* Accent rule draws across the card's top hairline on
-                        hover - a card-level affordance, since the whole tile
-                        is the link, not just the name. */}
                     <span
                       aria-hidden="true"
-                      className="absolute -top-px left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                      className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-500 ease-editorial group-hover:scale-x-100 group-focus-visible:scale-x-100"
                     />
-                    {/* Header row: index + name + category left, logo right.
-                        items-center so the mark sits on the vertical midpoint
-                        of the index/name/category stack rather than hanging
-                        off its top edge. */}
-                    <div className="flex items-center justify-between gap-4 xs:gap-6">
-                      <div className="min-w-0">
-                        <span className="font-mono text-[0.6875rem] tracking-meta text-muted/45 transition-colors duration-500 ease-editorial group-hover:text-accent">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <h3 className="mt-1.5 font-serif text-[1.55rem] font-light leading-[1.06] tracking-tightest text-ink xs:text-[1.9rem] sm:text-[2.05rem]">
-                          {c.name}
-                        </h3>
-                        <span className="mt-2.5 block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/70">
-                          {c.category}
-                        </span>
-                      </div>
 
-                      {/* Logo - right side, mono → colour on hover */}
-                      <div className="flex h-9 shrink-0 items-center xs:h-11 sm:h-12">
-                        {c.logo ? (
-                          <img
-                            src={withBase(c.logo)}
-                            alt=""
-                            loading="lazy"
-                            width={c.logoWidth}
-                            height={c.logoHeight}
-                            className="max-h-9 w-auto max-w-[6.5rem] object-contain object-right opacity-70 grayscale transition-[filter,opacity] duration-500 ease-editorial group-hover:opacity-100 group-hover:grayscale-0 xs:max-h-11 xs:max-w-[8.75rem] sm:max-h-12 sm:max-w-[10.625rem]"
-                          />
-                        ) : (
-                          <span className="whitespace-nowrap font-sans text-[1.15rem] font-bold leading-none tracking-[-0.02em] text-ink xs:text-[1.35rem] sm:text-[1.5rem]">
-                            HireNext
-                            <span className="text-ink/40 transition-colors duration-500 ease-editorial group-hover:text-[#14B8A6]">
-                              .io
-                            </span>
-                          </span>
-                        )}
-                      </div>
+                    {/* Logo + number */}
+                    <div className="flex h-12 items-center justify-between gap-4">
+                      {c.logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={withBase(c.logo)}
+                          alt=""
+                          loading="lazy"
+                          width={c.logoWidth}
+                          height={c.logoHeight}
+                          className={`w-auto object-contain object-left transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5 ${
+                            c.id === 'digital-web-solutions'
+                              ? 'max-h-12 max-w-[6rem]'
+                              : 'max-h-7 max-w-[10rem]'
+                          }`}
+                        />
+                      ) : (
+                        <span className="whitespace-nowrap font-sans text-[1.5rem] font-bold leading-none tracking-[-0.02em] text-ink transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5">
+                          HireNext<span className="text-[#14B8A6]">.io</span>
+                        </span>
+                      )}
+                      <span className="self-start font-mono text-[0.6875rem] tabular-nums tracking-meta text-[var(--brand)]">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
                     </div>
 
-                    {/* What the brand does - straight from the data */}
-                    <p className="mt-4 max-w-[42ch] text-[0.9375rem] leading-[1.65] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/70">
+                    <h3 className="sr-only">{c.name}</h3>
+                    <span className="mt-6 block font-mono text-[0.625rem] uppercase tracking-meta text-muted">
+                      {c.category}
+                    </span>
+                    <p className="mt-2.5 max-w-[40ch] text-[0.9375rem] leading-[1.6] text-muted transition-colors duration-500 ease-editorial group-hover:text-ink/75">
                       {c.description}
                     </p>
 
-                    {/* Footer rail - aligns across the row via mt-auto */}
-                    <div className="mt-auto flex items-center justify-between gap-6 border-t border-line pt-3.5 transition-colors duration-500 ease-editorial group-hover:border-ink/15 lg:mt-6">
-                      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted/60">
-                        {c.founded
-                          ? `Est. ${c.founded}`
-                          : c.status ?? 'In development'}
+                    {/* Footer rail - aligned across the row via mt-auto */}
+                    <div className="mt-auto flex items-center justify-between gap-6 pt-6">
+                      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted/70">
+                        {c.founded ? `Est. ${c.founded}` : c.status ?? 'In development'}
                       </span>
-                      <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-muted transition-colors duration-500 ease-editorial group-hover:text-accent">
-                        Explore Brand
-                        <span className="transition-transform duration-500 ease-editorial group-hover:translate-x-1">
-                          &rarr;
+                      <span className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-ink/70 transition-colors duration-500 ease-editorial group-hover:text-[var(--brand)]">
+                        Visit
+                        <span className="transition-transform duration-500 ease-editorial group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
+                          &#8599;
                         </span>
                       </span>
                     </div>
@@ -291,20 +283,25 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Shared foundation - independent brands stand on one platform */}
+            {/* Shared foundation - fused to the bottom of the brand panel so
+                the six brands literally stand on it: a tinted strip with an
+                accent rule on top, the label left and the four pillars right. */}
             <Reveal delay={0.1}>
-              <div className="mt-16 border-t border-line pt-8 text-center sm:mt-20">
-                <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
+              <div className="flex flex-col gap-3 border-x border-b border-line border-t-2 border-t-accent bg-[#F6F6FA] px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+                <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-accent">
                   One shared platform
                 </span>
-                <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted/50">
-                  <span>Capital</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Technology</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Infrastructure</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Talent</span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-ink/70">
+                  {['Capital', 'Technology', 'Infrastructure', 'Talent'].map((p, i) => (
+                    <span key={p} className="flex items-center gap-4">
+                      {i > 0 && (
+                        <span aria-hidden="true" className="text-accent/50">
+                          ·
+                        </span>
+                      )}
+                      {p}
+                    </span>
+                  ))}
                 </div>
               </div>
             </Reveal>
@@ -325,7 +322,7 @@ export default function AboutPage() {
       <TechStack />
 
       {/* 05 - Operating principles (dark) */}
-      <section data-nav-dark className="bg-dark py-16 text-white sm:py-20 lg:py-24">
+      <section data-nav-dark className="bg-dark py-14 text-white sm:py-16 lg:py-20">
         <div className="shell">
           <Reveal>
             <Eyebrow tone="light">How we operate</Eyebrow>
@@ -335,36 +332,38 @@ export default function AboutPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-16 sm:mt-24">
+          {/* The four principles as one hairline grid on the dark band
+              (4-up desktop, 2-up tablet, stacked phone) instead of four
+              screen-tall rows. Hover - the site language on dark: a faint
+              lift, an accent rule with a soft glow drawn across the top,
+              the number lights up with a growing tick, the title nudges
+              right. */}
+          <div className="mt-12 grid border-l border-t border-white/10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map((p, i) => (
-              <Reveal key={p.no} delay={i * 0.1}>
-                <div className="group relative border-t border-white/10 transition-colors duration-300 ease-editorial hover:border-white/20">
-                  {/* Accent segment grows along the top rule on hover */}
+              <Reveal key={p.no} delay={i * 0.08} className="h-full">
+                <div className="group relative flex h-full flex-col border-b border-r border-white/10 px-6 py-8 transition-colors duration-500 ease-editorial hover:bg-white/[0.04] sm:px-7 sm:py-9">
                   <span
                     aria-hidden="true"
-                    className="absolute left-0 top-0 h-px w-8 origin-left scale-x-0 bg-accent transition-transform duration-300 ease-editorial group-hover:scale-x-100"
+                    className="absolute inset-x-0 -top-px h-0.5 origin-left scale-x-0 bg-accent shadow-[0_0_1rem_0.125rem_rgba(79,70,255,0.5)] transition-transform duration-500 ease-editorial group-hover:scale-x-100"
                   />
-                  <div className="grid grid-cols-1 gap-x-8 gap-y-6 py-12 transition-transform duration-300 ease-editorial group-hover:-translate-y-0.5 sm:py-16 lg:grid-cols-12 lg:items-baseline lg:gap-x-10">
-                    {/* Index */}
-                    <span className="font-mono text-[0.8125rem] tracking-meta text-accent/80 lg:col-span-1 lg:pt-2">
+                  <span className="flex items-center gap-3">
+                    <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent transition-colors duration-500 ease-editorial">
                       {p.no}
                     </span>
-
-                    {/* Title - the focal statement, left */}
-                    <h3 className="max-w-[14ch] font-serif text-4xl font-light leading-[1.05] tracking-tighter text-white sm:text-5xl lg:col-span-6">
-                      {p.title}
-                    </h3>
-
-                    {/* Meta + description - right column fills the spread */}
-                    <div className="lg:col-span-4 lg:col-start-9 lg:pt-2">
-                      <span className="block font-mono text-[0.625rem] uppercase tracking-meta text-white/35">
-                        {p.meta}
-                      </span>
-                      <p className="mt-3.5 max-w-[42ch] text-lg leading-relaxed text-white/55">
-                        {p.body}
-                      </p>
-                    </div>
-                  </div>
+                    <span
+                      aria-hidden="true"
+                      className="h-px w-0 bg-accent transition-[width] duration-500 ease-editorial group-hover:w-8"
+                    />
+                  </span>
+                  <h3 className="mt-6 font-serif text-[1.625rem] font-light leading-[1.15] tracking-tight text-white transition-transform duration-500 ease-editorial group-hover:translate-x-1 lg:text-[1.75rem]">
+                    {p.title}
+                  </h3>
+                  <span className="mt-3 block font-mono text-[0.625rem] uppercase tracking-meta text-white/40">
+                    {p.meta}
+                  </span>
+                  <p className="mt-4 text-[0.9375rem] leading-[1.65] text-white/60 transition-colors duration-500 ease-editorial group-hover:text-white/80">
+                    {p.body}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -415,7 +414,7 @@ export default function AboutPage() {
             <Reveal delay={0.28}>
               <div className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
                 <Link
-                  href="/companies"
+                  href="/brands"
                   className="group inline-flex items-center gap-2.5 rounded-xl bg-white px-8 py-4 text-sm font-medium text-ink transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:text-white hover:shadow-[0_14px_34px_-12px_rgba(79,70,255,0.55)]"
                 >
                   Explore the Group

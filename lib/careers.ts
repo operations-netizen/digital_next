@@ -2,13 +2,14 @@
 // until real openings exist; the page renders an honest empty state rather
 // than inventing vacancies.
 
-export const careerIndex = [
-  'Engineering',
-  'Product',
-  'Marketing',
-  'Sales',
-  'Operations',
-  'People & Talent',
+/** Areas people work in across the group, with what each covers. */
+export const careerIndex: { name: string; focus: string }[] = [
+  { name: 'Engineering', focus: 'SaaS platforms & infrastructure' },
+  { name: 'Product', focus: 'Roadmaps, design & research' },
+  { name: 'Marketing', focus: 'SEO, performance & content' },
+  { name: 'Sales', focus: 'Partnerships & client growth' },
+  { name: 'Operations', focus: 'Finance, legal & delivery' },
+  { name: 'People & Talent', focus: 'Hiring, culture & growth' },
 ]
 
 export const whyJoin = [

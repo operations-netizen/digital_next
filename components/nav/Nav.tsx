@@ -74,28 +74,36 @@ export default function Nav() {
   }, [])
 
   // Theme-aware: flip to a dark treatment when a dark section sits under the
-  // nav. Watches [data-nav-dark] sections against a thin strip at the top.
+  // nav (any [data-nav-dark] element overlapping the top 72px strip).
+  // Re-queried on every check rather than observed once, so sections that
+  // mount late or get replaced (streaming, route change, hot reload) are
+  // always picked up. Checks are rAF-throttled.
   useEffect(() => {
-    const els = Array.from(
-      document.querySelectorAll<HTMLElement>('[data-nav-dark]')
-    )
-    if (els.length === 0) {
-      setOnDark(false)
-      return
+    let raf = 0
+    const check = () => {
+      raf = 0
+      const hit = Array.from(
+        document.querySelectorAll<HTMLElement>('[data-nav-dark]')
+      ).some((el) => {
+        const r = el.getBoundingClientRect()
+        return r.top < 72 && r.bottom > 0
+      })
+      setOnDark(hit)
     }
-    const active = new Set<Element>()
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) active.add(e.target)
-          else active.delete(e.target)
-        }
-        setOnDark(active.size > 0)
-      },
-      { rootMargin: `0px 0px -${Math.max(0, window.innerHeight - 72)}px 0px` }
-    )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(check)
+    }
+    schedule()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    const mo = new MutationObserver(schedule)
+    mo.observe(document.body, { childList: true, subtree: true })
+    return () => {
+      if (raf) cancelAnimationFrame(raf)
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      mo.disconnect()
+    }
   }, [pathname])
 
   useEffect(() => {
@@ -169,7 +177,7 @@ export default function Nav() {
           <Link
             href={contact.href}
             className={[
-              'group ml-3 inline-flex h-12 items-center gap-2 rounded-xl px-8 text-[0.9375rem] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5',
+              'group ml-3 inline-flex h-10 items-center gap-2 rounded-lg px-5 text-sm font-medium transition-all duration-300 ease-out hover:-translate-y-0.5',
               dark
                 ? 'bg-white text-ink hover:bg-white/90 hover:shadow-[0_12px_30px_-12px_rgba(255,255,255,0.35)]'
                 : 'bg-ink text-white hover:bg-ink/90 hover:shadow-[0_12px_30px_-12px_rgba(17,17,17,0.45)]',

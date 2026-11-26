@@ -91,7 +91,7 @@ export default function WhoWeAre() {
 
             <Reveal delay={0.3} className="mt-8 lg:mt-auto">
               <Link
-                href="/companies"
+                href="/brands"
                 className="group flex w-fit items-center gap-2.5 text-[0.9375rem] font-medium leading-snug text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
               >
                 <span className="relative">

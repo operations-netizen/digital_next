@@ -24,7 +24,7 @@ const manifesto = [
 ]
 
 const continueExploring = [
-  { label: 'Brands', href: '/companies' },
+  { label: 'Brands', href: '/brands' },
   { label: 'How We Build', href: '/how-we-build' },
   { label: 'About', href: '/about' },
 ]

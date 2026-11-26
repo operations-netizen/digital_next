@@ -1,32 +1,40 @@
 'use client'
 
 import { withBase } from '@/lib/asset'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { CONTACT_REASON_EVENT } from '@/components/contact/ContactRoutes'
 
 /**
- * Editorial inquiry form - an understated questionnaire. Fields are
- * numbered (01-05), inputs are underlined rather than boxed, the dropdown
- * is styled to match, and submit resolves to a quiet confirmation. Same
- * design language as the rest of the site.
+ * Inquiry form, set in one hairline panel (the same panel language as the
+ * careers form, on white): header strip, numbered fields whose labels light
+ * up in accent while focused, the reason as a row of selectable chips
+ * (radios - every option visible, no dropdown), and the submit rail.
+ * Submit posts to /api/forms; success swaps the body for a confirmation.
  */
 
-const reasons = [
-  'Company acquisition',
-  'Partnership',
-  'Careers',
-  'Press',
-  'General inquiry',
-]
+const reasons = ['Acquisition', 'Partnership', 'Careers', 'Press', 'General']
 
 const field =
-  'mt-2 w-full border-b border-line bg-transparent py-2.5 text-ink outline-none transition-colors duration-300 ease-editorial placeholder:text-muted/45 focus:border-accent'
+  'mt-2 w-full border-b border-line bg-transparent py-2.5 text-[0.9375rem] text-ink outline-none transition-colors duration-300 ease-editorial placeholder:text-muted/45 hover:border-ink/25 focus:border-accent'
 
 function FieldLabel({ n, children }: { n: string; children: string }) {
   return (
-    <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
+    <span className="font-mono text-[0.625rem] uppercase tracking-meta text-muted transition-colors duration-300 ease-editorial group-focus-within/f:text-accent">
       <span className="mr-2 text-accent/70">{n}</span>
       {children}
     </span>
+  )
+}
+
+function Panel({ children, status }: { children: React.ReactNode; status: string }) {
+  return (
+    <div className="border border-line border-t-2 border-t-accent bg-white">
+      <div className="flex items-center justify-between border-b border-line bg-[#F6F6FA] px-6 py-4 font-mono text-[0.625rem] uppercase tracking-meta sm:px-9">
+        <span className="text-ink/70">Send an inquiry</span>
+        <span className="text-muted">{status}</span>
+      </div>
+      <div className="px-6 py-8 sm:px-9 sm:py-9">{children}</div>
+    </div>
   )
 }
 
@@ -34,6 +42,17 @@ export default function ContactForm() {
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const [reason, setReason] = useState('')
+
+  // A route card above can pre-select the reason.
+  useEffect(() => {
+    function onReason(e: Event) {
+      const next = (e as CustomEvent<string>).detail
+      if (reasons.includes(next)) setReason(next)
+    }
+    window.addEventListener(CONTACT_REASON_EVENT, onReason)
+    return () => window.removeEventListener(CONTACT_REASON_EVENT, onReason)
+  }, [])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -57,20 +76,21 @@ export default function ContactForm() {
 
   if (sent) {
     return (
-      <div className="border-t border-line py-16 text-center">
+      <Panel status="Received">
         <p className="font-serif text-3xl font-light tracking-tight text-ink">
-          Thank you.
+          Thank <em className="italic text-accent">you</em>.
         </p>
-        <p className="mx-auto mt-4 max-w-[40ch] text-base leading-relaxed text-muted">
+        <p className="mt-4 max-w-[40ch] text-base leading-relaxed text-muted">
           We&rsquo;ve received your inquiry and will be in touch within two
           business days.
         </p>
-      </div>
+      </Panel>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+    <Panel status="5 fields">
+    <form onSubmit={handleSubmit} className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
       {/* Honeypot - hidden from users, catches bots */}
       <input
         type="text"
@@ -80,7 +100,7 @@ export default function ContactForm() {
         aria-hidden="true"
         className="hidden"
       />
-      <label className="block">
+      <label className="group/f block">
         <FieldLabel n="01">Name</FieldLabel>
         <input
           type="text"
@@ -92,19 +112,8 @@ export default function ContactForm() {
         />
       </label>
 
-      <label className="block">
-        <FieldLabel n="02">Company</FieldLabel>
-        <input
-          type="text"
-          name="company"
-          autoComplete="organization"
-          placeholder="Company or fund"
-          className={field}
-        />
-      </label>
-
-      <label className="block">
-        <FieldLabel n="03">Email</FieldLabel>
+      <label className="group/f block">
+        <FieldLabel n="02">Email</FieldLabel>
         <input
           type="email"
           name="email"
@@ -115,49 +124,58 @@ export default function ContactForm() {
         />
       </label>
 
-      <label className="block">
-        <FieldLabel n="04">Reason</FieldLabel>
-        <div className="relative">
-          <select
-            name="reason"
-            required
-            defaultValue=""
-            className={`${field} appearance-none pr-6`}
-          >
-            <option value="" disabled>
-              Select a reason
-            </option>
-            {reasons.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute bottom-3 right-0 font-mono text-[0.6875rem] text-muted"
-          >
-            &#9662;
-          </span>
-        </div>
+      <label className="group/f block sm:col-span-2">
+        <FieldLabel n="03">Company</FieldLabel>
+        <input
+          type="text"
+          name="company"
+          autoComplete="organization"
+          placeholder="Company or fund"
+          className={field}
+        />
       </label>
 
-      <label className="block sm:col-span-2">
+      <fieldset className="group/f sm:col-span-2">
+        <legend>
+          <FieldLabel n="04">Reason</FieldLabel>
+        </legend>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {reasons.map((r, i) => (
+            <label key={r} className="cursor-pointer">
+              <input
+                type="radio"
+                name="reason"
+                value={r}
+                checked={reason === r}
+                onChange={() => setReason(r)}
+                required={i === 0}
+                className="peer sr-only"
+              />
+              <span className="inline-flex min-h-[2.25rem] items-center rounded-full border border-line px-3.5 text-[0.8125rem] text-muted transition-colors duration-300 ease-editorial hover:border-ink/30 hover:text-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-accent/40">
+                {r}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <label className="group/f block sm:col-span-2">
         <FieldLabel n="05">Message</FieldLabel>
         <textarea
           name="message"
           required
-          rows={4}
+          rows={3}
           placeholder="A few lines about what you have in mind."
           className={`${field} resize-none`}
         />
       </label>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-line pt-8 sm:col-span-2">
+      <div className="mt-3 flex flex-col gap-5 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <button
           type="submit"
           disabled={submitting}
-          className="group inline-flex items-center gap-2.5 rounded-xl bg-ink px-8 py-4 text-sm font-medium text-white transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:shadow-[0_14px_34px_-14px_rgba(79,70,255,0.5)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-ink disabled:hover:shadow-none"
+          className="group inline-flex items-center gap-2.5 rounded-xl bg-ink px-7 py-3.5 text-sm font-medium text-white transition-all duration-300 ease-editorial hover:-translate-y-0.5 hover:bg-accent hover:shadow-[0_14px_34px_-14px_rgba(79,70,255,0.5)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-ink disabled:hover:shadow-none"
         >
           {submitting ? 'Sending…' : 'Send Inquiry'}
           {!submitting && (
@@ -171,7 +189,12 @@ export default function ContactForm() {
             {error}
           </p>
         )}
+        </div>
+        <p className="max-w-[34ch] text-[0.75rem] leading-relaxed text-muted/80">
+          Every message is read by the team. We reply within two business days.
+        </p>
       </div>
     </form>
+    </Panel>
   )
 }

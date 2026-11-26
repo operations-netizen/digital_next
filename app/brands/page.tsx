@@ -4,13 +4,14 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 import CompanyShowcaseSection from '@/components/companies/CompanyShowcaseSection'
+import BrandNameWall from '@/components/companies/BrandNameWall'
 import { companies } from '@/lib/companies'
 
 export const metadata = pageMetadata({
   title: 'Brands',
   description:
     'Six independent internet businesses owned and scaled by Digital Next - one long-term ownership model, one shared operating advantage.',
-  path: '/companies',
+  path: '/brands',
 })
 
 // Showcase copy per company (id-keyed); logos/urls/names/founded come from the
@@ -24,7 +25,10 @@ const showcase: Record<
   {
     category: string
     description: string
-    metadata: string[]
+    /** Labelled facts beside the logo (founded/status and website are
+     *  added from the company record). */
+    facts: { label: string; value: string }[]
+    /** Logo height inside the brand tile - one optical size for all six. */
     logoMax: string
   }
 > = {
@@ -32,43 +36,66 @@ const showcase: Record<
     category: 'Digital Marketing & SEO',
     description:
       "Advanced digital marketing and performance strategy for agencies and enterprises - combining strategic insight, SEO, and growth-focused execution. The Group's largest and original brand, tracing back to the founding of Digital Web Solutions Pvt. Ltd. in 2006.",
-    metadata: ['Digital Marketing', 'Agencies & Enterprises', 'Original Brand'],
-    logoMax: 'h-32',
+    facts: [
+      { label: 'Market', value: 'Agencies & enterprises' },
+      { label: 'Focus', value: 'Digital marketing' },
+      { label: 'Role', value: 'Original brand' },
+    ],
+    logoMax: 'h-20',
   },
   wytlabs: {
     category: 'Full-Service Marketing (US)',
     description:
       'A full-service marketing agency catering exclusively to eCommerce, SaaS, and healthcare brands in the United States. Specializations include SEO, email marketing automation, paid ads, and web development.',
-    metadata: ['United States', 'eCommerce, SaaS & Healthcare', 'SEO & Paid Ads'],
-    logoMax: 'h-20',
+    facts: [
+      { label: 'Market', value: 'United States' },
+      { label: 'Clients', value: 'eCommerce, SaaS & healthcare' },
+      { label: 'Services', value: 'SEO & paid ads' },
+    ],
+    logoMax: 'h-9',
   },
   hirenext: {
     category: 'ATS & Talent Platform',
     description:
       'An internally developed Applicant Tracking System (ATS) and talent-management platform, currently in development. On launch, it will support recruitment operations across all Digital Next brands, with a possible external commercialization path.',
-    metadata: ['In Development', 'HR Technology', 'Built In-House'],
-    logoMax: 'h-20',
+    facts: [
+      { label: 'Category', value: 'HR technology' },
+      { label: 'Built', value: 'In-house' },
+    ],
+    logoMax: 'h-12',
   },
   rankwatch: {
     category: 'SEO & Rank-Tracking SaaS',
     description:
       "A proprietary SaaS platform helping businesses and agencies track SEO performance, analyze competitors, and make data-driven marketing decisions. Introduced in 2015; the Group's flagship product and recurring-revenue business.",
-    metadata: ['SEO SaaS', 'Flagship Product', 'Recurring Revenue'],
-    logoMax: 'h-16',
+    facts: [
+      { label: 'Product', value: 'SEO SaaS' },
+      { label: 'Role', value: 'Flagship product' },
+      { label: 'Model', value: 'Recurring revenue' },
+    ],
+    logoMax: 'h-11',
   },
   collabx: {
     category: 'Influencer & Partnership Platform',
     description:
       'A new-age influencer and partnership management platform simplifying collaborations, campaign tracking, and performance analytics. Launched 2025; currently in a high-growth scale-up phase.',
-    metadata: ['Influencer Marketing', 'Campaign Analytics', 'Scale-Up Phase'],
-    logoMax: 'h-24',
+    facts: [
+      { label: 'Focus', value: 'Influencer marketing' },
+      { label: 'Product', value: 'Campaign analytics' },
+      { label: 'Stage', value: 'Scale-up phase' },
+    ],
+    logoMax: 'h-11',
   },
   smegoweb: {
     category: 'Full-Service Marketing (ANZ)',
     description:
       'A full-service marketing agency serving small and medium businesses across Australia and New Zealand, launched in 2012, with a dedicated New Zealand operation run in local partnership.',
-    metadata: ['Australia & New Zealand', 'SME Focus', 'NZ Partnership'],
-    logoMax: 'h-20',
+    facts: [
+      { label: 'Market', value: 'Australia & New Zealand' },
+      { label: 'Clients', value: 'Small & medium businesses' },
+      { label: 'NZ', value: 'Local partnership' },
+    ],
+    logoMax: 'h-12',
   },
 }
 
@@ -84,18 +111,26 @@ const platform = [
 export default function CompaniesPage() {
   return (
     <>
-      {/* 01 - Hero */}
+      {/* 01 - Hero: statement + copy on the left; on the right the six
+          brands as a compact hover-reveal list (hover a name: the rest dim,
+          it takes its brand colour, a preview card follows the cursor). It
+          doubles as the index - each name jumps to its showcase below. */}
       <section className="pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pb-24">
         <div className="shell">
-          <div className="grid gap-y-16 lg:grid-cols-12 lg:items-start lg:gap-x-16">
-            <div className="lg:col-span-7">
+          <div className="grid gap-y-14 lg:grid-cols-12 lg:gap-x-16">
+            <div className="lg:col-span-6">
               <Reveal>
-                <Eyebrow>Our brands</Eyebrow>
+                <div className="flex items-baseline gap-4">
+                  <Eyebrow>Our brands</Eyebrow>
+                  <span className="font-mono text-[0.6875rem] tabular-nums tracking-meta text-accent">
+                    {String(companies.length).padStart(2, '0')}
+                  </span>
+                </div>
               </Reveal>
               <TextReveal
                 as="h1"
                 trigger="mount"
-                className="display mt-8 max-w-[15ch] text-hero"
+                className="display text-statement mt-6 max-w-[15ch] [text-wrap:balance]"
                 lines={[
                   <>Six brands.</>,
                   <>
@@ -104,56 +139,19 @@ export default function CompaniesPage() {
                 ]}
               />
               <Reveal delay={0.15}>
-                <p className="mt-8 max-w-[54ch] text-lg leading-relaxed text-muted">
+                <p className="mt-8 max-w-[34rem] text-base leading-[1.7] text-muted [text-wrap:pretty] sm:text-[1.0625rem]">
                   Digital Next brings together independent internet businesses
-                  across digital marketing, AI, SaaS, recruitment, collaboration,
-                  SEO, and enterprise technology. Each brand operates with its
-                  own identity, team, and roadmap while benefiting from the
-                  strength of the group.
+                  across digital marketing, AI, SaaS, recruitment,
+                  collaboration, SEO, and enterprise technology. Each brand
+                  operates with its own identity, team, and roadmap while
+                  benefiting from the strength of the group.
                 </p>
-              </Reveal>
-              <Reveal delay={0.28}>
-                <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
-                  <span>
-                    <span className="text-ink">6</span> Brands
-                  </span>
-                  <span aria-hidden="true" className="h-3 w-px bg-line" />
-                  <span>
-                    <span className="text-ink">450+</span> People
-                  </span>
-                  <span aria-hidden="true" className="h-3 w-px bg-line" />
-                  <span>Global Operations</span>
-                  <span aria-hidden="true" className="h-3 w-px bg-line" />
-                  <span>Long-term Ownership</span>
-                </div>
               </Reveal>
             </div>
 
-            {/* Vertical company index - an editorial contents list */}
-            <Reveal className="lg:col-span-4 lg:col-start-9 lg:pt-3" delay={0.2}>
-              <span className="block font-mono text-[0.625rem] uppercase tracking-[0.24em] text-muted/50">
-                Index
-              </span>
-              <ul className="mt-7">
-                {companies.map((c, i) => (
-                  <li key={c.id}>
-                    <a
-                      href={c.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`group flex items-baseline gap-5 border-t border-ink/[0.07] py-3.5 outline-none transition-colors duration-[600ms] ease-editorial focus-visible:text-ink`}
-                    >
-                      <span className="w-6 shrink-0 font-mono text-[0.625rem] tabular-nums tracking-[0.2em] text-muted/40 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <span className="font-serif text-lg tracking-tight text-muted transition-all duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-ink">
-                        {c.name}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
+            <div className="lg:col-span-5 lg:col-start-8 lg:pt-1">
+              <BrandNameWall />
+            </div>
           </div>
         </div>
       </section>
@@ -173,16 +171,18 @@ export default function CompaniesPage() {
           return (
             <CompanyShowcaseSection
               key={c.id}
+              id={c.id}
               index={String(i + 1).padStart(2, '0')}
               name={c.name}
               category={s.category}
               description={s.description}
-              metadata={[
+              facts={[
                 c.founded
-                  ? `Founded ${c.founded}`
-                  : c.status ?? 'In development',
-                ...s.metadata,
+                  ? { label: 'Founded', value: c.founded }
+                  : { label: 'Status', value: c.status ?? 'In development' },
+                ...s.facts,
               ]}
+              color={c.primaryColor}
               logo={c.logo}
               logoAlt={`${c.name} logo`}
               logoWidth={c.logoWidth}
@@ -191,9 +191,9 @@ export default function CompaniesPage() {
               href={c.url}
               reverse={i % 2 === 1}
               fallback={
-                <span className="font-sans text-[2.25rem] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[3.25rem]">
+                <span className="font-sans text-[2rem] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[2.5rem]">
                   HireNext
-                  <span className="text-ink/40 transition-colors duration-500 ease-editorial group-hover:text-[#14B8A6]">
+                  <span className="text-[#14B8A6]">
                     .io
                   </span>
                 </span>
@@ -225,14 +225,35 @@ export default function CompaniesPage() {
           <div className="mt-16 grid gap-x-16 gap-y-14 sm:mt-24 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-3">
             {platform.map((p) => (
               <Reveal key={p.no}>
-                <div className="group border-t border-white/10 pt-7 transition-colors duration-[600ms] ease-editorial">
-                  <span className="font-mono text-[0.6875rem] tracking-meta text-accent/80">
-                    {p.no}
+                {/* Hover: an accent rule draws across the top hairline, a soft
+                    accent glow rises from it, the number lights up with a
+                    growing tick, the title nudges right. Decorative only -
+                    these aren't links. */}
+                <div className="group relative border-t border-white/10 pb-4 pt-7">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-accent shadow-[0_0_1rem_0.125rem_rgba(79,70,255,0.55)] transition-transform duration-[600ms] ease-editorial group-hover:scale-x-100"
+                  />
+                  {/* Glow spills past the item on every side and fades to fully
+                      transparent before its own edge (closest-side), so it
+                      never shows a hard boundary. */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -inset-x-12 -top-16 h-[16rem] bg-[radial-gradient(closest-side,rgba(79,70,255,0.2),rgba(79,70,255,0.06)_55%,transparent)] opacity-0 transition-opacity duration-[600ms] ease-editorial group-hover:opacity-100"
+                  />
+                  <span className="relative flex items-center gap-4">
+                    <span className="font-mono text-[0.6875rem] tracking-meta text-accent/80 transition-colors duration-[600ms] ease-editorial group-hover:text-accent">
+                      {p.no}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="h-px w-0 bg-accent transition-[width] duration-[600ms] ease-editorial group-hover:w-10"
+                    />
                   </span>
-                  <h3 className="mt-6 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-white/90 transition-colors duration-[600ms] ease-editorial group-hover:text-white">
+                  <h3 className="relative mt-6 font-serif text-[1.75rem] font-normal leading-tight tracking-tight text-white/90 transition-[color,transform] duration-[600ms] ease-editorial group-hover:translate-x-1 group-hover:text-white">
                     {p.name}
                   </h3>
-                  <p className="mt-3 max-w-[32ch] text-base leading-[1.7] text-white/45 transition-colors duration-[600ms] ease-editorial group-hover:text-white/70">
+                  <p className="relative mt-3 max-w-[32ch] text-base leading-[1.7] text-white/45 transition-colors duration-[600ms] ease-editorial group-hover:text-white/80">
                     {p.note}
                   </p>
                 </div>
