@@ -21,13 +21,15 @@
 
   /* Large screens: scale the whole 1440 composition instead of letting it
      float in white space. Every size is in rem (the shell is 90rem), so
-     growing the root font grows the layout proportionally. The scale follows
-     the tighter of width and height relative to the 1440x900 design, so an
-     ultrawide (e.g. 5120x1440) doesn't blow the hero past the fold. Never
-     below the user's default size; untouched at 1440px and under. */
+     growing the root font grows the layout proportionally and the shell
+     fills the width. The height term only bites past a 2.5:1 viewport
+     (super-ultrawides like 5120x1440), so ordinary and 21:9 browser windows
+     - whose viewports are wider than 16:10 once the browser's toolbars take
+     their share - scale purely by width. Never below the user's default
+     size; untouched at 1440px and under. */
   @media (min-width: 1441px) {
     html {
-      font-size: max(100%, min(calc(100vw / 90), calc(100vh / 56.25)));
+      font-size: max(100%, min(calc(100vw / 90), calc(100vh / 36)));
     }
   }
 
