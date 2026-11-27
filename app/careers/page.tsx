@@ -7,7 +7,7 @@ import TextReveal from '@/components/ui/TextReveal'
 import ProcessTimeline from '@/components/careers/ProcessTimeline'
 import CareerForm from '@/components/careers/CareerForm'
 import { companies } from '@/lib/companies'
-import { span2then3 } from '@/components/ui/gridSpan'
+import { cell2then3 } from '@/components/ui/gridSpan'
 import {
   careerIndex,
   whyJoin,
@@ -326,17 +326,17 @@ export default function CareersPage() {
                 as an sr-only heading), category, what the brand does, then a
                 footer rail. Hover speaks the brand's own colour: faint tint,
                 rule drawn across the top, logo lifting, CTA tinting. */}
-            <div className="mt-10 grid border-l border-t border-line sm:mt-12 sm:grid-cols-2 lg:grid-cols-6">
+            <div className="mt-10 grid sm:mt-12 sm:grid-cols-4 lg:grid-cols-6">
               {companies.map((c, i) => {
                 const cc = companyCareers[c.id]
                 return (
-                  <Reveal key={c.id} delay={(i % 3) * 0.06} className={`h-full min-w-0 ${span2then3(i, companies.length)}`}>
+                  <Reveal key={c.id} delay={(i % 3) * 0.06} className={`h-full min-w-0 border-line ${cell2then3(i, companies.length)}`}>
                     <a
                       href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${c.name} - ${cc.label}. View opportunities (opens in a new tab).`}
-                      className="group relative flex h-full flex-col border-b border-r border-line px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
+                      className="group relative flex h-full flex-col px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
                       style={{ '--brand': c.primaryColor } as React.CSSProperties}
                     >
                       <span

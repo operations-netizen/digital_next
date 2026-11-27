@@ -4,7 +4,7 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 import { companies } from '@/lib/companies'
-import { span3 } from '@/components/ui/gridSpan'
+import { cell3 } from '@/components/ui/gridSpan'
 
 const principles: {
   no: string
@@ -112,9 +112,9 @@ export default function WhoWeAre() {
               a soft radial wash behind the mark plus a drop-shadow halo around
               it. Each opens the brand's site. */}
           <Reveal delay={0.25} className="lg:col-start-1 lg:row-start-2">
-            <ul className="grid grid-cols-6 border-l border-t border-line">
+            <ul className="grid grid-cols-6">
               {companies.map((c, i) => (
-                <li key={c.id} className={`border-b border-r border-line ${span3(i, companies.length)}`}>
+                <li key={c.id} className={`border-line ${cell3(i, companies.length)}`}>
                   <a
                     href={c.url}
                     target="_blank"

@@ -150,9 +150,9 @@ export const areaOptions = [
 export const companyOptions = [
   'Digital Next',
   'Digital Web Solutions',
-  'Wytlabs',
   'RankWatch',
+  'Wytlabs',
   'CollabX',
-  'Smego Web',
+  'SmegoWeb',
   'Open to Any',
 ]

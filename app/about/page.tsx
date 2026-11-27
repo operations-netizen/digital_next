@@ -2,6 +2,7 @@ import { pageMetadata } from '@/lib/seo'
 import { withBase } from '@/lib/asset'
 import Link from 'next/link'
 import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import TextReveal from '@/components/ui/TextReveal'
 import CountUp from '@/components/ui/CountUp'
@@ -17,7 +18,8 @@ import AwardsSection from '@/components/about/AwardsSection'
 import LookingAhead from '@/components/about/LookingAhead'
 import { CONTACT_EMAIL } from '@/lib/site'
 import { companies } from '@/lib/companies'
-import { span2then3 } from '@/components/ui/gridSpan'
+import { groupLeadership } from '@/lib/about'
+import { cell2then3 } from '@/components/ui/gridSpan'
 
 export const metadata = pageMetadata({
   title: 'About',
@@ -59,6 +61,9 @@ const principles = [
 ]
 
 
+// The Group CEO, for the founder's note.
+const founder = groupLeadership.find((m) => /group ceo/i.test(m.role))
+
 export default function AboutPage() {
   return (
     <>
@@ -75,21 +80,40 @@ export default function AboutPage() {
                 trigger="mount"
                 className="display mt-8 text-hero [text-wrap:balance] lg:text-[clamp(2.5rem,4.2vw,4.125rem)]"
                 lines={[
-                  <>We build internet brands</>,
+                  <>We build brands</>,
                   <>
-                    - and <em className="italic text-accent">keep them</em>.
+                    and <em className="italic text-accent">grow them</em>.
                   </>,
                 ]}
               />
               <Reveal delay={0.15}>
-                <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-muted">
-                  Digital Next is a technology holding company. We find, build,
-                  and scale independent internet businesses - then hold them for
-                  decades, not exits.
+                <p className="mt-8 max-w-[52ch] text-lg leading-relaxed text-muted [text-wrap:pretty]">
+                  Digital Next is a technology holding company. We build and
+                  scale independent internet businesses, and back them for
+                  decades.
                 </p>
               </Reveal>
-              <Reveal delay={0.28}>
-                <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
+              <Reveal delay={0.22}>
+                <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+                  <Button href="/brands" variant="primary" arrow>
+                    Explore our brands
+                  </Button>
+                  <Link
+                    href="/how-we-build"
+                    className="group flex w-fit items-center gap-2.5 text-[0.9375rem] font-medium leading-snug text-ink transition-colors duration-[250ms] ease-editorial hover:text-accent"
+                  >
+                    <span className="relative">
+                      How we build
+                      <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-[250ms] ease-editorial group-hover:scale-x-100" />
+                    </span>
+                    <span className="text-accent transition-transform duration-[250ms] ease-editorial group-hover:translate-x-[0.3125rem]">
+                      &rarr;
+                    </span>
+                  </Link>
+                </div>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
                   <span>Est. 2017</span>
                   <span aria-hidden="true" className="h-3 w-px bg-line" />
                   <span>Technology holding company</span>
@@ -119,10 +143,9 @@ export default function AboutPage() {
                 as="h2"
                 className="display mt-8 max-w-[14ch] text-statement text-white"
                 lines={[
-                  <>Most companies are built to be sold.</>,
+                  <>Patience is our</>,
                   <>
-                    We build to{' '}
-                    <em className="italic text-accent">own</em>.
+                    <em className="italic text-accent">advantage</em>.
                   </>,
                 ]}
               />
@@ -138,15 +161,15 @@ export default function AboutPage() {
                 }}
               />
               <Reveal delay={0.15}>
-                <p className="max-w-[52ch] text-xl leading-snug text-white/85 sm:text-2xl">
-                  The internet rewards patience. The best businesses compound
-                  quietly, over years - long after the market stops paying
-                  attention.
+                <p className="max-w-[52ch] text-xl leading-snug text-white/85 [text-wrap:pretty] sm:text-2xl">
+                  Great internet businesses aren&rsquo;t made in a quarter. They
+                  compound quietly, year after year, long after the noise has
+                  moved on.
                 </p>
-                <p className="mt-7 max-w-[52ch] text-base leading-relaxed text-white/55">
-                  So we don't flip. We provide permanent capital and
-                  infrastructure, and give every brand the freedom to grow on
-                  its own terms.
+                <p className="mt-7 max-w-[52ch] text-base leading-relaxed text-white/55 [text-wrap:pretty]">
+                  That&rsquo;s why we stay. We bring permanent capital and shared
+                  infrastructure, and give every brand the freedom to grow on its
+                  own terms.
                 </p>
               </Reveal>
             </div>
@@ -159,6 +182,57 @@ export default function AboutPage() {
 
       {/* Our story - visual timeline */}
       <AboutTimeline />
+
+      {/* Founder's note - the Group CEO's portrait (on the same dark
+          gradient as the leadership portraits) beside a short quote. Name,
+          role and photo come from the leadership data. */}
+      {founder && (
+        <section className="pb-14 sm:pb-16">
+          <div className="shell">
+            <figure className="grid gap-y-10 border-t border-line pt-14 sm:pt-16 lg:grid-cols-12 lg:items-center lg:gap-x-16">
+              <Reveal className="lg:col-span-4">
+                <div
+                  className="relative mx-auto aspect-square w-full max-w-[22rem] overflow-hidden lg:mx-0"
+                  style={{
+                    background:
+                      'radial-gradient(120% 100% at 50% 0%, #20232b 0%, #0f1118 48%, #0a0b0f 100%)',
+                  }}
+                >
+                  {founder.photo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={withBase(founder.photo)}
+                      alt={`${founder.name}, ${founder.role}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-top"
+                    />
+                  )}
+                </div>
+              </Reveal>
+              <Reveal className="lg:col-span-8 lg:col-start-5" delay={0.1}>
+                <Eyebrow>From the founder</Eyebrow>
+                <blockquote className="mt-6 font-serif text-[clamp(1.75rem,3vw,2.75rem)] font-light leading-[1.2] tracking-tight text-ink [text-wrap:balance]">
+                  &ldquo;Great companies are built by great teams{' '}
+                  <em className="italic text-accent">given time</em>. Our role is
+                  to give them both - the platform to move faster, and the
+                  patience to go further.&rdquo;
+                </blockquote>
+                <figcaption className="mt-8 flex items-center gap-4">
+                  <span aria-hidden="true" className="h-px w-8 bg-accent" />
+                  <span>
+                    <span className="block font-serif text-lg leading-tight text-ink">
+                      {founder.name}
+                    </span>
+                    <span className="mt-1 block font-mono text-[0.6875rem] uppercase tracking-meta text-muted">
+                      {founder.role}
+                    </span>
+                  </span>
+                </figcaption>
+              </Reveal>
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* 03 - How we build. No top padding: the section above supplies the
           space before the hairline, so the rule sits evenly between them. */}
@@ -234,15 +308,15 @@ export default function AboutPage() {
                 Hover speaks the brand's own colour: a faint tint, a rule
                 drawn across the top, the logo lifting, the CTA tinting.
                 min-w-0: grid items default to min-width:auto. */}
-            <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:mt-12 lg:grid-cols-6">
+            <div className="mt-10 grid sm:grid-cols-4 lg:mt-12 lg:grid-cols-6">
               {companies.map((c, i) => (
-                <Reveal key={c.id} delay={(i % 3) * 0.08} className={`h-full min-w-0 ${span2then3(i, companies.length)}`}>
+                <Reveal key={c.id} delay={(i % 3) * 0.08} className={`h-full min-w-0 border-line ${cell2then3(i, companies.length)}`}>
                   <a
                     href={c.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${c.name} - ${c.category}. Visit website (opens in a new tab).`}
-                    className="group relative flex h-full flex-col border-b border-r border-line px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
+                    className="group relative flex h-full flex-col px-6 py-7 outline-none transition-colors duration-500 ease-editorial hover:bg-[color-mix(in_srgb,var(--brand)_4%,white)] focus-visible:bg-[color-mix(in_srgb,var(--brand)_4%,white)] sm:px-8 sm:py-8"
                     style={{ '--brand': c.primaryColor } as React.CSSProperties}
                   >
                     <span

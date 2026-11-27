@@ -62,7 +62,7 @@ export const philosophy = [
 // public-facing copy.
 export const timeline = [
   { year: '2006', title: 'Origins', body: 'Digital Web Solutions Pvt. Ltd. is founded in India - the first and still the largest brand in the group, and the start of an agency for agencies.' },
-  { year: '2012', title: 'Australia & New Zealand', body: 'Smego Web launches, taking the full-service agency model to SMBs across the ANZ market.' },
+  { year: '2012', title: 'Australia & New Zealand', body: 'SmegoWeb launches, taking the full-service agency model to SMBs across the ANZ market.' },
   { year: '2015', title: 'First product', body: 'RankWatch is introduced, moving the group beyond services into proprietary SaaS.' },
   { year: '2019', title: 'United States', body: 'Wytlabs is founded to serve US eCommerce, SaaS, and healthcare brands.' },
   { year: '2025', title: 'New platforms', body: 'CollabX launches into influencer and partnership management, and enters a high-growth scale-up phase.' },
@@ -102,9 +102,9 @@ export const insights = [
 export const brandOptions = [
   'The group',
   'Digital Web Solutions',
-  'Wytlabs',
   'RankWatch',
+  'Wytlabs',
   'CollabX',
-  'Smego Web',
+  'SmegoWeb',
   'Careers',
 ]

@@ -36,7 +36,7 @@ export const groupLeadership: LeaderMember[] = [
   {
     name: 'Tarun Gogia',
     role: 'Group Director of People Operations',
-    bio: 'Runs the shared group functions - people, finance, IT, quality, recruitment, and legal - that every Digital Next brand is built on, and oversees Smego Web in Australia.',
+    bio: 'Leads business strategy, processes, and resource and financial planning, equipping every brand with resources and software.',
     photo: '/team/tarun-gogia.png',
   },
   {
@@ -62,13 +62,13 @@ export const brandLeadership: LeaderMember[] = [
   },
   {
     name: 'Yulia Aslamova',
-    role: 'Director - CollabX',
+    role: 'CEO - CollabX',
     bio: 'Leads brand development, partnerships, AI initiatives, and team growth across CollabX.',
     photo: '/team/yulia-aslamova.png',
   },
   {
     name: 'Abhishek Bazieal',
-    role: 'Director & Partner - Smego Web (NZ)',
+    role: 'Director & Partner - SmegoWeb (NZ)',
     bio: 'Partners on the New Zealand venture, leading its operations and business growth, and helping SMBs achieve measurable digital success.',
     photo: '/team/abhishek-bazieal.png',
   },

@@ -41,6 +41,8 @@ export interface Company {
   primaryColor: string
 }
 
+// Display order (owner's sequence, used site-wide): Digital Web Solutions,
+// RankWatch, Wytlabs, CollabX, SmegoWeb.
 export const companies: Company[] = [
   {
     id: 'digital-web-solutions',
@@ -61,24 +63,6 @@ export const companies: Company[] = [
     primaryColor: '#2563EB', // blue
   },
   {
-    id: 'wytlabs',
-    ticker: 'WYT',
-    name: 'Wytlabs',
-    category: 'Full-Service Marketing (US)',
-    tags: ['Agency', 'SEO'],
-    description:
-      'Full-service marketing for eCommerce, SaaS, and healthcare brands in the United States.',
-    mission: 'Growth engineered for US brands.',
-    founded: '2019',
-    industry: 'Marketing Agency',
-    employees: '~99',
-    url: 'https://wytlabs.com/',
-    logo: '/logos/wytlabs.png',
-    logoWidth: 237,
-    logoHeight: 38,
-    primaryColor: '#7C3AED', // purple
-  },
-  {
     id: 'rankwatch',
     ticker: 'RKW',
     name: 'RankWatch',
@@ -95,6 +79,24 @@ export const companies: Company[] = [
     logoWidth: 143,
     logoHeight: 32,
     primaryColor: '#16A34A', // green
+  },
+  {
+    id: 'wytlabs',
+    ticker: 'WYT',
+    name: 'Wytlabs',
+    category: 'Full-Service Marketing (US)',
+    tags: ['Agency', 'SEO'],
+    description:
+      'Full-service marketing for eCommerce, SaaS, and healthcare brands in the United States.',
+    mission: 'Growth engineered for US brands.',
+    founded: '2019',
+    industry: 'Marketing Agency',
+    employees: '~99',
+    url: 'https://wytlabs.com/',
+    logo: '/logos/wytlabs.png',
+    logoWidth: 237,
+    logoHeight: 38,
+    primaryColor: '#7C3AED', // purple
   },
   {
     id: 'collabx',
@@ -117,7 +119,7 @@ export const companies: Company[] = [
   {
     id: 'smegoweb',
     ticker: 'SMG',
-    name: 'Smego Web',
+    name: 'SmegoWeb',
     category: 'Full-Service Marketing (ANZ)',
     tags: ['Agency'],
     description:

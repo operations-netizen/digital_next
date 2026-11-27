@@ -1,28 +1,59 @@
 /**
- * Column-span helpers so a brand grid's short final row stretches to fill the
- * width instead of leaving empty cells - the brand count can change (it went
- * from six to five) without leaving holes in any grid.
+ * Layout helpers so the brand grids handle any brand count (it went from six
+ * to five) without holes or stretched cells: a short final row keeps the
+ * normal cell width and sits centred.
  *
- * Three-across grids are laid out on a 6-track grid: full rows take 2 tracks
- * per item, a final row of 2 takes 3 each, a final row of 1 takes all 6.
- * Two-across card grid: an odd last card is centred at the usual width.
+ * Centring needs a finer track grid than the visible column count - a 3-across
+ * grid is laid out on 6 tracks (cells span 2) and a 2-across grid on 4 tracks
+ * (cells span 2) - so a centred row can start half a cell in.
+ *
+ * Because a centred row leaves empty space at its sides, each cell draws its
+ * own hairlines (right + bottom always; left when it starts a row; top when
+ * it is in the first row) instead of relying on a border around the grid.
  *
  * Every class is written out literally so Tailwind's scanner emits it.
  */
 
-/** For a grid that is always 3-across (`grid-cols-6`). */
-export function span3(i: number, n: number): string {
+/** Cell classes for an always-3-across grid (`grid grid-cols-6`, no border). */
+export function cell3(i: number, n: number): string {
   const rem = n % 3
-  if (!rem || i < n - rem) return 'col-span-2'
-  return rem === 2 ? 'col-span-3' : 'col-span-6'
+  const lastRowStart = n - rem
+  const inLastRow = rem > 0 && i >= lastRowStart
+  const startsRow = inLastRow ? i === lastRowStart : i % 3 === 0
+  return [
+    'col-span-2 border-b border-r',
+    inLastRow && i === lastRowStart ? (rem === 2 ? 'col-start-2' : 'col-start-3') : '',
+    startsRow ? 'border-l' : '',
+    i < 3 ? 'border-t' : '',
+  ].join(' ')
 }
 
-/** For `sm:grid-cols-2 lg:grid-cols-6` grids (2-across, then 3-across). */
-export function span2then3(i: number, n: number): string {
-  const sm = n % 2 === 1 && i === n - 1 ? 'sm:col-span-2' : ''
+/**
+ * Cell classes for a grid that is 1-across on phones, 2-across from `sm`
+ * (`sm:grid-cols-4`) and 3-across from `lg` (`lg:grid-cols-6`), no border.
+ */
+export function cell2then3(i: number, n: number): string {
+  // phones: a single stacked column
+  const base = ['border-x border-b', i === 0 ? 'border-t' : '']
+  // sm: 2 across on 4 tracks; an odd last cell is centred
+  const smCentred = n % 2 === 1 && i === n - 1
+  const sm = [
+    'sm:col-span-2 sm:border-r',
+    smCentred ? 'sm:col-start-2' : '',
+    i % 2 === 0 ? 'sm:border-l' : 'sm:border-l-0',
+    i < 2 ? 'sm:border-t' : 'sm:border-t-0',
+  ]
+  // lg: 3 across on 6 tracks; a short last row is centred
   const rem = n % 3
-  const lg = !rem || i < n - rem ? 'lg:col-span-2' : rem === 2 ? 'lg:col-span-3' : 'lg:col-span-6'
-  return `${sm} ${lg}`.trim()
+  const lastRowStart = n - rem
+  const inLastRow = rem > 0 && i >= lastRowStart
+  const startsRow = inLastRow ? i === lastRowStart : i % 3 === 0
+  const lg = [
+    inLastRow && i === lastRowStart ? (rem === 2 ? 'lg:col-start-2' : 'lg:col-start-3') : 'lg:col-start-auto',
+    startsRow ? 'lg:border-l' : 'lg:border-l-0',
+    i < 3 ? 'lg:border-t' : 'lg:border-t-0',
+  ]
+  return [...base, ...sm, ...lg].filter(Boolean).join(' ')
 }
 
 /** For the homepage card grid, 2-across from `sm` (`sm:grid-cols-2`, gaps
