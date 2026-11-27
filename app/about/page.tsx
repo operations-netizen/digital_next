@@ -61,6 +61,14 @@ const principles = [
 ]
 
 
+// The shared foundation under the brand panel.
+const platformPillars = [
+  { name: 'Capital', note: 'Patient, long-term funding.' },
+  { name: 'Technology', note: 'Shared tools and platforms.' },
+  { name: 'Infrastructure', note: 'Finance, legal, and operations.' },
+  { name: 'Talent', note: 'Hiring and leadership.' },
+]
+
 // The Group CEO, for the founder's note.
 const founder = groupLeadership.find((m) => /group ceo/i.test(m.role))
 
@@ -375,26 +383,45 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Shared foundation - fused to the bottom of the brand panel so
-                the brands literally stand on it: a tinted strip with an
-                accent rule on top, the label left and the four pillars right. */}
+            {/* Shared foundation - the base the brands stand on: a tinted
+                band with an accent rule on top. Label + one line on the left;
+                the four pillars as hairline-divided cells on the right (index,
+                name, note), each lifting into the accent on hover. Sits just
+                below the panel so a centred last row of brands doesn't leave
+                stray corners. */}
             <Reveal delay={0.1}>
-              <div className="flex flex-col gap-3 border-x border-b border-line border-t-2 border-t-accent bg-[#F6F6FA] px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-accent">
-                  One shared platform
-                </span>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-meta text-ink/70">
-                  {['Capital', 'Technology', 'Infrastructure', 'Talent'].map((p, i) => (
-                    <span key={p} className="flex items-center gap-4">
-                      {i > 0 && (
-                        <span aria-hidden="true" className="text-accent/50">
-                          ·
-                        </span>
-                      )}
-                      {p}
-                    </span>
-                  ))}
+              <div className="mt-4 grid border border-t-2 border-line border-t-accent bg-[#F6F6FA] lg:grid-cols-12">
+                <div className="flex flex-col justify-center gap-2 px-6 py-6 sm:px-8 lg:col-span-4 lg:border-r lg:border-line">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-meta text-accent">
+                    One shared platform
+                  </span>
+                  <p className="font-serif text-xl leading-snug tracking-tight text-ink [text-wrap:balance]">
+                    Every brand stands on the same foundation.
+                  </p>
                 </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-4 lg:col-span-8">
+                  {platformPillars.map((p, i) => (
+                    <li
+                      key={p.name}
+                      className={[
+                        'group flex flex-col justify-start gap-1.5 border-line px-6 py-6 transition-colors duration-500 ease-editorial hover:bg-white sm:px-7',
+                        'border-t lg:border-t-0',
+                        i % 2 === 1 ? 'border-l' : '',
+                        i > 0 ? 'sm:border-l' : 'sm:border-l-0',
+                      ].join(' ')}
+                    >
+                      <span className="font-mono text-[0.625rem] tabular-nums tracking-meta text-accent/60 transition-colors duration-500 ease-editorial group-hover:text-accent">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="font-serif text-lg leading-tight tracking-tight text-ink transition-[color,transform] duration-500 ease-editorial group-hover:translate-x-0.5 group-hover:text-accent">
+                        {p.name}
+                      </span>
+                      <span className="text-[0.8125rem] leading-snug text-muted">
+                        {p.note}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>
